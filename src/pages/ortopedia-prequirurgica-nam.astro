@@ -1,0 +1,1147 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const schemaBlocks = `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Ortopedia Pre-operatoria NAM",
+  "procedureType": "Surgical",
+  "bodyLocation": "Labio, Nariz, Alvéolo",
+  "indication": {
+    "@type": "MedicalIndication",
+    "name": "Fisura labiopalatina"
+  },
+  "preparation": "Inicio en las primeras semanas de vida. Toma de impresión y fabricación del dispositivo NAM individualizado para cada bebé.",
+  "followup": "Ajustes semanales del dispositivo NAM durante 8-12 semanas. Coordinación estrecha con la familia para el uso correcto del moldeador.",
+  "howPerformed": "Dispositivo intraoral de acrílico más extensión nasal que modela progresivamente los tejidos del labio, nariz y alvéolo antes de la cirugía primaria.",
+  "performer": {
+    "@type": "Physician",
+    "name": "Dr. Nico Sierra",
+    "url": "https://www.drnicosierra.com",
+    "medicalSpecialty": "Oral and Maxillofacial Surgery",
+    "affiliation": {
+      "@type": "MedicalOrganization",
+      "name": "Clinica Tresserra",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressCountry": "ES"
+      }
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿A qué edad se opera el labio fisurado?",
+      "acceptedAnswer": {"@type": "Answer", "text": "El NAM (Nasoalveolar Molding) es un dispositivo prequirúrgico que moldea los tejidos del labio, la nariz y el alvéolo antes de la cirugía primaria de labio fisurado. Su objetivo es reducir la brecha entre los segmentos del labio, mejorar la proyección nasal y optimizar las condiciones de los tejidos para la cirugía, consiguiendo un mejor resultado estético y funcional final."}
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué técnica utiliza el Dr. Nico Sierra para la reconstrucción de labio fisurado?",
+      "acceptedAnswer": {"@type": "Answer", "text": "El NAM debe iniciarse en las primeras 2 a 4 semanas de vida del bebé, cuando los tejidos son más plásticos gracias a los estrógenos maternos. Cuanto antes se inicia, más efectivo es el tratamiento. El Dr. Nico Sierra recomienda contactar con su equipo en cuanto se produce el diagnóstico para planificar el inicio del NAM."}
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede operar el labio fisurado en adultos?",
+      "acceptedAnswer": {"@type": "Answer", "text": "El dispositivo NAM puede causar incomodidad inicial pero no produce dolor. Los bebés se adaptan al dispositivo en pocos días. La familia recibe instrucciones detalladas sobre cómo colocarlo y retirarlo, y el Dr. Sierra está disponible para resolver cualquier duda durante el tratamiento."}
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo dura la recuperación tras la cirugía de labio fisurado?",
+      "acceptedAnswer": {"@type": "Answer", "text": "El tratamiento NAM dura habitualmente entre 8 y 12 semanas, con visitas semanales de ajuste. La duración exacta depende de la extensión de la fisura y de la respuesta del tejido al moldeado. El tratamiento finaliza cuando los tejidos están listos para la cirugía primaria."}
+    },
+    {
+      "@type": "Question",
+      "name": "¿La cirugía de labio fisurado afecta a la nariz?",
+      "acceptedAnswer": {"@type": "Answer", "text": "El NAM no es obligatorio para realizar la cirugía de labio fisurado, pero mejora significativamente las condiciones de los tejidos y el resultado final de la intervención. El Dr. Nico Sierra evalúa en cada caso si el NAM está indicado y coordina el tratamiento cuando es beneficioso para el paciente."}
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.drnicosierra.com/"},
+    {"@type":"ListItem","position":2,"name":"Cómo te ayudamos","item":"https://www.drnicosierra.com/como-te-ayudamos/"},
+    {"@type":"ListItem","position":3,"name":"Ortopedia Pre-operatoria NAM","item":"https://www.drnicosierra.com/ortopedia-prequirurgica-nam/"}
+  ]
+}
+</script>`;
+const title = 'Ortopedia Pre-operatoria NAM | Dr. Nico Sierra — Fisura Labiopalatina Barcelona';
+const description = 'El Dr. Nico Sierra ofrece ortopedia NAM prequirúrgica para bebés con fisura labiopalatina en Barcelona. Moldeado nasoalveolar antes de la primera cirugía.';
+const canonical = 'https://www.drnicosierra.com/ortopedia-prequirurgica-nam/';
+const ogTitle = 'Ortopedia NAM Prequirúrgica | Dr. Nico Sierra Barcelona';
+const ogDescription = 'Moldeado nasoalveolar (NAM) para bebés con fisura labiopalatina. Preparación óptima antes de la cirugía primaria de labio fisurado.';
+const ogImage = 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80&fit=crop';
+---
+<Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
+  <Fragment slot="head" set:html={`
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════
+   SHARED DESIGN SYSTEM — same as homepage
+   SERVICE COLOR: change --sc here and entire page recolors
+   ═══════════════════════════════════════════════════ */
+:root {
+  --ns-blue-900:#001829;
+  --ns-blue-800:#001e3a;
+  --ns-blue-700:#002d52;
+  --ns-blue-600:#003a63;
+  --ns-blue-500:#005085;
+  --ns-blue-400:#0d74c4;
+  --ns-teal-600:#008362;
+  --ns-teal-300:#4db896;
+  --ns-ink:#e8edf2;
+  --ns-ink-soft:rgba(200,218,235,0.75);
+  --ns-line:rgba(255,255,255,0.08);
+  --ns-surface-1:rgba(255,255,255,0.04);
+  --ns-surface-2:rgba(255,255,255,0.07);
+  --ns-white:#ffffff;
+  --ns-whatsapp:#25D366;
+  --ns-radius:14px;
+  --ns-radius-lg:22px;
+  --ns-shadow-sm:0 2px 12px rgba(0,0,0,0.2);
+  --ns-shadow-md:0 8px 40px rgba(0,0,0,0.35);
+  --ns-ease:cubic-bezier(.22,.61,.36,1);
+  --ns-container:1240px;
+
+  /* ══ SERVICE COLOR — change this one value per page ══
+     01 NAM:              #7C3AED (purple)
+     02 Labio fisurado:   #C9186A (magenta)
+     03 Paladar hendido:  #008362 (teal)
+     04 Revisión:         #0d74c4 (blue)
+     05 Encía:            #16A34A (green)
+     06 Ortognática:      #B45309 (amber)
+     07 Rinoplastia:      #0891B2 (cyan)
+     08 Otros:            #64748B (slate)
+  */
+  --sc: #7C3AED;
+  --sc-muted: #7d0e42;
+  --sc-soft: rgba(124,58,237,0.12);
+  --sc-glow: rgba(124,58,237,0.2);
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background:#001629;
+  color:var(--ns-ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  min-height:100vh;
+}
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+button { font:inherit; cursor:pointer; border:0; background:none; color:inherit; }
+
+/* Typography */
+h1,h2,h3,h4 {
+  font-family:'DM Sans',system-ui,sans-serif;
+  color:var(--ns-white);
+  letter-spacing:-.02em; line-height:1.08; font-weight:500; margin:0;
+}
+h1 { font-size:clamp(2.4rem,5.5vw,4.5rem); letter-spacing:-.035em; }
+h2 { font-size:clamp(1.8rem,3.2vw,3rem); letter-spacing:-.025em; }
+h3 { font-size:clamp(1.2rem,1.6vw,1.5rem); letter-spacing:-.015em; font-weight:500; }
+h4 { font-size:1rem; font-weight:600; }
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--sc); display:inline-flex; align-items:center; gap:.6rem;
+  margin-bottom:0;        /* never set margin on eyebrow itself — .sh controls gaps */
+}
+.eyebrow::before { content:""; width:28px; height:2px; background:var(--sc); border-radius:2px; }
+.lead { font-size:1.05rem; color:var(--ns-ink-soft); line-height:1.8; max-width:58ch; }
+p { color:var(--ns-ink-soft); line-height:1.8; margin:0; }
+p + p { margin-top:16px; }
+strong { color:var(--ns-white); font-weight:600; }
+h1,h2,h3,h4 { margin:0; }
+/* Paragraphs directly after headings outside .sh */
+h2 + p, h2 + .lead { margin-top:16px; }
+h1 + p, h1 + .lead { margin-top:16px; }
+h3 + p { margin-top:8px; }
+h4 + p { margin-top:4px; }
+
+/* ── SECTION HEADER BLOCK (.sh) ──
+   Wraps eyebrow + h2 + optional lead.
+   Controls ALL spacing between those elements.
+   This is the ONLY place gaps are defined.
+   Never use margin-top inline on h2 or p inside sections.
+*/
+.sh {
+  margin-bottom:var(--sp-lg);   /* 40px below header before content */
+}
+.sh .eyebrow { display:inline-flex; }
+p + p { margin-top:16px; }
+.sh--center { text-align:center; }
+.sh--center .eyebrow { justify-content:center; }
+
+/* Tighter gap when .sh leads into paragraphs (not a card grid) */
+.que-es-text .sh { margin-bottom:24px; }
+
+/* Layout */
+.container { max-width:var(--ns-container); margin:0 auto; padding:0 clamp(20px,4vw,48px); }
+.section { padding:clamp(72px,9vw,120px) 0; }
+
+/* Buttons */
+.btn {
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:14px 26px; border-radius:999px;
+  font-family:'DM Sans',sans-serif; font-weight:500; font-size:.95rem;
+  transition:all .25s var(--ns-ease); cursor:pointer; border:none;
+}
+.btn-primary { background:var(--ns-blue-400); color:#fff; box-shadow:0 6px 20px rgba(13,116,196,.25); }
+.btn-primary:hover { background:var(--ns-blue-500); transform:translateY(-1px); box-shadow:0 10px 28px rgba(13,116,196,.32); }
+.btn-service { background:var(--sc); color:#fff; box-shadow:0 6px 20px var(--sc-glow); }
+.btn-service:hover { filter:brightness(1.1); transform:translateY(-1px); }
+.btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.45); }
+.btn-ghost:hover { background:rgba(255,255,255,.08); border-color:#fff; }
+.btn-wa {
+  background:transparent; color:#fff;
+  border:1px solid rgba(255,255,255,.45);
+  position:relative;
+}
+.btn-wa:hover { background:rgba(37,211,102,.15); border-color:#25D366; }
+.btn-wa::after {
+  content:'Respondemos en < 24h';
+  position:absolute; bottom:calc(100% + 10px); left:50%; transform:translateX(-50%);
+  background:#25D366; color:#fff; font-size:.7rem; font-weight:600;
+  white-space:nowrap; padding:5px 11px; border-radius:6px;
+  opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.btn-wa:hover::after { opacity:1; }
+
+/* Reveal animations */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms); }
+.reveal.visible { opacity:1; transform:none; }
+.reveal-scale { opacity:0; transform:scale(0.97); transition:opacity .8s var(--ns-ease), transform .8s var(--ns-ease); }
+.reveal-scale.visible { opacity:1; transform:scale(1); }
+.rv2 { --rv:100ms } .rv3 { --rv:200ms } .rv4 { --rv:300ms } .rv5 { --rv:400ms }
+
+/* ════════════════════════════════════
+   NAVBAR (identical to homepage)
+   ════════════════════════════════════ */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:80px; display:flex; align-items:center;
+  background:rgba(0,22,38,0.3); backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(0,131,98,0.2);
+  transition:background .35s var(--ns-ease), border-color .35s;
+}
+.nav.scrolled {
+  background:rgba(0,18,36,0.92);
+  border-bottom-color:rgba(0,131,98,0.25);
+  box-shadow:0 1px 0 rgba(255,255,255,0.04);
+}
+.nav-inner {
+  max-width:var(--ns-container); width:100%; margin:0 auto;
+  padding:0 clamp(20px,4vw,48px);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo img { height:72px; width:auto; }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a {
+  font-size:.88rem; font-weight:500; color:rgba(210,235,225,0.85);
+  transition:color .2s; padding:4px 0; position:relative;
+}
+.nav-links a:hover { color:#fff; }
+/* Active service highlight */
+.nav-links a.active {
+  color:var(--sc) !important;
+}
+.nav-links a.active::after {
+  content:''; position:absolute; bottom:-2px; left:0; right:0;
+  height:1.5px; background:var(--sc); border-radius:2px;
+}
+.nav-cta {
+  background:var(--ns-teal-600) !important; color:#fff !important;
+  padding:10px 20px; border-radius:999px; font-size:.88rem !important;
+  font-weight:600 !important;
+}
+.nav-cta:hover { background:var(--ns-blue-500) !important; }
+
+/* ════════════════════════════════════
+   BREADCRUMB (above hero, per brief)
+   ════════════════════════════════════ */
+.breadcrumb {
+  position:relative; z-index:10;
+  padding:88px clamp(20px,4vw,48px) 0;
+  max-width:var(--ns-container); margin:0 auto;
+}
+.breadcrumb nav {
+  display:flex; align-items:center; gap:8px;
+  font-size:.78rem; color:rgba(255,255,255,0.4); letter-spacing:.02em;
+}
+.breadcrumb a { color:rgba(255,255,255,0.4); transition:color .2s; }
+.breadcrumb a:hover { color:rgba(255,255,255,0.75); }
+.breadcrumb .sep { opacity:.3; }
+.breadcrumb .current { color:var(--sc); }
+
+/* ════════════════════════════════════
+   HERO — Block 1
+   ════════════════════════════════════ */
+.hero {
+  position:relative; min-height:75vh;
+  display:flex; align-items:flex-end;
+  overflow:hidden; color:#fff;
+  padding-bottom:clamp(56px,7vw,96px);
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background:var(--ns-blue-900);
+  overflow:hidden;
+}
+.hero-bg img {
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  opacity:0.4; display:block;
+}
+.hero-veil {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,18,30,.5) 0%, rgba(0,18,30,.1) 40%, rgba(0,18,30,.85) 100%),
+    linear-gradient(90deg, rgba(0,18,30,.8) 0%, rgba(0,18,30,.2) 60%);
+}
+/* Service color accent on hero left edge */
+.hero-accent {
+  position:absolute; left:0; top:0; bottom:0;
+  width:3px; background:linear-gradient(180deg, transparent 0%, var(--sc) 40%, transparent 100%);
+  z-index:2;
+}
+.hero-content {
+  position:relative; z-index:2;
+  width:100%; max-width:var(--ns-container); margin:0 auto;
+  padding:0 clamp(20px,4vw,48px);
+}
+.hero h1 { max-width:760px; margin-bottom:20px; }
+.hero h1 em { font-style:normal; color:var(--sc); }
+.hero .lead { margin-bottom:36px; max-width:580px; }
+.hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+
+/* ════════════════════════════════════
+   QUÉ ES — Block 2
+   ════════════════════════════════════ */
+.que-es { background:#001e2e; }
+.que-es-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(48px,6vw,96px); align-items:start;
+}
+.que-es-img {
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+  aspect-ratio:4/3; background:var(--ns-surface-1);
+  border:1px solid var(--ns-line); position:relative;
+}
+.que-es-img img {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.que-es-img-placeholder {
+  width:100%; height:100%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:12px; color:rgba(255,255,255,0.2); font-size:.8rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  background:linear-gradient(135deg, rgba(255,255,255,0.02) 0%, var(--sc-soft) 100%);
+}
+/* AEO: first paragraph standalone answer */
+.que-es-text p:first-of-type {
+  font-size:1.05rem; color:rgba(200,218,235,0.9);
+  line-height:1.8; font-weight:400;
+}
+.que-es-text p + p { margin-top:16px; }
+
+/* ════════════════════════════════════
+   CUÁNDO SE INDICA — Block 3
+   ════════════════════════════════════ */
+.cuando { background:#001629; }
+.cuando-list {
+  display:flex; flex-direction:column; gap:16px; margin-top:48px;
+}
+.cuando-item {
+  display:flex; align-items:flex-start; gap:20px;
+  padding:22px 24px;
+  background:var(--ns-surface-1); border:1px solid var(--ns-line);
+  border-left:3px solid var(--sc);
+  border-radius:var(--ns-radius);
+  transition:background .25s, border-color .25s;
+}
+.cuando-item:hover { background:var(--ns-surface-2); }
+.cuando-icon {
+  width:40px; height:40px; flex-shrink:0;
+  border-radius:10px; background:var(--sc-soft);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--sc);
+}
+.cuando-icon svg { width:20px; height:20px; }
+.cuando-text h4 { color:var(--ns-white); margin-bottom:4px; font-size:.95rem; }
+.cuando-text p { font-size:.9rem; margin:0; }
+
+/* AEO: each bullet = complete sentence (per brief) */
+.cuando-item p { /* already complete sentences in content */ }
+
+/* ════════════════════════════════════
+   EL PROCESO — Block 4
+   ════════════════════════════════════ */
+.proceso { background:#001e2e; }
+.proceso-steps {
+  display:grid; grid-template-columns:1fr;
+  gap:0; margin-top:56px;
+  border:1px solid var(--ns-line);
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+}
+.proceso-step {
+  display:grid; grid-template-columns:64px 1fr;
+  gap:0; border-bottom:1px solid var(--ns-line);
+  transition:background .25s;
+}
+.proceso-step:last-child { border-bottom:none; }
+.proceso-step:hover { background:rgba(255,255,255,0.02); }
+.proceso-num {
+  display:flex; align-items:center; justify-content:center;
+  background:var(--sc-soft);
+  border-right:1px solid var(--ns-line);
+  font-family:'DM Sans',sans-serif; font-size:.75rem;
+  font-weight:700; letter-spacing:.15em;
+  color:var(--sc); padding:24px 0;
+}
+.proceso-content { padding:24px 28px; }
+.proceso-content h3 {
+  font-size:1.05rem; margin-bottom:8px; color:var(--ns-white);
+}
+.proceso-content p { font-size:.92rem; margin:0; }
+/* AEO: include specific timeframes per brief */
+.proceso-content .timeframe {
+  display:inline-block; font-size:.75rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--sc); margin-top:8px;
+  padding:3px 10px; border-radius:100px;
+  background:var(--sc-soft);
+}
+
+/* ════════════════════════════════════
+   RESULTADOS — Block 5
+   ════════════════════════════════════ */
+.resultados { background:#001629; }
+.ba-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:20px; margin-top:56px;
+}
+.ba-card {
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+  background:var(--ns-surface-1); border:1px solid var(--ns-line);
+  transition:border-color .25s;
+}
+.ba-card:hover { border-color:var(--sc); }
+.ba-images {
+  display:grid; grid-template-columns:1fr 1fr;
+  height:220px; position:relative;
+  background:rgba(255,255,255,.03);
+}
+.ba-images::after {
+  content:'ANTES · DESPUÉS';
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,.55); backdrop-filter:blur(4px);
+  color:rgba(255,255,255,.6); font-size:.65rem; font-weight:700;
+  letter-spacing:.2em; padding:5px 12px; border-radius:100px;
+  white-space:nowrap; pointer-events:none;
+}
+.ba-img {
+  background:rgba(255,255,255,.04);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem; color:rgba(255,255,255,.2);
+  letter-spacing:.1em; text-transform:uppercase;
+  border-right:1px solid rgba(255,255,255,.04); overflow:hidden;
+}
+.ba-img:last-child { border-right:none; }
+.ba-img img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.ba-body { padding:18px 20px; }
+.ba-tag {
+  display:inline-block; font-size:.7rem; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:3px 10px; border-radius:100px;
+  background:var(--sc-soft); color:var(--sc);
+  margin-bottom:8px;
+}
+.ba-title { font-size:.95rem; font-weight:600; color:var(--ns-white); margin-bottom:4px; }
+.ba-meta { font-size:.8rem; color:rgba(255,255,255,.3); }
+
+/* ════════════════════════════════════
+   DR. SIERRA EN ESTA INTERVENCIÓN — Block 6 (AEO entity signal)
+   ════════════════════════════════════ */
+.dr-section {
+  background:#001e2e;
+  border-top:1px solid var(--ns-line);
+  border-bottom:1px solid var(--ns-line);
+}
+.dr-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(48px,6vw,96px); align-items:center;
+}
+.dr-stat {
+  display:flex; flex-direction:column; gap:4px;
+}
+.dr-stat-num {
+  font-family:'DM Sans',sans-serif; font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:700; color:var(--sc); letter-spacing:-.04em; line-height:1;
+}
+.dr-stat-label {
+  font-size:.82rem; color:rgba(255,255,255,.5);
+  letter-spacing:.1em; text-transform:uppercase;
+}
+.dr-stats { display:flex; gap:40px; margin-top:28px; flex-wrap:wrap; padding-top:24px; border-top:1px solid var(--ns-line); }
+.dr-quote {
+  padding:24px 28px;
+  border-radius:var(--ns-radius-lg);
+  background:var(--ns-surface-1);
+  border:1px solid var(--ns-line);
+  border-left:3px solid var(--sc);
+  font-size:1.05rem; color:rgba(200,218,235,0.9);
+  line-height:1.8; font-style:italic;
+}
+/* AEO: named entities in this section per brief */
+.entity-tag {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--sc); margin-top:16px; margin-right:8px;
+  padding:4px 12px; border-radius:100px; background:var(--sc-soft);
+}
+
+/* ════════════════════════════════════
+   FAQ — Block 7 (AEO critical, per brief)
+   H3 = question, P = answer, no nested divs
+   ════════════════════════════════════ */
+.faq { background:#001629; }
+.faq-layout {
+  display:grid; grid-template-columns:5fr 7fr;
+  gap:clamp(48px,6vw,96px); margin-top:56px; align-items:start;
+}
+.faq-intro p { font-size:.95rem; line-height:1.8; margin-bottom:24px; }
+.faq-list { display:flex; flex-direction:column; gap:12px; }
+.faq-item {
+  background:rgba(0,20,45,0.75);
+  border:1px solid rgba(255,255,255,.08);
+  border-left:3px solid transparent;
+  border-radius:var(--ns-radius);
+  overflow:hidden; backdrop-filter:blur(12px);
+  transition:border-color .25s, background .25s;
+}
+.faq-item[open] {
+  border-left-color:var(--sc);
+  background:rgba(0,30,60,.7);
+}
+.faq-item summary {
+  list-style:none; cursor:pointer;
+  padding:20px 24px;
+  display:flex; align-items:center;
+  justify-content:space-between; gap:20px;
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(1rem,1.3vw,1.15rem);
+  font-weight:500; color:var(--ns-white);
+  letter-spacing:-.01em;
+}
+/* AEO: question = H3, answer = P directly after per brief */
+.faq-item summary h3 {
+  font-size:inherit; font-weight:inherit; color:inherit;
+  letter-spacing:inherit; line-height:1.3; margin:0; flex:1;
+}
+.faq-item[open] summary h3 { color:var(--sc); }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-icon {
+  width:24px; height:24px; flex-shrink:0;
+  position:relative; border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);
+}
+.faq-icon::before,.faq-icon::after {
+  content:''; position:absolute; background:rgba(255,255,255,.6);
+  border-radius:2px; transition:transform .3s, opacity .3s;
+}
+.faq-icon::before { left:5px; right:5px; top:50%; height:1.5px; transform:translateY(-50%); }
+.faq-icon::after { top:5px; bottom:5px; left:50%; width:1.5px; transform:translateX(-50%); }
+.faq-item[open] .faq-icon { border-color:var(--sc); }
+.faq-item[open] .faq-icon::before { background:var(--sc); }
+.faq-item[open] .faq-icon::after { transform:translateX(-50%) scaleY(0); }
+/* AEO: answer = P directly after summary, no nested divs between h3 and p */
+.faq-answer { padding:0 24px 20px; }
+.faq-answer p {
+  font-size:.95rem; color:rgba(200,218,235,.8); line-height:1.8;
+}
+
+/* ════════════════════════════════════
+   INTERNAL LINKS — Block 8 (per brief: min 3 named links)
+   ════════════════════════════════════ */
+.related { background:#001e2e; }
+.related-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.related-card {
+  display:flex; flex-direction:column;
+  padding:24px; border-radius:var(--ns-radius-lg);
+  background:var(--ns-surface-1); border:1px solid var(--ns-line);
+  border-top:2px solid var(--sc-card,var(--ns-line));
+  text-decoration:none; color:inherit;
+  transition:background .25s, border-color .25s, transform .25s;
+}
+.related-card:hover {
+  background:var(--ns-surface-2); transform:translateY(-2px);
+  border-color:var(--sc-card,rgba(255,255,255,.2));
+}
+.related-card-num {
+  font-size:.7rem; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:12px;
+}
+.related-card-name {
+  font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500;
+  color:var(--ns-white); margin-bottom:8px; line-height:1.3;
+}
+.related-card-arrow {
+  margin-top:auto; padding-top:var(--sp-sm);
+  font-size:.82rem; font-weight:600;
+  color:var(--sc-card,var(--ns-teal-300));
+  transition:gap .2s;
+}
+
+/* ════════════════════════════════════
+   CTA BANNER — Block 9 (identical to homepage)
+   ════════════════════════════════════ */
+.cta-banner {
+  background:#001e2e;
+  border-top:1px solid rgba(0,131,98,0.2);
+  border-bottom:1px solid var(--ns-line);
+  padding:clamp(72px,9vw,110px) 0;
+  text-align:center;
+  position:relative; overflow:hidden;
+}
+.cta-banner::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 50% 80% at 10% 50%, rgba(0,131,98,.1) 0%, transparent 55%);
+  pointer-events:none;
+}
+.cta-inner { position:relative; z-index:1; max-width:640px; margin:0 auto; }
+.cta-banner h2 { margin-bottom:16px; }
+.cta-banner p { margin-bottom:36px; font-size:1rem; }
+.cta-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.cta-sub {
+  margin-top:20px; font-size:.78rem; color:rgba(255,255,255,.4);
+  letter-spacing:.05em;
+}
+
+/* ════════════════════════════════════
+   FOOTER + WA FLOAT (identical to homepage)
+   ════════════════════════════════════ */
+.footer {
+  background:#000e1a; border-top:1px solid rgba(255,255,255,.07);
+  color:rgba(255,255,255,.78); padding:clamp(72px,7vw,96px) 0 32px;
+}
+.footer-grid {
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px;
+}
+.footer-logo img { height:48px; width:auto; margin-bottom:16px; }
+.footer-desc { font-size:.92rem; line-height:1.7; max-width:36ch; margin-bottom:20px; }
+.footer-col h3 {
+  font-family:'DM Sans',sans-serif; color:#fff; font-size:.78rem;
+  letter-spacing:.18em; text-transform:uppercase; font-weight:500; margin:0 0 16px;
+}
+.footer-col ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.footer-col a { font-size:.92rem; color:rgba(255,255,255,.6); transition:color .2s; }
+.footer-col a:hover { color:#fff; }
+.footer-base {
+  margin-top:56px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  font-size:.8rem; color:rgba(255,255,255,.4);
+}
+/* Active service in footer */
+.footer-col a.active { color:var(--sc); }
+
+.wa-float {
+  position:fixed; right:22px; bottom:22px; z-index:200;
+  width:60px; height:60px; border-radius:50%;
+  background:var(--ns-whatsapp); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 28px rgba(37,211,102,.35);
+  transition:transform .25s var(--ns-ease), box-shadow .25s;
+  animation:wa-pulse 2.8s ease 5s infinite;
+  cursor:pointer;
+}
+.wa-float:hover { animation:none; }
+@keyframes wa-pulse {
+  0%,100% { box-shadow:0 12px 28px rgba(37,211,102,.4); }
+  50% { box-shadow:0 12px 40px rgba(37,211,102,.7),0 0 0 10px rgba(37,211,102,.1); }
+}
+.wa-float:hover { transform:translateY(-2px) scale(1.04); animation:none; }
+.wa-tip {
+  position:absolute; right:72px; top:50%; transform:translateY(-50%) translateX(6px);
+  background:#001829; color:#fff; font-size:.78rem; white-space:nowrap;
+  padding:7px 12px; border-radius:8px; border:1px solid rgba(0,131,98,.3);
+  opacity:0; pointer-events:none; transition:opacity .2s, transform .2s;
+}
+.wa-float:hover .wa-tip { opacity:1; transform:translateY(-50%) translateX(0); }
+.dr-right { display:flex; flex-direction:column; }
+
+/* ════════════ RESPONSIVE ════════════ */
+@media (max-width:1024px) {
+  .que-es-grid { grid-template-columns:1fr; }
+  .dr-inner { grid-template-columns:1fr; }
+  .ba-grid { grid-template-columns:1fr 1fr; }
+  .faq-layout { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px) {
+  .hero { min-height:100svh; padding-bottom:60px; }
+  .hero-content { padding:0 24px; }
+  .nav-links { display:none; }
+  .nav-inner { padding:0 20px; }
+  .nav-logo img { height:52px; }
+  .breadcrumb { padding:76px 20px 0; }
+  .container { padding:0 20px; }
+  .section { padding:clamp(56px,7vw,80px) 0; }
+  .que-es-grid { gap:32px; }
+  .que-es-img { aspect-ratio:3/2; }
+  .cuando-item { padding:16px; gap:14px; }
+  .ba-grid { grid-template-columns:1fr; }
+  .ba-images { height:180px; }
+  .dr-inner { gap:32px; }
+  .dr-stats { gap:24px; }
+  .faq-layout { gap:32px; }
+  .related-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; }
+  .footer-base { flex-direction:column; gap:8px; text-align:center; }
+  .wa-float { width:52px; height:52px; right:16px; bottom:16px; }
+  .wa-tip { display:none; }
+  .sh { margin-bottom:28px; }
+  .hero h1 { font-size:clamp(2rem,8vw,3rem); }
+  .cta-actions { flex-direction:column; align-items:center; }
+  .proceso-step { grid-template-columns:48px 1fr; }
+}
+@media (max-width:480px) {
+  .hero-ctas { flex-direction:column; }
+  .hero-ctas .btn { width:100%; justify-content:center; }
+  .cuando-list { gap:12px; }
+  .dr-stats { flex-direction:column; gap:16px; }
+  .entity-tag { font-size:.65rem; }
+  .footer-grid { gap:32px; }
+  .breadcrumb nav { font-size:.72rem; }
+  .ba-grid { grid-template-columns:1fr; }
+  .related-grid { grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .reveal,.reveal-scale { opacity:1; transform:none; transition:none; }
+  .btn { transition:none; }
+}
+</style>
+`} />
+  <Fragment set:html={`
+<!-- ═══════════════════════════════════════════
+   BREADCRUMB (visible + semantic, per brief)
+   ═══════════════════════════════════════════ -->
+<div class="breadcrumb">
+  <nav aria-label="Ruta de navegación">
+    <a href="/">Inicio</a>
+    <span class="sep">›</span>
+    <a href="/como-te-ayudamos">Cómo te ayudamos</a>
+    <span class="sep">›</span>
+    <span class="current">Ortopedia Pre-operatoria NAM</span>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 1 — HERO
+   H1 must contain primary keyword
+   No autoplay video — image only
+   ═══════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="hero-bg">
+    <!-- REPLACE src with service-specific hero image -->
+    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1800&q=85&fit=crop" alt="Cirugía de reconstrucción de labio fisurado — Dr. Nico Sierra Barcelona">
+    <div class="hero-veil"></div>
+  </div>
+  <div class="hero-accent" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="sh">
+      <div class="eyebrow reveal" style="--rv:0ms">Fisura labiopalatina · Barcelona</div>
+      <h1 id="hero-h1" class="reveal" style="--rv:120ms">Ortopedia pre-operatoria <em>NAM</em> para fisura labiopalatina</h1>
+      <p class="lead reveal" style="--rv:260ms">Moldeado nasoalveolar prequirúrgico para bebés con fisura labiopalatina. El NAM prepara los tejidos antes de la primera cirugía, mejorando el resultado estético y funcional final.</p>
+    </div>
+    <div class="hero-ctas reveal" style="--rv:380ms">
+      <a href="/cuentanos-tu-historia" class="btn btn-service">Cuéntanos tu caso →</a>
+      <a href="https://wa.me/WHATSAPP_NUMBER" class="btn btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 2 — QUÉ ES
+   AEO: first paragraph = self-contained answer
+   for featured snippet "¿Qué es [procedure]?"
+   ═══════════════════════════════════════════ -->
+<section class="section que-es" aria-labelledby="que-es-h2">
+  <div class="container">
+    <div class="que-es-grid">
+      <div class="que-es-text">
+        <div class="sh">
+          <div class="eyebrow reveal">¿Qué es?</div>
+          <h2 id="que-es-h2" class="reveal rv2">¿Qué es ortopedia NAM?</h2>
+        </div>
+        <!-- AEO: first paragraph must stand alone as a complete answer -->
+        <div class="reveal rv3">
+          <p>La ortopedia NAM (Nasoalveolar Molding) es un tratamiento prequirúrgico que se inicia en las primeras semanas de vida del bebé con fisura labiopalatina. Mediante un dispositivo intraoral de acrílico con una extensión nasal, se moldean progresivamente los tejidos del labio, la nariz y el alvéolo antes de la primera cirugía, con el objetivo de mejorar el resultado estético y funcional final.</p>
+          <p>El NAM actúa sobre la plasticidad natural de los tejidos del recién nacido, que en las primeras semanas son especialmente maleables gracias a la presencia de estrógenos maternos. Este período es la ventana óptima para iniciar el tratamiento y maximizar sus beneficios antes de la cirugía primaria de labio fisurado.</p>
+          <p>El Dr. Nico Sierra coordina el tratamiento NAM como parte del plan integral de cada bebé con fisura labiopalatina, trabajando en estrecha colaboración con la familia para garantizar el uso correcto del dispositivo y el seguimiento necesario.</p>
+        </div>
+      </div>
+      <div class="que-es-img reveal-scale rv2">
+        <!-- REPLACE src with procedure-specific image -->
+        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80&fit=crop" alt="Cirugía de labio fisurado fisura labiopalatina — Dr. Nico Sierra Barcelona">
+        <div class="que-es-img-placeholder" aria-hidden="true" style="display:none">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>IMAGEN_{'labio-fisurado'.upper().replace('-','_')}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 3 — CUÁNDO SE INDICA
+   AEO: each bullet = complete sentence (per brief)
+   ═══════════════════════════════════════════ -->
+<section class="section cuando" aria-labelledby="cuando-h2">
+  <div class="container">
+    <div class="sh" style="max-width:720px">
+      <div class="eyebrow reveal">Indicaciones</div>
+      <h2 id="cuando-h2" class="reveal rv2">¿Cuándo se recomienda la ortopedia NAM?</h2>
+      <p class="lead reveal rv3">El NAM está indicado en bebés con fisura labiopalatina que van a ser intervenidos quirúrgicamente. El momento de inicio es crítico para su efectividad.</p>
+    </div>
+    <div class="cuando-list">
+      <!-- Each item: complete sentence, not a fragment (AEO requirement) -->
+      <div class="cuando-item reveal rv2">
+        <div class="cuando-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="cuando-text">
+          <h4>Fisura labiopalatina unilateral</h4>
+          <p>El NAM está indicado en bebés con fisura labiopalatina unilateral para reducir la brecha entre los segmentos del labio y mejorar la proyección y simetría nasal antes de la cirugía primaria.</p>
+        </div>
+      </div>
+      <div class="cuando-item reveal rv3">
+        <div class="cuando-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="cuando-text">
+          <h4>Fisura labiopalatina bilateral</h4>
+          <p>En fisuras bilaterales el NAM es especialmente valioso para reposicionar la premaxila y reducir la protrusión nasal, facilitando significativamente la cirugía primaria de labio fisurado.</p>
+        </div>
+      </div>
+      <div class="cuando-item reveal rv4">
+        <div class="cuando-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="cuando-text">
+          <h4>Inicio en las primeras semanas</h4>
+          <p>El NAM debe iniciarse en las primeras 2-4 semanas de vida para aprovechar la plasticidad máxima de los tejidos. Cuanto antes se inicia, más efectivo y eficiente es el tratamiento.</p>
+        </div>
+      </div>
+      <div class="cuando-item reveal rv5">
+        <div class="cuando-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="cuando-text">
+          <h4>Preparación para cirugía a los 3-6 meses</h4>
+          <p>El objetivo del NAM es optimizar las condiciones de los tejidos antes de la cirugía primaria de labio fisurado, prevista entre los 3 y los 6 meses de vida del bebé.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 4 — EL PROCESO QUIRÚRGICO
+   AEO: include specific timeframes per brief
+   ═══════════════════════════════════════════ -->
+<section class="section proceso" aria-labelledby="proceso-h2">
+  <div class="container">
+    <div style="max-width:720px">
+      <div class="sh" style="max-width:720px">
+        <div class="eyebrow reveal">Cómo es la cirugía</div>
+        <h2 id="proceso-h2" class="reveal rv2">¿Cómo es la ortopedia NAM?</h2>
+        <p class="lead reveal rv3">El tratamiento NAM requiere un compromiso importante por parte de la familia. A continuación se describe el proceso desde el inicio hasta la cirugía primaria.</p>
+      </div>
+    </div>
+    <div class="proceso-steps reveal rv2">
+      <div class="proceso-step">
+        <div class="proceso-num">01</div>
+        <div class="proceso-content">
+          <h3>Primera visita y toma de impresión</h3>
+          <p>En las primeras semanas de vida se realiza la toma de impresión del paladar del bebé. El dispositivo NAM se fabrica individualmente y se entrega a la familia con instrucciones detalladas de uso.</p>
+          <span class="timeframe">Primeras 2-4 semanas de vida</span>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">02</div>
+        <div class="proceso-content">
+          <h3>Uso del dispositivo</h3>
+          <p>El bebé lleva el dispositivo NAM las 24 horas del día. La familia aprende a colocarlo, limpiarlo y mantenerlo. Los ajustes progresivos se realizan en visitas semanales.</p>
+          <span class="timeframe">Visitas semanales de ajuste</span>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">03</div>
+        <div class="proceso-content">
+          <h3>Progreso y monitorización</h3>
+          <p>A lo largo de 8-12 semanas se va moldeando progresivamente el labio, la nariz y el alvéolo. El Dr. Sierra evalúa el progreso en cada visita y ajusta el dispositivo.</p>
+          <span class="timeframe">8 – 12 semanas de tratamiento</span>
+        </div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">04</div>
+        <div class="proceso-content">
+          <h3>Preparación para la cirugía</h3>
+          <p>Al finalizar el tratamiento NAM los tejidos están en las mejores condiciones para la cirugía primaria de labio fisurado. El resultado final de la cirugía es significativamente mejor.</p>
+          <span class="timeframe">Previo a la cirugía primaria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 5 — RESULTADOS / ANTES Y DESPUÉS
+   Before/after image placeholders per brief
+   ═══════════════════════════════════════════ -->
+<section class="section resultados" aria-labelledby="resultados-h2">
+  <div class="container">
+    <div class="sh" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px">
+      <div>
+        <div class="eyebrow reveal">Vidas Transformadas</div>
+        <h2 id="resultados-h2" class="reveal rv2">¿Qué resultados se pueden esperar?</h2>
+        <p class="lead reveal rv2">El NAM mejora significativamente las condiciones de los tejidos antes de la cirugía, permitiendo al Dr. Sierra obtener mejores resultados estéticos y funcionales en la cirugía primaria.</p>
+      </div>
+      <a href="/vidas-transformadas" class="reveal" style="font-size:.82rem;color:rgba(255,255,255,.3);transition:color .2s;flex-shrink:0;padding-top:4px">Ver todos →</a>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card reveal rv2">
+        <div class="ba-images">
+          <!-- REPLACE with real before/after images -->
+          <div class="ba-img">ANTES</div>
+          <div class="ba-img">DESPUÉS</div>
+        </div>
+        <div class="ba-body">
+          <div class="ba-tag">Fisura unilateral</div>
+          <div class="ba-title">NAM + cirugía primaria de labio</div>
+          <div class="ba-meta">Bebé 3 meses · Barcelona</div>
+        </div>
+      </div>
+      <div class="ba-card reveal rv3">
+        <div class="ba-images">
+          <div class="ba-img">ANTES</div>
+          <div class="ba-img">DESPUÉS</div>
+        </div>
+        <div class="ba-body">
+          <div class="ba-tag">Fisura bilateral</div>
+          <div class="ba-title">Reposición de premaxila con NAM</div>
+          <div class="ba-meta">Bebé 4 meses · Madrid</div>
+        </div>
+      </div>
+      <div class="ba-card reveal rv4">
+        <div class="ba-images">
+          <div class="ba-img">ANTES</div>
+          <div class="ba-img">DESPUÉS</div>
+        </div>
+        <div class="ba-body">
+          <div class="ba-tag">Resultado final</div>
+          <div class="ba-title">Comparativa NAM vs sin NAM</div>
+          <div class="ba-meta">Serie de casos · Dr. Sierra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 6 — DR. SIERRA EN ESTA INTERVENCIÓN
+   AEO: named entities per brief
+   Must contain ≥2 named entities: UFPR, CHOP,
+   Operation Smile, FEBOMFS, Springer
+   ═══════════════════════════════════════════ -->
+<section class="section dr-section" aria-labelledby="dr-h2">
+  <div class="container">
+    <div class="dr-inner">
+      <!-- Left column -->
+      <div class="dr-left">
+        <div class="sh">
+          <div class="eyebrow reveal">¿Por qué el Dr. Nico Sierra?</div>
+          <h2 id="dr-h2" class="reveal rv2">¿Por qué elegir al Dr. Nico Sierra para ortopedia NAM?</h2>
+          <p class="lead reveal rv3">El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.</p>
+        </div>
+        <p class="reveal rv3">Su experiencia incluye colaboración con Operation Smile y Smile Train en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.</p>
+        <div class="reveal rv4" style="margin-top:20px">
+          <span class="entity-tag">UFPR · Brasil</span>
+          <span class="entity-tag">Operation Smile</span>
+          <span class="entity-tag">Smile Train</span>
+          <span class="entity-tag">Springer</span>
+        </div>
+        <div class="dr-stats reveal rv4">
+          <div class="dr-stat">
+            <div class="dr-stat-num">+1.000</div>
+            <div class="dr-stat-label">cirugías FLP</div>
+          </div>
+          <div class="dr-stat">
+            <div class="dr-stat-num">+150</div>
+            <div class="dr-stat-label">tratamientos NAM</div>
+          </div>
+        </div>
+      </div>
+      <!-- Right column -->
+      <div class="dr-right reveal-scale rv3">
+        <blockquote class="dr-quote">
+          "El NAM no es solo una técnica — es una inversión en el resultado final de la cirugía. Los tejidos bien preparados permiten una reconstrucción más precisa y un resultado más natural."
+        </blockquote>
+        <a href="/sobre-dr-nico-sierra" class="btn btn-ghost" style="margin-top:28px;display:inline-flex;">Conoce al Dr. Nico Sierra →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 7 — FAQ
+   AEO CRITICAL: H3 = question, P = answer
+   No nested divs between H3 and P (per brief)
+   Schema text must match visible text exactly
+   Answers must open by restating question topic
+   ═══════════════════════════════════════════ -->
+<section class="section faq" aria-labelledby="faq-h2">
+  <div class="container">
+    <div class="sh">
+      <div class="eyebrow reveal">Preguntas frecuentes</div>
+      <h2 id="faq-h2" class="reveal rv2">Preguntas frecuentes sobre ortopedia NAM</h2>
+    </div>
+    <div class="faq-layout">
+      <div class="faq-intro reveal rv3">
+        <p>Estas son las preguntas que más nos hacen las familias sobre ortopedia NAM. Si no encuentras la respuesta que buscas, escríbenos directamente.</p>
+        <a href="/cuentanos-tu-historia" class="btn btn-service">Hacer una pregunta →</a>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item reveal">
+          <summary>
+            <h3>¿Qué es el NAM y para qué sirve?</h3>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer"><p>El NAM (Nasoalveolar Molding) es un dispositivo prequirúrgico que moldea los tejidos del labio, la nariz y el alvéolo antes de la cirugía primaria de labio fisurado. Su objetivo es reducir la brecha entre los segmentos del labio, mejorar la proyección nasal y optimizar las condiciones de los tejidos para la cirugía, consiguiendo un mejor resultado estético y funcional final.</p></div>
+        </details>
+
+        <details class="faq-item reveal rv2">
+          <summary>
+            <h3>¿A qué edad debe iniciarse el NAM?</h3>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer"><p>El NAM debe iniciarse en las primeras 2 a 4 semanas de vida del bebé, cuando los tejidos son más plásticos gracias a los estrógenos maternos. Cuanto antes se inicia, más efectivo es el tratamiento. El Dr. Nico Sierra recomienda contactar con su equipo en cuanto se produce el diagnóstico para planificar el inicio del NAM.</p></div>
+        </details>
+
+        <details class="faq-item reveal rv3">
+          <summary>
+            <h3>¿Es doloroso el NAM para el bebé?</h3>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer"><p>El dispositivo NAM puede causar incomodidad inicial pero no produce dolor. Los bebés se adaptan al dispositivo en pocos días. La familia recibe instrucciones detalladas sobre cómo colocarlo y retirarlo, y el Dr. Sierra está disponible para resolver cualquier duda durante el tratamiento.</p></div>
+        </details>
+
+        <details class="faq-item reveal rv4">
+          <summary>
+            <h3>¿Cuánto tiempo dura el tratamiento NAM?</h3>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer"><p>El tratamiento NAM dura habitualmente entre 8 y 12 semanas, con visitas semanales de ajuste. La duración exacta depende de la extensión de la fisura y de la respuesta del tejido al moldeado. El tratamiento finaliza cuando los tejidos están listos para la cirugía primaria.</p></div>
+        </details>
+
+        <details class="faq-item reveal rv5">
+          <summary>
+            <h3>¿El NAM es imprescindible para operar el labio fisurado?</h3>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer"><p>El NAM no es obligatorio para realizar la cirugía de labio fisurado, pero mejora significativamente las condiciones de los tejidos y el resultado final de la intervención. El Dr. Nico Sierra evalúa en cada caso si el NAM está indicado y coordina el tratamiento cuando es beneficioso para el paciente.</p></div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 8 — INTERNAL LINKS (per brief)
+   Min 3 named links, no "Ver todos" catch-all
+   ═══════════════════════════════════════════ -->
+<section class="section related" aria-labelledby="related-h2">
+  <div class="container">
+    <div class="sh">
+      <div class="eyebrow reveal">Otros tratamientos relacionados</div>
+      <h2 id="related-h2" class="reveal rv2">Otros tratamientos relacionados</h2>
+    </div>
+    <div class="related-grid">
+      <!-- Replace SERVICE_RELATED_* tokens per internal linking map (section 8 of brief) -->
+      <a href="/cirugia-labio-fisurado/" class="related-card reveal rv2" style="--sc-card:#a01255">
+        <div class="related-card-num">02</div>
+        <div class="related-card-name">Reconstrucción de Labio Fisurado</div>
+        <div class="related-card-arrow">Ver tratamiento →</div>
+      </a>
+      <a href="/cirugia-paladar-hendido/" class="related-card reveal rv3" style="--sc-card:#008362">
+        <div class="related-card-num">03</div>
+        <div class="related-card-name">Reconstrucción de Paladar Hendido</div>
+        <div class="related-card-arrow">Ver tratamiento →</div>
+      </a>
+      <a href="/cirugia-revision-fisura/" class="related-card reveal rv4" style="--sc-card:#0d74c4">
+        <div class="related-card-num">04</div>
+        <div class="related-card-name">Cirugía de Revisión</div>
+        <div class="related-card-arrow">Ver tratamiento →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   BLOCK 9 — CTA BANNER
+   Final conversion moment before footer
+   ═══════════════════════════════════════════ -->
+<section class="cta-banner" aria-labelledby="cta-h2">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="sh sh--center">
+        <div class="eyebrow reveal">Cuéntanos tu historia</div>
+        <h2 id="cta-h2" class="reveal rv2">¿Tienes un caso de ortopedia NAM?</h2>
+        <p class="reveal rv3">El Dr. Nico Sierra revisa personalmente cada caso. Escríbenos y te contestamos con honestidad.</p>
+      </div>
+      <div class="cta-actions reveal rv4">
+        <a href="https://wa.me/WHATSAPP_NUMBER" class="btn btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>
+          Escríbir por WhatsApp
+        </a>
+        <a href="/cuentanos-tu-historia" class="btn btn-ghost">Enviar mi caso →</a>
+      </div>
+      <p class="cta-sub reveal rv5">Respuesta en menos de 24 horas · Sin compromiso</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ -->
+`} />
+</Layout>

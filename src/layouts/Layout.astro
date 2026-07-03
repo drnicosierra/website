@@ -1,0 +1,152 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  keywords?: string;
+  schemaBlocks?: string; // raw <script type="application/ld+json">...</script> markup, one or more, concatenated
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = "https://images.unsplash.com/photo-1551076805-e1869033e561?w=1800&q=85&fit=crop",
+  keywords,
+  schemaBlocks = "",
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{title}</title>
+<meta name="description" content={description}>
+{keywords && <meta name="keywords" content={keywords}>}
+<meta name="author" content="Dr. Nico Sierra">
+<link rel="canonical" href={canonical}>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:url" content={canonical}>
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6SCF6WY7Q"></script>
+<script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C6SCF6WY7Q');</script>
+<!-- GTM -->
+<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MCNLW9Z4');</script>
+
+<Fragment set:html={schemaBlocks} />
+
+<slot name="head" />
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCNLW9Z4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="nav" id="pageNav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Dr. Nico Sierra — Inicio">
+      <img src="/logo_white_transparent.png" alt="Dr. Nico Sierra" style="height:72px;width:auto;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/como-te-ayudamos/">Tratamientos</a></li>
+      <li><a href="/sobre-dr-nico-sierra/">Dr. Sierra</a></li>
+      <li><a href="/vidas-transformadas/">Resultados</a></li>
+      <li><a href="/tu-camino-con-nosotros/">Tu camino</a></li>
+      <li><a href="/blog-y-articulos/">Artículos</a></li>
+    </ul>
+    <a href="/cuentanos-tu-historia/" class="btn nav-cta">Cuéntanos tu caso</a>
+  </div>
+</nav>
+
+<slot />
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="/logo_white_transparent.png" alt="Dr. Nico Sierra" class="footer-logo" style="height:48px;width:auto;filter:brightness(0) invert(1);opacity:.8;">
+        <p class="footer-desc">Especialista en fisura labiopalatina en España. Cirugía de labio fisurado, paladar hendido y cirugía de revisión en Barcelona.</p>
+        <a href="mailto:cuentame@drnicosierra.com" style="font-size:.88rem;color:rgba(255,255,255,.5)">cuentame@drnicosierra.com</a>
+      </div>
+      <div class="footer-col">
+        <h3>Tratamientos</h3>
+        <ul>
+          <li><a href="/ortopedia-prequirurgica-nam/">Ortopedia NAM</a></li>
+          <li><a href="/cirugia-labio-fisurado/">Labio fisurado</a></li>
+          <li><a href="/cirugia-paladar-hendido/">Paladar hendido</a></li>
+          <li><a href="/cirugia-revision-fisura/">Cirugía de revisión</a></li>
+          <li><a href="/injerto-oseo-alveolar/">Reconstrucción de encía</a></li>
+          <li><a href="/cirugia-ortognatica-flp/">Cirugía ortognática</a></li>
+          <li><a href="/rinoplastia-flp/">Rinoplastia FLP</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Información</h3>
+        <ul>
+          <li><a href="/sobre-dr-nico-sierra/">Sobre el Dr. Sierra</a></li>
+          <li><a href="/vidas-transformadas/">Resultados</a></li>
+          <li><a href="/tu-camino-con-nosotros/">Tu camino con nosotros</a></li>
+          <li><a href="/blog-y-articulos/">Blog y artículos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="/cuentanos-tu-historia/">Envía tu caso</a></li>
+          <li><a href="https://wa.me/WHATSAPP_NUMBER">WhatsApp</a></li>
+          <li><a href="mailto:cuentame@drnicosierra.com">Email</a></li>
+          <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>© <span id="yr">2025</span> Dr. Nico Sierra. Todos los derechos reservados.</p>
+      <p>Barcelona, España · <a href="/politica-de-privacidad/">Política de privacidad</a></p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/WHATSAPP_NUMBER" class="wa-float" aria-label="Escríbenos por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>
+  <span class="wa-tip">Escríbenos — respondemos en &lt;24h</span>
+</a>
+
+<script is:inline>
+(function(){
+  var nav = document.getElementById('pageNav');
+  if(nav){
+    var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 24); };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){ el.classList.add('visible'); });
+  }
+  var yr = document.getElementById('yr');
+  if(yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

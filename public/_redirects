@@ -1,0 +1,42 @@
+# Homepage source file
+/dr-nico-sierra-v3.html   /   301
+/dr-nico-sierra-v3        /   301
+
+# Service pages: redirect old flat filenames and pre-brief short slugs
+# to the confirmed slugs from the SEO/AEO Build Brief
+/nam                              /ortopedia-prequirurgica-nam/   301
+/nam.html                         /ortopedia-prequirurgica-nam/   301
+
+/labio-fisurado                   /cirugia-labio-fisurado/        301
+/labio-fisurado.html              /cirugia-labio-fisurado/        301
+/dr-sierra-labio-fisurado.html    /cirugia-labio-fisurado/        301
+
+/paladar-hendido                  /cirugia-paladar-hendido/       301
+/paladar-hendido.html             /cirugia-paladar-hendido/       301
+
+/cirugia-revision                 /cirugia-revision-fisura/       301
+/cirugia-revision.html            /cirugia-revision-fisura/       301
+
+/encia                            /injerto-oseo-alveolar/         301
+/encia.html                       /injerto-oseo-alveolar/         301
+
+/ortognatica                      /cirugia-ortognatica-flp/       301
+/ortognatica.html                 /cirugia-ortognatica-flp/       301
+
+/rinoplastia                      /rinoplastia-flp/               301
+/rinoplastia.html                 /rinoplastia-flp/               301
+
+/otros                            /otros-procedimientos/          301
+/otros.html                       /otros-procedimientos/          301
+
+# Other pages: strip .html if requested directly
+/sobre-dr-nico-sierra.html        /sobre-dr-nico-sierra/          301
+/vidas-transformadas.html         /vidas-transformadas/           301
+/tu-camino-con-nosotros.html      /tu-camino-con-nosotros/        301
+/cuentanos-tu-historia.html       /cuentanos-tu-historia/         301
+/blog-y-articulos.html            /blog-y-articulos/              301
+/como-te-ayudamos.html            /como-te-ayudamos/              301
+/politica-de-privacidad.html      /politica-de-privacidad/        301
+
+# Fallback for anything unmatched
+/*    /404.html   404
