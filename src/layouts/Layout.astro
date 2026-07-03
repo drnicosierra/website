@@ -77,6 +77,7 @@ const {
   --sc: var(--ns-teal-600); /* service pages override this per-page; safe default here */
 }
 *, *::before, *::after { box-sizing:border-box; }
+html, body { max-width:100%; overflow-x:hidden; }
 .container { max-width:var(--ns-container); margin:0 auto; padding:0 clamp(20px,4vw,48px); }
 
 /* Buttons */
@@ -117,12 +118,42 @@ const {
   content:''; position:absolute; bottom:-2px; left:0; right:0;
   height:1.5px; background:var(--sc); border-radius:2px;
 }
+.nav-actions { display:flex; align-items:center; gap:16px; }
 .nav-cta {
   background:var(--ns-teal-600) !important; color:#fff !important;
   padding:10px 20px; border-radius:999px; font-size:.88rem !important;
   font-weight:600 !important;
 }
 .nav-cta:hover { background:var(--ns-blue-500) !important; }
+
+/* Hamburger — hidden on desktop, shown + wired up below 880px */
+.nav-burger {
+  display:none; flex-direction:column; justify-content:center; gap:5px;
+  width:32px; height:32px; padding:0; flex-shrink:0;
+}
+.nav-burger span {
+  display:block; height:2px; width:100%; background:#fff; border-radius:2px;
+  transition:transform .25s var(--ns-ease), opacity .25s var(--ns-ease);
+}
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+@media (max-width:880px) {
+  .nav-burger { display:flex; }
+  .nav-links {
+    position:fixed; top:80px; left:0; right:0; z-index:199;
+    flex-direction:column; align-items:flex-start; gap:0;
+    background:rgba(0,18,36,0.97); backdrop-filter:blur(8px);
+    max-height:0; overflow:hidden;
+    padding:0 clamp(20px,4vw,48px);
+    transition:max-height .3s var(--ns-ease);
+  }
+  .nav-links[data-open="true"] { max-height:70vh; padding:12px clamp(20px,4vw,48px) 24px; overflow-y:auto; }
+  .nav-links li { width:100%; }
+  .nav-links a { display:block; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+  .footer-grid { grid-template-columns:1fr; gap:32px; }
+}
 
 /* Footer */
 .footer {
@@ -171,10 +202,6 @@ const {
 }
 .wa-float:hover .wa-tip { opacity:1; transform:translateY(-50%) translateX(0); }
 
-@media (max-width:880px) {
-  .nav-links { display:none; }
-  .footer-grid { grid-template-columns:1fr; gap:32px; }
-}
 </style>
 
 <slot name="head" />
@@ -187,14 +214,19 @@ const {
     <a href="/" aria-label="Dr. Nico Sierra — Inicio">
       <img src="/logo_white_transparent.png" alt="Dr. Nico Sierra" style="height:72px;width:auto;">
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="pageNavLinks">
       <li><a href="/como-te-ayudamos/">Tratamientos</a></li>
       <li><a href="/sobre-dr-nico-sierra/">Dr. Sierra</a></li>
       <li><a href="/vidas-transformadas/">Resultados</a></li>
       <li><a href="/tu-camino-con-nosotros/">Tu camino</a></li>
       <li><a href="/blog-y-articulos/">Artículos</a></li>
     </ul>
-    <a href="/cuentanos-tu-historia/" class="btn nav-cta">Cuéntanos tu caso</a>
+    <div class="nav-actions">
+      <a href="/cuentanos-tu-historia/" class="btn nav-cta">Cuéntanos tu caso</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="pageNavLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -274,6 +306,22 @@ const {
   }
   var yr = document.getElementById('yr');
   if(yr) yr.textContent = new Date().getFullYear();
+
+  var burger = document.getElementById('navBurger');
+  var navLinks = document.getElementById('pageNavLinks');
+  if(burger && navLinks){
+    burger.addEventListener('click', function(){
+      var open = navLinks.getAttribute('data-open') === 'true';
+      navLinks.setAttribute('data-open', String(!open));
+      burger.setAttribute('aria-expanded', String(!open));
+    });
+    navLinks.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navLinks.setAttribute('data-open', 'false');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 })();
 </script>
 </body>
