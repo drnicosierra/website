@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Gracias | Dr. Nico Sierra";
+const description = "Hemos recibido tu consulta. El Dr. Sierra revisará tu caso en menos de 24 horas.";
+const canonical = "https://www.drnicosierra.com/gracias/";
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <main>
+
+    <section style="min-height:70vh;display:flex;align-items:center;background:#001629;padding:120px 20px;">
+      <div style="max-width:900px;margin:0 auto;text-align:center;">
+
+        <div class="sh sh--center">
+          <div class="eyebrow" style="color:#4db896;">Mensaje recibido</div>
+
+          <h1>Gracias por compartir tu caso</h1>
+
+          <p class="lead">
+            Hemos recibido correctamente tu información.
+            El Dr. Sierra revisará personalmente tu caso y te responderá en menos de 24 horas.
+          </p>
+        </div>
+
+        <div style="margin-top:40px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+
+          <a href="/" class="btn btn-ghost">
+            Volver al inicio
+          </a>
+
+          <a href="https://wa.me/WHATSAPP_NUMBER" class="btn btn-service">
+            Hablar por WhatsApp
+          </a>
+
+        </div>
+
+        <div style="margin-top:60px;opacity:0.7;font-size:0.9rem;">
+          Si tu caso es urgente, puedes contactarnos directamente por WhatsApp.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</Layout>
