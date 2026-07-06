@@ -677,3 +677,36 @@ p + p { margin-top:16px; }
   .reveal,.reveal-scale { opacity:1; transform:none; transition:none; }
   .btn { transition:none; }
 }
+
+/* ════════════════════════════════════
+   SHARED LAYOUT UTILITIES
+   Reusable grid patterns for any page — use these instead of an inline
+   style="display:grid;..." attribute. Inline grids can't be caught by the
+   design-system guard script and have no way to carry a responsive
+   breakpoint, which is exactly what caused the "cut boxes" bugs on
+   como-te-ayudamos, cuentanos-tu-historia, and sobre-dr-nico-sierra.
+   ════════════════════════════════════ */
+
+/* Two-column split (e.g. form + sidebar, photo + bio text).
+   Collapses to a single column below 880px. */
+.split-2col {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(40px,6vw,96px); align-items:start;
+}
+.split-2col > * { min-width:0; }
+@media (max-width:880px) {
+  .split-2col { grid-template-columns:1fr; }
+}
+
+/* Card grid (e.g. treatment/service listing). Progressively narrows
+   instead of jumping straight from many columns to one. */
+.grid-services {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+}
+.grid-services > * { min-width:0; }
+@media (max-width:1024px) {
+  .grid-services { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:560px) {
+  .grid-services { grid-template-columns:1fr; }
+}
