@@ -34,6 +34,7 @@
     --ns-shadow-md:0 8px 40px rgba(0,0,0,0.35);
     --ns-ease:cubic-bezier(.22,.61,.36,1);
     --ns-container:1240px;
+  --ns-section-gap: clamp(48px,6vw,80px); /* header-to-content gap — one value, used everywhere instead of each section hand-tuning its own */
   }
 
   /* --- Reset (scoped softly) ------------------------------------------- */
@@ -164,7 +165,7 @@
   /* Full green section — the most distinctive moment on the page */
   .ns-section-green {
     background: #006b50;
-    border-top:1px solid rgba(255,255,255,0.08);
+    border-top:1px solid var(--ns-line);
     border-bottom:1px solid rgba(0,0,0,0.15);
   }
   .ns-section-green .ns-h2,
@@ -460,7 +461,8 @@
   }
 
   .ns-timeline{background:#001629;}
-  .ns-timeline__head{max-width:900px;margin:0 0 clamp(48px,6vw,80px);}
+  .ns-timeline__head{max-width:900px;margin:0 auto var(--ns-section-gap);}
+  .ns-timeline__head .ns-lead{margin:0 auto;}
   .ns-timeline__head .ns-h2{margin-top:12px;}
 
   /* Timeline wrapper */
@@ -479,7 +481,7 @@
     align-items:flex-start;
     gap:0;
     min-width:max-content;
-    padding:80px clamp(16px,4vw,48px) 24px;
+    padding:24px clamp(16px,4vw,48px) 24px;
     position:relative;
     z-index:1;
   }
@@ -593,7 +595,7 @@
   .ns-services__head .ns-h2{margin-top:12px;}
 
   /* Full-width service list */
-  .ns-svc-list{position:relative;border-top:1px solid rgba(255,255,255,0.08);}
+  .ns-svc-list{position:relative;border-top:1px solid var(--ns-line);}
 
   /* Background image layer */
   .ns-svc-list__bg{
@@ -674,7 +676,7 @@
     .ns-svc-row__tag{display:none;}
   }
 
-  .ns-services__head{max-width:780px;margin:0 auto clamp(48px,5vw,72px);text-align:center;}
+  .ns-services__head{max-width:780px;margin:0 auto var(--ns-section-gap);text-align:center;}
   .ns-services__head .ns-eyebrow{justify-content:center;display:inline-flex;margin-bottom:18px;}
   .ns-services__head .ns-h2{margin-bottom:18px;}
   .ns-services__head .ns-lead{margin:0 auto;}
@@ -738,10 +740,12 @@
   .ns-journey__content p{margin:0;color:rgba(255,255,255,0.65);font-size:.95rem;line-height:1.7;max-width:36ch;}
   @media(max-width:860px){
     .ns-journey__layout{grid-template-columns:1fr;}
-    .ns-journey__left{margin-bottom:48px;}
+    .ns-journey__left{margin-bottom:48px;text-align:center;}
+    .ns-journey__left .ns-eyebrow{justify-content:center;}
+    .ns-journey__left p{margin-left:auto;margin-right:auto;}
   }
 
-  .ns-results__head{max-width:720px;margin:0 auto clamp(40px,5vw,64px);text-align:center;}
+  .ns-results__head{max-width:720px;margin:0 auto var(--ns-section-gap);text-align:center;}
   .ns-results__head .ns-eyebrow{justify-content:center;display:inline-flex;margin-bottom:18px;}
   .ns-results__head .ns-lead{margin:18px auto 0;color:rgba(255,255,255,.78);}
 
@@ -864,7 +868,7 @@
     .ns-carousel__arrow{display:none;}
   }
 
-  .ns-testimonials__head{max-width:640px;margin:0 auto clamp(48px,5vw,72px);text-align:center;}
+  .ns-testimonials__head{max-width:640px;margin:0 auto var(--ns-section-gap);text-align:center;}
   .ns-testimonials__head .ns-eyebrow{justify-content:center;display:inline-flex;margin-bottom:18px;}
   .ns-testimonials__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
   .ns-quote{
@@ -930,12 +934,13 @@
 
   @media (max-width:880px){
     .ns-faq__inner{grid-template-columns:1fr;}
-    .ns-faq__head{position:static;}
+    .ns-faq__head{position:static;text-align:center;}
+    .ns-faq__head .ns-eyebrow{justify-content:center;}
   }
 
   .ns-cta-banner{
     background: #005240;
-    border-top:1px solid rgba(255,255,255,0.08);
+    border-top:1px solid var(--ns-line);
     color:#fff;padding:clamp(72px,8vw,110px) 0;
   }
   .ns-cta-banner .ns-h2{color:#fff;max-width:18ch;}
@@ -947,6 +952,9 @@
   @media (max-width:880px){
     .ns-cta-banner__inner{grid-template-columns:1fr;}
     .ns-cta-banner__actions{align-items:stretch;}
+    .ns-cta-banner__text{text-align:center;}
+    .ns-cta-banner__text .ns-eyebrow{justify-content:center;}
+    .ns-cta-banner__text .ns-lead{margin-left:auto;margin-right:auto;}
   }
 
   .ns-signature{
