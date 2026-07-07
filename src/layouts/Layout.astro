@@ -52,6 +52,20 @@ const {
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6SCF6WY7Q"></script>
 <script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C6SCF6WY7Q');</script>
 
+<!-- WhatsApp click tracking -->
+<script is:inline>
+document.addEventListener('click', function(e) {
+  var waLink = e.target.closest('.btn-wa, .wa-float');
+  if (!waLink) return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'whatsapp_click',
+    wa_location: waLink.getAttribute('data-wa-loc') || 'unknown',
+    page_path: window.location.pathname
+  });
+});
+</script>
+
 <Fragment set:html={schemaBlocks} />
 
 
@@ -144,7 +158,7 @@ const {
   </div>
 </footer>
 
-<a href="https://wa.me/WHATSAPP_NUMBER" class="wa-float" aria-label="Escríbenos por WhatsApp">
+<a href="https://wa.me/WHATSAPP_NUMBER" class="wa-float" data-wa-loc="float" aria-label="Escríbenos por WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>
   <span class="wa-tip">Escríbenos — respondemos en &lt;24h</span>
 </a>
