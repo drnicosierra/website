@@ -63,7 +63,24 @@ const {
       <img src="/logo_white_transparent.png" alt="Dr. Nico Sierra" style="height:72px;width:auto;">
     </a>
     <ul class="nav-links" id="pageNavLinks">
-      <li><a href="/como-te-ayudamos/">Tratamientos</a></li>
+      <li class="nav-item nav-item--dropdown">
+        <div class="nav-item__row">
+          <a href="/como-te-ayudamos/">Tratamientos</a>
+          <button class="nav-item__toggle" aria-expanded="false" aria-label="Mostrar lista de tratamientos">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/ortopedia-prequirurgica-nam/">Ortopedia Pre-operatoria NAM</a>
+          <a href="/cirugia-labio-fisurado/">Reconstrucción de Labio Fisurado</a>
+          <a href="/cirugia-paladar-hendido/">Reconstrucción de Paladar Hendido</a>
+          <a href="/injerto-oseo-alveolar/">Reconstrucción de Encía (Injerto Óseo)</a>
+          <a href="/cirugia-ortognatica-flp/">Cirugía Ortognática en FLP</a>
+          <a href="/rinoplastia-flp/">Rinoplastia en FLP</a>
+          <a href="/cirugia-revision-fisura/">Cirugía de Revisión</a>
+          <a href="/otros-procedimientos/">Otros Procedimientos</a>
+        </div>
+      </li>
       <li><a href="/sobre-dr-nico-sierra/">Dr. Sierra</a></li>
       <li><a href="/vidas-transformadas/">Resultados</a></li>
       <li><a href="/tu-camino-con-nosotros/">Tu camino</a></li>
@@ -168,6 +185,32 @@ const {
         navLinks.setAttribute('data-open', 'false');
         burger.setAttribute('aria-expanded', 'false');
       });
+    });
+  }
+
+  var navItemToggle = document.querySelector('.nav-item__toggle');
+  var navItemDD = document.querySelector('.nav-item--dropdown');
+  if(navItemToggle && navItemDD){
+    // Mobile: tap the chevron to expand/collapse inline (chevron is
+    // display:none on desktop via CSS, so this only ever fires on mobile).
+    navItemToggle.addEventListener('click', function(e){
+      e.preventDefault();
+      var open = navItemDD.classList.toggle('nav-item--open');
+      navItemToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Desktop: hover-intent with a short close delay, so crossing the
+    // gap between the link and the dropdown doesn't slam it shut.
+    var closeTimer = null;
+    navItemDD.addEventListener('mouseenter', function(){
+      clearTimeout(closeTimer);
+      navItemDD.classList.add('nav-item--open');
+    });
+    navItemDD.addEventListener('mouseleave', function(){
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function(){
+        navItemDD.classList.remove('nav-item--open');
+      }, 250);
     });
   }
 })();

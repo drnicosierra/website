@@ -175,6 +175,49 @@ p + p { margin-top:16px; }
   content:''; position:absolute; bottom:-2px; left:0; right:0;
   height:1.5px; background:var(--sc); border-radius:2px;
 }
+
+/* Treatments dropdown — hover on desktop, tap-to-expand on mobile */
+.nav-item { position:relative; }
+.nav-item__row { display:flex; align-items:center; }
+.nav-item__toggle {
+  display:none;
+  align-items:center; justify-content:center;
+  width:20px; height:20px; margin-left:2px; padding:0;
+  color:rgba(210,235,225,0.7); transition:color .2s, transform .2s;
+}
+.nav-item__toggle:hover { color:#fff; }
+.nav-dropdown {
+  position:absolute; top:calc(100% + 14px); left:50%;
+  transform:translateX(-50%) translateY(4px);
+  background:rgba(0,18,36,0.97); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.08); border-radius:12px;
+  padding:8px; min-width:270px;
+  display:flex; flex-direction:column; gap:2px;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .2s var(--ns-ease), transform .2s var(--ns-ease), visibility .2s;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  z-index:210;
+}
+.nav-dropdown a {
+  display:block; padding:10px 14px; border-radius:8px;
+  font-size:.85rem; font-weight:500; color:rgba(210,235,225,0.85);
+  white-space:nowrap; transition:background .15s, color .15s;
+}
+.nav-dropdown a:hover { background:rgba(255,255,255,.06); color:#fff; }
+
+/* Desktop: JS opens/closes this with a short delay (see script below) —
+   plain CSS :hover was tried first but breaks the instant the cursor
+   crosses the gap between the link and the dropdown, making the list
+   unclickable. :focus-within stays as a pure-CSS fallback for keyboard
+   navigation (Tab), which has no such gap problem. */
+@media (min-width:881px) {
+  .nav-item--open .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity:1; visibility:visible; pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+  }
+}
+
 .nav-actions { display:flex; align-items:center; gap:16px; }
 .nav-cta {
   background:var(--ns-teal-600) !important; color:#fff !important;
@@ -210,6 +253,25 @@ p + p { margin-top:16px; }
   .nav-links[data-open="true"] { max-height:70vh; padding:12px clamp(20px,4vw,48px) 24px; overflow-y:auto; }
   .nav-links li { width:100%; }
   .nav-links a { display:block; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+
+  /* Treatments dropdown becomes an inline expandable list (no hover on mobile) */
+  .nav-item__row { justify-content:space-between; }
+  .nav-item__row a { border-bottom:none; padding:14px 0; }
+  .nav-item__toggle { display:flex; width:32px; height:32px; }
+  .nav-dropdown {
+    position:static; transform:none;
+    opacity:1; visibility:visible; pointer-events:auto;
+    background:none; backdrop-filter:none; border:none; box-shadow:none;
+    padding:0 0 0 16px; min-width:0;
+    max-height:0; overflow:hidden;
+    transition:max-height .3s var(--ns-ease);
+  }
+  .nav-item.nav-item--open .nav-dropdown { max-height:520px; }
+  .nav-links .nav-dropdown a {
+    padding:12px 0; border-bottom:none;
+    font-size:.82rem; color:rgba(200,220,210,0.7);
+  }
+  .nav-item.nav-item--open .nav-item__toggle { transform:rotate(180deg); }
 }
 
 /* ════════════════════════════════════
