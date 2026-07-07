@@ -148,6 +148,15 @@ p + p { margin-top:16px; }
 .reveal-scale.visible { opacity:1; transform:scale(1); }
 .rv2 { --rv:100ms } .rv3 { --rv:200ms } .rv4 { --rv:300ms } .rv5 { --rv:400ms }
 
+/* Hero-fade: CSS-only entrance animation for above-the-fold content.
+   Unlike .reveal, this does NOT wait for JS/IntersectionObserver — it plays
+   automatically as soon as CSS is ready, since hero content is always
+   visible on load and never needs scroll-triggered detection. Keeps the
+   fade-in look without delaying LCP behind JS execution. */
+@keyframes ns-hero-fade { to { opacity:1; transform:none; } }
+.hero-fade { opacity:0; transform:translateY(22px); animation:ns-hero-fade .35s var(--ns-ease) var(--rv,0ms) forwards; }
+
+
 /* ════════════════════════════════════
    NAVBAR (identical to homepage)
    ════════════════════════════════════ */
@@ -744,7 +753,7 @@ p + p { margin-top:16px; }
   .related-grid { grid-template-columns:1fr; }
 }
 @media (prefers-reduced-motion:reduce) {
-  .reveal,.reveal-scale { opacity:1; transform:none; transition:none; }
+  .reveal,.reveal-scale,.hero-fade { opacity:1; transform:none; transition:none; animation:none; }
   .btn { transition:none; }
 }
 
