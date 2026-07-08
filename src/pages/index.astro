@@ -1,6 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getImage } from 'astro:assets';
 import '../styles/home.css';
+
+const heroImage = await getImage({
+  src: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1800&h=1200&q=85&fit=crop',
+  width: 1800,
+  height: 1200,
+  format: 'webp'
+});
+
+const svcNam = await getImage({ src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcLabio = await getImage({ src: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcPaladar = await getImage({ src: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcRevision = await getImage({ src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcEncia = await getImage({ src: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcOrtognatica = await getImage({ src: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcRinoplastia = await getImage({ src: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcOtros = await getImage({ src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
 
 const title = 'Dr. Nico Sierra — Especialista en Fisura Labiopalatina | Barcelona';
 const description = 'Dr. Nico Sierra, cirujano dedicado exclusivamente a la fisura labiopalatina en Barcelona. Reconstrucción de labio fisurado, paladar hendido y cirugía de revisión para pacientes nacionales e internacionales.';
@@ -34,7 +51,7 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 ============================================================================ -->
 <header class="ns-scope ns-hero" role="banner">
   <div class="ns-hero__media">
-    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1800&q=85&fit=crop" alt="Dr. Nico Sierra — Especialista en fisura labiopalatina">
+    <img src="${heroImage.src}" alt="Dr. Nico Sierra — Especialista en fisura labiopalatina">
     <div class="ns-hero__veil" aria-hidden="true"></div>
   </div>
 
@@ -318,60 +335,60 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
   <div class="ns-svc-list" id="nsSvcList">
     <!-- Background image reveal layer -->
     <div class="ns-svc-list__bg" id="nsSvcBg" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80&fit=crop" alt="" id="nsSvcBgImg">
+      <img src="${svcNam.src}" alt="" id="nsSvcBgImg">
       <div class="ns-svc-list__bg-veil"></div>
     </div>
 
-    <a href="/nam" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80&fit=crop" style="--sc:#7C3AED">
+    <a href="/nam" class="ns-svc-row ns-reveal" data-img="${svcNam.src}" style="--sc:#7C3AED">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">01</span>
       <span class="ns-svc-row__name">Ortopedia Pre-operatoria <em>NAM</em></span>
       <span class="ns-svc-row__tag">Pre-quirúrgico</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/labio-fisurado" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&q=80&fit=crop" style="--sc:#C9186A">
+    <a href="/labio-fisurado" class="ns-svc-row ns-reveal" data-img="${svcLabio.src}" style="--sc:#C9186A">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">02</span>
       <span class="ns-svc-row__name">Reconstrucción de <em>Labio Fisurado</em></span>
       <span class="ns-svc-row__tag">Labio fisurado</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/paladar-hendido" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80&fit=crop" style="--sc:#008362">
+    <a href="/paladar-hendido" class="ns-svc-row ns-reveal" data-img="${svcPaladar.src}" style="--sc:#008362">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">03</span>
       <span class="ns-svc-row__name">Reconstrucción de <em>Paladar Hendido</em></span>
       <span class="ns-svc-row__tag">Paladar hendido</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/cirugia-revision" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&fit=crop" style="--sc:#0d74c4">
+    <a href="/cirugia-revision" class="ns-svc-row ns-reveal" data-img="${svcRevision.src}" style="--sc:#0d74c4">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">04</span>
       <span class="ns-svc-row__name"><em>Cirugía de Revisión</em></span>
       <span class="ns-svc-row__tag">Adultos · Revisión</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/encia" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&q=80&fit=crop" style="--sc:#16A34A">
+    <a href="/encia" class="ns-svc-row ns-reveal" data-img="${svcEncia.src}" style="--sc:#16A34A">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">05</span>
       <span class="ns-svc-row__name">Reconstrucción de <em>Encía</em></span>
       <span class="ns-svc-row__tag">Injerto óseo</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/ortognatica" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&q=80&fit=crop" style="--sc:#B45309">
+    <a href="/ortognatica" class="ns-svc-row ns-reveal" data-img="${svcOrtognatica.src}" style="--sc:#B45309">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">06</span>
       <span class="ns-svc-row__name">Cirugía <em>Ortognática</em> en FLP</span>
       <span class="ns-svc-row__tag">Maxilofacial</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/rinoplastia" class="ns-svc-row ns-reveal" data-img="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1200&q=80&fit=crop" style="--sc:#0891B2">
+    <a href="/rinoplastia" class="ns-svc-row ns-reveal" data-img="${svcRinoplastia.src}" style="--sc:#0891B2">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">07</span>
       <span class="ns-svc-row__name"><em>Rinoplastia</em> en FLP</span>
       <span class="ns-svc-row__tag">Funcional · Estética</span>
       <span class="ns-svc-row__arrow">→</span>
     </a>
-    <a href="/cuentanos-tu-historia" class="ns-svc-row ns-svc-row--otros ns-reveal" data-img="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80&fit=crop" style="--sc:#64748B">
+    <a href="/cuentanos-tu-historia" class="ns-svc-row ns-svc-row--otros ns-reveal" data-img="${svcOtros.src}" style="--sc:#64748B">
       <span class="ns-svc-row__dot"></span>
       <span class="ns-svc-row__num">08</span>
       <span class="ns-svc-row__name"><em>Otros</em> procedimientos</span>

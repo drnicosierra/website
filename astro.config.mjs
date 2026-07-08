@@ -5,5 +5,8 @@ export default defineConfig({
   trailingSlash: 'always',
   build: {
     format: 'directory'
+  },
+  image: {
+    domains: ['images.unsplash.com']
   }
 });
