@@ -268,15 +268,15 @@
     border-top: 1px solid var(--ns-line);
   }
 
-  /* Breathing light orb — follows scroll via JS class */
+  /* Breathing light orb — follows scroll via JS transform (composited, no layout cost) */
   .ns-orb {
     position:fixed;
     pointer-events:none;
     z-index:0;
     border-radius:50%;
     filter:blur(120px);
-    transition:top 1.2s var(--ns-ease), left 1.2s var(--ns-ease), opacity 1.2s ease;
-    will-change:top,left;
+    transition:transform 1.2s var(--ns-ease), opacity 1.2s ease;
+    will-change:transform;
   }
   .ns-orb-1 {
     width:700px; height:700px;

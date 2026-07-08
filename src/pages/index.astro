@@ -983,12 +983,12 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
       if(!ticking){
         requestAnimationFrame(function(){
           var p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-          // Orb 1: blue, moves diagonally down-right as you scroll
-          orb1.style.top  = (8 + p * 60) + 'vh';
-          orb1.style.left = (-10 + p * 30) + 'vw';
-          // Orb 2: teal, moves diagonally up-left
-          orb2.style.top  = (70 - p * 40) + 'vh';
-          orb2.style.right = (-5 + p * 20) + 'vw';
+          var vh = window.innerHeight / 100;
+          var vw = window.innerWidth / 100;
+          // Orb 1: blue, moves diagonally down-right as you scroll (was: top 8-68vh, left -10-20vw)
+          orb1.style.transform = 'translate3d(' + (30 * p * vw) + 'px,' + (60 * p * vh - 2 * vh) + 'px,0)';
+          // Orb 2: teal, moves diagonally up-left (was: top 70-30vh, right -5-15vw)
+          orb2.style.transform = 'translate3d(' + (-20 * p * vw) + 'px,' + (10 * vh - 40 * p * vh) + 'px,0)';
           ticking = false;
         });
         ticking = true;
