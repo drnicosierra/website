@@ -132,7 +132,7 @@
   .ns-btn-whatsapp:hover{background:#1ebe5a;transform:translateY(-1px);}
 
   /* --- Scroll reveal ---------------------------------------------------- */
-  .ns-reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms);}
+  .ns-reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms);will-change:transform;}
   .ns-reveal.is-visible{opacity:1;transform:none;}
   .ns-about__media.ns-reveal{transform:scale(0.97);}
   .ns-about__media.ns-reveal.is-visible{transform:scale(1);}
