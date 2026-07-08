@@ -21,6 +21,28 @@ const svcOtros = await getImage({ src: 'https://images.unsplash.com/photo-157609
 
 const doctorPhoto = await getImage({ src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1067&q=85&fit=crop&crop=faces', width: 800, height: 1067, format: 'webp' });
 
+const galleryUrls = [
+  'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=340&q=80&fit=crop&crop=faces',
+  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=340&q=80&fit=crop&crop=faces'
+];
+const galleryImages = await Promise.all(
+  galleryUrls.map((src) => getImage({ src, width: 400, height: 340, format: 'webp' }))
+);
+
 const title = 'Dr. Nico Sierra — Especialista en Fisura Labiopalatina | Barcelona';
 const description = 'Dr. Nico Sierra, cirujano dedicado exclusivamente a la fisura labiopalatina en Barcelona. Reconstrucción de labio fisurado, paladar hendido y cirugía de revisión para pacientes nacionales e internacionales.';
 const canonical = 'https://www.drnicosierra.com/';
@@ -506,8 +528,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="0">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 1"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 1"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[0].src}" alt="Antes — Caso 1"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[1].src}" alt="Después — Caso 1"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Labio fisurado</span>
@@ -518,8 +540,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="1">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 2"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 2"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[2].src}" alt="Antes — Caso 2"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[3].src}" alt="Después — Caso 2"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Revisión</span>
@@ -530,8 +552,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="2">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 3"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 3"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[4].src}" alt="Antes — Caso 3"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[5].src}" alt="Después — Caso 3"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Paladar hendido</span>
@@ -542,8 +564,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="3">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 4"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 4"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[6].src}" alt="Antes — Caso 4"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[7].src}" alt="Después — Caso 4"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Rinoplastia FLP</span>
@@ -554,8 +576,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="4">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 5"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 5"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[8].src}" alt="Antes — Caso 5"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[9].src}" alt="Después — Caso 5"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Ortognática</span>
@@ -566,8 +588,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="5">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 6"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 6"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[10].src}" alt="Antes — Caso 6"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[11].src}" alt="Después — Caso 6"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Encía</span>
@@ -578,8 +600,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="6">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 7"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 7"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[12].src}" alt="Antes — Caso 7"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[13].src}" alt="Después — Caso 7"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">Labio fisurado</span>
@@ -590,8 +612,8 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
 
       <article class="ns-ccase" data-index="7">
         <div class="ns-ccase__media">
-          <figure><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&q=80&fit=crop&crop=faces" alt="Antes — Caso 8"><figcaption>Antes</figcaption></figure>
-          <figure><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&fit=crop&crop=faces" alt="Después — Caso 8"><figcaption>Después</figcaption></figure>
+          <figure><img src="${galleryImages[14].src}" alt="Antes — Caso 8"><figcaption>Antes</figcaption></figure>
+          <figure><img src="${galleryImages[15].src}" alt="Después — Caso 8"><figcaption>Después</figcaption></figure>
         </div>
         <div class="ns-ccase__body">
           <span class="ns-ccase__tag">NAM</span>
