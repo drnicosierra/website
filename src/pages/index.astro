@@ -19,6 +19,8 @@ const svcOrtognatica = await getImage({ src: 'https://images.unsplash.com/photo-
 const svcRinoplastia = await getImage({ src: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
 const svcOtros = await getImage({ src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
 
+const doctorPhoto = await getImage({ src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1067&q=85&fit=crop&crop=faces', width: 800, height: 1067, format: 'webp' });
+
 const title = 'Dr. Nico Sierra — Especialista en Fisura Labiopalatina | Barcelona';
 const description = 'Dr. Nico Sierra, cirujano dedicado exclusivamente a la fisura labiopalatina en Barcelona. Reconstrucción de labio fisurado, paladar hendido y cirugía de revisión para pacientes nacionales e internacionales.';
 const canonical = 'https://www.drnicosierra.com/';
@@ -113,7 +115,7 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
     <!-- Row 1: image + text side by side, top-aligned -->
     <div class="ns-about__top">
       <figure class="ns-about__media ns-reveal">
-        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=85&fit=crop&crop=faces" alt="Dr. Nico Sierra — Especialista en fisura labiopalatina">
+        <img src="${doctorPhoto.src}" alt="Dr. Nico Sierra — Especialista en fisura labiopalatina">
         <div class="ns-about__media-mark" aria-hidden="true"></div>
       </figure>
       <div class="ns-about__text">
