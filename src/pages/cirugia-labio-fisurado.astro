@@ -88,7 +88,8 @@ const description = 'El Dr. Nico Sierra es especialista en cirugía de labio fis
 const canonical = 'https://www.drnicosierra.com/cirugia-labio-fisurado/';
 const ogTitle = 'Cirugía de Labio Fisurado en España | Dr. Nico Sierra';
 const ogDescription = 'Especialista en reconstrucción de labio fisurado en Barcelona. Casos primarios desde los primeros meses de vida y cirugía de revisión en adultos.';
-const ogImage = 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&q=80&fit=crop';
+const ogImageOptimized = await getImage({ src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=630&q=80&fit=crop', width: 1200, height: 630, format: 'jpg' });
+const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
 ---
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
   <Fragment slot="head" set:html={`

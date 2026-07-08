@@ -87,7 +87,8 @@ const description = 'El Dr. Nico Sierra es especialista en injerto óseo alveola
 const canonical = 'https://www.drnicosierra.com/injerto-oseo-alveolar/';
 const ogTitle = 'Reconstrucción de Encía — Injerto Óseo | Dr. Nico Sierra';
 const ogDescription = 'Especialista en injerto óseo alveolar para fisura labiopalatina en Barcelona. Reconstrucción del arco dental para erupción del canino definitivo.';
-const ogImage = 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&q=80&fit=crop';
+const ogImageOptimized = await getImage({ src: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=630&q=80&fit=crop', width: 1200, height: 630, format: 'jpg' });
+const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
 ---
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
   <Fragment slot="head" set:html={`

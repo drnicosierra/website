@@ -87,7 +87,8 @@ const description = 'El Dr. Nico Sierra es especialista en cirugía de revisión
 const canonical = 'https://www.drnicosierra.com/cirugia-revision-fisura/';
 const ogTitle = 'Cirugía de Revisión FLP | Dr. Nico Sierra Barcelona';
 const ogDescription = 'Especialista en corrección de resultados previos de labio fisurado y paladar hendido. Casos complejos. Barcelona.';
-const ogImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&fit=crop';
+const ogImageOptimized = await getImage({ src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=630&q=80&fit=crop', width: 1200, height: 630, format: 'jpg' });
+const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
 ---
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
   <Fragment slot="head" set:html={`
