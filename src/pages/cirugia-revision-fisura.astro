@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getImage } from 'astro:assets';
+
+const heroImage = await getImage({ src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&h=1200&q=85&fit=crop', width: 1800, height: 1200, format: 'webp' });
+const queEsImage = await getImage({ src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&q=80&fit=crop', width: 800, height: 600, format: 'webp' });
 
 const schemaBlocks = `<script type="application/ld+json">
 {
@@ -115,7 +119,7 @@ const ogImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=
 <section class="hero" aria-labelledby="hero-h1">
   <div class="hero-bg">
     <!-- REPLACE src with service-specific hero image -->
-    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&q=85&fit=crop" alt="Cirugía de reconstrucción de labio fisurado — Dr. Nico Sierra Barcelona">
+    <img src="${heroImage.src}" alt="Cirugía de reconstrucción de labio fisurado — Dr. Nico Sierra Barcelona">
     <div class="hero-veil"></div>
   </div>
   <div class="hero-accent" aria-hidden="true"></div>
@@ -158,7 +162,7 @@ const ogImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=
       </div>
       <div class="que-es-img reveal-scale rv2">
         <!-- REPLACE src with procedure-specific image -->
-        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80&fit=crop" alt="Cirugía de labio fisurado fisura labiopalatina — Dr. Nico Sierra Barcelona">
+        <img src="${queEsImage.src}" alt="Cirugía de labio fisurado fisura labiopalatina — Dr. Nico Sierra Barcelona">
         <div class="que-es-img-placeholder" aria-hidden="true" style="display:none">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           <span>IMAGEN_{'labio-fisurado'.upper().replace('-','_')}</span>
