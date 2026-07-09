@@ -3,19 +3,16 @@
   "procedureName": "Reconstrucción de Labio Fisurado",
   "bodyLocation": "Labio",
   "accentColor": "#a01255",
-
   "title": "Cirugía de Labio Fisurado en España | Dr. Nico Sierra",
   "description": "Dr. Nico Sierra, especialista en cirugía de labio fisurado en España. +1.000 cirugías. Reconstrucción primaria y de revisión en Barcelona. Cuéntanos tu caso.",
   "ogTitle": "Cirugía de Labio Fisurado en España | Dr. Nico Sierra",
   "ogDescription": "Especialista en reconstrucción de labio fisurado en Barcelona. Casos primarios desde los primeros meses de vida y cirugía de revisión en adultos.",
   "heroImageQuery": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1800&h=1200&q=85&fit=crop",
   "queEsImageQuery": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&h=600&q=80&fit=crop",
-
   "hero": {
     "h1": "Cirugía de <em>labio fisurado</em> en España",
     "lead": "Reconstrucción primaria y de revisión del labio fisurado. El Dr. Nico Sierra realiza más de 100 intervenciones al año, desde bebés de pocos meses hasta adultos con secuelas de cirugías previas."
   },
-
   "queEs": {
     "firstParagraph": "La cirugía de reconstrucción de labio fisurado es el procedimiento mediante el cual se corrige la hendidura congénita del labio superior en personas nacidas con fisura labiopalatina. El objetivo es restaurar la continuidad del labio, reconstruir el músculo orbicular y lograr un resultado estético y funcional que permita al paciente alimentarse, hablar y desarrollarse con normalidad.",
     "paragraphs": [
@@ -23,7 +20,6 @@
       "La cirugía primaria de labio fisurado se realiza habitualmente en los primeros meses de vida, cuando el bebé ha alcanzado el peso y la estabilidad necesarios. Sin embargo, el Dr. Sierra también trata adolescentes y adultos que buscan mejorar el resultado de una intervención previa a través de la cirugía de revisión."
     ]
   },
-
   "cuando": {
     "intro": "La reconstrucción de labio fisurado está indicada en distintos momentos del desarrollo. El Dr. Nico Sierra evalúa cada caso individualmente para determinar el momento óptimo de intervención.",
     "items": [
@@ -49,7 +45,6 @@
       }
     ]
   },
-
   "proceso": {
     "intro": "La cirugía de labio fisurado se realiza bajo anestesia general pediátrica. A continuación se describe el proceso habitual, desde la preparación hasta el alta y el seguimiento.",
     "steps": [
@@ -75,18 +70,19 @@
       }
     ]
   },
-
   "resultados": {
     "intro": "Los resultados de la cirugía de labio fisurado dependen directamente de la experiencia del cirujano y de la técnica empleada. El Dr. Sierra busca en cada caso el equilibrio entre función, estética y mínimo impacto sobre el tejido."
   },
-
   "porQue": {
     "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
-    "entities": ["UFPR", "Operation Smile", "Springer"],
+    "entities": [
+      "UFPR",
+      "Operation Smile",
+      "Springer"
+    ],
     "quote": "La primera cirugía de labio fisurado condiciona todo lo que viene después. Por eso merece la máxima atención técnica y la mayor experiencia posible."
   },
-
   "faq": [
     {
       "question": "¿A qué edad se opera el labio fisurado?",
@@ -109,12 +105,24 @@
       "answer": "En muchos casos de labio fisurado, la nariz también presenta una deformidad asociada: la aleta nasal del lado afectado puede estar desplazada o aplanada. El Dr. Nico Sierra valora en cada caso si es necesario incluir una corrección nasal simultánea durante la cirugía primaria de labio fisurado. En pacientes que ya han sido operados, la rinoplastia específica para fisura labiopalatina puede planificarse más adelante como un procedimiento independiente."
     }
   ],
-
   "relatedLinks": [
-    { "slug": "cirugia-paladar-hendido", "name": "Reconstrucción de Paladar Hendido", "num": "03" },
-    { "slug": "ortopedia-prequirurgica-nam", "name": "Ortopedia Pre-operatoria NAM", "num": "01" },
-    { "slug": "cirugia-revision-fisura", "name": "Cirugía de Revisión", "num": "04" }
+    {
+      "slug": "cirugia-paladar-hendido",
+      "name": "Reconstrucción de Paladar Hendido",
+      "num": "03"
+    },
+    {
+      "slug": "ortopedia-prequirurgica-nam",
+      "name": "Ortopedia Pre-operatoria NAM",
+      "num": "01"
+    },
+    {
+      "slug": "cirugia-revision-fisura",
+      "name": "Cirugía de Revisión",
+      "num": "04"
+    }
   ],
-
-  "whatsappNumber": "WHATSAPP_NUMBER"
+  "whatsappNumber": "WHATSAPP_NUMBER",
+  "indexNum": "02",
+  "indexTeaser": "Cirugía primaria y de revisión del labio fisurado en todas las edades."
 }

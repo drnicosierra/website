@@ -105,6 +105,12 @@ const services = defineCollection({
 
     // Global placeholders not yet resolved
     whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
+
+    // Optional fields used by the como-te-ayudamos index page, so that page
+    // can be generated directly from this collection instead of duplicating
+    // service names/colors/order in a second place.
+    indexNum: z.string().regex(/^\d{2}$/).optional(),
+    indexTeaser: z.string().max(160).optional(),
   })
   // Cross-field rule: Operation Smile and Smile Train must never appear together
   .refine(
@@ -121,4 +127,74 @@ const services = defineCollection({
   ),
 });
 
-export const collections = { services };
+// ── About page (singleton) ────────────────────────────────────────────────
+
+const about = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().min(120).max(160),
+    canonical: z.string(),
+    ogTitle: z.string(),
+    ogDescription: z.string(),
+    schemaEntities: z.array(credentialEntity).min(1),
+    hero: z.object({
+      eyebrow: z.string(),
+      h1: z.string(),
+      lead: z.string(),
+    }),
+    bio: z.object({
+      paragraphs: z.array(z.string()).min(2).max(4),
+      credentials: z.array(z.object({
+        title: z.string(),
+        text: z.string(),
+        accentColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+      })).min(3).max(6),
+    }),
+    cta: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      text: z.string(),
+    }),
+    whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
+  })
+  .refine(
+    (data) => !(data.schemaEntities.includes('Operation Smile') && data.schemaEntities.includes('Smile Train')),
+    { message: 'Operation Smile and Smile Train must never appear together (per project rule).', path: ['schemaEntities'] }
+  )
+  .refine(
+    (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
+    { message: '"labio leporino" is forbidden — use "labio fisurado" per clinical terminology rules.' }
+  ),
+});
+
+// ── Tu Camino Con Nosotros page (singleton) ───────────────────────────────
+
+const camino = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().min(120).max(160),
+    canonical: z.string(),
+    ogTitle: z.string(),
+    ogDescription: z.string(),
+    hero: z.object({
+      eyebrow: z.string(),
+      h1: z.string(),
+      lead: z.string(),
+    }),
+    steps: z.array(z.object({
+      num: z.string().regex(/^\d{2}$/),
+      title: z.string(),
+      text: z.string(),
+    })).min(3).max(6),
+    ctaLabel: z.string(),
+    ctaHref: z.string(),
+  })
+  .refine(
+    (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
+    { message: '"labio leporino" is forbidden — use "labio fisurado" per clinical terminology rules.' }
+  ),
+});
+
+export const collections = { services, about, camino };

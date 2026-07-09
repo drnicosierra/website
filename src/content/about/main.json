@@ -1,0 +1,52 @@
+{
+  "title": "Dr. Nico Sierra — Especialista en Fisura Labiopalatina | Barcelona",
+  "description": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y FLP. Más de 1.000 cirugías. Barcelona.",
+  "canonical": "https://www.drnicosierra.com/sobre-dr-nico-sierra/",
+  "ogTitle": "Dr. Nico Sierra — Especialista en Fisura Labiopalatina",
+  "ogDescription": "Cirujano especialista en fisura labiopalatina en Barcelona. Fellowship en UFPR Brasil. Operation Smile. Más de 1.000 procedimientos.",
+  "schemaEntities": ["UFPR", "Operation Smile", "Springer"],
+
+  "hero": {
+    "eyebrow": "Cirujano especialista en fisura labiopalatina",
+    "h1": "Dr. Nico Sierra",
+    "lead": "El único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina. Más de 1.000 procedimientos. Dedicación exclusiva a la FLP."
+  },
+
+  "bio": {
+    "paragraphs": [
+      "Con más de 100 cirugías anuales, el Dr. Nico Sierra acompaña a cada paciente desde el primer momento con un plan de tratamiento completamente personalizado, diseñado para dar respuesta a sus necesidades físicas, funcionales y emocionales en cada etapa de su desarrollo.",
+      "Referente nacional e internacional en cirugía reconstructiva de fisura labiopalatina, su enfoque integra las especialidades médicas y odontológicas necesarias en cada fase, coordinando equipos interdisciplinares con el rigor y la experiencia que cada caso exige.",
+      "Es especialista de referencia para quienes necesitan corregir las secuelas de tratamientos previos. Su objetivo es siempre el mismo: devolver la armonía facial, la función y la confianza a pacientes de todas las edades. Porque nunca es tarde para sentirse mejor."
+    ],
+    "credentials": [
+      {
+        "title": "Fellowship en Cirugía Craneofacial y FLP",
+        "text": "Universidad Federal de Paraná (UFPR), Brasil — uno de los centros de referencia mundial para esta especialidad.",
+        "accentColor": "#7C3AED"
+      },
+      {
+        "title": "Más de 1.000 cirugías de fisura labiopalatina",
+        "text": "Más de 100 intervenciones al año. Casos primarios, revisiones complejas y familias internacionales.",
+        "accentColor": "#008362"
+      },
+      {
+        "title": "Operation Smile",
+        "text": "Misiones quirúrgicas en más de cuatro continentes. Publicación en Springer sobre cirugía FLP en recursos limitados.",
+        "accentColor": "#0d74c4"
+      },
+      {
+        "title": "Pacientes de toda España y Europa",
+        "text": "Valoración por telemedicina. Logística coordinada para familias internacionales.",
+        "accentColor": "#a01255"
+      }
+    ]
+  },
+
+  "cta": {
+    "eyebrow": "¿Tienes un caso de fisura labiopalatina?",
+    "h2": "El Dr. Sierra revisa personalmente cada caso.",
+    "text": "Escríbenos y te contestamos con honestidad en menos de 24 horas."
+  },
+
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

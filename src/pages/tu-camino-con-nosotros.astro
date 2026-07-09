@@ -1,50 +1,35 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from 'astro:content';
 
-const title = 'Tu Camino con Nosotros | Dr. Nico Sierra — Fisura Labiopalatina';
-const description = 'Conoce el proceso de atención del Dr. Nico Sierra para pacientes con fisura labiopalatina. Desde la primera consulta hasta el seguimiento postoperatorio.';
-const canonical = 'https://www.drnicosierra.com/tu-camino-con-nosotros/';
-const ogTitle = 'Tu Camino con Nosotros | Dr. Nico Sierra';
-const ogDescription = 'Proceso de atención para pacientes con fisura labiopalatina. Consulta, valoración, cirugía y seguimiento.';
+const entry = await getEntry('camino', 'main');
+if (!entry) throw new Error('Missing content entry: camino/main');
+const d = entry.data;
 ---
-<Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription}>
-  <Fragment slot="head" set:html={`
-`} />
-  <Fragment set:html={`
-<main>
-<section style="min-height:50vh;background:#001629;display:flex;align-items:flex-end;padding:120px clamp(20px,4vw,48px) 80px;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,18,41,0.9) 0%,rgba(0,18,41,0.7) 100%);"></div>
-  <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
-    <div class="sh">
-      <div class="eyebrow" style="color:#4db896;">Tu camino con nosotros</div>
-      <h1>De tu primera consulta a la transformación.</h1>
-      <p class="lead">Cada familia que llega al Dr. Sierra recorre un camino claro, acompañado en cada paso.</p>
-    </div>
-  </div>
-</section>
-<section class="section" style="background:#001e2e;">
-  <div class="container" style="max-width:760px;">
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,131,98,0.15);border:1px solid rgba(0,131,98,0.3);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;color:#4db896;">01</div>
-  <div><h3 style="color:#fff;margin-bottom:8px;">Nos escribes</h3><p>Envías fotos y una descripción de tu caso. El Dr. Sierra lo revisa personalmente y te responde en menos de 24 horas.</p></div>
-</div>
-<div style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,131,98,0.15);border:1px solid rgba(0,131,98,0.3);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;color:#4db896;">02</div>
-  <div><h3 style="color:#fff;margin-bottom:8px;">Valoramos tu caso</h3><p>Consulta presencial o telemática. Plan quirúrgico claro, honesto y sin compromisos.</p></div>
-</div>
-<div style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,131,98,0.15);border:1px solid rgba(0,131,98,0.3);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;color:#4db896;">03</div>
-  <div><h3 style="color:#fff;margin-bottom:8px;">La cirugía</h3><p>Intervención en Barcelona con equipo especializado. Coordinamos la logística para pacientes internacionales.</p></div>
-</div>
-<div style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,131,98,0.15);border:1px solid rgba(0,131,98,0.3);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;color:#4db896;">04</div>
-  <div><h3 style="color:#fff;margin-bottom:8px;">Te acompañamos</h3><p>Seguimiento postoperatorio cercano, presencial o a distancia, el tiempo que sea necesario.</p></div>
-</div>
-    <div style="padding-top:48px;text-align:center;">
-      <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Empezar ahora →</a>
-    </div>
-  </div>
-</section>
-</main>
-`} />
+<Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription}>
+  <main>
+    <section style="min-height:50vh;background:#001629;display:flex;align-items:flex-end;padding:120px clamp(20px,4vw,48px) 80px;position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,18,41,0.9) 0%,rgba(0,18,41,0.7) 100%);"></div>
+      <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
+        <div class="sh">
+          <div class="eyebrow" style="color:#4db896;">{d.hero.eyebrow}</div>
+          <h1>{d.hero.h1}</h1>
+          <p class="lead">{d.hero.lead}</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="background:#001e2e;">
+      <div class="container" style="max-width:760px;">
+        {d.steps.map((step) => (
+          <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,131,98,0.15);border:1px solid rgba(0,131,98,0.3);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;color:#4db896;">{step.num}</div>
+            <div><h3 style="color:#fff;margin-bottom:8px;">{step.title}</h3><p>{step.text}</p></div>
+          </div>
+        ))}
+        <div style="padding-top:48px;text-align:center;">
+          <a href={d.ctaHref} class="btn btn-ghost">{d.ctaLabel}</a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
