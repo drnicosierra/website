@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
+import dmSans400 from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
 import dmSans500 from '@fontsource/dm-sans/files/dm-sans-latin-500-normal.woff2?url';
 import spaceGrotesk400 from '@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2?url';
+import spaceGrotesk500 from '@fontsource/space-grotesk/files/space-grotesk-latin-500-normal.woff2?url';
 import spaceGrotesk600 from '@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2?url';
 
 export interface Props {
@@ -32,8 +34,10 @@ const {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="preload" as="font" type="font/woff2" href={dmSans400} crossorigin>
 <link rel="preload" as="font" type="font/woff2" href={dmSans500} crossorigin>
 <link rel="preload" as="font" type="font/woff2" href={spaceGrotesk400} crossorigin>
+<link rel="preload" as="font" type="font/woff2" href={spaceGrotesk500} crossorigin>
 <link rel="preload" as="font" type="font/woff2" href={spaceGrotesk600} crossorigin>
 
 <title>{title}</title>
