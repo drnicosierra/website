@@ -1,0 +1,126 @@
+{
+  "slug": "ortopedia-prequirurgica-nam",
+  "procedureName": "Ortopedia Pre-operatoria NAM",
+  "bodyLocation": "Labio, Nariz, Alvéolo",
+  "accentColor": "#7C3AED",
+  "title": "Ortopedia Prequirúrgica NAM | Dr. Nico Sierra",
+  "description": "El Dr. Nico Sierra ofrece ortopedia NAM prequirúrgica para bebés con fisura labiopalatina en Barcelona. Moldeado nasoalveolar antes de la primera cirugía.",
+  "ogTitle": "Ortopedia NAM Prequirúrgica | Dr. Nico Sierra Barcelona",
+  "ogDescription": "Moldeado nasoalveolar (NAM) para bebés con fisura labiopalatina. Preparación óptima antes de la cirugía primaria de labio fisurado.",
+  "heroImageQuery": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1800&h=1200&q=85&fit=crop",
+  "queEsImageQuery": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=600&q=80&fit=crop",
+  "hero": {
+    "h1": "Ortopedia pre-operatoria <em>NAM</em> para fisura labiopalatina",
+    "lead": "Moldeado nasoalveolar prequirúrgico para bebés con fisura labiopalatina. El NAM prepara los tejidos antes de la primera cirugía, mejorando el resultado estético y funcional final."
+  },
+  "queEs": {
+    "firstParagraph": "La ortopedia NAM (Nasoalveolar Molding) es un tratamiento prequirúrgico que se inicia en las primeras semanas de vida del bebé con fisura labiopalatina. Mediante un dispositivo intraoral de acrílico con una extensión nasal, se moldean progresivamente los tejidos del labio, la nariz y el alvéolo antes de la primera cirugía, con el objetivo de mejorar el resultado estético y funcional final.",
+    "paragraphs": [
+      "El NAM actúa sobre la plasticidad natural de los tejidos del recién nacido, que en las primeras semanas son especialmente maleables gracias a la presencia de estrógenos maternos. Este período es la ventana óptima para iniciar el tratamiento y maximizar sus beneficios antes de la cirugía primaria de labio fisurado.",
+      "El Dr. Nico Sierra coordina el tratamiento NAM como parte del plan integral de cada bebé con fisura labiopalatina, trabajando en estrecha colaboración con la familia para garantizar el uso correcto del dispositivo y el seguimiento necesario."
+    ]
+  },
+  "cuando": {
+    "intro": "El NAM está indicado en bebés con fisura labiopalatina que van a ser intervenidos quirúrgicamente. El momento de inicio es crítico para su efectividad.",
+    "items": [
+      {
+        "title": "Fisura labiopalatina unilateral",
+        "text": "El NAM está indicado en bebés con fisura labiopalatina unilateral para reducir la brecha entre los segmentos del labio y mejorar la proyección y simetría nasal antes de la cirugía primaria.",
+        "icon": "pulse"
+      },
+      {
+        "title": "Fisura labiopalatina bilateral",
+        "text": "En fisuras bilaterales el NAM es especialmente valioso para reposicionar la premaxila y reducir la protrusión nasal, facilitando significativamente la cirugía primaria de labio fisurado.",
+        "icon": "clock"
+      },
+      {
+        "title": "Inicio en las primeras semanas",
+        "text": "El NAM debe iniciarse en las primeras 2-4 semanas de vida para aprovechar la plasticidad máxima de los tejidos. Cuanto antes se inicia, más efectivo y eficiente es el tratamiento.",
+        "icon": "family"
+      },
+      {
+        "title": "Preparación para cirugía a los 3-6 meses",
+        "text": "El objetivo del NAM es optimizar las condiciones de los tejidos antes de la cirugía primaria de labio fisurado, prevista entre los 3 y los 6 meses de vida del bebé.",
+        "icon": "ribbon"
+      }
+    ]
+  },
+  "proceso": {
+    "intro": "El tratamiento NAM requiere un compromiso importante por parte de la familia. A continuación se describe el proceso desde el inicio hasta la cirugía primaria.",
+    "steps": [
+      {
+        "title": "Primera visita y toma de impresión",
+        "text": "En las primeras semanas de vida se realiza la toma de impresión del paladar del bebé. El dispositivo NAM se fabrica individualmente y se entrega a la familia con instrucciones detalladas de uso.",
+        "timeframe": "Primeras 2-4 semanas de vida"
+      },
+      {
+        "title": "Uso del dispositivo",
+        "text": "El bebé lleva el dispositivo NAM las 24 horas del día. La familia aprende a colocarlo, limpiarlo y mantenerlo. Los ajustes progresivos se realizan en visitas semanales.",
+        "timeframe": "Visitas semanales de ajuste"
+      },
+      {
+        "title": "Progreso y monitorización",
+        "text": "A lo largo de 8-12 semanas se va moldeando progresivamente el labio, la nariz y el alvéolo. El Dr. Sierra evalúa el progreso en cada visita y ajusta el dispositivo.",
+        "timeframe": "8 – 12 semanas de tratamiento"
+      },
+      {
+        "title": "Preparación para la cirugía",
+        "text": "Al finalizar el tratamiento NAM los tejidos están en las mejores condiciones para la cirugía primaria de labio fisurado. El resultado final de la cirugía es significativamente mejor.",
+        "timeframe": "Previo a la cirugía primaria"
+      }
+    ]
+  },
+  "resultados": {
+    "intro": "El NAM mejora significativamente las condiciones de los tejidos antes de la cirugía, permitiendo al Dr. Sierra obtener mejores resultados estéticos y funcionales en la cirugía primaria."
+  },
+  "porQue": {
+    "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
+    "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
+    "entities": [
+      "UFPR",
+      "Operation Smile",
+      "Springer"
+    ],
+    "quote": "El NAM no es solo una técnica — es una inversión en el resultado final de la cirugía. Los tejidos bien preparados permiten una reconstrucción más precisa y un resultado más natural."
+  },
+  "faq": [
+    {
+      "question": "¿Qué es la ortopedia prequirúrgica NAM?",
+      "answer": "El NAM (Nasoalveolar Molding) es un dispositivo prequirúrgico que moldea los tejidos del labio, la nariz y el alvéolo antes de la cirugía primaria de labio fisurado. Su objetivo es reducir la brecha entre los segmentos del labio, mejorar la proyección nasal y optimizar las condiciones de los tejidos para la cirugía, consiguiendo un mejor resultado estético y funcional final."
+    },
+    {
+      "question": "¿Cuándo debe empezar el tratamiento con NAM?",
+      "answer": "El NAM debe iniciarse en las primeras 2 a 4 semanas de vida del bebé, cuando los tejidos son más plásticos gracias a los estrógenos maternos. Cuanto antes se inicia, más efectivo es el tratamiento. El Dr. Nico Sierra recomienda contactar con su equipo en cuanto se produce el diagnóstico para planificar el inicio del NAM."
+    },
+    {
+      "question": "¿Es doloroso el dispositivo NAM para el bebé?",
+      "answer": "El dispositivo NAM puede causar incomodidad inicial pero no produce dolor. Los bebés se adaptan al dispositivo en pocos días. La familia recibe instrucciones detalladas sobre cómo colocarlo y retirarlo, y el Dr. Sierra está disponible para resolver cualquier duda durante el tratamiento."
+    },
+    {
+      "question": "¿Cuánto dura el tratamiento con NAM?",
+      "answer": "El tratamiento NAM dura habitualmente entre 8 y 12 semanas, con visitas semanales de ajuste. La duración exacta depende de la extensión de la fisura y de la respuesta del tejido al moldeado. El tratamiento finaliza cuando los tejidos están listos para la cirugía primaria."
+    },
+    {
+      "question": "¿Es obligatorio el NAM antes de la cirugía de labio fisurado?",
+      "answer": "El NAM no es obligatorio para realizar la cirugía de labio fisurado, pero mejora significativamente las condiciones de los tejidos y el resultado final de la intervención. El Dr. Nico Sierra evalúa en cada caso si el NAM está indicado y coordina el tratamiento cuando es beneficioso para el paciente."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "slug": "cirugia-labio-fisurado",
+      "num": "02",
+      "name": "Reconstrucción de Labio Fisurado"
+    },
+    {
+      "slug": "cirugia-paladar-hendido",
+      "num": "03",
+      "name": "Reconstrucción de Paladar Hendido"
+    },
+    {
+      "slug": "cirugia-revision-fisura",
+      "num": "04",
+      "name": "Cirugía de Revisión"
+    }
+  ],
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

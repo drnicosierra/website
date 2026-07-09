@@ -1,0 +1,126 @@
+{
+  "slug": "injerto-oseo-alveolar",
+  "procedureName": "Reconstrucción de Encía — Injerto Óseo",
+  "bodyLocation": "Alvéolo, Encía",
+  "accentColor": "#16A34A",
+  "title": "Injerto Óseo Alveolar | Dr. Nico Sierra",
+  "description": "El Dr. Nico Sierra es especialista en injerto óseo alveolar e implante de encía en fisura labiopalatina. Reconstrucción del arco dental. Barcelona.",
+  "ogTitle": "Reconstrucción de Encía — Injerto Óseo | Dr. Nico Sierra",
+  "ogDescription": "Especialista en injerto óseo alveolar para fisura labiopalatina en Barcelona. Reconstrucción del arco dental para erupción del canino definitivo.",
+  "heroImageQuery": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1800&h=1200&q=85&fit=crop",
+  "queEsImageQuery": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&q=80&fit=crop",
+  "hero": {
+    "h1": "Reconstrucción de <em>encía</em> e injerto óseo alveolar",
+    "lead": "Injerto óseo alveolar para completar el arco dental en pacientes con fisura labiopalatina. El Dr. Nico Sierra realiza esta intervención como parte del tratamiento integral de cada paciente."
+  },
+  "queEs": {
+    "firstParagraph": "El injerto óseo alveolar en fisura labiopalatina es el procedimiento mediante el cual se reconstruye la discontinuidad del hueso de la encía (alvéolo) en la zona de la fisura. El objetivo es proporcionar soporte óseo para la erupción del canino definitivo, estabilizar el arco dental y cerrar cualquier fístula oronasal residual.",
+    "paragraphs": [
+      "La fisura labiopalatina afecta al hueso alveolar, creando una discontinuidad en el arco dental. Sin tratamiento, esta falta de hueso impide la erupción normal del canino definitivo y puede causar problemas de estabilidad del arco y fístulas persistentes.",
+      "El Dr. Nico Sierra realiza el injerto óseo alveolar como parte del plan integral de tratamiento de la fisura labiopalatina, coordinándose con el ortodontista del paciente para optimizar el momento de la intervención y el resultado final."
+    ]
+  },
+  "cuando": {
+    "intro": "El injerto óseo alveolar se realiza en un momento específico del desarrollo dental. La planificación es clave para maximizar el resultado.",
+    "items": [
+      {
+        "title": "Antes de la erupción del canino definitivo",
+        "text": "El momento óptimo para el injerto óseo alveolar es cuando el canino definitivo tiene entre un tercio y la mitad de su raíz formada, habitualmente entre los 7 y los 11 años.",
+        "icon": "pulse"
+      },
+      {
+        "title": "Fístula oronasal residual",
+        "text": "El injerto óseo está indicado también cuando existe una fístula oronasal residual en la zona alveolar que causa problemas con la alimentación, el habla o la higiene oral.",
+        "icon": "clock"
+      },
+      {
+        "title": "Inestabilidad del arco dental",
+        "text": "La falta de hueso alveolar puede causar inestabilidad del arco y dificultades ortodóncicas. El injerto proporciona la base ósea necesaria para el tratamiento de ortodoncia.",
+        "icon": "family"
+      },
+      {
+        "title": "Previo a implantes en adultos",
+        "text": "En adultos que no recibieron el injerto en la infancia, el injerto óseo alveolar puede realizarse como preparación para la colocación de un implante dental en la zona de la fisura.",
+        "icon": "ribbon"
+      }
+    ]
+  },
+  "proceso": {
+    "intro": "El injerto óseo alveolar requiere coordinación con ortodoncia y una planificación cuidadosa del momento. A continuación se describe el proceso completo.",
+    "steps": [
+      {
+        "title": "Coordinación ortodóncica",
+        "text": "Expansión prequirúrgica del arco con ortodoncia para optimizar el espacio receptor del injerto. El Dr. Sierra coordina el momento de la cirugía con el ortodontista del paciente.",
+        "timeframe": "6-12 meses de ortodoncia previa"
+      },
+      {
+        "title": "La intervención",
+        "text": "La cirugía dura aproximadamente 1,5 horas. Se obtiene hueso esponjoso de la cresta ilíaca y se injerta en el defecto alveolar. La herida del donante se cierra en el mismo acto.",
+        "timeframe": "1,5 horas en quirófano"
+      },
+      {
+        "title": "Recuperación",
+        "text": "El paciente permanece ingresado 24-48 horas. La zona del injerto requiere cuidados especiales durante 2-3 semanas. Se mantiene la ortodoncia durante el período de integración.",
+        "timeframe": "24 – 48h de ingreso"
+      },
+      {
+        "title": "Erupción del canino",
+        "text": "A los 3-6 meses del injerto se verifica la integración ósea mediante radiografía. El orthodontista guía la erupción del canino definitivo a través del hueso injertado.",
+        "timeframe": "Control a 3-6 meses"
+      }
+    ]
+  },
+  "resultados": {
+    "intro": "Un injerto óseo alveolar bien realizado en el momento adecuado permite la erupción normal del canino, estabiliza el arco dental y completa el tratamiento integral de la fisura labiopalatina."
+  },
+  "porQue": {
+    "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
+    "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
+    "entities": [
+      "UFPR",
+      "Operation Smile",
+      "Springer"
+    ],
+    "quote": "El injerto óseo es el puente entre la cirugía primaria y el resultado dental definitivo. Hacerlo en el momento correcto y con la técnica adecuada marca la diferencia para toda la vida."
+  },
+  "faq": [
+    {
+      "question": "¿Qué es el injerto óseo alveolar?",
+      "answer": "El injerto óseo alveolar es el procedimiento que reconstruye el hueso de la encía en la zona de la fisura labiopalatina. Su función principal es proporcionar soporte óseo para la erupción del canino definitivo, estabilizar el arco dental y cerrar fístulas oronasales residuales. Es una parte fundamental del tratamiento integral de la fisura labiopalatina."
+    },
+    {
+      "question": "¿A qué edad se realiza el injerto óseo alveolar?",
+      "answer": "El injerto óseo alveolar se realiza habitualmente entre los 7 y los 11 años, cuando el canino definitivo tiene entre un tercio y la mitad de su raíz formada. Este momento es crítico: realizarlo antes o después reduce significativamente las posibilidades de erupción normal del canino. El Dr. Sierra coordina el momento exacto con el ortodontista del paciente."
+    },
+    {
+      "question": "¿De dónde se obtiene el hueso para el injerto óseo alveolar?",
+      "answer": "El hueso para el injerto óseo alveolar se obtiene habitualmente de la cresta ilíaca, en la cadera. La cantidad necesaria es pequeña y la zona donante cicatriza sin secuelas significativas. El Dr. Sierra cierra la herida del donante en el mismo acto quirúrgico."
+    },
+    {
+      "question": "¿Es necesaria la ortodoncia antes del injerto óseo alveolar?",
+      "answer": "En la mayoría de los casos sí. La ortodoncia prequirúrgica expande el arco dental para optimizar el espacio receptor del injerto y mejorar el resultado. El Dr. Sierra coordina el tratamiento de ortodoncia con el especialista del paciente antes de planificar la cirugía."
+    },
+    {
+      "question": "¿Se puede realizar el injerto óseo alveolar en adultos?",
+      "answer": "Sí. Aunque el momento óptimo es en la infancia, el injerto óseo alveolar puede realizarse en adultos que no lo recibieron en su momento, especialmente como preparación para la colocación de un implante dental en la zona de la fisura. El Dr. Sierra evalúa cada caso individualmente."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "slug": "cirugia-paladar-hendido",
+      "num": "03",
+      "name": "Reconstrucción de Paladar Hendido"
+    },
+    {
+      "slug": "cirugia-ortognatica-flp",
+      "num": "06",
+      "name": "Cirugía Ortognática en FLP"
+    },
+    {
+      "slug": "cirugia-labio-fisurado",
+      "num": "02",
+      "name": "Reconstrucción de Labio Fisurado"
+    }
+  ],
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

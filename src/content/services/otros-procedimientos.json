@@ -1,0 +1,126 @@
+{
+  "slug": "otros-procedimientos",
+  "procedureName": "Otros Procedimientos",
+  "bodyLocation": "Variable según procedimiento",
+  "accentColor": "#64748B",
+  "title": "Otros Procedimientos FLP | Dr. Nico Sierra",
+  "description": "El Dr. Nico Sierra trata todos los procedimientos relacionados con la fisura labiopalatina. ¿No encuentras lo que buscas? Cuéntanos tu caso en Barcelona.",
+  "ogTitle": "Otros Procedimientos FLP | Dr. Nico Sierra Barcelona",
+  "ogDescription": "Procedimientos complementarios para fisura labiopalatina en Barcelona. Cuéntanos tu caso y el Dr. Sierra te orientará.",
+  "heroImageQuery": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1800&h=1200&q=85&fit=crop",
+  "queEsImageQuery": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&h=600&q=80&fit=crop",
+  "hero": {
+    "h1": "Otros <em>procedimientos</em> en fisura labiopalatina",
+    "lead": "Procedimientos complementarios dentro del tratamiento integral de la fisura labiopalatina. Si no encuentras lo que buscas, cuéntanos tu caso."
+  },
+  "queEs": {
+    "firstParagraph": "El tratamiento de la fisura labiopalatina es un recorrido largo y multidisciplinar que puede incluir procedimientos complementarios más allá de las ocho intervenciones principales. El Dr. Nico Sierra aborda todos los aspectos del tratamiento integral de la fisura, coordinando con otros especialistas cuando es necesario.",
+    "paragraphs": [
+      "Entre los procedimientos complementarios más frecuentes se encuentran: faringoplastia para la insuficiencia velofaríngea, cierre de fístulas oronasales complejas, procedimientos de aumento de volumen labial, cicatrices queloides, intervenciones de logopedia quirúrgica y otras correcciones secundarias.",
+      "Si no encuentras en la lista de tratamientos principales lo que necesitas, escríbenos directamente. El Dr. Sierra revisa personalmente cada caso y te orienta sobre las opciones disponibles para tu situación específica."
+    ]
+  },
+  "cuando": {
+    "intro": "Los procedimientos complementarios se indican cuando las intervenciones principales no han resuelto completamente todos los aspectos de la fisura labiopalatina.",
+    "items": [
+      {
+        "title": "Insuficiencia velofaríngea residual",
+        "text": "La faringoplastia está indicada cuando persiste insuficiencia velofaríngea tras el cierre del paladar, causando un habla nasal que no mejora con logopedia.",
+        "icon": "pulse"
+      },
+      {
+        "title": "Fístulas oronasales complejas",
+        "text": "El cierre de fístulas oronasales complejas o recidivantes puede requerir técnicas avanzadas de reconstrucción con colgajos locales o regionales.",
+        "icon": "clock"
+      },
+      {
+        "title": "Secuelas estéticas secundarias",
+        "text": "El volumen labial reducido, las cicatrices queloides o las deformidades menores pueden tratarse con procedimientos complementarios adaptados a cada caso.",
+        "icon": "family"
+      },
+      {
+        "title": "Casos no contemplados en los tratamientos principales",
+        "text": "Cada paciente con fisura labiopalatina es único. Si tu caso no encaja exactamente en ninguno de los tratamientos descritos, cuéntanoslo y el Dr. Sierra te orientará.",
+        "icon": "ribbon"
+      }
+    ]
+  },
+  "proceso": {
+    "intro": "Los procedimientos complementarios se planifican siempre de forma individualizada, adaptando la técnica y el momento a las necesidades específicas de cada paciente.",
+    "steps": [
+      {
+        "title": "Cuéntanos tu caso",
+        "text": "Escríbenos con una descripción de tu situación y fotos si es posible. El Dr. Sierra lo revisa personalmente y responde con orientación específica para tu caso.",
+        "timeframe": "Respuesta en menos de 24h"
+      },
+      {
+        "title": "Valoración personalizada",
+        "text": "Consulta presencial o telemática para analizar en detalle tu caso y determinar qué procedimiento es más adecuado para tu situación.",
+        "timeframe": "Consulta individual"
+      },
+      {
+        "title": "Planificación del procedimiento",
+        "text": "Diseño del plan específico para tu caso: técnica, momento óptimo, combinación con otros procedimientos si es necesario.",
+        "timeframe": "Planificación individualizada"
+      },
+      {
+        "title": "Seguimiento personalizado",
+        "text": "El Dr. Sierra hace un seguimiento cercano de todos sus pacientes, independientemente del procedimiento realizado.",
+        "timeframe": "Seguimiento continuo"
+      }
+    ]
+  },
+  "resultados": {
+    "intro": "Los procedimientos complementarios completan el tratamiento integral de la fisura labiopalatina, abordando los aspectos que las intervenciones principales no han resuelto completamente."
+  },
+  "porQue": {
+    "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
+    "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
+    "entities": [
+      "UFPR",
+      "Operation Smile",
+      "Springer"
+    ],
+    "quote": "Cada paciente con fisura labiopalatina es único. Si no encuentras lo que buscas en nuestra lista de tratamientos, cuéntanoslo. Siempre hay una respuesta."
+  },
+  "faq": [
+    {
+      "question": "¿Qué otros procedimientos realiza el Dr. Nico Sierra además de los ocho tratamientos principales?",
+      "answer": "Además de los ocho tratamientos principales, el Dr. Nico Sierra realiza faringoplastias para insuficiencia velofaríngea, cierres de fístulas complejas, procedimientos de aumento de volumen labial, corrección de cicatrices queloides y otras intervenciones secundarias dentro del tratamiento integral de la fisura labiopalatina."
+    },
+    {
+      "question": "¿Qué es la faringoplastia?",
+      "answer": "La faringoplastia es un procedimiento quirúrgico que mejora el cierre del velo del paladar en pacientes con insuficiencia velofaríngea persistente tras la cirugía de paladar hendido. Está indicada cuando el habla nasal no mejora con logopedia y afecta significativamente a la comunicación y la calidad de vida."
+    },
+    {
+      "question": "¿Qué hago si mi caso no encaja en ninguno de los tratamientos descritos?",
+      "answer": "Si tu situación no encaja exactamente en ninguno de los tratamientos descritos en nuestra web, escríbenos directamente. El Dr. Sierra revisa personalmente cada caso y responde con orientación específica. No existe un caso demasiado complejo o inusual para ser valorado."
+    },
+    {
+      "question": "¿El Dr. Sierra coordina el tratamiento con otros especialistas?",
+      "answer": "Sí. El tratamiento integral de la fisura labiopalatina requiere la coordinación con ortodontistas, logopedas, otorrinolaringólogos, y otros especialistas. El Dr. Sierra trabaja en equipo y coordina con los profesionales necesarios para cada caso."
+    },
+    {
+      "question": "¿Cuánto tarda el Dr. Sierra en responder a una consulta?",
+      "answer": "El tiempo de organización varía según la complejidad del caso. Habitualmente, el Dr. Sierra responde a las consultas iniciales en menos de 24 horas. La planificación completa de casos complejos puede requerir varias consultas y coordinación con otros especialistas, pero el proceso es siempre transparente y el paciente está informado en cada paso."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "slug": "cirugia-labio-fisurado",
+      "num": "02",
+      "name": "Reconstrucción de Labio Fisurado"
+    },
+    {
+      "slug": "cirugia-paladar-hendido",
+      "num": "03",
+      "name": "Reconstrucción de Paladar Hendido"
+    },
+    {
+      "slug": "cirugia-revision-fisura",
+      "num": "04",
+      "name": "Cirugía de Revisión"
+    }
+  ],
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

@@ -1,0 +1,282 @@
+---
+import { getImage } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'services'>;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+
+const heroImage = await getImage({ src: d.heroImageQuery, width: 1800, height: 1200, format: 'webp' });
+const queEsImage = await getImage({ src: d.queEsImageQuery, width: 800, height: 600, format: 'webp' });
+const ogImageOptimized = await getImage({ src: d.heroImageQuery, width: 1200, height: 630, format: 'jpg' });
+const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
+
+const canonical = `https://www.drnicosierra.com/${d.slug}/`;
+const fullTitle = `${d.title} — Especialista en Fisura Labiopalatina`;
+
+// FAQ schema generated from the exact same array rendered on-page —
+// guarantees schema/visible-text parity (Section 6/7 requirement).
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: d.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const procedureSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: d.procedureName,
+  procedureType: 'Surgical',
+  bodyLocation: d.bodyLocation,
+  indication: { '@type': 'MedicalIndication', name: 'Fisura labiopalatina' },
+  howPerformed: d.porQue.body,
+  performer: {
+    '@type': 'Physician',
+    name: 'Dr. Nico Sierra',
+    url: 'https://www.drnicosierra.com',
+    medicalSpecialty: 'Oral and Maxillofacial Surgery',
+    affiliation: {
+      '@type': 'MedicalOrganization',
+      name: 'Clinica Tresserra',
+      address: { '@type': 'PostalAddress', addressLocality: 'Barcelona', addressCountry: 'ES' },
+    },
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.drnicosierra.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Cómo te ayudamos', item: 'https://www.drnicosierra.com/como-te-ayudamos/' },
+    { '@type': 'ListItem', position: 3, name: d.procedureName, item: canonical },
+  ],
+};
+
+const schemaBlocks = [procedureSchema, faqSchema, breadcrumbSchema]
+  .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+  .join('\n');
+
+const ICONS: Record<string, string> = {
+  pulse: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>',
+  family: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  ribbon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+};
+
+const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>';
+---
+<Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
+  <Fragment slot="head">
+    <style set:html={`:root { --sc:${d.accentColor}; --sc-soft:${d.accentColor}1f; --sc-glow:${d.accentColor}33; }`} />
+  </Fragment>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Ruta de navegación">
+      <a href="/">Inicio</a>
+      <span class="sep">›</span>
+      <a href="/como-te-ayudamos">Cómo te ayudamos</a>
+      <span class="sep">›</span>
+      <span class="current">{d.procedureName}</span>
+    </nav>
+  </div>
+
+  <!-- BLOCK 1 — HERO -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-bg">
+      <img src={heroImage.src} alt={`Cirugía de ${d.procedureName.toLowerCase()} — Dr. Nico Sierra Barcelona`}>
+      <div class="hero-veil"></div>
+    </div>
+    <div class="hero-accent" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="sh">
+        <div class="eyebrow hero-fade" style="--rv:0ms">Fisura labiopalatina · Barcelona</div>
+        <h1 id="hero-h1" class="hero-fade" style="--rv:60ms" set:html={d.hero.h1} />
+        <p class="lead hero-fade" style="--rv:120ms">{d.hero.lead}</p>
+      </div>
+      <div class="hero-ctas hero-fade" style="--rv:180ms">
+        <a href="/cuentanos-tu-historia" class="btn btn-service">Cuéntanos tu caso →</a>
+        <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="hero" set:html={`${waIcon} WhatsApp`} />
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 2 — QUÉ ES -->
+  <section class="section que-es" aria-labelledby="que-es-h2">
+    <div class="container">
+      <div class="que-es-grid">
+        <div class="que-es-text">
+          <div class="sh">
+            <div class="eyebrow reveal">¿Qué es?</div>
+            <h2 id="que-es-h2" class="reveal rv2">¿Qué es {d.procedureName.toLowerCase()}?</h2>
+          </div>
+          <div class="reveal rv3">
+            <p>{d.queEs.firstParagraph}</p>
+            {d.queEs.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+        <div class="que-es-img reveal-scale rv2">
+          <img src={queEsImage.src} alt={`${d.procedureName} fisura labiopalatina — Dr. Nico Sierra Barcelona`}>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 3 — CUÁNDO -->
+  <section class="section cuando" aria-labelledby="cuando-h2">
+    <div class="container">
+      <div class="sh" style="max-width:720px">
+        <div class="eyebrow reveal">Indicaciones</div>
+        <h2 id="cuando-h2" class="reveal rv2">¿Cuándo se recomienda {d.procedureName.toLowerCase()}?</h2>
+        <p class="lead reveal rv3">{d.cuando.intro}</p>
+      </div>
+      <div class="cuando-list">
+        {d.cuando.items.map((item, i) => (
+          <div class={`cuando-item reveal rv${i + 2}`}>
+            <div class="cuando-icon" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">${ICONS[item.icon]}</svg>`} />
+            <div class="cuando-text">
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 4 — PROCESO -->
+  <section class="section proceso" aria-labelledby="proceso-h2">
+    <div class="container">
+      <div style="max-width:720px">
+        <div class="sh" style="max-width:720px">
+          <div class="eyebrow reveal">Cómo es la cirugía</div>
+          <h2 id="proceso-h2" class="reveal rv2">¿Cómo es la cirugía de {d.procedureName.toLowerCase()}?</h2>
+          <p class="lead reveal rv3">{d.proceso.intro}</p>
+        </div>
+      </div>
+      <div class="proceso-steps reveal rv2">
+        {d.proceso.steps.map((step, i) => (
+          <div class="proceso-step">
+            <div class="proceso-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="proceso-content">
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+              <span class="timeframe">{step.timeframe}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 5 — RESULTADOS -->
+  <section class="section resultados" aria-labelledby="resultados-h2">
+    <div class="container">
+      <div class="sh" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px">
+        <div>
+          <div class="eyebrow reveal">Vidas Transformadas</div>
+          <h2 id="resultados-h2" class="reveal rv2">¿Qué resultados se pueden esperar?</h2>
+          <p class="lead reveal rv2">{d.resultados.intro}</p>
+        </div>
+        <a href="/vidas-transformadas" class="reveal" style="font-size:.82rem;color:rgba(255,255,255,.3);flex-shrink:0;padding-top:4px">Ver todos →</a>
+      </div>
+      <!-- Before/after gallery: populated per-case, not per-schema. See Block 5 gallery data source. -->
+    </div>
+  </section>
+
+  <!-- BLOCK 6 — POR QUÉ DR. SIERRA -->
+  <section class="section dr-section" aria-labelledby="dr-h2">
+    <div class="container">
+      <div class="dr-inner">
+        <div class="dr-left">
+          <div class="sh">
+            <div class="eyebrow reveal">¿Por qué el Dr. Nico Sierra?</div>
+            <h2 id="dr-h2" class="reveal rv2">¿Por qué elegir al Dr. Nico Sierra para {d.procedureName.toLowerCase()}?</h2>
+            <p class="lead reveal rv3">{d.porQue.lead}</p>
+          </div>
+          <p class="reveal rv3">{d.porQue.body}</p>
+          <div class="reveal rv4" style="margin-top:20px">
+            {d.porQue.entities.map((e) => <span class="entity-tag">{e}</span>)}
+          </div>
+        </div>
+        <div class="dr-right reveal-scale rv3">
+          <blockquote class="dr-quote">"{d.porQue.quote}"</blockquote>
+          <a href="/sobre-dr-nico-sierra" class="btn btn-ghost" style="margin-top:28px;display:inline-flex;">Conoce al Dr. Nico Sierra →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 7 — FAQ -->
+  <section class="section faq" aria-labelledby="faq-h2">
+    <div class="container">
+      <div class="sh">
+        <div class="eyebrow reveal">Preguntas frecuentes</div>
+        <h2 id="faq-h2" class="reveal rv2">Preguntas frecuentes sobre {d.procedureName.toLowerCase()}</h2>
+      </div>
+      <div class="faq-layout">
+        <div class="faq-intro reveal rv3">
+          <p>Estas son las preguntas que más nos hacen las familias. Si no encuentras la respuesta que buscas, escríbenos directamente.</p>
+          <a href="/cuentanos-tu-historia" class="btn btn-service">Hacer una pregunta →</a>
+        </div>
+        <div class="faq-list">
+          {d.faq.map((item, i) => (
+            <details class={`faq-item reveal ${i > 0 ? `rv${i + 1}` : ''}`}>
+              <summary>
+                <h3>{item.question}</h3>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer"><p>{item.answer}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 9 — INTERNAL LINKS -->
+  <section class="section related" aria-labelledby="related-h2">
+    <div class="container">
+      <div class="sh">
+        <div class="eyebrow reveal">Otros tratamientos relacionados</div>
+        <h2 id="related-h2" class="reveal rv2">Otros tratamientos relacionados</h2>
+      </div>
+      <div class="related-grid">
+        {d.relatedLinks.map((link, i) => (
+          <a href={`/${link.slug}/`} class={`related-card reveal rv${i + 2}`}>
+            <div class="related-card-num">{link.num}</div>
+            <div class="related-card-name">{link.name}</div>
+            <div class="related-card-arrow">Ver tratamiento →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 8 — CTA BANNER -->
+  <section class="cta-banner" aria-labelledby="cta-h2">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="sh sh--center">
+          <div class="eyebrow reveal">Cuéntanos tu historia</div>
+          <h2 id="cta-h2" class="reveal rv2">¿Tienes un caso de {d.procedureName.toLowerCase()}?</h2>
+          <p class="reveal rv3">El Dr. Nico Sierra revisa personalmente cada caso. Escríbenos y te contestamos con honestidad.</p>
+        </div>
+        <div class="cta-actions reveal rv4">
+          <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="cta-banner" set:html={`${waIcon} Escríbir por WhatsApp`} />
+          <a href="/cuentanos-tu-historia" class="btn btn-ghost">Enviar mi caso →</a>
+        </div>
+        <p class="cta-sub reveal rv5">Respuesta en menos de 24 horas · Sin compromiso</p>
+      </div>
+    </div>
+  </section>
+</Layout>

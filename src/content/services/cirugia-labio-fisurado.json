@@ -1,0 +1,120 @@
+{
+  "slug": "cirugia-labio-fisurado",
+  "procedureName": "Reconstrucción de Labio Fisurado",
+  "bodyLocation": "Labio",
+  "accentColor": "#a01255",
+
+  "title": "Cirugía de Labio Fisurado en España | Dr. Nico Sierra",
+  "description": "Dr. Nico Sierra, especialista en cirugía de labio fisurado en España. +1.000 cirugías. Reconstrucción primaria y de revisión en Barcelona. Cuéntanos tu caso.",
+  "ogTitle": "Cirugía de Labio Fisurado en España | Dr. Nico Sierra",
+  "ogDescription": "Especialista en reconstrucción de labio fisurado en Barcelona. Casos primarios desde los primeros meses de vida y cirugía de revisión en adultos.",
+  "heroImageQuery": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1800&h=1200&q=85&fit=crop",
+  "queEsImageQuery": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&h=600&q=80&fit=crop",
+
+  "hero": {
+    "h1": "Cirugía de <em>labio fisurado</em> en España",
+    "lead": "Reconstrucción primaria y de revisión del labio fisurado. El Dr. Nico Sierra realiza más de 100 intervenciones al año, desde bebés de pocos meses hasta adultos con secuelas de cirugías previas."
+  },
+
+  "queEs": {
+    "firstParagraph": "La cirugía de reconstrucción de labio fisurado es el procedimiento mediante el cual se corrige la hendidura congénita del labio superior en personas nacidas con fisura labiopalatina. El objetivo es restaurar la continuidad del labio, reconstruir el músculo orbicular y lograr un resultado estético y funcional que permita al paciente alimentarse, hablar y desarrollarse con normalidad.",
+    "paragraphs": [
+      "El labio fisurado puede presentarse de forma unilateral (un solo lado) o bilateral (ambos lados), y con distintos grados de afectación. En algunos casos afecta únicamente al labio; en otros, se extiende hacia la nariz y el paladar. Cada caso es diferente, y el plan quirúrgico del Dr. Nico Sierra se adapta a las características específicas de cada paciente.",
+      "La cirugía primaria de labio fisurado se realiza habitualmente en los primeros meses de vida, cuando el bebé ha alcanzado el peso y la estabilidad necesarios. Sin embargo, el Dr. Sierra también trata adolescentes y adultos que buscan mejorar el resultado de una intervención previa a través de la cirugía de revisión."
+    ]
+  },
+
+  "cuando": {
+    "intro": "La reconstrucción de labio fisurado está indicada en distintos momentos del desarrollo. El Dr. Nico Sierra evalúa cada caso individualmente para determinar el momento óptimo de intervención.",
+    "items": [
+      {
+        "title": "Cirugía primaria en bebés",
+        "text": "La reconstrucción primaria de labio fisurado se recomienda cuando el bebé tiene entre 3 y 6 meses de vida, un peso mínimo de 5 kg y buenas condiciones generales de salud para someterse a anestesia general pediátrica.",
+        "icon": "pulse"
+      },
+      {
+        "title": "Tras ortopedia NAM prequirúrgica",
+        "text": "En bebés que han seguido un protocolo de ortopedia NAM (moldeado nasoalveolar), la cirugía de labio fisurado puede planificarse con mayor precisión, ya que el tejido está mejor preparado para obtener un resultado óptimo.",
+        "icon": "clock"
+      },
+      {
+        "title": "Revisión en niños mayores y adultos",
+        "text": "La cirugía de revisión de labio fisurado está indicada cuando el resultado de una intervención previa no es satisfactorio desde el punto de vista estético o funcional, independientemente de la edad del paciente.",
+        "icon": "family"
+      },
+      {
+        "title": "Corrección de asimetrías y cicatrices",
+        "text": "El Dr. Nico Sierra trata con frecuencia pacientes con asimetrías del labio, cicatrices visibles o deformidades residuales tras cirugías primarias realizadas en otros centros, ofreciendo una valoración honesta y un plan de mejora personalizado.",
+        "icon": "ribbon"
+      }
+    ]
+  },
+
+  "proceso": {
+    "intro": "La cirugía de labio fisurado se realiza bajo anestesia general pediátrica. A continuación se describe el proceso habitual, desde la preparación hasta el alta y el seguimiento.",
+    "steps": [
+      {
+        "title": "Evaluación y planificación preoperatoria",
+        "text": "El Dr. Sierra realiza una valoración completa del caso: fotografías clínicas, análisis de la anatomía del labio, la nariz y el paladar, y diseño del plan quirúrgico individualizado. En casos seleccionados, se indica ortopedia NAM previa.",
+        "timeframe": "1-2 consultas previas"
+      },
+      {
+        "title": "La intervención quirúrgica",
+        "text": "La cirugía dura aproximadamente 1,5 a 2,5 horas. El Dr. Sierra utiliza técnicas de rotación y avance para reconstruir el músculo orbicular del labio, restaurar la columela nasal y lograr una cicatriz lo más discreta posible.",
+        "timeframe": "1,5 – 2,5 horas en quirófano"
+      },
+      {
+        "title": "Ingreso y recuperación inmediata",
+        "text": "El bebé permanece ingresado entre 24 y 48 horas tras la intervención. Durante este tiempo se controla el postoperatorio, se pauta la analgesia y se instruye a los padres en los cuidados de la herida quirúrgica.",
+        "timeframe": "24 – 48h de ingreso"
+      },
+      {
+        "title": "Seguimiento y resultado a largo plazo",
+        "text": "El Dr. Sierra realiza controles a la semana, al mes y a los tres meses. La cicatriz evoluciona durante los primeros 12-18 meses. Se valora el resultado estético y funcional, y se planifica la siguiente etapa del recorrido si es necesario.",
+        "timeframe": "Seguimiento a 12-18 meses"
+      }
+    ]
+  },
+
+  "resultados": {
+    "intro": "Los resultados de la cirugía de labio fisurado dependen directamente de la experiencia del cirujano y de la técnica empleada. El Dr. Sierra busca en cada caso el equilibrio entre función, estética y mínimo impacto sobre el tejido."
+  },
+
+  "porQue": {
+    "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
+    "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
+    "entities": ["UFPR", "Operation Smile", "Springer"],
+    "quote": "La primera cirugía de labio fisurado condiciona todo lo que viene después. Por eso merece la máxima atención técnica y la mayor experiencia posible."
+  },
+
+  "faq": [
+    {
+      "question": "¿A qué edad se opera el labio fisurado?",
+      "answer": "La cirugía de labio fisurado se realiza habitualmente entre los 3 y los 6 meses de vida, cuando el bebé ha alcanzado un peso mínimo de 5 kg y las condiciones de salud necesarias para la anestesia general pediátrica. En pacientes que han seguido ortopedia NAM previa, el momento puede ajustarse en función de la evolución del tratamiento. El Dr. Nico Sierra valora cada caso individualmente para determinar el momento óptimo de intervención."
+    },
+    {
+      "question": "¿Qué técnica utiliza el Dr. Nico Sierra para la reconstrucción de labio fisurado?",
+      "answer": "El Dr. Nico Sierra utiliza técnicas de rotación y avance adaptadas a las características anatómicas de cada paciente. El objetivo es reconstruir el músculo orbicular del labio en toda su longitud, restaurar la columela nasal cuando está afectada, y lograr una cicatriz lo más discreta posible. La elección de la técnica exacta depende de si el labio fisurado es unilateral o bilateral y del grado de afectación."
+    },
+    {
+      "question": "¿Se puede operar el labio fisurado en adultos?",
+      "answer": "Sí. La cirugía de revisión de labio fisurado en adultos es una parte importante de la práctica del Dr. Nico Sierra. Muchos pacientes adultos buscan mejorar el resultado de una intervención previa: asimetrías del labio, cicatrices visibles, deformidad nasal residual o problemas funcionales. No existe límite de edad para mejorar el resultado de una cirugía de labio fisurado, y el Dr. Sierra ofrece valoraciones honestas sobre qué es posible mejorar en cada caso."
+    },
+    {
+      "question": "¿Cuánto tiempo dura la recuperación tras la cirugía de labio fisurado?",
+      "answer": "La recuperación tras la cirugía de labio fisurado requiere un ingreso de 24 a 48 horas. En los primeros 7-10 días se realiza la cura de la herida y se retiran los puntos. La inflamación disminuye progresivamente durante las primeras semanas. La cicatriz evoluciona y madura durante los primeros 12 a 18 meses, período en el que el Dr. Sierra realiza controles periódicos para valorar el resultado y aplicar tratamientos cicatriciales si es necesario."
+    },
+    {
+      "question": "¿La cirugía de labio fisurado afecta a la nariz?",
+      "answer": "En muchos casos de labio fisurado, la nariz también presenta una deformidad asociada: la aleta nasal del lado afectado puede estar desplazada o aplanada. El Dr. Nico Sierra valora en cada caso si es necesario incluir una corrección nasal simultánea durante la cirugía primaria de labio fisurado. En pacientes que ya han sido operados, la rinoplastia específica para fisura labiopalatina puede planificarse más adelante como un procedimiento independiente."
+    }
+  ],
+
+  "relatedLinks": [
+    { "slug": "cirugia-paladar-hendido", "name": "Reconstrucción de Paladar Hendido", "num": "03" },
+    { "slug": "ortopedia-prequirurgica-nam", "name": "Ortopedia Pre-operatoria NAM", "num": "01" },
+    { "slug": "cirugia-revision-fisura", "name": "Cirugía de Revisión", "num": "04" }
+  ],
+
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

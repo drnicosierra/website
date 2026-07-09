@@ -1,0 +1,126 @@
+{
+  "slug": "cirugia-paladar-hendido",
+  "procedureName": "Reconstrucción de Paladar Hendido",
+  "bodyLocation": "Paladar",
+  "accentColor": "#008362",
+  "title": "Cirugía de Paladar Hendido en España | Dr. Nico Sierra",
+  "description": "El Dr. Nico Sierra es especialista en cirugía de paladar hendido en España. Más de 1.000 cirugías. Cierre primario y revisión en Barcelona. Cuéntanos tu caso.",
+  "ogTitle": "Cirugía de Paladar Hendido en España | Dr. Nico Sierra",
+  "ogDescription": "Especialista en reconstrucción de paladar hendido en Barcelona. Casos primarios y cirugía de revisión.",
+  "heroImageQuery": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1800&h=1200&q=85&fit=crop",
+  "queEsImageQuery": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=600&q=80&fit=crop",
+  "hero": {
+    "h1": "Cirugía de <em>paladar hendido</em> en España",
+    "lead": "Cierre primario y de revisión del paladar hendido. El Dr. Nico Sierra realiza más de 100 intervenciones anuales, desde bebés hasta adultos con secuelas no tratadas."
+  },
+  "queEs": {
+    "firstParagraph": "La cirugía de paladar hendido es el procedimiento mediante el cual se cierra la hendidura congénita del paladar en personas nacidas con fisura labiopalatina. El objetivo es restaurar la integridad del paladar blando y duro para permitir una alimentación correcta, un desarrollo normal del habla y prevenir complicaciones auditivas.",
+    "paragraphs": [
+      "El paladar hendido puede presentarse de forma aislada o asociado al labio fisurado. La extensión de la hendidura y la anatomía de cada caso determinan la técnica quirúrgica más adecuada. El Dr. Nico Sierra evalúa cada paciente individualmente y diseña un plan adaptado a su situación.",
+      "La cirugía primaria de paladar hendido se realiza entre los 9 y los 12 meses. El Dr. Sierra también trata adolescentes y adultos con fístulas palatinas, insuficiencia velofaríngea o resultados previos insatisfactorios."
+    ]
+  },
+  "cuando": {
+    "intro": "La cirugía de paladar hendido está indicada en distintos momentos del desarrollo. El Dr. Sierra evalúa cada caso para determinar el momento y la técnica óptimos.",
+    "items": [
+      {
+        "title": "Cierre primario en bebés",
+        "text": "La cirugía de paladar hendido se recomienda entre los 9 y los 12 meses de vida, cuando el bebé tiene el peso y la estabilidad necesarios y antes de que se consoliden los patrones alterados del habla.",
+        "icon": "pulse"
+      },
+      {
+        "title": "Fístula palatina residual",
+        "text": "El cierre de fístulas palatinas está indicado cuando existe una comunicación persistente entre la cavidad oral y nasal que afecta a la alimentación, el habla o la higiene oral.",
+        "icon": "clock"
+      },
+      {
+        "title": "Insuficiencia velofaríngea",
+        "text": "La revisión quirúrgica está indicada en pacientes con insuficiencia velofaríngea que produce habla nasal y dificultad para comunicarse con normalidad.",
+        "icon": "family"
+      },
+      {
+        "title": "Adultos con secuelas no tratadas",
+        "text": "El Dr. Sierra trata adultos con paladar hendido no operado o con resultados previos insatisfactorios, con valoraciones honestas y planes personalizados.",
+        "icon": "ribbon"
+      }
+    ]
+  },
+  "proceso": {
+    "intro": "La cirugía de paladar hendido se realiza bajo anestesia general. A continuación se describe el proceso habitual desde la valoración preoperatoria hasta el seguimiento a largo plazo.",
+    "steps": [
+      {
+        "title": "Evaluación preoperatoria",
+        "text": "Valoración del paladar, nasofibroscopia y coordinación con logopedia y otorrinolaringología. Diseño del plan quirúrgico específico para cada caso.",
+        "timeframe": "Consulta previa"
+      },
+      {
+        "title": "La intervención",
+        "text": "La cirugía dura aproximadamente 1,5 a 2 horas. El Dr. Sierra cierra el paladar por planos, reconstruyendo la musculatura del velo palatino para optimizar la función del habla.",
+        "timeframe": "1,5 – 2 horas en quirófano"
+      },
+      {
+        "title": "Ingreso y recuperación",
+        "text": "El paciente permanece ingresado 24-48 horas. Se pauta dieta blanda durante 2-3 semanas y se instruye a los padres en los cuidados postoperatorios.",
+        "timeframe": "24 – 48h de ingreso"
+      },
+      {
+        "title": "Seguimiento y logopedia",
+        "text": "Controles a la semana, al mes y a los tres meses. Evaluación del habla y coordinación logopédica. Seguimiento auditivo periódico.",
+        "timeframe": "Seguimiento a largo plazo"
+      }
+    ]
+  },
+  "resultados": {
+    "intro": "Un cierre correcto del paladar en el momento adecuado tiene un impacto directo en el habla, la audición y la calidad de vida del paciente a largo plazo."
+  },
+  "porQue": {
+    "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
+    "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
+    "entities": [
+      "UFPR",
+      "Operation Smile",
+      "Springer"
+    ],
+    "quote": "El cierre del paladar es la cirugía que más impacta en el habla y la calidad de vida. La técnica importa, pero el momento y la planificación son igual de decisivos."
+  },
+  "faq": [
+    {
+      "question": "¿A qué edad se opera el labio fisurado?",
+      "answer": "La cirugía de paladar hendido se realiza habitualmente entre los 9 y los 12 meses de vida. Este momento es clave porque permite cerrar el paladar antes de que se establezcan patrones del habla alterados, maximizando el desarrollo lingüístico. El Dr. Nico Sierra valora cada caso individualmente para determinar el momento óptimo de intervención."
+    },
+    {
+      "question": "¿Qué técnica utiliza el Dr. Nico Sierra para la reconstrucción de labio fisurado?",
+      "answer": "El paladar hendido no tratado produce una voz nasal característica, dificultad para pronunciar consonantes de presión y problemas de comunicación. Un cierre correcto y en el momento adecuado, combinado con logopedia, permite a la mayoría de los pacientes desarrollar un habla completamente normal."
+    },
+    {
+      "question": "¿Se puede operar el labio fisurado en adultos?",
+      "answer": "Sí. El Dr. Nico Sierra realiza cirugías de paladar hendido en adultos, ya sea para cerrar fístulas persistentes, corregir insuficiencia velofaríngea o tratar condiciones no operadas en la infancia. No existe límite de edad para mejorar la función y la calidad de vida."
+    },
+    {
+      "question": "¿Cuánto tiempo dura la recuperación tras la cirugía de labio fisurado?",
+      "answer": "Una fístula palatina es una apertura residual en el paladar que persiste tras la cirugía de cierre. Puede causar problemas con la alimentación, el habla y la higiene oral. El Dr. Sierra es especialista en el cierre quirúrgico de fístulas palatinas, incluyendo casos complejos previamente operados."
+    },
+    {
+      "question": "¿La cirugía de labio fisurado afecta a la nariz?",
+      "answer": "Tras la cirugía de paladar hendido el ingreso es de 24 a 48 horas. Se mantiene dieta blanda durante 2-3 semanas. La cicatrización completa lleva varios meses, durante los cuales el Dr. Sierra realiza controles periódicos y coordina el seguimiento logopédico y auditivo."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "slug": "cirugia-labio-fisurado",
+      "num": "02",
+      "name": "Reconstrucción de Labio Fisurado"
+    },
+    {
+      "slug": "ortopedia-prequirurgica-nam",
+      "num": "01",
+      "name": "Ortopedia Pre-operatoria NAM"
+    },
+    {
+      "slug": "injerto-oseo-alveolar",
+      "num": "05",
+      "name": "Reconstrucción de Encía"
+    }
+  ],
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

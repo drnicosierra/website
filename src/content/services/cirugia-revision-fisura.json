@@ -1,0 +1,126 @@
+{
+  "slug": "cirugia-revision-fisura",
+  "procedureName": "Cirugía de Revisión",
+  "bodyLocation": "Labio, Paladar, Nariz",
+  "accentColor": "#0d74c4",
+  "title": "Cirugía de Revisión de Fisura | Dr. Nico Sierra",
+  "description": "Dr. Nico Sierra, especialista en cirugía de revisión de fisura labiopalatina. Corrección de resultados previos en niños y adultos, Barcelona.",
+  "ogTitle": "Cirugía de Revisión FLP | Dr. Nico Sierra Barcelona",
+  "ogDescription": "Especialista en corrección de resultados previos de labio fisurado y paladar hendido. Casos complejos. Barcelona.",
+  "heroImageQuery": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&h=1200&q=85&fit=crop",
+  "queEsImageQuery": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&q=80&fit=crop",
+  "hero": {
+    "h1": "Cirugía de <em>revisión</em> en fisura labiopalatina",
+    "lead": "Corrección de resultados previos de labio fisurado, paladar hendido y secuelas asociadas. El Dr. Nico Sierra es especialista en casos complejos en niños, adolescentes y adultos."
+  },
+  "queEs": {
+    "firstParagraph": "La cirugía de revisión en fisura labiopalatina es el conjunto de procedimientos dirigidos a corregir resultados insatisfactorios de cirugías previas. El objetivo es mejorar la función, la estética y la calidad de vida de pacientes que no quedaron conformes con intervenciones anteriores de labio fisurado, paladar hendido o secuelas asociadas.",
+    "paragraphs": [
+      "Las secuelas susceptibles de revisión incluyen asimetrías del labio, cicatrices visibles, deformidad nasal, fístulas palatinas, insuficiencia velofaríngea y secuelas funcionales en el habla o la respiración. Cada caso requiere un análisis individualizado sin protocolos estándar.",
+      "El Dr. Nico Sierra es especialista de referencia en cirugía de revisión de fisura labiopalatina en España, recibiendo casos complejos de toda España y del extranjero que buscan mejorar resultados de intervenciones previas."
+    ]
+  },
+  "cuando": {
+    "intro": "La cirugía de revisión está indicada cuando el resultado de una intervención previa no es satisfactorio estética o funcionalmente. No existe límite de edad.",
+    "items": [
+      {
+        "title": "Asimetría o cicatriz del labio",
+        "text": "La revisión está indicada cuando existe asimetría visible, una cicatriz prominente o un resultado estético mejorable, independientemente de la edad del paciente.",
+        "icon": "pulse"
+      },
+      {
+        "title": "Deformidad nasal asociada",
+        "text": "La deformidad nasal es frecuente en pacientes con labio fisurado. La rinoplastia específica para FLP puede realizarse de forma independiente o combinada con la revisión del labio.",
+        "icon": "clock"
+      },
+      {
+        "title": "Fístula o insuficiencia velofaríngea",
+        "text": "Las fístulas palatinas y la insuficiencia velofaríngea son secuelas frecuentes de la cirugía de paladar hendido que requieren revisión quirúrgica para mejorar la función del habla.",
+        "icon": "family"
+      },
+      {
+        "title": "Adultos con secuelas no abordadas",
+        "text": "Muchos adultos llegan con secuelas nunca tratadas o minusvaloradas. El Dr. Sierra ofrece valoraciones honestas sobre qué es posible mejorar. Nunca es tarde.",
+        "icon": "ribbon"
+      }
+    ]
+  },
+  "proceso": {
+    "intro": "La cirugía de revisión se planifica siempre de forma individualizada. No existen protocolos estándar — cada plan responde a las necesidades específicas del paciente.",
+    "steps": [
+      {
+        "title": "Valoración detallada del caso",
+        "text": "Análisis fotográfico, funcional y estético del resultado previo. El Dr. Sierra establece qué es posible mejorar y fija expectativas realistas para cada caso.",
+        "timeframe": "Consulta presencial o telemática"
+      },
+      {
+        "title": "Plan quirúrgico personalizado",
+        "text": "Diseño de la estrategia de revisión: tipo de corrección, técnica, momento óptimo y posibles combinaciones con otras intervenciones.",
+        "timeframe": "Previo a la cirugía"
+      },
+      {
+        "title": "La intervención de revisión",
+        "text": "Cirugía bajo anestesia general o local según el caso. La duración varía entre 1 y 4 horas según complejidad y estructuras a corregir.",
+        "timeframe": "1 – 4 horas según complejidad"
+      },
+      {
+        "title": "Seguimiento y resultado",
+        "text": "Controles postoperatorios con valoración fotográfica seriada. El resultado final se evalúa a los 12-18 meses de la intervención.",
+        "timeframe": "Seguimiento a 12-18 meses"
+      }
+    ]
+  },
+  "resultados": {
+    "intro": "Los resultados de la cirugía de revisión dependen de la complejidad del caso y del resultado previo. El Dr. Sierra siempre ofrece una valoración honesta de lo que es posible mejorar."
+  },
+  "porQue": {
+    "lead": "El Dr. Nico Sierra es el único cirujano en España con fellowship en Cirugía Craneofacial y Fisura Labiopalatina, completado en la Universidad Federal de Paraná (UFPR), Brasil, uno de los centros de referencia mundial para esta disciplina.",
+    "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
+    "entities": [
+      "UFPR",
+      "Operation Smile",
+      "Springer"
+    ],
+    "quote": "La cirugía de revisión es la más exigente técnicamente. Requiere entender profundamente qué pasó antes, qué es posible mejorar y cómo hacerlo con el menor impacto adicional."
+  },
+  "faq": [
+    {
+      "question": "¿Qué puede mejorar la cirugía de revisión de fisura labiopalatina?",
+      "answer": "Sí. La cirugía de revisión puede mejorar asimetrías, cicatrices prominentes, deficiencias de volumen o deformidades residuales. El Dr. Nico Sierra realiza una valoración completa para determinar qué es posible mejorar en cada caso con expectativas realistas antes de cualquier intervención."
+    },
+    {
+      "question": "¿A qué edad se puede realizar la cirugía de revisión?",
+      "answer": "La cirugía de revisión puede realizarse a cualquier edad. En niños, algunos procedimientos se planifican en momentos específicos del desarrollo. En adolescentes y adultos, no existe límite de edad para buscar una mejora. El Dr. Sierra adapta el plan al momento vital de cada paciente."
+    },
+    {
+      "question": "¿Cuántas intervenciones de revisión suelen ser necesarias?",
+      "answer": "El número depende de la complejidad del caso y los objetivos del paciente. El Dr. Sierra planifica siempre el mínimo número de intervenciones necesarias para el mejor resultado posible, minimizando el impacto sobre los tejidos ya operados."
+    },
+    {
+      "question": "¿Qué dificultades presenta operar sobre tejido ya intervenido previamente?",
+      "answer": "La cirugía en tejido previamente operado presenta desafíos específicos de cicatrización y vascularización. Con amplia experiencia en casos complejos, el Dr. Sierra evalúa minuciosamente cada caso y adapta la técnica para minimizar riesgos."
+    },
+    {
+      "question": "¿Se puede realizar cirugía de revisión si me operaron en otro país?",
+      "answer": "Sí. El Dr. Sierra recibe frecuentemente pacientes operados en otros países. La valoración inicial puede realizarse por telemedicina. El equipo coordina la logística del viaje y el seguimiento postoperatorio a distancia."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "slug": "cirugia-labio-fisurado",
+      "num": "02",
+      "name": "Reconstrucción de Labio Fisurado"
+    },
+    {
+      "slug": "cirugia-paladar-hendido",
+      "num": "03",
+      "name": "Reconstrucción de Paladar Hendido"
+    },
+    {
+      "slug": "rinoplastia-flp",
+      "num": "07",
+      "name": "Rinoplastia en FLP"
+    }
+  ],
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}
