@@ -874,6 +874,37 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
   </div>
 </section>
 
+<!-- ===== TEMPORARY DEBUG OVERLAY - remove after diagnosis ===== -->
+<div id="debugOverlay" style="position:fixed;top:0;left:0;right:0;background:rgba(200,0,0,.92);color:#fff;font-family:monospace;font-size:11px;line-height:1.5;padding:8px;z-index:999999;white-space:pre-wrap;pointer-events:none;">DEBUG LOADING...</div>
+<script is:inline>
+(function(){
+  var overlay = document.getElementById('debugOverlay');
+  function update(){
+    var textEl = document.querySelector('.ns-cta-banner__text');
+    var actionsEl = document.querySelector('.ns-cta-banner__actions');
+    var sectionEl = document.querySelector('.ns-cta-banner');
+    if(!textEl || !actionsEl || !sectionEl){
+      overlay.textContent = 'DEBUG: CTA banner elements not found yet';
+      requestAnimationFrame(update);
+      return;
+    }
+    var textStyle = getComputedStyle(textEl);
+    var actionsStyle = getComputedStyle(actionsEl);
+    var sectionStyle = getComputedStyle(sectionEl);
+    var rect = sectionEl.getBoundingClientRect();
+    var inView = rect.top < window.innerHeight && rect.bottom > 0;
+    overlay.textContent =
+      'SECTION in viewport: ' + inView + ' | top:' + Math.round(rect.top) + ' bottom:' + Math.round(rect.bottom) + '\n' +
+      'SECTION bg: ' + sectionStyle.backgroundColor + '\n' +
+      'TEXT   opacity:' + textStyle.opacity + ' transform:' + textStyle.transform + ' class:' + textEl.className + '\n' +
+      'ACTIONS opacity:' + actionsStyle.opacity + ' transform:' + actionsStyle.transform + ' class:' + actionsEl.className;
+    requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+<!-- ===== END TEMPORARY DEBUG OVERLAY ===== -->
+
 
 
 <!-- ============================================================================
