@@ -894,10 +894,10 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
     var rect = sectionEl.getBoundingClientRect();
     var inView = rect.top < window.innerHeight && rect.bottom > 0;
     overlay.textContent =
-      'SECTION in viewport: ' + inView + ' | top:' + Math.round(rect.top) + ' bottom:' + Math.round(rect.bottom) + '\n' +
-      'SECTION bg: ' + sectionStyle.backgroundColor + '\n' +
-      'TEXT   opacity:' + textStyle.opacity + ' transform:' + textStyle.transform + ' class:' + textEl.className + '\n' +
-      'ACTIONS opacity:' + actionsStyle.opacity + ' transform:' + actionsStyle.transform + ' class:' + actionsEl.className;
+      'SECTION inView:' + inView + ' top:' + Math.round(rect.top) + ' bottom:' + Math.round(rect.bottom) + ' | ' +
+      'SECTIONbg:' + sectionStyle.backgroundColor + ' | ' +
+      'TEXT op:' + textStyle.opacity + ' tf:' + textStyle.transform + ' cls:' + textEl.className + ' | ' +
+      'ACTIONS op:' + actionsStyle.opacity + ' tf:' + actionsStyle.transform + ' cls:' + actionsEl.className;
     requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
