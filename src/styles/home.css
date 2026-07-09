@@ -256,6 +256,7 @@
   .ns-scope.ns-section-dark,
   section.ns-scope {
     background: transparent !important;
+    will-change: transform;
   }
 
   /* Eyebrow + lead on dark background */

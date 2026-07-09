@@ -661,6 +661,7 @@ p + p { margin-top:16px; }
 .footer {
   background:#000e1a; border-top:1px solid rgba(255,255,255,.07);
   color:rgba(255,255,255,.78); padding:clamp(72px,7vw,96px) 0 32px;
+  will-change:transform;
 }
 .footer-grid {
   display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px;
