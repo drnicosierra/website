@@ -700,16 +700,16 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
   if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
 
   /* Drag / swipe */
-  var startX = 0, startCurrent = 0, dragging = false;
+  var startX = 0, startCurrent = 0, dragging = false, dragCardW = 0;
   track.addEventListener('mousedown', function(e){
     dragging = true; startX = e.clientX; startCurrent = current;
+    dragCardW = cards[0].offsetWidth + 24;
     track.classList.add('is-dragging');
   });
   window.addEventListener('mousemove', function(e){
     if(!dragging) return;
     var diff = e.clientX - startX;
-    var cardW = cards[0].offsetWidth + 24;
-    if(Math.abs(diff) > cardW * 0.3){
+    if(Math.abs(diff) > dragCardW * 0.3){
       goTo(startCurrent - Math.sign(diff));
       dragging = false;
       track.classList.remove('is-dragging');
@@ -720,16 +720,18 @@ const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, ci
     track.classList.remove('is-dragging');
   });
   /* Touch */
-  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; startCurrent = current; }, {passive:true});
+  track.addEventListener('touchstart', function(e){
+    startX = e.touches[0].clientX; startCurrent = current;
+    dragCardW = cards[0].offsetWidth + 24;
+  }, {passive:true});
   track.addEventListener('touchend', function(e){
     var diff = e.changedTouches[0].clientX - startX;
-    var cardW = cards[0].offsetWidth + 24;
-    if(Math.abs(diff) > cardW * 0.25) goTo(startCurrent - Math.sign(diff));
+    if(Math.abs(diff) > dragCardW * 0.25) goTo(startCurrent - Math.sign(diff));
   }, {passive:true});
 
   /* Init + resize */
-  render();
-  window.addEventListener('resize', render);
+  requestAnimationFrame(render);
+  window.addEventListener('resize', function(){ requestAnimationFrame(render); });
 })();
 </script>
 
