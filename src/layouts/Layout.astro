@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import dmSans500 from '@fontsource/dm-sans/files/dm-sans-latin-500-normal.woff2?url';
 import spaceGrotesk400 from '@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2?url';
+import spaceGrotesk600 from '@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2?url';
 
 export interface Props {
   title: string;
@@ -33,6 +34,7 @@ const {
 
 <link rel="preload" as="font" type="font/woff2" href={dmSans500} crossorigin>
 <link rel="preload" as="font" type="font/woff2" href={spaceGrotesk400} crossorigin>
+<link rel="preload" as="font" type="font/woff2" href={spaceGrotesk600} crossorigin>
 
 <title>{title}</title>
 <meta name="description" content={description}>

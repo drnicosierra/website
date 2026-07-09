@@ -770,7 +770,7 @@
     border:1px solid rgba(255,255,255,.08);
     border-radius:22px;
     overflow:hidden;
-    transition:opacity .45s ease, transform .45s ease, border-color .45s ease;
+    transition:opacity .45s ease, transform .45s ease;
     opacity:0.38;
     transform:scale(0.93);
     user-select:none;
@@ -848,7 +848,8 @@
   }
   .ns-carousel__progress-fill{
     height:100%;background:var(--ns-teal-300);
-    width:0%;transition:width .5s var(--ns-ease);
+    width:100%;transform:scaleX(0);transform-origin:left;
+    transition:transform .5s var(--ns-ease);
     border-radius:2px;
   }
 
