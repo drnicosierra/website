@@ -132,10 +132,10 @@
   .ns-btn-whatsapp:hover{background:#1ebe5a;transform:translateY(-1px);}
 
   /* --- Scroll reveal ---------------------------------------------------- */
-  .ns-reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms);will-change:transform;}
-  .ns-reveal.is-visible{opacity:1;transform:none;}
-  .ns-about__media.ns-reveal{transform:scale(0.97);}
-  .ns-about__media.ns-reveal.is-visible{transform:scale(1);}
+  .ns-reveal{opacity:0;transform:translateY(22px) translateZ(0);transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms);will-change:transform;}
+  .ns-reveal.is-visible{opacity:1;transform:translateZ(0);}
+  .ns-about__media.ns-reveal{transform:scale(0.97) translateZ(0);}
+  .ns-about__media.ns-reveal.is-visible{transform:scale(1) translateZ(0);}
   .ns-svc-row:nth-child(2){--rv:60ms}.ns-svc-row:nth-child(3){--rv:120ms}.ns-svc-row:nth-child(4){--rv:180ms}
   .ns-svc-row:nth-child(5){--rv:240ms}.ns-svc-row:nth-child(6){--rv:300ms}.ns-svc-row:nth-child(7){--rv:360ms}.ns-svc-row:nth-child(8){--rv:420ms}
   .ns-journey__step:nth-child(2){--rv:120ms}.ns-journey__step:nth-child(3){--rv:240ms}.ns-journey__step:nth-child(4){--rv:360ms}
@@ -220,17 +220,6 @@
   }
 
   /* ── ORBS — more varied colors ─────────────────────────────────── */
-  .ns-orb-1 {
-    width:1000px; height:1000px;
-    background:radial-gradient(circle, rgba(0,80,140,0.08) 0%, transparent 70%);
-    filter:blur(80px);
-  }
-  .ns-orb-2 {
-    width:800px; height:800px;
-    background:radial-gradient(circle, rgba(0,100,80,0.09) 0%, transparent 70%);
-    filter:blur(80px);
-  }
-
   /* Testimonial cards on teal bg */
   .ns-section-teal .ns-quote {
     background:rgba(0,15,35,0.55) !important;
@@ -256,6 +245,7 @@
   .ns-scope.ns-section-dark,
   section.ns-scope {
     background: transparent !important;
+    transform: translateZ(0);
     will-change: transform;
   }
 
@@ -275,17 +265,18 @@
     pointer-events:none;
     z-index:0;
     border-radius:50%;
-    filter:blur(120px);
+    filter:blur(60px);
     transition:transform 1.2s var(--ns-ease), opacity 1.2s ease;
+    transform:translateZ(0);
     will-change:transform;
   }
   .ns-orb-1 {
-    width:700px; height:700px;
+    width:500px; height:500px;
     background:radial-gradient(circle, rgba(13,116,196,0.18) 0%, transparent 70%);
     top:10vh; left:-10vw;
   }
   .ns-orb-2 {
-    width:500px; height:500px;
+    width:380px; height:380px;
     background:radial-gradient(circle, rgba(0,131,98,0.14) 0%, transparent 70%);
     top:60vh; right:-5vw;
   }

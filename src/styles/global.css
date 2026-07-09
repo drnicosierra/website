@@ -142,8 +142,8 @@ p + p { margin-top:16px; }
 .btn-wa:hover::after { opacity:1; }
 
 /* Reveal animations */
-.reveal { opacity:0; transform:translateY(22px); transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms); will-change:transform; }
-.reveal.visible { opacity:1; transform:none; }
+.reveal { opacity:0; transform:translateY(22px) translateZ(0); transition:opacity .8s var(--ns-ease) var(--rv,0ms), transform .8s var(--ns-ease) var(--rv,0ms); will-change:transform; }
+.reveal.visible { opacity:1; transform:translateZ(0); }
 .reveal-scale { opacity:0; transform:scale(0.97); transition:opacity .8s var(--ns-ease), transform .8s var(--ns-ease); }
 .reveal-scale.visible { opacity:1; transform:scale(1); }
 .rv2 { --rv:100ms } .rv3 { --rv:200ms } .rv4 { --rv:300ms } .rv5 { --rv:400ms }
@@ -661,6 +661,7 @@ p + p { margin-top:16px; }
 .footer {
   background:#000e1a; border-top:1px solid rgba(255,255,255,.07);
   color:rgba(255,255,255,.78); padding:clamp(72px,7vw,96px) 0 32px;
+  transform:translateZ(0);
   will-change:transform;
 }
 .footer-grid {
