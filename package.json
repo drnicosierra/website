@@ -7,7 +7,9 @@
     "prebuild": "node scripts/check-design-system.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "check:design": "node scripts/check-design-system.mjs"
+    "check:design": "node scripts/check-design-system.mjs",
+    "postbuild": "node scripts/check-performance-regressions.mjs",
+    "check:perf": "node scripts/check-performance-regressions.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "5.2.8",

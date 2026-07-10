@@ -28,6 +28,10 @@ import { join } from 'node:path';
 const PAGES_DIR = 'src/pages';
 const MAX_OVERRIDE_LINES = 6; // generous ceiling for the --sc override block
 const EXCEPTIONS = new Set(['index.astro']); // documented separate design system
+// Files where a hoisted script is genuinely intentional (none currently — add
+// 'filename.astro:LINE' here only with a comment explaining why, if this ever
+// becomes a real, deliberate choice rather than an oversight).
+const HOISTING_ALLOWED = new Set([]);
 
 // Any of these appearing inside a page's own <style> block means a chunk of
 // the shared design system got pasted back in — these must only ever be
@@ -65,17 +69,67 @@ function checkNestedMedia(source, file, errors) {
   });
 }
 
+// Any <script> tag with inline JS content (no src=) that lacks is:inline gets
+// silently auto-hoisted by Astro into a separate bundled file (dist/_astro/hoisted.*.js).
+// That turns a zero-cost inline script into a real new render-blocking network
+// request — this exact regression happened once already (July 2026, homepage
+// restructure away from Fragment set:html) and cost real LCP time before anyone
+// noticed via a live PageSpeed test. This check catches it at build time instead.
+function checkScriptHoisting(source, file, errors, allowedSet) {
+  // Only scan the actual template section (after frontmatter), not the
+  // frontmatter's JS/TS code — which legitimately contains "<script...>"
+  // text inside string literals (e.g. JSON-LD schema built as a string and
+  // injected later via <Fragment set:html={schemaBlocks} />). Scanning
+  // those would be a false positive: they're never real DOM script tags.
+  const frontmatterEnd = source.indexOf('---', source.indexOf('---') + 3);
+  const templateSource = frontmatterEnd === -1 ? source : source.slice(frontmatterEnd + 3);
+  const templateOffset = frontmatterEnd === -1 ? 0 : frontmatterEnd + 3;
+
+  const scriptOpenTagRe = /<script([^>]*)>/g;
+  let m;
+  while ((m = scriptOpenTagRe.exec(templateSource))) {
+    const attrs = m[1];
+    if (/\bsrc\s*=/.test(attrs)) continue; // external script, not hoisted
+    if (/\btype\s*=\s*["']application\/ld\+json["']/.test(attrs)) continue; // JSON-LD data, not executable
+    if (/\bis:inline\b/.test(attrs)) continue; // correctly marked
+    const lineNum = source.slice(0, templateOffset + m.index).split('\n').length;
+    if (allowedSet.has(`${file}:${lineNum}`)) continue; // documented exception
+    errors.push(
+      `${file}:${lineNum} — <script> with inline JS content is missing is:inline. ` +
+      `Astro will silently auto-hoist this into a separate bundled file, adding a ` +
+      `new render-blocking network request. Add is:inline to keep it as a zero-cost ` +
+      `inline script (unless hoisting is genuinely intentional — if so, add this ` +
+      `file/line to the HOISTING_ALLOWED set at the top of this script).`
+    );
+  }
+}
+
 function main() {
   const errors = [];
-  const files = readdirSync(PAGES_DIR).filter((f) => f.endsWith('.astro'));
+  const pageFiles = readdirSync(PAGES_DIR)
+    .filter((f) => f.endsWith('.astro'))
+    .map((f) => join(PAGES_DIR, f));
 
-  for (const file of files) {
-    const path = join(PAGES_DIR, file);
+  const extraDirs = ['src/layouts', 'src/components'];
+  const extraFiles = [];
+  for (const dir of extraDirs) {
+    try {
+      for (const f of readdirSync(dir)) {
+        if (f.endsWith('.astro')) extraFiles.push(join(dir, f));
+      }
+    } catch { /* directory may not exist, that's fine */ }
+  }
+
+  const allFiles = [...pageFiles, ...extraFiles];
+
+  for (const path of allFiles) {
     const source = readFileSync(path, 'utf-8');
 
     checkNestedMedia(source, path, errors);
+    checkScriptHoisting(source, path, errors, HOISTING_ALLOWED);
 
-    if (EXCEPTIONS.has(file)) continue;
+    const file = path.split('/').pop();
+    if (EXCEPTIONS.has(file) || !path.startsWith(PAGES_DIR)) continue;
 
     const blocks = findStyleBlocks(source);
     for (const block of blocks) {
@@ -114,7 +168,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`✓ Design-system check passed (${files.length} pages scanned).`);
+  console.log(`✓ Design-system check passed (${allFiles.length} files scanned: ${pageFiles.length} pages, ${extraFiles.length} layouts/components).`);
 }
 
 main();
