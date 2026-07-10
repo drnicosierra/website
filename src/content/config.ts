@@ -197,4 +197,127 @@ const camino = defineCollection({
   ),
 });
 
-export const collections = { services, about, camino };
+// ── Homepage (singleton) ──────────────────────────────────────────────────
+
+const timelineNode = z.object({
+  num: z.string(),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+  iconSvg: z.string(),
+  name: z.string(),
+  text: z.string(),
+  href: z.string().regex(/^\/[a-z-]+\/$|^\/cuentanos-tu-historia$/, 'href must be a real slug ending in / (or /cuentanos-tu-historia)'),
+});
+
+const gridRow = z.object({
+  num: z.string(),
+  name: z.string(),
+  tag: z.string(),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+  href: z.string().regex(/^\/[a-z-]+\/$|^\/cuentanos-tu-historia$/, 'href must be a real slug ending in / (or /cuentanos-tu-historia)'),
+});
+
+const homepage = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    canonical: z.string(),
+    ogTitle: z.string(),
+    ogDescription: z.string(),
+    keywords: z.string(),
+    whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
+
+    hero: z.object({
+      eyebrow: z.string(),
+      h1: z.string(),
+      lead: z.string(),
+      tickerItems: z.array(z.string()).min(4),
+    }),
+
+    about: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      paragraphs: z.array(z.string()).min(2).max(5),
+      credentials: z.array(z.object({
+        iconSvg: z.string(),
+        color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+        title: z.string(),
+        text: z.string(),
+      })).min(3).max(6),
+      ctaLabel: z.string(),
+      ctaHref: z.string(),
+    }),
+
+    timeline: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      lead: z.string(),
+      nodes: z.array(timelineNode).min(6).max(9),
+    }),
+
+    servicesGrid: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      rows: z.array(gridRow).min(6).max(9),
+    }),
+
+    journey: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      lead: z.string(),
+      ctaLabel: z.string(),
+      ctaHref: z.string(),
+      steps: z.array(z.object({
+        num: z.string(),
+        title: z.string(),
+        text: z.string(),
+      })).min(3).max(6),
+    }),
+
+    results: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      lead: z.string(),
+      ctaLabel: z.string(),
+      ctaHref: z.string(),
+    }),
+
+    testimonials: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      quotes: z.array(z.object({
+        text: z.string(),
+        name: z.string(),
+        role: z.string(),
+      })).min(1).max(6),
+    }),
+
+    faq: z.array(faqItem).min(5).max(8),
+
+    ctaBanner: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      lead: z.string(),
+      whatsappLabel: z.string(),
+      formLabel: z.string(),
+      formHref: z.string(),
+    }),
+
+    signature: z.object({
+      name: z.string(),
+      line: z.string(),
+    }),
+  })
+  .refine(
+    (data) => !(JSON.stringify(data).includes('Operation Smile') && JSON.stringify(data).includes('Smile Train')),
+    { message: 'Operation Smile and Smile Train must never appear together (per project rule).' }
+  )
+  .refine(
+    (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
+    { message: '"labio leporino" is forbidden — use "labio fisurado" per clinical terminology rules.' }
+  ),
+});
+
+export const collections = { services, about, camino, homepage };
+
+

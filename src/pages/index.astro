@@ -1,24 +1,35 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getImage } from 'astro:assets';
+import { getEntry } from 'astro:content';
 import '../styles/home.css';
 import dmSans700 from '@fontsource/dm-sans/files/dm-sans-latin-700-normal.woff2?url';
 
+const entry = await getEntry('homepage', 'main');
+if (!entry) throw new Error('Missing content entry: homepage/main');
+const d = entry.data;
+
 const heroImage = await getImage({
   src: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1800&h=1200&q=85&fit=crop',
-  width: 1800,
-  height: 1200,
-  format: 'webp'
+  width: 1800, height: 1200, format: 'webp'
 });
 
-const svcNam = await getImage({ src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcLabio = await getImage({ src: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcPaladar = await getImage({ src: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcRevision = await getImage({ src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcEncia = await getImage({ src: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcOrtognatica = await getImage({ src: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcRinoplastia = await getImage({ src: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
-const svcOtros = await getImage({ src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&q=80&fit=crop', width: 1200, height: 800, format: 'webp' });
+const svcImageUrls: Record<string, string> = {
+  '/ortopedia-prequirurgica-nam/': 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=800&q=80&fit=crop',
+  '/cirugia-labio-fisurado/': 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&h=800&q=80&fit=crop',
+  '/cirugia-paladar-hendido/': 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=800&q=80&fit=crop',
+  '/cirugia-revision-fisura/': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&q=80&fit=crop',
+  '/injerto-oseo-alveolar/': 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=800&q=80&fit=crop',
+  '/cirugia-ortognatica-flp/': 'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=800&q=80&fit=crop',
+  '/rinoplastia-flp/': 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1200&h=800&q=80&fit=crop',
+  '/otros-procedimientos/': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&q=80&fit=crop',
+};
+const svcImages = Object.fromEntries(
+  await Promise.all(d.servicesGrid.rows.map(async (row) => [
+    row.href,
+    (await getImage({ src: svcImageUrls[row.href], width: 1200, height: 800, format: 'webp' })).src,
+  ]))
+);
 
 const doctorPhoto = await getImage({ src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1067&q=85&fit=crop&crop=faces', width: 800, height: 1067, format: 'webp' });
 
@@ -40,966 +51,448 @@ const galleryUrls = [
   'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=340&q=80&fit=crop&crop=faces',
   'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=340&q=80&fit=crop&crop=faces'
 ];
-const galleryImages = await Promise.all(
-  galleryUrls.map((src) => getImage({ src, width: 400, height: 340, format: 'webp' }))
-);
+const galleryImages = await Promise.all(galleryUrls.map((src) => getImage({ src, width: 400, height: 340, format: 'webp' })));
 
-const title = 'Dr. Nico Sierra — Especialista en Fisura Labiopalatina | Barcelona';
-const description = 'Dr. Nico Sierra, cirujano dedicado exclusivamente a la fisura labiopalatina en Barcelona. Reconstrucción de labio fisurado, paladar hendido y cirugía de revisión para pacientes nacionales e internacionales.';
-const canonical = 'https://www.drnicosierra.com/';
-const ogTitle = 'Dr. Nico Sierra — Especialista en Fisura Labiopalatina';
-const ogDescription = 'Atención quirúrgica integral para fisura labiopalatina. Una práctica dedicada, en Barcelona, para familias de toda España y el extranjero.';
 const ogImageOptimized = await getImage({ src: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1200&h=630&q=80&fit=crop', width: 1200, height: 630, format: 'jpg' });
 const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
-const keywords = 'fisura labiopalatina, labio fisurado, paladar hendido, FLP, cirugía de revisión, Dr. Nico Sierra, cirujano Barcelona, NAM, ortognática FLP, rinoplastia FLP';
+
+const caseCards = [
+  { tag: 'Labio fisurado', title: 'Reconstrucción primaria de labio', text: 'Caso pediátrico — técnica funcional con preservación muscular.' },
+  { tag: 'Revisión', title: 'Cirugía de revisión en adulto', text: 'Paciente internacional — corrección de secuelas tras intervención previa.' },
+  { tag: 'Paladar hendido', title: 'Cierre de paladar completo', text: 'Paciente pediátrico — cierre del paladar blando y duro en una intervención.' },
+  { tag: 'Rinoplastia FLP', title: 'Rinoplastia funcional en FLP', text: 'Adolescente — reconstrucción nasal funcional y estética específica para FLP.' },
+  { tag: 'Ortognática', title: 'Cirugía ortognática en FLP', text: 'Adulto joven — corrección de la posición maxilar tras secuelas de fisura.' },
+  { tag: 'Encía', title: 'Reconstrucción de encía', text: 'Paciente pediátrico — injerto óseo alveolar previo a erupción del canino definitivo.' },
+  { tag: 'Labio fisurado', title: 'Revisión de labio en adulto', text: 'Paciente adulta — corrección de cicatriz y asimetría tras cirugía primaria previa.' },
+  { tag: 'NAM', title: 'Ortopedia prequirúrgica NAM', text: 'Recién nacido — moldeado nasoalveolar previo a la cirugía primaria de labio.' },
+];
 ---
-<Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription} ogImage={ogImage} keywords={keywords}>
-  <Fragment slot="head" set:html={`
-<link rel="preload" as="font" type="font/woff2" href="${dmSans700}" crossorigin>
-`} />
-  <Fragment set:html={`
-<!-- ============================================================================
-  GLOBAL DARK BACKGROUND — gradient narrative + breathing light orb
-  This goes on the <body> or a full-page wrapper in Webflow
-============================================================================ -->
+<Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} keywords={d.keywords}>
+  <Fragment slot="head">
+    <link rel="preload" as="font" type="font/woff2" href={dmSans700} crossorigin>
+  </Fragment>
 
-<!-- Orb elements — inject once, outside sections -->
-<div class="ns-orb ns-orb-1" id="nsOrb1" aria-hidden="true"></div>
-<div class="ns-orb ns-orb-2" id="nsOrb2" aria-hidden="true"></div>
+  <div class="ns-orb ns-orb-1" id="nsOrb1" aria-hidden="true"></div>
+  <div class="ns-orb ns-orb-2" id="nsOrb2" aria-hidden="true"></div>
 
-
-
-
-
-<!-- ============================================================================
-  BLOCK 4 — HERO
-  Paste into: Webflow Embed (first section under navbar)
-============================================================================ -->
-<header class="ns-scope ns-hero" role="banner">
-  <div class="ns-hero__media">
-    <img src="${heroImage.src}" alt="Dr. Nico Sierra — Especialista en fisura labiopalatina">
-    <div class="ns-hero__veil" aria-hidden="true"></div>
-  </div>
-
-  <!-- Watermark number — bottom right -->
-  <div class="ns-hero__watermark" aria-hidden="true">+1.000</div>
-
-  <!-- Vertical ticker — right edge -->
-  <div class="ns-hero__ticker" aria-hidden="true">
-    <div class="ns-hero__ticker-track">
-      <span>Fisura labiopalatina</span><span>Barcelona · España</span>
-      <span>Labio fisurado</span><span>Paladar hendido</span>
-      <span>Cirugía de revisión</span><span>Operation Smile</span>
-      <span>Smile Train</span><span>Pacientes internacionales</span>
-      <span>Fisura labiopalatina</span><span>Barcelona · España</span>
-      <span>Labio fisurado</span><span>Paladar hendido</span>
+  <header class="ns-scope ns-hero" role="banner">
+    <div class="ns-hero__media">
+      <img src={heroImage.src} alt="Dr. Nico Sierra — Especialista en fisura labiopalatina">
+      <div class="ns-hero__veil" aria-hidden="true"></div>
     </div>
-  </div>
-
-  <div class="ns-container ns-hero__inner">
-    <span class="ns-eyebrow ns-hero__eyebrow ns-hero-anim" style="--d:0ms">Especialista en fisura labiopalatina (labio y paladar hendido). Barcelona</span>
-    <h1 class="ns-h1 ns-hero__title ns-hero-anim" style="--d:60ms">
-      Una práctica dedicada<br>
-      <em>en exclusiva</em> a la fisura labiopalatina.
-    </h1>
-    <p class="ns-hero__sub ns-hero-anim" style="--d:120ms">
-      Atención quirúrgica altamente especializada en todas las etapas del desarrollo — desde el diagnóstico prenatal hasta la cirugía de revisión en la edad adulta. Casos primarios, secuelas complejas y familias de toda España y Europa.
-    </p>
-
-    <div class="ns-hero__ctas ns-hero-anim" style="--d:180ms">
-      <a href="/cuentanos-tu-historia" class="ns-btn ns-btn-primary ns-btn-pulse">Cuéntanos tu caso</a>
-      <a href="https://wa.me/WHATSAPP_NUMBER" class="btn btn-wa" data-wa-loc="hero" aria-label="Escribir por WhatsApp">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.2-.7.8-.8 1-.3.1-.6 0a7.4 7.4 0 0 1-3.6-3.2c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.4 1 2.7 1.2 2.9s2 3.1 5 4.3c.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z"/></svg>
-        WhatsApp
-      </a>
+    <div class="ns-hero__watermark" aria-hidden="true">+1.000</div>
+    <div class="ns-hero__ticker" aria-hidden="true">
+      <div class="ns-hero__ticker-track">
+        {[...d.hero.tickerItems, ...d.hero.tickerItems].map((item) => <span>{item}</span>)}
+      </div>
     </div>
+    <div class="ns-container ns-hero__inner">
+      <span class="ns-eyebrow ns-hero__eyebrow ns-hero-anim" style="--d:0ms">{d.hero.eyebrow}</span>
+      <h1 class="ns-h1 ns-hero__title ns-hero-anim" style="--d:60ms" set:html={d.hero.h1} />
+      <p class="ns-hero__sub ns-hero-anim" style="--d:120ms">{d.hero.lead}</p>
+      <div class="ns-hero__ctas ns-hero-anim" style="--d:180ms">
+        <a href="/cuentanos-tu-historia" class="ns-btn ns-btn-primary ns-btn-pulse">Cuéntanos tu caso</a>
+        <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="hero" aria-label="Escribir por WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5zm5-6.7c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.2-.7.8-.8 1-.3.1-.6 0a7.4 7.4 0 0 1-3.6-3.2c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.4 1 2.7 1.2 2.9s2 3.1 5 4.3c.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <a href="#ns-about-title" class="ns-hero__scroll" aria-label="Continuar"><span></span></a>
+  </header>
 
-
-  </div>
-
-  <a href="#ns-about-title" class="ns-hero__scroll" aria-label="Continuar"><span></span></a>
-</header>
-
-
-
-<!-- ============================================================================
-  BLOCK 5 — TRUST STRIP
-  Paste into: Webflow Embed
-============================================================================ -->
-
-
-
-<!-- ============================================================================
-  BLOCK 6 — ABOUT DR. SIERRA
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-section ns-about ns-section-teal" aria-labelledby="ns-about-title">
-  <div class="ns-container">
-
-    <!-- Row 1: image + text side by side, top-aligned -->
-    <div class="ns-about__top">
-      <figure class="ns-about__media ns-reveal">
-        <img src="${doctorPhoto.src}" alt="Dr. Nico Sierra — Especialista en fisura labiopalatina" loading="lazy">
-        <div class="ns-about__media-mark" aria-hidden="true"></div>
-      </figure>
-      <div class="ns-about__text">
-        <div class="ns-sh">
-          <span class="ns-eyebrow">Sobre Dr. Nico Sierra</span>
-          <h2 id="ns-about-title" class="ns-h2 ns-about__title ns-reveal">Una carrera dedicada en exclusiva a las personas nacidas con fisura labiopalatina.</h2>
+  <section class="ns-scope ns-section ns-about ns-section-teal" aria-labelledby="ns-about-title">
+    <div class="ns-container">
+      <div class="ns-about__top">
+        <figure class="ns-about__media ns-reveal">
+          <img src={doctorPhoto.src} alt="Dr. Nico Sierra — Especialista en fisura labiopalatina" loading="lazy">
+          <div class="ns-about__media-mark" aria-hidden="true"></div>
+        </figure>
+        <div class="ns-about__text">
+          <div class="ns-sh">
+            <span class="ns-eyebrow">{d.about.eyebrow}</span>
+            <h2 id="ns-about-title" class="ns-h2 ns-about__title ns-reveal">{d.about.h2}</h2>
+          </div>
+          <div class="ns-about__body ns-reveal">
+            {d.about.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
         </div>
-        <div class="ns-about__body ns-reveal">
-          <p>Con más de 100 cirugías anuales, el Dr. Nico Sierra acompaña a cada paciente desde el primer momento con un plan de tratamiento completamente personalizado, diseñado para dar respuesta a sus necesidades físicas, funcionales y emocionales en cada etapa de su desarrollo.</p>
-          <p>Referente nacional e internacional en cirugía reconstructiva de fisura labiopalatina, su enfoque integra las especialidades médicas y odontológicas necesarias en cada fase, coordinando equipos interdisciplinares con el rigor y la experiencia que cada caso exige.</p>
-          <p>Aplica técnicas avanzadas y mínimamente invasivas para restaurar la estética y la función del rostro, reduciendo al máximo las molestias postoperatorias y favoreciendo siempre la recuperación más rápida y confortable posible.</p>
-          <p>Es especialista de referencia para quienes necesitan corregir las secuelas de tratamientos previos. Con amplia experiencia en casos de alta complejidad, su objetivo es siempre el mismo: devolver la armonía facial, la función y, sobre todo, la confianza y la autoestima a pacientes de todas las edades. Porque nunca es tarde para sentirse mejor.</p>
+      </div>
+      <div class="ns-about__bottom ns-reveal">
+        <ul class="ns-about__creds ns-about__creds--5" role="list">
+          {d.about.credentials.map((c) => (
+            <li class="ns-cred">
+              <div class="ns-cred__icon" style={`--ci:${c.color}`} set:html={`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c.iconSvg}</svg>`} />
+              <div><strong>{c.title}</strong><span>{c.text}</span></div>
+            </li>
+          ))}
+        </ul>
+        <a href={d.about.ctaHref} class="ns-btn ns-btn-outline ns-about__cta">{d.about.ctaLabel}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ns-scope ns-section ns-timeline" aria-labelledby="ns-timeline-title">
+    <div class="ns-container">
+      <header class="ns-timeline__head ns-reveal ns-sh ns-sh--center">
+        <span class="ns-eyebrow">{d.timeline.eyebrow}</span>
+        <h2 id="ns-timeline-title" class="ns-h2" set:html={d.timeline.h2} />
+        <p class="ns-lead" style="max-width:52ch;">{d.timeline.lead}</p>
+      </header>
+      <div class="ns-tl" id="nsTl" aria-label="Recorrido del paciente FLP">
+        <svg class="ns-tl__line-svg" aria-hidden="true" preserveAspectRatio="none">
+          <path class="ns-tl__line-path" id="nsTlPath" d=""/>
+        </svg>
+        <div class="ns-tl__nodes">
+          {d.timeline.nodes.map((node, i) => (
+            <div class={`ns-tl__node ns-reveal ${i === d.timeline.nodes.length - 1 ? 'ns-tl__node--open' : ''}`} style={`--sc:${node.color}`} data-href={node.href}>
+              <div class="ns-tl__node-dot" set:html={`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">${node.iconSvg}</svg>`} />
+              <div class="ns-tl__node-content">
+                <span class="ns-tl__node-num">{node.num}</span>
+                <h3 class="ns-tl__node-name" set:html={node.name} />
+                <p>{node.text}</p>
+                <a href={node.href} class={`ns-tl__node-link ${i === d.timeline.nodes.length - 1 ? 'ns-tl__node-link--cta' : ''}`}>{i === d.timeline.nodes.length - 1 ? 'Escríbenos →' : 'Ver →'}</a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- 5 credentials full-width below -->
-    <div class="ns-about__bottom ns-reveal">
-      <ul class="ns-about__creds ns-about__creds--5" role="list">
-        <li class="ns-cred">
-          <div class="ns-cred__icon" style="--ci:#008362">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div><strong>Más de 1.000 cirugías</strong><span>Más de 100 cada año. La experiencia importa.</span></div>
-        </li>
-        <li class="ns-cred">
-          <div class="ns-cred__icon" style="--ci:#7C3AED">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <div><strong>Fellowship en Cirugía Craneofacial y FLP</strong><span>El único cirujano en España con esta subespecialidad.</span></div>
-        </li>
-        <li class="ns-cred">
-          <div class="ns-cred__icon" style="--ci:#0891B2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div><strong>Técnicas avanzadas y mínimamente invasivas</strong><span>Estética y función con el máximo confort.</span></div>
-        </li>
-        <li class="ns-cred">
-          <div class="ns-cred__icon" style="--ci:#C9186A">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div><strong>Experto en cirugía de revisión</strong><span>Nunca es tarde para sentirse mejor.</span></div>
-        </li>
-        <li class="ns-cred">
-          <div class="ns-cred__icon" style="--ci:#0d74c4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <div><strong>Pacientes de toda España y Europa</strong><span>Valoración por telemedicina. Logística coordinada.</span></div>
-        </li>
-      </ul>
-      <a href="/sobre-dr-nico-sierra" class="ns-btn ns-btn-outline ns-about__cta">Conoce al Dr. Nico Sierra</a>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-<!-- ============================================================================
-  PATIENT JOURNEY TIMELINE — animated draw-on-scroll
-  Shows the typical FLP patient pathway across all 8 services
-============================================================================ -->
-<section class="ns-scope ns-section ns-timeline" aria-labelledby="ns-timeline-title">
-  <div class="ns-container">
-    <header class="ns-timeline__head ns-reveal ns-sh ns-sh--center">
-      <span class="ns-eyebrow">El camino de cada paciente</span>
-      <h2 id="ns-timeline-title" class="ns-h2">Un recorrido que puede<br>durar toda la vida.</h2>
-      <p class="ns-lead" style="max-width:52ch;">La fisura labiopalatina no se trata en una sola visita. El Dr. Sierra acompaña a cada paciente a través de todas las etapas que necesite — sin prisa, sin saltar pasos.</p>
-    </header>
-
-    <!-- Timeline track -->
-    <div class="ns-tl" id="nsTl" aria-label="Recorrido del paciente FLP">
-
-      <!-- SVG connecting line — drawn on scroll -->
-      <svg class="ns-tl__line-svg" aria-hidden="true" preserveAspectRatio="none">
-        <path class="ns-tl__line-path" id="nsTlPath" d=""/>
-      </svg>
-
-      <!-- Timeline nodes -->
-      <div class="ns-tl__nodes">
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#7C3AED" data-href="/nam">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">01</span>
-            <h3 class="ns-tl__node-name">NAM<br><em>Pre-operatoria</em></h3>
-            <p>Moldeado nasoalveolar previo a la primera cirugía.</p>
-            <a href="/nam" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#C9186A" data-href="/labio-fisurado">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">02</span>
-            <h3 class="ns-tl__node-name">Labio<br><em>Fisurado</em></h3>
-            <p>Reconstrucción primaria del labio fisurado.</p>
-            <a href="/labio-fisurado" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#008362" data-href="/paladar-hendido">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">03</span>
-            <h3 class="ns-tl__node-name">Paladar<br><em>Hendido</em></h3>
-            <p>Cierre del paladar para el habla y la alimentación.</p>
-            <a href="/paladar-hendido" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#16A34A" data-href="/encia">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">04</span>
-            <h3 class="ns-tl__node-name">Encía<br><em>Injerto óseo</em></h3>
-            <p>Reconstrucción alveolar para los dientes definitivos.</p>
-            <a href="/encia" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#B45309" data-href="/ortognatica">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">05</span>
-            <h3 class="ns-tl__node-name">Ortognática<br><em>en FLP</em></h3>
-            <p>Corrección maxilomandibular y armonía facial.</p>
-            <a href="/ortognatica" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#0891B2" data-href="/rinoplastia">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">06</span>
-            <h3 class="ns-tl__node-name">Rinoplastia<br><em>en FLP</em></h3>
-            <p>Reconstrucción nasal funcional y estética.</p>
-            <a href="/rinoplastia" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-reveal" style="--sc:#0d74c4" data-href="/cirugia-revision">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">07</span>
-            <h3 class="ns-tl__node-name">Cirugía de<br><em>Revisión</em></h3>
-            <p>Corrección de resultados previos en cualquier etapa.</p>
-            <a href="/cirugia-revision" class="ns-tl__node-link">Ver →</a>
-          </div>
-        </div>
-
-        <div class="ns-tl__node ns-tl__node--open ns-reveal" style="--sc:#64748B" data-href="/cuentanos-tu-historia">
-          <div class="ns-tl__node-dot">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          </div>
-          <div class="ns-tl__node-content">
-            <span class="ns-tl__node-num">+</span>
-            <h3 class="ns-tl__node-name">Tu caso<br><em>es único</em></h3>
-            <p>No todos los recorridos son iguales. Cuéntanos el tuyo.</p>
-            <a href="/cuentanos-tu-historia" class="ns-tl__node-link ns-tl__node-link--cta">Escríbenos →</a>
-          </div>
-        </div>
-
-      </div><!-- /nodes -->
-    </div><!-- /tl -->
-  </div>
-</section>
-
-
-<script>
-(function(){
-  var tl = document.getElementById('nsTl');
-  if(!tl) return;
-  /* Draw-on-scroll trigger */
-  if('IntersectionObserver' in window){
-    var tlObs = new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting){ tl.classList.add('is-drawing'); tlObs.disconnect(); }
-    },{threshold:.3});
-    tlObs.observe(tl);
-  }
-  /* Click anywhere on node → navigate */
-  tl.querySelectorAll('.ns-tl__node').forEach(function(n){
-    n.addEventListener('click', function(){
-      var href = n.getAttribute('data-href');
-      if(href) window.location.href = href;
-    });
-  });
-})();
-</script>
-
-<!-- ============================================================================
-  BLOCK 7 — SERVICES GRID
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-section ns-services ns-section-mid" style="padding-bottom:0;" aria-labelledby="ns-services-title">
-  <div class="ns-container">
-    <header class="ns-services__head ns-reveal">
-      <span class="ns-eyebrow">Cómo te ayudamos</span>
-      <h2 id="ns-services-title" class="ns-h2">Ocho tratamientos.<br>Una sola especialidad.</h2>
-    </header>
-  </div>
-
-  <!-- Full-width interactive list -->
-  <div class="ns-svc-list" id="nsSvcList">
-    <!-- Background image reveal layer -->
-    <div class="ns-svc-list__bg" id="nsSvcBg" aria-hidden="true">
-      <img src="${svcNam.src}" alt="" id="nsSvcBgImg" loading="lazy">
-      <div class="ns-svc-list__bg-veil"></div>
-    </div>
-
-    <a href="/nam" class="ns-svc-row ns-reveal" data-img="${svcNam.src}" style="--sc:#7C3AED">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">01</span>
-      <span class="ns-svc-row__name">Ortopedia Pre-operatoria <em>NAM</em></span>
-      <span class="ns-svc-row__tag">Pre-quirúrgico</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/labio-fisurado" class="ns-svc-row ns-reveal" data-img="${svcLabio.src}" style="--sc:#C9186A">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">02</span>
-      <span class="ns-svc-row__name">Reconstrucción de <em>Labio Fisurado</em></span>
-      <span class="ns-svc-row__tag">Labio fisurado</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/paladar-hendido" class="ns-svc-row ns-reveal" data-img="${svcPaladar.src}" style="--sc:#008362">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">03</span>
-      <span class="ns-svc-row__name">Reconstrucción de <em>Paladar Hendido</em></span>
-      <span class="ns-svc-row__tag">Paladar hendido</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/cirugia-revision" class="ns-svc-row ns-reveal" data-img="${svcRevision.src}" style="--sc:#0d74c4">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">04</span>
-      <span class="ns-svc-row__name"><em>Cirugía de Revisión</em></span>
-      <span class="ns-svc-row__tag">Adultos · Revisión</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/encia" class="ns-svc-row ns-reveal" data-img="${svcEncia.src}" style="--sc:#16A34A">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">05</span>
-      <span class="ns-svc-row__name">Reconstrucción de <em>Encía</em></span>
-      <span class="ns-svc-row__tag">Injerto óseo</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/ortognatica" class="ns-svc-row ns-reveal" data-img="${svcOrtognatica.src}" style="--sc:#B45309">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">06</span>
-      <span class="ns-svc-row__name">Cirugía <em>Ortognática</em> en FLP</span>
-      <span class="ns-svc-row__tag">Maxilofacial</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/rinoplastia" class="ns-svc-row ns-reveal" data-img="${svcRinoplastia.src}" style="--sc:#0891B2">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">07</span>
-      <span class="ns-svc-row__name"><em>Rinoplastia</em> en FLP</span>
-      <span class="ns-svc-row__tag">Funcional · Estética</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-    <a href="/cuentanos-tu-historia" class="ns-svc-row ns-svc-row--otros ns-reveal" data-img="${svcOtros.src}" style="--sc:#64748B">
-      <span class="ns-svc-row__dot"></span>
-      <span class="ns-svc-row__num">08</span>
-      <span class="ns-svc-row__name"><em>Otros</em> procedimientos</span>
-      <span class="ns-svc-row__tag">Cuéntanos tu caso</span>
-      <span class="ns-svc-row__arrow">→</span>
-    </a>
-  </div>
-</section>
-
-
-<script>
-(function(){
-  var list = document.getElementById('nsSvcList');
-  var bg = document.getElementById('nsSvcBg');
-  var bgImg = document.getElementById('nsSvcBgImg');
-  if(!list||!bg||!bgImg) return;
-  var rows = list.querySelectorAll('.ns-svc-row');
-  var hideTimer;
-  rows.forEach(function(row){
-    row.addEventListener('mouseenter', function(){
-      clearTimeout(hideTimer);
-      var img = row.getAttribute('data-img');
-      if(img && bgImg.src !== img){
-        bgImg.style.opacity='0';
-        setTimeout(function(){
-          bgImg.src = img;
-          bgImg.style.opacity='1';
-        }, 150);
-      }
-      bg.classList.add('is-visible');
-      row.classList.add('is-hovered');
-    });
-    row.addEventListener('mouseleave', function(){
-      row.classList.remove('is-hovered');
-      hideTimer = setTimeout(function(){ bg.classList.remove('is-visible'); }, 300);
-    });
-  });
-})();
-</script>
-
-
-
-<!-- ============================================================================
-  BLOCK 8 — PATIENT JOURNEY
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-section ns-journey ns-section-green" aria-labelledby="ns-journey-title">
-  <div class="ns-container ns-journey__layout">
-    <div class="ns-journey__left ns-reveal">
-      <span class="ns-eyebrow">Tu camino con nosotros</span>
-      <h2 id="ns-journey-title" class="ns-h2">Cuatro pasos.<br>Una sola persona<br>acompañándote.</h2>
-      <p style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.75;max-width:32ch;margin-top:16px;">
-        Desde el primer mensaje hasta el último control. El Dr. Sierra está en cada momento.
-      </p>
-      <a href="/tu-camino-con-nosotros" class="ns-btn ns-btn-ghost" style="display:inline-flex;margin-top:40px;border-color:rgba(255,255,255,0.35);">Ver el proceso completo →</a>
-    </div>
-
-    <ol class="ns-journey__steps" role="list">
-      <li class="ns-journey__step ns-reveal">
-        <div class="ns-journey__line" aria-hidden="true"></div>
-        <div class="ns-journey__node"><span>01</span></div>
-        <div class="ns-journey__content">
-          <h3 class="ns-h4">Nos escribes</h3>
-          <p>Envías fotos y una descripción de tu caso. El Dr. Sierra lo revisa personalmente y te responde en menos de 24 horas.</p>
-        </div>
-      </li>
-      <li class="ns-journey__step ns-reveal">
-        <div class="ns-journey__line" aria-hidden="true"></div>
-        <div class="ns-journey__node"><span>02</span></div>
-        <div class="ns-journey__content">
-          <h3 class="ns-h4">Valoramos tu caso</h3>
-          <p>Consulta presencial o telemática. Plan quirúrgico claro, honesto y sin compromisos.</p>
-        </div>
-      </li>
-      <li class="ns-journey__step ns-reveal">
-        <div class="ns-journey__line" aria-hidden="true"></div>
-        <div class="ns-journey__node"><span>03</span></div>
-        <div class="ns-journey__content">
-          <h3 class="ns-h4">La cirugía</h3>
-          <p>Intervención en Barcelona con equipo especializado. Coordinamos logística para pacientes internacionales.</p>
-        </div>
-      </li>
-      <li class="ns-journey__step ns-reveal">
-        <div class="ns-journey__line ns-journey__line--last" aria-hidden="true"></div>
-        <div class="ns-journey__node ns-journey__node--last"><span>04</span></div>
-        <div class="ns-journey__content">
-          <h3 class="ns-h4">Te acompañamos</h3>
-          <p>Seguimiento postoperatorio cercano, presencial o a distancia, el tiempo que sea necesario.</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-
-
-<!-- ============================================================================
-  BLOCK 9 — RESULTS / BEFORE-AFTER CAROUSEL
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-section ns-section-dark ns-results" aria-labelledby="ns-results-title">
-  <div class="ns-container">
-    <header class="ns-results__head ns-reveal">
-      <span class="ns-eyebrow">Vidas transformadas</span>
-      <h2 id="ns-results-title" class="ns-h2">Resultados que hablan por nosotros.</h2>
-      <p class="ns-lead">Casos reales, con consentimiento. Cirugía primaria y de revisión — cada resultado representa un recorrido acompañado de principio a fin por el Dr. Nico Sierra.</p>
-    </header>
-  </div>
-
-  <!-- Carousel — full bleed so side cards peek out -->
-  <div class="ns-carousel" id="nsCasosCarousel" aria-label="Casos de pacientes">
-    <div class="ns-carousel__track" id="nsCasosTrack">
-
-      <article class="ns-ccase" data-index="0">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[0].src}" alt="Antes — Caso 1" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[1].src}" alt="Después — Caso 1" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Labio fisurado</span>
-          <h3 class="ns-h4">Reconstrucción primaria de labio</h3>
-          <p>Caso pediátrico — técnica funcional con preservación muscular.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="1">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[2].src}" alt="Antes — Caso 2" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[3].src}" alt="Después — Caso 2" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Revisión</span>
-          <h3 class="ns-h4">Cirugía de revisión en adulto</h3>
-          <p>Paciente internacional — corrección de secuelas tras intervención previa.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="2">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[4].src}" alt="Antes — Caso 3" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[5].src}" alt="Después — Caso 3" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Paladar hendido</span>
-          <h3 class="ns-h4">Cierre de paladar completo</h3>
-          <p>Paciente pediátrico — cierre del paladar blando y duro en una intervención.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="3">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[6].src}" alt="Antes — Caso 4" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[7].src}" alt="Después — Caso 4" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Rinoplastia FLP</span>
-          <h3 class="ns-h4">Rinoplastia funcional en FLP</h3>
-          <p>Adolescente — reconstrucción nasal funcional y estética específica para FLP.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="4">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[8].src}" alt="Antes — Caso 5" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[9].src}" alt="Después — Caso 5" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Ortognática</span>
-          <h3 class="ns-h4">Cirugía ortognática en FLP</h3>
-          <p>Adulto joven — corrección de la posición maxilar tras secuelas de fisura.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="5">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[10].src}" alt="Antes — Caso 6" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[11].src}" alt="Después — Caso 6" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Encía</span>
-          <h3 class="ns-h4">Reconstrucción de encía</h3>
-          <p>Paciente pediátrico — injerto óseo alveolar previo a erupción del canino definitivo.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="6">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[12].src}" alt="Antes — Caso 7" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[13].src}" alt="Después — Caso 7" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">Labio fisurado</span>
-          <h3 class="ns-h4">Revisión de labio en adulto</h3>
-          <p>Paciente adulta — corrección de cicatriz y asimetría tras cirugía primaria previa.</p>
-        </div>
-      </article>
-
-      <article class="ns-ccase" data-index="7">
-        <div class="ns-ccase__media">
-          <figure><img src="${galleryImages[14].src}" alt="Antes — Caso 8" loading="lazy"><figcaption>Antes</figcaption></figure>
-          <figure><img src="${galleryImages[15].src}" alt="Después — Caso 8" loading="lazy"><figcaption>Después</figcaption></figure>
-        </div>
-        <div class="ns-ccase__body">
-          <span class="ns-ccase__tag">NAM</span>
-          <h3 class="ns-h4">Ortopedia prequirúrgica NAM</h3>
-          <p>Recién nacido — moldeado nasoalveolar previo a la cirugía primaria de labio.</p>
-        </div>
-      </article>
-
-    </div><!-- /track -->
-
-    <!-- Arrows -->
-    <button class="ns-carousel__arrow ns-carousel__arrow--prev" id="nsCasosPrev" aria-label="Caso anterior">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
-    <button class="ns-carousel__arrow ns-carousel__arrow--next" id="nsCasosNext" aria-label="Caso siguiente">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
-
-    <!-- Progress bar -->
-    <div class="ns-carousel__progress" id="nsCasosProgress" aria-hidden="true">
-      <div class="ns-carousel__progress-fill" id="nsCasosProgressFill"></div>
-    </div>
-    <!-- Dots (hidden visually, kept for a11y) -->
-    <div class="ns-carousel__dots" id="nsCasosDots" aria-label="Navegación de casos" role="tablist" style="display:none"></div>
-  </div>
-
-  <div class="ns-container">
-    <a href="/vidas-transformadas" class="ns-btn ns-btn-ghost ns-results__cta">Ver todos los casos</a>
-  </div>
-</section>
-
-
-<script>
-(function(){
-  var track = document.getElementById('nsCasosTrack');
-  var dotsWrap = document.getElementById('nsCasosDots');
-  var prevBtn = document.getElementById('nsCasosPrev');
-  var nextBtn = document.getElementById('nsCasosNext');
-  if(!track) return;
-
-  var cards = Array.from(track.querySelectorAll('.ns-ccase'));
-  var total = cards.length;
-  var current = 1;
-
-  /* Build dots */
-  cards.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.className = 'ns-cdot';
-    d.setAttribute('aria-label', 'Ir al caso ' + (i+1));
-    d.setAttribute('role','tab');
-    d.addEventListener('click', function(){ goTo(i); });
-    dotsWrap.appendChild(d);
-  });
-  var dots = Array.from(dotsWrap.querySelectorAll('.ns-cdot'));
-
-  function goTo(idx){
-    current = (idx + total) % total;
-    render();
-  }
-
-  function render(){
-    var cardW = cards[0].offsetWidth + 24; /* card width + gap */
-    var wrapW = track.parentElement.offsetWidth;
-    /* Center active card */
-    var offset = (wrapW / 2) - (cardW / 2) - (current * cardW);
-    track.style.transform = 'translateX(' + offset + 'px)';
-
-    cards.forEach(function(c, i){
-      c.classList.remove('is-active','is-adjacent');
-      if(i === current) c.classList.add('is-active');
-      else if(i === current - 1 || i === current + 1) c.classList.add('is-adjacent');
-    });
-
-    dots.forEach(function(d,i){ d.classList.toggle('is-active', i === current); });
-    var fill = document.getElementById('nsCasosProgressFill');
-    if(fill) fill.style.transform = 'scaleX(' + (current / (total - 1)) + ')';
-    if(prevBtn) prevBtn.disabled = false;
-    if(nextBtn) nextBtn.disabled = false;
-  }
-
-  if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
-  if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
-
-  /* Drag / swipe */
-  var startX = 0, startCurrent = 0, dragging = false, dragCardW = 0;
-  track.addEventListener('mousedown', function(e){
-    dragging = true; startX = e.clientX; startCurrent = current;
-    dragCardW = cards[0].offsetWidth + 24;
-    track.classList.add('is-dragging');
-  });
-  window.addEventListener('mousemove', function(e){
-    if(!dragging) return;
-    var diff = e.clientX - startX;
-    if(Math.abs(diff) > dragCardW * 0.3){
-      goTo(startCurrent - Math.sign(diff));
-      dragging = false;
-      track.classList.remove('is-dragging');
+  <script>
+  (function(){
+    var tl = document.getElementById('nsTl');
+    if(!tl) return;
+    if('IntersectionObserver' in window){
+      var tlObs = new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){ tl.classList.add('is-drawing'); tlObs.disconnect(); }
+      },{threshold:.3});
+      tlObs.observe(tl);
     }
-  });
-  window.addEventListener('mouseup', function(){
-    dragging = false;
-    track.classList.remove('is-dragging');
-  });
-  /* Touch */
-  track.addEventListener('touchstart', function(e){
-    startX = e.touches[0].clientX; startCurrent = current;
-    dragCardW = cards[0].offsetWidth + 24;
-  }, {passive:true});
-  track.addEventListener('touchend', function(e){
-    var diff = e.changedTouches[0].clientX - startX;
-    if(Math.abs(diff) > dragCardW * 0.25) goTo(startCurrent - Math.sign(diff));
-  }, {passive:true});
-
-  /* Init + resize */
-  requestAnimationFrame(render);
-  window.addEventListener('resize', function(){ requestAnimationFrame(render); });
-})();
-</script>
-
-
-<!-- ============================================================================
-  BLOCK 10 — TESTIMONIALS
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-section ns-testimonials ns-section-teal" aria-labelledby="ns-testim-title">
-  <div class="ns-container">
-    <header class="ns-testimonials__head ns-reveal">
-      <span class="ns-eyebrow">Familias que han confiado</span>
-      <h2 id="ns-testim-title" class="ns-h2">Lo que nos cuentan después.</h2>
-    </header>
-
-    <div class="ns-testimonials__grid">
-      <figure class="ns-quote ns-reveal">
-        <svg class="ns-quote__mark" width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path fill="currentColor" d="M0 28V16C0 7.2 5.7 1.6 14 0v6c-4.3 1-7 4-7 8h7v14H0zm20 0V16c0-8.8 5.7-14.4 14-16v6c-4.3 1-7 4-7 8h7v14H20z"/></svg>
-        <blockquote>TESTIMONIO_TEXTO_1</blockquote>
-        <figcaption>
-          <strong>TESTIMONIO_NOMBRE_1</strong>
-          <span>TESTIMONIO_ROL_1</span>
-        </figcaption>
-      </figure>
-
-      <figure class="ns-quote ns-reveal">
-        <svg class="ns-quote__mark" width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path fill="currentColor" d="M0 28V16C0 7.2 5.7 1.6 14 0v6c-4.3 1-7 4-7 8h7v14H0zm20 0V16c0-8.8 5.7-14.4 14-16v6c-4.3 1-7 4-7 8h7v14H20z"/></svg>
-        <blockquote>TESTIMONIO_TEXTO_2</blockquote>
-        <figcaption>
-          <strong>TESTIMONIO_NOMBRE_2</strong>
-          <span>TESTIMONIO_ROL_2</span>
-        </figcaption>
-      </figure>
-
-      <figure class="ns-quote ns-reveal">
-        <svg class="ns-quote__mark" width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path fill="currentColor" d="M0 28V16C0 7.2 5.7 1.6 14 0v6c-4.3 1-7 4-7 8h7v14H0zm20 0V16c0-8.8 5.7-14.4 14-16v6c-4.3 1-7 4-7 8h7v14H20z"/></svg>
-        <blockquote>TESTIMONIO_TEXTO_3</blockquote>
-        <figcaption>
-          <strong>TESTIMONIO_NOMBRE_3</strong>
-          <span>TESTIMONIO_ROL_3</span>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ============================================================================
-  BLOCK 11 — FAQ (AEO-optimized)
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-section ns-faq ns-section-deep" aria-labelledby="ns-faq-title">
-  <div class="ns-container ns-faq__inner">
-    <header class="ns-faq__head ns-reveal">
-      <span class="ns-eyebrow">Preguntas frecuentes</span>
-      <h2 id="ns-faq-title" class="ns-h2">Lo que toda familia quiere saber.</h2>
-    </header>
-
-    <div class="ns-faq__list">
-      <details class="ns-faq__item ns-reveal">
-        <summary><span>¿Qué es exactamente la fisura labiopalatina?</span><i aria-hidden="true"></i></summary>
-        <div class="ns-faq__answer">
-          <p>La fisura labiopalatina (FLP) es una condición congénita en la que el labio,
-            el paladar, o ambos, no se cierran completamente durante el desarrollo fetal.
-            Puede presentarse como labio fisurado, paladar hendido, o ambos a la vez,
-            de forma unilateral o bilateral. En Dr. Nico Sierra dedicamos la totalidad de
-            nuestra práctica quirúrgica al tratamiento integral de esta condición, desde
-            el diagnóstico prenatal hasta la cirugía de revisión en la edad adulta.</p>
-        </div>
-      </details>
-
-      <details class="ns-faq__item ns-reveal">
-        <summary><span>¿Cuándo es el momento adecuado para la primera cirugía?</span><i aria-hidden="true"></i></summary>
-        <div class="ns-faq__answer">
-          <p>El calendario quirúrgico clásico contempla la reconstrucción de labio fisurado
-            alrededor de los 3–6 meses de vida y el cierre del paladar hendido entre los
-            9–12 meses, siempre que el bebé reúna las condiciones de peso y salud necesarias.
-            Dr. Nico Sierra valora cada caso individualmente: en pacientes que llegan con
-            ortopedia NAM previa o con condiciones particulares, el plan se adapta para
-            buscar siempre el mejor resultado funcional y estético posible en fisura
-            labiopalatina.</p>
-        </div>
-      </details>
-
-      <details class="ns-faq__item ns-reveal">
-        <summary><span>Mi hijo o yo ya fuimos operados. ¿Se puede mejorar el resultado?</span><i aria-hidden="true"></i></summary>
-        <div class="ns-faq__answer">
-          <p>Sí. La cirugía de revisión es una parte muy importante de la práctica de
-            Dr. Nico Sierra. Muchos adolescentes y adultos con fisura labiopalatina llegan
-            buscando mejorar el resultado de intervenciones previas: asimetrías del labio,
-            cicatrices visibles, deformidad nasal asociada, problemas oclusales o
-            secuelas funcionales. El primer paso siempre es una valoración completa para
-            entender qué se puede mejorar realmente y diseñar un plan honesto y personalizado.</p>
-        </div>
-      </details>
-
-      <details class="ns-faq__item ns-reveal">
-        <summary><span>Vivimos fuera de España. ¿Pueden atendernos?</span><i aria-hidden="true"></i></summary>
-        <div class="ns-faq__answer">
-          <p>Una parte significativa de los pacientes del Dr. Nico Sierra son familias internacionales que viajan a Barcelona específicamente por su especialización en fisura labiopalatina. El equipo coordina la valoración inicial por telemedicina, la planificación del viaje, la cirugía en un centro acreditado de Barcelona y el seguimiento posterior, presencial o a distancia. Te acompañamos en cada paso, hables el idioma que hables. El idioma nunca es una barrera.</p>
-        </div>
-      </details>
-
-      <details class="ns-faq__item ns-reveal">
-        <summary><span>¿Por qué elegir a un cirujano dedicado exclusivamente a la fisura labiopalatina?</span><i aria-hidden="true"></i></summary>
-        <div class="ns-faq__answer">
-          <p>La fisura labiopalatina requiere un volumen alto de casos y una visión sostenida en el tiempo para obtener resultados consistentes. El Dr. Nico Sierra ha hecho de la fisura labiopalatina la única especialidad de su práctica: cada decisión técnica, cada protocolo y cada formación continua están orientados a una sola cosa. Esa dedicación es lo que permite ofrecer a las familias un nivel de atención que difícilmente se encuentra en consultas de cirugía general o maxilofacial no especializada.</p>
-        </div>
-      </details>
-
-      <details class="ns-faq__item ns-reveal">
-        <summary><span>¿Vale la pena operar con un especialista privado en fisura labiopalatina?</span><i aria-hidden="true"></i></summary>
-        <div class="ns-faq__answer">
-          <p>La fisura labiopalatina puede operarse en la sanidad pública. Sin embargo, los resultados dependen directamente de la experiencia específica del equipo quirúrgico y del volumen de casos que trata de forma habitual. Un especialista dedicado en exclusiva a la fisura labiopalatina, con más de 100 cirugías al año, ofrece un nivel de refinamiento técnico y de planificación interdisciplinar que no siempre está disponible en la cirugía general. Los resultados de la primera cirugía condicionan todas las etapas siguientes — y en muchos casos, una primera cirugía bien hecha evita múltiples intervenciones de revisión a lo largo de la vida.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ============================================================================
-  BLOCK 12 — CTA BANNER
-  Paste into: Webflow Embed
-============================================================================ -->
-<section class="ns-scope ns-cta-banner" aria-labelledby="ns-cta-title">
-  <div class="ns-container ns-cta-banner__inner">
-    <div class="ns-cta-banner__text ns-reveal">
-      <span class="ns-eyebrow">Cuéntanos tu historia</span>
-      <h2 id="ns-cta-title" class="ns-h2">Estamos al otro lado, cuando estés listo.</h2>
-      <p class="ns-lead">Escríbenos por WhatsApp para una respuesta rápida, o cuéntanos tu caso por formulario. El Dr. Sierra lo lee personalmente y te contestamos con honestidad.</p>
-    </div>
-    <div class="ns-cta-banner__actions ns-reveal">
-      <a href="https://wa.me/WHATSAPP_NUMBER" class="ns-btn ns-btn-whatsapp">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>
-        Escribir por WhatsApp
-      </a>
-      <a href="/cuentanos-tu-historia" class="ns-btn ns-btn-outline" style="border-color:var(--ns-white);color:#fff;">Enviar formulario</a>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- ============================================================================
-  CLOSING TYPOGRAPHIC MOMENT — signature before footer
-============================================================================ -->
-<div class="ns-signature ns-scope" aria-hidden="true">
-  <div class="ns-signature__name">Dr. Nico Sierra</div>
-  <div class="ns-signature__line">Especialista en fisura labiopalatina · Barcelona, España</div>
-</div>
-
-
-
-
-
-
-
-
-
-<!-- ============================================================================
-  BLOCK 15 — SCRIPTS
-  Paste into: Webflow > Site Settings > Custom Code > Footer Code
-  (Handles: navbar scroll state, mobile menu, FAQ accordion already native,
-   scroll-reveal, stat counter animation, year stamp)
-============================================================================ -->
-<script>
-(function(){
-  // --- Navbar scroll state ---------------------------------------------
-  var nav = document.getElementById('nsNav');
-  if (nav){
-    var onScroll = function(){
-      if (window.scrollY > 24) nav.classList.add('is-scrolled');
-      else nav.classList.remove('is-scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive:true });
-    onScroll();
-  }
-
-  // --- Mobile menu ------------------------------------------------------
-  var burger = document.getElementById('nsBurger');
-  var menu = document.getElementById('nsMobileMenu');
-  if (burger && menu){
-    burger.addEventListener('click', function(){
-      var open = menu.getAttribute('data-open') === 'true';
-      menu.setAttribute('data-open', String(!open));
-      menu.hidden = open;
-      burger.setAttribute('aria-expanded', String(!open));
+    tl.querySelectorAll('.ns-tl__node').forEach(function(n){
+      n.addEventListener('click', function(){
+        var href = n.getAttribute('data-href');
+        if(href) window.location.href = href;
+      });
     });
-  }
+  })();
+  </script>
 
-  // --- Scroll reveal ----------------------------------------------------
-  var reveals = document.querySelectorAll('.ns-reveal');
-  var trustItems = document.querySelectorAll('.ns-trust__item');
-  var trustItems = document.querySelectorAll('.ns-trust__item');
-  if ('IntersectionObserver' in window && reveals.length){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting){
-          en.target.classList.add('is-visible');
-          io.unobserve(en.target);
+  <section class="ns-scope ns-section ns-services ns-section-mid" style="padding-bottom:0;" aria-labelledby="ns-services-title">
+    <div class="ns-container">
+      <header class="ns-services__head ns-reveal">
+        <span class="ns-eyebrow">{d.servicesGrid.eyebrow}</span>
+        <h2 id="ns-services-title" class="ns-h2" set:html={d.servicesGrid.h2} />
+      </header>
+    </div>
+    <div class="ns-svc-list" id="nsSvcList">
+      <div class="ns-svc-list__bg" id="nsSvcBg" aria-hidden="true">
+        <img src={svcImages[d.servicesGrid.rows[0].href]} alt="" id="nsSvcBgImg" loading="lazy">
+        <div class="ns-svc-list__bg-veil"></div>
+      </div>
+      {d.servicesGrid.rows.map((row) => (
+        <a href={row.href} class={`ns-svc-row ns-reveal ${row.href === '/otros-procedimientos/' ? 'ns-svc-row--otros' : ''}`} data-img={svcImages[row.href]} style={`--sc:${row.color}`}>
+          <span class="ns-svc-row__dot"></span>
+          <span class="ns-svc-row__num">{row.num}</span>
+          <span class="ns-svc-row__name" set:html={row.name} />
+          <span class="ns-svc-row__tag">{row.tag}</span>
+          <span class="ns-svc-row__arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var list = document.getElementById('nsSvcList');
+    var bg = document.getElementById('nsSvcBg');
+    var bgImg = document.getElementById('nsSvcBgImg');
+    if(!list||!bg||!bgImg) return;
+    var rows = list.querySelectorAll('.ns-svc-row');
+    var hideTimer;
+    rows.forEach(function(row){
+      row.addEventListener('mouseenter', function(){
+        clearTimeout(hideTimer);
+        var img = row.getAttribute('data-img');
+        if(img && bgImg.src !== img){
+          bgImg.style.opacity='0';
+          setTimeout(function(){ bgImg.src = img; bgImg.style.opacity='1'; }, 150);
         }
+        bg.classList.add('is-visible');
+        row.classList.add('is-hovered');
       });
-    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
-    reveals.forEach(function(el){ io.observe(el); });
-    var tObs=new IntersectionObserver(function(ee){ee.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');tObs.unobserve(e.target);}});},{threshold:.2});
-    trustItems.forEach(function(el){tObs.observe(el);});
-  } else {
-    reveals.forEach(function(el){ el.classList.add('is-visible'); });
-  }
-
-  // --- Counter animation -----------------------------------------------
-  // Set data-counter="<finalNumber>" on each .ns-trust__num to enable.
-  // Leaves "0" as fallback when value not yet provided.
-  var counters = document.querySelectorAll('[data-counter]');
-  if ('IntersectionObserver' in window && counters.length){
-    var cio = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        var el = en.target;
-        var target = parseInt(el.getAttribute('data-counter'), 10) || 0;
-        if (target <= 0) { cio.unobserve(el); return; }
-        var dur = 1600, start = performance.now();
-        var suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
-        function tick(now){
-          var p = Math.min(1, (now - start) / dur);
-          var eased = 1 - Math.pow(1 - p, 3);
-          var val = Math.floor(target * eased);
-          el.innerHTML = val.toLocaleString('es-ES') + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-        cio.unobserve(el);
+      row.addEventListener('mouseleave', function(){
+        row.classList.remove('is-hovered');
+        hideTimer = setTimeout(function(){ bg.classList.remove('is-visible'); }, 300);
       });
-    }, { threshold:0.4 });
-    counters.forEach(function(el){ cio.observe(el); });
-  }
+    });
+  })();
+  </script>
 
-  // --- Year stamp -------------------------------------------------------
-  var y = document.getElementById('nsYear');
-  if (y) y.textContent = new Date().getFullYear();
+  <section class="ns-scope ns-section ns-journey ns-section-green" aria-labelledby="ns-journey-title">
+    <div class="ns-container ns-journey__layout">
+      <div class="ns-journey__left ns-reveal">
+        <span class="ns-eyebrow">{d.journey.eyebrow}</span>
+        <h2 id="ns-journey-title" class="ns-h2" set:html={d.journey.h2} />
+        <p style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.75;max-width:32ch;margin-top:16px;">{d.journey.lead}</p>
+        <a href={d.journey.ctaHref} class="ns-btn ns-btn-ghost" style="display:inline-flex;margin-top:40px;border-color:rgba(255,255,255,0.35);">{d.journey.ctaLabel}</a>
+      </div>
+      <ol class="ns-journey__steps" role="list">
+        {d.journey.steps.map((step, i) => (
+          <li class="ns-journey__step ns-reveal">
+            <div class={`ns-journey__line ${i === d.journey.steps.length - 1 ? 'ns-journey__line--last' : ''}`} aria-hidden="true"></div>
+            <div class={`ns-journey__node ${i === d.journey.steps.length - 1 ? 'ns-journey__node--last' : ''}`}><span>{step.num}</span></div>
+            <div class="ns-journey__content">
+              <h3 class="ns-h4">{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
 
-  // --- Breathing light orbs — move with scroll -------------------------
-  var orb1 = document.getElementById('nsOrb1');
-  var orb2 = document.getElementById('nsOrb2');
-  if(orb1 && orb2){
-    var ticking = false;
-    window.addEventListener('scroll', function(){
-      if(!ticking){
-        requestAnimationFrame(function(){
-          var p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-          var vh = window.innerHeight / 100;
-          var vw = window.innerWidth / 100;
-          // Orb 1: blue, moves diagonally down-right as you scroll (was: top 8-68vh, left -10-20vw)
-          orb1.style.transform = 'translate3d(' + (30 * p * vw) + 'px,' + (60 * p * vh - 2 * vh) + 'px,0)';
-          // Orb 2: teal, moves diagonally up-left (was: top 70-30vh, right -5-15vw)
-          orb2.style.transform = 'translate3d(' + (-20 * p * vw) + 'px,' + (10 * vh - 40 * p * vh) + 'px,0)';
-          ticking = false;
-        });
-        ticking = true;
+  <section class="ns-scope ns-section ns-section-dark ns-results" aria-labelledby="ns-results-title">
+    <div class="ns-container">
+      <header class="ns-results__head ns-reveal">
+        <span class="ns-eyebrow">{d.results.eyebrow}</span>
+        <h2 id="ns-results-title" class="ns-h2">{d.results.h2}</h2>
+        <p class="ns-lead">{d.results.lead}</p>
+      </header>
+    </div>
+    <div class="ns-carousel" id="nsCasosCarousel" aria-label="Casos de pacientes">
+      <div class="ns-carousel__track" id="nsCasosTrack">
+        {caseCards.map((c, i) => (
+          <article class="ns-ccase" data-index={i}>
+            <div class="ns-ccase__media">
+              <figure><img src={galleryImages[i*2].src} alt={`Antes — Caso ${i+1}`} loading="lazy"><figcaption>Antes</figcaption></figure>
+              <figure><img src={galleryImages[i*2+1].src} alt={`Después — Caso ${i+1}`} loading="lazy"><figcaption>Después</figcaption></figure>
+            </div>
+            <div class="ns-ccase__body">
+              <span class="ns-ccase__tag">{c.tag}</span>
+              <h3 class="ns-h4">{c.title}</h3>
+              <p>{c.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <button class="ns-carousel__arrow ns-carousel__arrow--prev" id="nsCasosPrev" aria-label="Caso anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="ns-carousel__arrow ns-carousel__arrow--next" id="nsCasosNext" aria-label="Caso siguiente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="ns-carousel__progress" id="nsCasosProgress" aria-hidden="true">
+        <div class="ns-carousel__progress-fill" id="nsCasosProgressFill"></div>
+      </div>
+      <div class="ns-carousel__dots" id="nsCasosDots" aria-label="Navegación de casos" role="tablist" style="display:none"></div>
+    </div>
+    <div class="ns-container">
+      <a href={d.results.ctaHref} class="ns-btn ns-btn-ghost ns-results__cta">{d.results.ctaLabel}</a>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var track = document.getElementById('nsCasosTrack');
+    var dotsWrap = document.getElementById('nsCasosDots');
+    var prevBtn = document.getElementById('nsCasosPrev');
+    var nextBtn = document.getElementById('nsCasosNext');
+    if(!track) return;
+    var cards = Array.from(track.querySelectorAll('.ns-ccase'));
+    var total = cards.length;
+    var current = 1;
+    cards.forEach(function(_, i){
+      var b = document.createElement('button');
+      b.className = 'ns-cdot';
+      b.setAttribute('aria-label', 'Ir al caso ' + (i+1));
+      b.setAttribute('role','tab');
+      b.addEventListener('click', function(){ goTo(i); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = Array.from(dotsWrap.querySelectorAll('.ns-cdot'));
+    function goTo(idx){ current = (idx + total) % total; render(); }
+    function render(){
+      var cardW = cards[0].offsetWidth + 24;
+      var wrapW = track.parentElement.offsetWidth;
+      var offset = (wrapW / 2) - (cardW / 2) - (current * cardW);
+      track.style.transform = 'translateX(' + offset + 'px)';
+      cards.forEach(function(c, i){
+        c.classList.remove('is-active','is-adjacent');
+        if(i === current) c.classList.add('is-active');
+        else if(i === current - 1 || i === current + 1) c.classList.add('is-adjacent');
+      });
+      dots.forEach(function(dd,i){ dd.classList.toggle('is-active', i === current); });
+      var fill = document.getElementById('nsCasosProgressFill');
+      if(fill) fill.style.transform = 'scaleX(' + (current / (total - 1)) + ')';
+    }
+    if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+    var startX = 0, startCurrent = 0, dragging = false, dragCardW = 0;
+    track.addEventListener('mousedown', function(e){
+      dragging = true; startX = e.clientX; startCurrent = current;
+      dragCardW = cards[0].offsetWidth + 24;
+      track.classList.add('is-dragging');
+    });
+    window.addEventListener('mousemove', function(e){
+      if(!dragging) return;
+      var diff = e.clientX - startX;
+      if(Math.abs(diff) > dragCardW * 0.3){
+        goTo(startCurrent - Math.sign(diff));
+        dragging = false;
+        track.classList.remove('is-dragging');
       }
+    });
+    window.addEventListener('mouseup', function(){ dragging = false; track.classList.remove('is-dragging'); });
+    track.addEventListener('touchstart', function(e){
+      startX = e.touches[0].clientX; startCurrent = current;
+      dragCardW = cards[0].offsetWidth + 24;
     }, {passive:true});
-  }
-})();
-</script>
-`} />
+    track.addEventListener('touchend', function(e){
+      var diff = e.changedTouches[0].clientX - startX;
+      if(Math.abs(diff) > dragCardW * 0.25) goTo(startCurrent - Math.sign(diff));
+    }, {passive:true});
+    requestAnimationFrame(render);
+    window.addEventListener('resize', function(){ requestAnimationFrame(render); });
+  })();
+  </script>
+
+  <section class="ns-scope ns-section ns-testimonials ns-section-teal" aria-labelledby="ns-testim-title">
+    <div class="ns-container">
+      <header class="ns-testimonials__head ns-reveal">
+        <span class="ns-eyebrow">{d.testimonials.eyebrow}</span>
+        <h2 id="ns-testim-title" class="ns-h2">{d.testimonials.h2}</h2>
+      </header>
+      <div class="ns-testimonials__grid">
+        {d.testimonials.quotes.map((q) => (
+          <figure class="ns-quote ns-reveal">
+            <svg class="ns-quote__mark" width="34" height="28" viewBox="0 0 34 28" aria-hidden="true"><path fill="currentColor" d="M0 28V16C0 7.2 5.7 1.6 14 0v6c-4.3 1-7 4-7 8h7v14H0zm20 0V16c0-8.8 5.7-14.4 14-16v6c-4.3 1-7 4-7 8h7v14H20z"/></svg>
+            <blockquote>{q.text}</blockquote>
+            <figcaption><strong>{q.name}</strong><span>{q.role}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="ns-scope ns-section ns-faq ns-section-deep" aria-labelledby="ns-faq-title">
+    <div class="ns-container ns-faq__inner">
+      <header class="ns-faq__head ns-reveal">
+        <span class="ns-eyebrow">Preguntas frecuentes</span>
+        <h2 id="ns-faq-title" class="ns-h2">Lo que toda familia quiere saber.</h2>
+      </header>
+      <div class="ns-faq__list">
+        {d.faq.map((item) => (
+          <details class="ns-faq__item ns-reveal">
+            <summary><span>{item.question}</span><i aria-hidden="true"></i></summary>
+            <div class="ns-faq__answer"><p>{item.answer}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="ns-scope ns-cta-banner" aria-labelledby="ns-cta-title">
+    <div class="ns-container ns-cta-banner__inner">
+      <div class="ns-cta-banner__text ns-reveal">
+        <span class="ns-eyebrow">{d.ctaBanner.eyebrow}</span>
+        <h2 id="ns-cta-title" class="ns-h2">{d.ctaBanner.h2}</h2>
+        <p class="ns-lead">{d.ctaBanner.lead}</p>
+      </div>
+      <div class="ns-cta-banner__actions ns-reveal">
+        <a href={`https://wa.me/${d.whatsappNumber}`} class="ns-btn ns-btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>
+          {d.ctaBanner.whatsappLabel}
+        </a>
+        <a href={d.ctaBanner.formHref} class="ns-btn ns-btn-outline" style="border-color:var(--ns-white);color:#fff;">{d.ctaBanner.formLabel}</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ns-signature ns-scope" aria-hidden="true">
+    <div class="ns-signature__name">{d.signature.name}</div>
+    <div class="ns-signature__line">{d.signature.line}</div>
+  </div>
+
+  <script>
+  (function(){
+    var nav = document.getElementById('nsNav');
+    if (nav){
+      var onScroll = function(){
+        if (window.scrollY > 24) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive:true });
+      onScroll();
+    }
+    var burger = document.getElementById('nsBurger');
+    var menu = document.getElementById('nsMobileMenu');
+    if (burger && menu){
+      burger.addEventListener('click', function(){
+        var open = menu.getAttribute('data-open') === 'true';
+        menu.setAttribute('data-open', String(!open));
+        menu.hidden = open;
+        burger.setAttribute('aria-expanded', String(!open));
+      });
+    }
+    var reveals = document.querySelectorAll('.ns-reveal');
+    var trustItems = document.querySelectorAll('.ns-trust__item');
+    if ('IntersectionObserver' in window && reveals.length){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); }
+        });
+      }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+      reveals.forEach(function(el){ io.observe(el); });
+      var tObs=new IntersectionObserver(function(ee){ee.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');tObs.unobserve(e.target);}});},{threshold:.2});
+      trustItems.forEach(function(el){tObs.observe(el);});
+    } else {
+      reveals.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+    var counters = document.querySelectorAll('[data-counter]');
+    if ('IntersectionObserver' in window && counters.length){
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (!en.isIntersecting) return;
+          var el = en.target;
+          var target = parseInt(el.getAttribute('data-counter'), 10) || 0;
+          if (target <= 0) { cio.unobserve(el); return; }
+          var dur = 1600, start = performance.now();
+          var suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+          function tick(now){
+            var p = Math.min(1, (now - start) / dur);
+            var eased = 1 - Math.pow(1 - p, 3);
+            var val = Math.floor(target * eased);
+            el.innerHTML = val.toLocaleString('es-ES') + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          cio.unobserve(el);
+        });
+      }, { threshold:0.4 });
+      counters.forEach(function(el){ cio.observe(el); });
+    }
+    var y = document.getElementById('nsYear');
+    if (y) y.textContent = new Date().getFullYear();
+    var orb1 = document.getElementById('nsOrb1');
+    var orb2 = document.getElementById('nsOrb2');
+    if(orb1 && orb2){
+      var ticking = false;
+      window.addEventListener('scroll', function(){
+        if(!ticking){
+          requestAnimationFrame(function(){
+            var p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            var vh = window.innerHeight / 100;
+            var vw = window.innerWidth / 100;
+            orb1.style.transform = 'translate3d(' + (30 * p * vw) + 'px,' + (60 * p * vh - 2 * vh) + 'px,0)';
+            orb2.style.transform = 'translate3d(' + (-20 * p * vw) + 'px,' + (10 * vh - 40 * p * vh) + 'px,0)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, {passive:true});
+    }
+  })();
+  </script>
 </Layout>
