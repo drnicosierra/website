@@ -393,6 +393,11 @@ const cases = defineCollection({
     consentConfirmed: z.boolean(),
     consentNotes: z.string().optional(),
 
+    // Set true ONLY for test/placeholder fixtures (fake data used to verify
+    // the template). Real cases should never set this \u2014 they're the whole
+    // point of building this page's SEO/AEO structure in the first place.
+    noindex: z.boolean().optional(),
+
     whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
     })
       .refine(

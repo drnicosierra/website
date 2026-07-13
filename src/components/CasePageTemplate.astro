@@ -102,7 +102,7 @@ const relatedServiceEntries = await Promise.all(
   })
 );
 ---
-<Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
+<Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks} noindex={d.noindex}>
 
   <!-- BREADCRUMB -->
   <div class="breadcrumb">

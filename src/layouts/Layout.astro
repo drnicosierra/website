@@ -15,6 +15,7 @@ export interface Props {
   ogImage?: string;
   keywords?: string;
   schemaBlocks?: string; // raw <script type="application/ld+json">...</script> markup, one or more, concatenated
+  noindex?: boolean; // true for test/placeholder/thank-you pages that shouldn't appear in search results
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   ogImage = "https://images.unsplash.com/photo-1551076805-e1869033e561?w=1800&q=85&fit=crop",
   keywords,
   schemaBlocks = "",
+  noindex = false,
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -45,6 +47,7 @@ const {
 {keywords && <meta name="keywords" content={keywords}>}
 <meta name="author" content="Dr. Nico Sierra">
 <link rel="canonical" href={canonical}>
+{noindex && <meta name="robots" content="noindex, nofollow">}
 
 <meta property="og:type" content="website">
 <meta property="og:title" content={ogTitle}>
