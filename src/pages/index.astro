@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CaseCarousel from '../components/CaseCarousel.astro';
 import { getImage } from 'astro:assets';
+import heroPhoto from '../assets/home/hero.jpg';
 import { getEntry } from 'astro:content';
 import '../styles/home.css';
 import dmSans700 from '@fontsource/dm-sans/files/dm-sans-latin-700-normal.woff2?url';
@@ -11,8 +12,8 @@ if (!entry) throw new Error('Missing content entry: homepage/main');
 const d = entry.data;
 
 const heroImage = await getImage({
-  src: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1800&h=1200&q=85&fit=crop',
-  width: 1800, height: 1200, format: 'webp'
+  src: heroPhoto,
+  width: 1800, format: 'webp'
 });
 
 const svcImageUrls: Record<string, string> = {
