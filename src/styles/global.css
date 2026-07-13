@@ -494,6 +494,169 @@ p + p { margin-top:16px; }
 .ba-meta { font-size:.8rem; color:rgba(255,255,255,.3); }
 
 /* ════════════════════════════════════
+   CASE STUDY PAGE (Vidas Transformadas detail pages)
+   Reuses .ba-img/.ba-grid patterns above for image display; these are the
+   pieces that pattern doesn't already cover — a large opening before/after
+   comparison, the chronological photo timeline, and an optional video embed.
+   ════════════════════════════════════ */
+
+/* Large before/after pair for the top of a case page (derived from the
+   first and last timeline entries — not a separate schema field). */
+.ba-hero {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+  border:1px solid var(--ns-line); margin-top:32px;
+  max-width:640px;
+}
+.ba-hero-img { position:relative; aspect-ratio:4/5; overflow:hidden; background:rgba(255,255,255,.03); }
+.ba-hero-img img { width:100%; height:100%; object-fit:cover; }
+.ba-hero-tag {
+  position:absolute; top:16px; left:16px;
+  background:rgba(0,10,20,.65); backdrop-filter:blur(4px);
+  color:#fff; font-size:.72rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; padding:6px 14px; border-radius:100px;
+}
+
+/* Optional video embed — 16:9, responsive */
+.case-video { margin-top:48px; }
+.case-video-frame {
+  position:relative; width:100%; aspect-ratio:16/9;
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+  border:1px solid var(--ns-line); background:#000;
+}
+.case-video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.case-video-caption { margin-top:12px; font-size:.85rem; color:rgba(255,255,255,.45); }
+
+/* Anonymized-patient descriptor (used when patientName is absent) */
+.case-meta-row {
+  display:flex; gap:24px; flex-wrap:wrap; margin-top:20px;
+  padding-top:20px; border-top:1px solid var(--ns-line);
+}
+.case-meta-item { display:flex; flex-direction:column; gap:4px; }
+.case-meta-label { font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.4); }
+.case-meta-value { font-size:.95rem; color:var(--ns-white); font-weight:500; }
+
+/* ════════════════════════════════════
+   CASES CAROUSEL (Vidas Transformadas hub)
+   Ported from the homepage's carousel (home.css .ns-carousel/.ns-ccase) into
+   the shared vocabulary so this page — which otherwise uses the same shared
+   system as every non-homepage page — doesn't need to reach into home.css's
+   separate ns-* system. Same behavior, same visuals, unprefixed classes.
+   ════════════════════════════════════ */
+.carousel {
+  position:relative; overflow:hidden; padding:8px 0 56px;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.carousel__track {
+  display:flex; align-items:center; gap:24px;
+  transition:transform .55s var(--ns-ease); will-change:transform;
+  cursor:grab; padding:16px 0;
+}
+.carousel__track.is-dragging { cursor:grabbing; transition:none; }
+
+.ccase {
+  flex:0 0 520px;
+  background:rgba(255,255,255,.05); border:1px solid var(--ns-line);
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+  transition:opacity .45s ease, transform .45s ease;
+  opacity:.38; transform:scale(.93); user-select:none;
+}
+.ccase.is-active { opacity:1; transform:scale(1); border-color:rgba(255,255,255,.18); }
+.ccase.is-adjacent { opacity:.6; transform:scale(.96); }
+
+.ccase__media { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(255,255,255,.06); height:340px; }
+.ccase__media figure { margin:0; position:relative; background:#001529; overflow:hidden; }
+.ccase__media img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .6s ease; display:block; }
+.ccase.is-active .ccase__media img { transform:scale(1.02); }
+.ccase__media figcaption {
+  position:absolute; top:14px; left:14px;
+  background:rgba(0,0,0,.6); backdrop-filter:blur(6px);
+  color:#fff; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+  padding:5px 11px; border-radius:999px; font-family:'Space Grotesk',sans-serif;
+}
+
+.ccase__body { padding:22px 26px 28px; }
+.ccase__tag {
+  display:inline-block; font-size:.72rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase;
+  color:#7fd0b3; background:rgba(0,131,98,.18); padding:4px 12px; border-radius:999px; margin-bottom:10px;
+}
+.ccase__body h3 { color:#fff; margin-bottom:6px; font-size:1.1rem; }
+.ccase__body p { margin:0; color:rgba(255,255,255,.62); font-size:.92rem; line-height:1.6; }
+a.ccase { text-decoration:none; color:inherit; }
+
+/* ════════════════════════════════════
+   LIGHTBOX
+   Shared overlay pattern — any page can add [data-lightbox-src] buttons and
+   the same markup+script block (see CasePageTemplate.astro for the pattern
+   to copy). One implementation, reusable everywhere a "click to expand"
+   image is needed, not a one-off per page.
+   ════════════════════════════════════ */
+.lightbox-trigger {
+  display:block; width:100%; height:100%; padding:0; margin:0;
+  background:none; border:none; cursor:zoom-in;
+}
+.lightbox-trigger img { pointer-events:none; }
+.lightbox-overlay {
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(0,10,20,.94);
+  display:flex; align-items:center; justify-content:center;
+  padding:40px; opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .25s var(--ns-ease), visibility .25s;
+}
+.lightbox-overlay.is-open { opacity:1; visibility:visible; pointer-events:auto; }
+.lightbox-overlay img {
+  max-width:90vw; max-height:90vh; object-fit:contain;
+  border-radius:var(--ns-radius); box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.lightbox-close {
+  position:absolute; top:24px; right:24px;
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+  color:#fff; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:background .2s;
+}
+.lightbox-close:hover { background:rgba(255,255,255,.2); }
+@media (max-width:600px) {
+  .lightbox-overlay { padding:16px; }
+  .lightbox-close { top:12px; right:12px; width:36px; height:36px; }
+}
+.ccase__link {
+  display:inline-block; margin-top:14px; font-size:.88rem; font-weight:600;
+  color:var(--ns-teal-300); transition:color .2s;
+}
+a.ccase:hover .ccase__link { color:#fff; }
+
+.carousel__arrow {
+  position:absolute; top:50%; transform:translateY(-60%);
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(255,255,255,.95); border:none; color:var(--ns-blue-800);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s, transform .2s, box-shadow .2s;
+  z-index:10; box-shadow:0 4px 20px rgba(0,0,0,.35); cursor:pointer;
+}
+.carousel__arrow:hover { background:#fff; box-shadow:0 6px 28px rgba(0,0,0,.45); transform:translateY(-60%) scale(1.08); }
+.carousel__arrow--prev { left:clamp(12px,3vw,40px); }
+.carousel__arrow--next { right:clamp(12px,3vw,40px); }
+.carousel__arrow:disabled { opacity:.2; pointer-events:none; }
+
+.carousel__progress { position:absolute; bottom:0; left:0; right:0; height:2px; background:rgba(255,255,255,.1); z-index:10; }
+.carousel__progress-fill {
+  height:100%; background:var(--ns-teal-300); width:100%;
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .5s var(--ns-ease); border-radius:2px;
+}
+.carousel__dots { display:none; }
+
+@media (max-width:720px) {
+  .ccase { flex:0 0 85vw; }
+  .ccase__media { height:240px; }
+  .carousel__arrow { width:40px; height:40px; }
+  .carousel__arrow--prev { left:8px; }
+  .carousel__arrow--next { right:8px; }
+}
+
+/* ════════════════════════════════════
    DR. SIERRA EN ESTA INTERVENCIÓN — Block 6 (AEO entity signal)
    ════════════════════════════════════ */
 .dr-section {
@@ -741,6 +904,7 @@ p + p { margin-top:16px; }
   .hero h1 { font-size:clamp(2rem,8vw,3rem); }
   .cta-actions { flex-direction:column; align-items:center; }
   .proceso-step { grid-template-columns:48px 1fr; }
+  .ba-hero { grid-template-columns:1fr; }
 }
 @media (max-width:480px) {
   .hero-ctas { flex-direction:column; }
@@ -752,6 +916,7 @@ p + p { margin-top:16px; }
   .breadcrumb nav { font-size:.72rem; }
   .ba-grid { grid-template-columns:1fr; }
   .related-grid { grid-template-columns:1fr; }
+  .case-meta-row { gap:16px; }
 }
 @media (prefers-reduced-motion:reduce) {
   .reveal,.reveal-scale,.hero-fade { opacity:1; transform:none; transition:none; animation:none; }

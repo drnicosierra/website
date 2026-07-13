@@ -1,0 +1,8 @@
+---
+import { getEntry } from 'astro:content';
+import CasePageTemplate from '../../components/CasePageTemplate.astro';
+
+const entry = await getEntry('cases', 'caso-ejemplo-plantilla');
+if (!entry) throw new Error('Missing content entry: caso-ejemplo-plantilla');
+---
+<CasePageTemplate entry={entry} />

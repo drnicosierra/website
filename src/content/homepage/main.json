@@ -59,7 +59,7 @@
       }
     ],
     "ctaLabel": "Conoce al Dr. Nico Sierra",
-    "ctaHref": "/sobre-dr-nico-sierra"
+    "ctaHref": "/sobre-dr-nico-sierra/"
   },
 
   "timeline": {
@@ -121,7 +121,7 @@
         "iconSvg": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"16\"/><line x1=\"8\" y1=\"12\" x2=\"16\" y2=\"12\"/>",
         "name": "Tu caso<br><em>es único</em>",
         "text": "No todos los recorridos son iguales. Cuéntanos el tuyo.",
-        "href": "/cuentanos-tu-historia"
+        "href": "/cuentanos-tu-historia/"
       }
     ]
   },
@@ -146,7 +146,7 @@
     "h2": "Cuatro pasos.<br>Una sola persona<br>acompañándote.",
     "lead": "Desde el primer mensaje hasta el último control. El Dr. Sierra está en cada momento.",
     "ctaLabel": "Ver el proceso completo →",
-    "ctaHref": "/tu-camino-con-nosotros",
+    "ctaHref": "/tu-camino-con-nosotros/",
     "steps": [
       { "num": "01", "title": "Nos escribes", "text": "Envías fotos y una descripción de tu caso. El Dr. Sierra lo revisa personalmente y te responde en menos de 24 horas." },
       { "num": "02", "title": "Valoramos tu caso", "text": "Consulta presencial o telemática. Plan quirúrgico claro, honesto y sin compromisos." },
@@ -160,7 +160,7 @@
     "h2": "Resultados que hablan por nosotros.",
     "lead": "Casos reales, con consentimiento. Cirugía primaria y de revisión — cada resultado representa un recorrido acompañado de principio a fin por el Dr. Nico Sierra.",
     "ctaLabel": "Ver todos los casos",
-    "ctaHref": "/vidas-transformadas"
+    "ctaHref": "/vidas-transformadas/"
   },
 
   "testimonials": {
@@ -206,7 +206,7 @@
     "lead": "Escríbenos por WhatsApp para una respuesta rápida, o cuéntanos tu caso por formulario. El Dr. Sierra lo lee personalmente y te contestamos con honestidad.",
     "whatsappLabel": "Escribir por WhatsApp",
     "formLabel": "Enviar formulario",
-    "formHref": "/cuentanos-tu-historia"
+    "formHref": "/cuentanos-tu-historia/"
   },
 
   "signature": {

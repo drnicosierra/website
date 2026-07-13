@@ -1,0 +1,133 @@
+---
+// Shared by the homepage AND /vidas-transformadas/ — this is the ONLY
+// carousel implementation on the site. Do not create a page-specific copy;
+// if a page needs a case carousel, it imports this component.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface CarouselCard {
+  media: Array<{
+    src: ImageMetadata | string;
+    alt: string;
+    label?: string;
+  }>;
+  tag?: string;
+  title: string;
+  text?: string;
+  href?: string;
+  linkLabel?: string;
+}
+
+export interface Props {
+  cards: CarouselCard[];
+  id?: string; // unique per instance, in case a page ever needs two carousels
+}
+
+const { cards, id = 'caseCarousel' } = Astro.props;
+const trackId = `${id}Track`;
+const prevId = `${id}Prev`;
+const nextId = `${id}Next`;
+const progressId = `${id}Progress`;
+const progressFillId = `${id}ProgressFill`;
+---
+<div class="carousel" id={id} aria-label="Casos de pacientes">
+  <div class="carousel__track" id={trackId}>
+    {cards.map((c) => {
+      const Card = c.href ? 'a' : 'article';
+      return (
+        <Card class="ccase" {...(c.href ? { href: c.href } : {})}>
+          <div class="ccase__media" style={`grid-template-columns:repeat(${c.media.length},1fr)`}>
+            {c.media.map((m) => (
+              <figure>
+                <Image src={m.src} alt={m.alt} width={400} height={340} format="webp" loading="lazy" />
+                {m.label && <figcaption>{m.label}</figcaption>}
+              </figure>
+            ))}
+          </div>
+          <div class="ccase__body">
+            {c.tag && <span class="ccase__tag">{c.tag}</span>}
+            <h3>{c.title}</h3>
+            {c.text && <p>{c.text}</p>}
+            {c.href && <span class="ccase__link">{c.linkLabel ?? 'Ver caso completo →'}</span>}
+          </div>
+        </Card>
+      );
+    })}
+  </div>
+  <button class="carousel__arrow carousel__arrow--prev" id={prevId} aria-label="Caso anterior">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="carousel__arrow carousel__arrow--next" id={nextId} aria-label="Caso siguiente">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="carousel__progress" id={progressId} aria-hidden="true">
+    <div class="carousel__progress-fill" id={progressFillId}></div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ trackId, prevId, nextId, progressFillId }}>
+(function(){
+  var track = document.getElementById(trackId);
+  var prevBtn = document.getElementById(prevId);
+  var nextBtn = document.getElementById(nextId);
+  if(!track) return;
+  var cards = Array.from(track.querySelectorAll('.ccase'));
+  var total = cards.length;
+  var current = total > 1 ? 1 : 0;
+
+  // With 0 or 1 cards there's nothing to navigate to — disable controls
+  // instead of leaving them clickable-but-inert (which looks broken).
+  if (total <= 1) {
+    if (prevBtn) prevBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = true;
+    if (cards[0]) cards[0].classList.add('is-active');
+    var progress = document.getElementById(progressFillId);
+    if (progress) progress.style.display = 'none';
+    return;
+  }
+
+  function goTo(idx){ current = (idx + total) % total; render(); }
+  function render(){
+    var cardW = cards[0].offsetWidth + 24;
+    var wrapW = track.parentElement.offsetWidth;
+    var offset = (wrapW / 2) - (cardW / 2) - (current * cardW);
+    track.style.transform = 'translateX(' + offset + 'px)';
+    cards.forEach(function(c, i){
+      c.classList.remove('is-active','is-adjacent');
+      if(i === current) c.classList.add('is-active');
+      else if(i === current - 1 || i === current + 1) c.classList.add('is-adjacent');
+    });
+    var fill = document.getElementById(progressFillId);
+    if(fill) fill.style.transform = 'scaleX(' + (current / (total - 1)) + ')';
+  }
+  if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+  var startX = 0, startCurrent = 0, dragging = false, dragCardW = 0;
+  track.addEventListener('mousedown', function(e){
+    dragging = true; startX = e.clientX; startCurrent = current;
+    dragCardW = cards[0].offsetWidth + 24;
+    track.classList.add('is-dragging');
+  });
+  window.addEventListener('mousemove', function(e){
+    if(!dragging) return;
+    var diff = e.clientX - startX;
+    if(Math.abs(diff) > dragCardW * 0.3){
+      goTo(startCurrent - Math.sign(diff));
+      dragging = false;
+      track.classList.remove('is-dragging');
+    }
+  });
+  window.addEventListener('mouseup', function(){ dragging = false; track.classList.remove('is-dragging'); });
+  track.addEventListener('touchstart', function(e){
+    startX = e.touches[0].clientX; startCurrent = current;
+    dragCardW = cards[0].offsetWidth + 24;
+  }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    var diff = e.changedTouches[0].clientX - startX;
+    if(Math.abs(diff) > dragCardW * 0.25) goTo(startCurrent - Math.sign(diff));
+  }, {passive:true});
+  requestAnimationFrame(render);
+  window.addEventListener('resize', function(){ requestAnimationFrame(render); });
+})();
+</script>

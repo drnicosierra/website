@@ -1,40 +1,59 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CaseCarousel from '../components/CaseCarousel.astro';
+import { getCollection } from 'astro:content';
 
 const title = 'Vidas Transformadas — Resultados Fisura Labiopalatina | Dr. Nico Sierra';
-const description = 'Casos reales de cirugía de fisura labiopalatina con el Dr. Nico Sierra. Resultados primarios y de revisión. Barcelona.';
+const description = 'Casos reales de cirugía de fisura labiopalatina con el Dr. Nico Sierra. Resultados primarios y de revisión, con consentimiento. Barcelona.';
 const canonical = 'https://www.drnicosierra.com/vidas-transformadas/';
 const ogTitle = 'Vidas Transformadas | Dr. Nico Sierra Barcelona';
 const ogDescription = 'Resultados reales de cirugía de fisura labiopalatina. Casos primarios y de revisión.';
+
+const cases = await getCollection('cases');
+
+// Same card shape the homepage's carousel uses — built from the real cases
+// collection instead of curated placeholder data. Same component either way.
+const carouselCards = cases.map((c) => {
+  const first = c.data.timeline[0];
+  const last = c.data.timeline[c.data.timeline.length - 1];
+  const displayName = c.data.patientName ?? `Paciente, ${c.data.age}`;
+  return {
+    media: [
+      { src: first.images[0].image, alt: first.images[0].alt, label: first.label },
+      { src: last.images[0].image, alt: last.images[0].alt, label: last.label },
+    ],
+    tag: c.data.condition,
+    title: displayName,
+    text: c.data.narrative.firstParagraph,
+    href: `/vidas-transformadas/${c.data.slug}/`,
+  };
+});
 ---
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription}>
-  <Fragment slot="head" set:html={`
-`} />
-  <Fragment set:html={`
-<main>
-<section style="min-height:50vh;background:#001629;display:flex;align-items:flex-end;padding:120px clamp(20px,4vw,48px) 80px;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,18,41,0.9) 0%,rgba(0,18,41,0.7) 100%);"></div>
-  <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
-    <div class="sh">
-      <div class="eyebrow" style="color:#4db896;">Casos reales</div>
-      <h1>Vidas Transformadas</h1>
-      <p class="lead">Casos reales, con consentimiento. Cirugía primaria y de revisión — cada resultado representa un recorrido acompañado de principio a fin por el Dr. Nico Sierra.</p>
-    </div>
-  </div>
-</section>
-<section class="section" style="background:#001e2e;text-align:center;">
-  <div class="container" style="max-width:640px;">
-    <div style="padding:80px 40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:22px;">
-      <div class="eyebrow" style="color:#4db896;justify-content:center;margin-bottom:20px;">Próximamente</div>
-      <h2 style="margin-bottom:20px;">Los casos están en camino.</h2>
-      <p>Estamos preparando la galería de resultados con casos reales y consentimiento de los pacientes. Mientras tanto, puedes contactar directamente con el Dr. Sierra para conocer casos específicos relacionados con tu situación.</p>
-      <div style="margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Cuéntanos tu caso →</a>
-        <a href="https://wa.me/WHATSAPP_NUMBER" class="btn btn-wa" data-wa-loc="cta-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>WhatsApp</a>
+  <section class="section" style="min-height:50vh;background:#001629;display:flex;align-items:flex-end;padding-top:120px;padding-bottom:0;" aria-labelledby="vt-h1">
+    <div class="container">
+      <div class="sh">
+        <div class="eyebrow reveal">Casos reales</div>
+        <h1 id="vt-h1" class="reveal rv2">Vidas Transformadas</h1>
+        <p class="lead reveal rv3">Casos reales, con consentimiento. Cirugía primaria y de revisión — cada resultado representa un recorrido acompañado de principio a fin por el Dr. Nico Sierra.</p>
       </div>
     </div>
-  </div>
-</section>
-</main>
-`} />
+  </section>
+
+  <section class="section" style="background:#001e2e;" aria-labelledby="vt-grid-h2">
+    {cases.length > 0 ? (
+      <CaseCarousel cards={carouselCards} id="vtCaseCarousel" />
+    ) : (
+      <div class="container" style="max-width:640px;text-align:center;">
+        <div style="padding:80px 40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:22px;">
+          <div class="eyebrow" style="color:#4db896;justify-content:center;margin-bottom:20px;">Próximamente</div>
+          <h2 style="margin-bottom:20px;">Los casos están en camino.</h2>
+          <p>Estamos preparando la galería de resultados con casos reales y consentimiento de los pacientes. Mientras tanto, puedes contactar directamente con el Dr. Sierra para conocer casos específicos relacionados con tu situación.</p>
+          <div style="margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Cuéntanos tu caso →</a>
+          </div>
+        </div>
+      </div>
+    )}
+  </section>
 </Layout>

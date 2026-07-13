@@ -1,0 +1,45 @@
+{
+  "slug": "caso-ejemplo-plantilla",
+  "age": "2 años",
+  "condition": "Fisura labiopalatina (caso de ejemplo)",
+  "title": "Caso de ejemplo — plantilla en pruebas",
+  "description": "Este es un caso de ejemplo usado únicamente para verificar la plantilla de Vidas Transformadas antes de cargar casos reales con consentimiento firmado.",
+  "ogTitle": "Caso de ejemplo — plantilla en pruebas",
+  "ogDescription": "Caso de ejemplo para verificar la plantilla — no es un paciente real.",
+  "cardImage": "../../assets/cases/caso-ejemplo-plantilla/pre.jpg",
+  "cardImageAlt": "Imagen de ejemplo — no es un paciente real",
+  "procedures": [
+    { "name": "Queiloplastia 1ª (ejemplo)", "date": "2023-01-15" },
+    { "name": "Palatoplastia 1ª (ejemplo)", "date": "2023-08-10" }
+  ],
+  "serviceLinks": ["cirugia-labio-fisurado", "cirugia-paladar-hendido", "ortopedia-prequirurgica-nam"],
+  "timeline": [
+    {
+      "label": "Pre clínica",
+      "images": [
+        { "image": "../../assets/cases/caso-ejemplo-plantilla/pre.jpg", "alt": "Imagen de ejemplo pre-clínica — no es un paciente real" }
+      ]
+    },
+    {
+      "label": "Post clínica (2 meses)",
+      "images": [
+        { "image": "../../assets/cases/caso-ejemplo-plantilla/post-2m.jpg", "alt": "Imagen de ejemplo post-clínica — no es un paciente real" }
+      ]
+    },
+    {
+      "label": "Post clínica (1 año)",
+      "images": [
+        { "image": "../../assets/cases/caso-ejemplo-plantilla/post-1a.jpg", "alt": "Imagen de ejemplo post-clínica — no es un paciente real" }
+      ]
+    }
+  ],
+  "narrative": {
+    "firstParagraph": "Este texto de ejemplo se usa únicamente para verificar el diseño de la plantilla de casos clínicos antes de cargar contenido real.",
+    "paragraphs": [
+      "Aquí iría el relato del Dr. Sierra sobre el caso real, una vez confirmado el consentimiento del paciente."
+    ]
+  },
+  "consentConfirmed": true,
+  "consentNotes": "TEST FIXTURE — caso de ejemplo con imágenes de stock, no es un paciente real. Reemplazar antes de publicar contenido real.",
+  "whatsappNumber": "WHATSAPP_NUMBER"
+}

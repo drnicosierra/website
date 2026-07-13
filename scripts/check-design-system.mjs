@@ -104,11 +104,24 @@ function checkScriptHoisting(source, file, errors, allowedSet) {
   }
 }
 
+function findAstroFilesRecursive(dir) {
+  const results = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) results.push(...findAstroFilesRecursive(path));
+    else if (entry.name.endsWith('.astro')) results.push(path);
+  }
+  return results;
+}
+
 function main() {
   const errors = [];
-  const pageFiles = readdirSync(PAGES_DIR)
-    .filter((f) => f.endsWith('.astro'))
-    .map((f) => join(PAGES_DIR, f));
+  // Recursive: src/pages/ now contains subdirectories (e.g.
+  // vidas-transformadas/{slug}.astro for individual case pages) — a plain
+  // readdirSync would silently skip everything in them, leaving those files
+  // completely unprotected by this guard. Don't repeat that mistake with any
+  // future subdirectory either.
+  const pageFiles = findAstroFilesRecursive(PAGES_DIR);
 
   const extraDirs = ['src/layouts', 'src/components'];
   const extraFiles = [];

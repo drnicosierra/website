@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CaseCarousel from '../components/CaseCarousel.astro';
 import { getImage } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import '../styles/home.css';
@@ -51,12 +52,11 @@ const galleryUrls = [
   'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&h=340&q=80&fit=crop&crop=faces',
   'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=340&q=80&fit=crop&crop=faces'
 ];
-const galleryImages = await Promise.all(galleryUrls.map((src) => getImage({ src, width: 400, height: 340, format: 'webp' })));
 
 const ogImageOptimized = await getImage({ src: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1200&h=630&q=80&fit=crop', width: 1200, height: 630, format: 'jpg' });
 const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
 
-const caseCards = [
+const caseCardMeta = [
   { tag: 'Labio fisurado', title: 'Reconstrucción primaria de labio', text: 'Caso pediátrico — técnica funcional con preservación muscular.' },
   { tag: 'Revisión', title: 'Cirugía de revisión en adulto', text: 'Paciente internacional — corrección de secuelas tras intervención previa.' },
   { tag: 'Paladar hendido', title: 'Cierre de paladar completo', text: 'Paciente pediátrico — cierre del paladar blando y duro en una intervención.' },
@@ -66,6 +66,19 @@ const caseCards = [
   { tag: 'Labio fisurado', title: 'Revisión de labio en adulto', text: 'Paciente adulta — corrección de cicatriz y asimetría tras cirugía primaria previa.' },
   { tag: 'NAM', title: 'Ortopedia prequirúrgica NAM', text: 'Recién nacido — moldeado nasoalveolar previo a la cirugía primaria de labio.' },
 ];
+
+// Homepage shows curated highlights (not yet tied to real case records) —
+// vidas-transformadas.astro builds this same shape from the real `cases`
+// collection instead. Same component, different data source.
+const carouselCards = caseCardMeta.map((meta, i) => ({
+  media: [
+    { src: galleryUrls[i * 2], alt: `Antes — Caso ${i + 1}`, label: 'Antes' },
+    { src: galleryUrls[i * 2 + 1], alt: `Después — Caso ${i + 1}`, label: 'Después' },
+  ],
+  tag: meta.tag,
+  title: meta.title,
+  text: meta.text,
+}));
 ---
 <Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} keywords={d.keywords}>
   <Fragment slot="head">
@@ -261,102 +274,11 @@ const caseCards = [
         <p class="ns-lead">{d.results.lead}</p>
       </header>
     </div>
-    <div class="ns-carousel" id="nsCasosCarousel" aria-label="Casos de pacientes">
-      <div class="ns-carousel__track" id="nsCasosTrack">
-        {caseCards.map((c, i) => (
-          <article class="ns-ccase" data-index={i}>
-            <div class="ns-ccase__media">
-              <figure><img src={galleryImages[i*2].src} alt={`Antes — Caso ${i+1}`} loading="lazy"><figcaption>Antes</figcaption></figure>
-              <figure><img src={galleryImages[i*2+1].src} alt={`Después — Caso ${i+1}`} loading="lazy"><figcaption>Después</figcaption></figure>
-            </div>
-            <div class="ns-ccase__body">
-              <span class="ns-ccase__tag">{c.tag}</span>
-              <h3 class="ns-h4">{c.title}</h3>
-              <p>{c.text}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-      <button class="ns-carousel__arrow ns-carousel__arrow--prev" id="nsCasosPrev" aria-label="Caso anterior">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="ns-carousel__arrow ns-carousel__arrow--next" id="nsCasosNext" aria-label="Caso siguiente">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="ns-carousel__progress" id="nsCasosProgress" aria-hidden="true">
-        <div class="ns-carousel__progress-fill" id="nsCasosProgressFill"></div>
-      </div>
-      <div class="ns-carousel__dots" id="nsCasosDots" aria-label="Navegación de casos" role="tablist" style="display:none"></div>
-    </div>
+    <CaseCarousel cards={carouselCards} id="homeCaseCarousel" />
     <div class="ns-container">
       <a href={d.results.ctaHref} class="ns-btn ns-btn-ghost ns-results__cta">{d.results.ctaLabel}</a>
     </div>
   </section>
-
-  <script is:inline>
-  (function(){
-    var track = document.getElementById('nsCasosTrack');
-    var dotsWrap = document.getElementById('nsCasosDots');
-    var prevBtn = document.getElementById('nsCasosPrev');
-    var nextBtn = document.getElementById('nsCasosNext');
-    if(!track) return;
-    var cards = Array.from(track.querySelectorAll('.ns-ccase'));
-    var total = cards.length;
-    var current = 1;
-    cards.forEach(function(_, i){
-      var b = document.createElement('button');
-      b.className = 'ns-cdot';
-      b.setAttribute('aria-label', 'Ir al caso ' + (i+1));
-      b.setAttribute('role','tab');
-      b.addEventListener('click', function(){ goTo(i); });
-      dotsWrap.appendChild(b);
-    });
-    var dots = Array.from(dotsWrap.querySelectorAll('.ns-cdot'));
-    function goTo(idx){ current = (idx + total) % total; render(); }
-    function render(){
-      var cardW = cards[0].offsetWidth + 24;
-      var wrapW = track.parentElement.offsetWidth;
-      var offset = (wrapW / 2) - (cardW / 2) - (current * cardW);
-      track.style.transform = 'translateX(' + offset + 'px)';
-      cards.forEach(function(c, i){
-        c.classList.remove('is-active','is-adjacent');
-        if(i === current) c.classList.add('is-active');
-        else if(i === current - 1 || i === current + 1) c.classList.add('is-adjacent');
-      });
-      dots.forEach(function(dd,i){ dd.classList.toggle('is-active', i === current); });
-      var fill = document.getElementById('nsCasosProgressFill');
-      if(fill) fill.style.transform = 'scaleX(' + (current / (total - 1)) + ')';
-    }
-    if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
-    if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
-    var startX = 0, startCurrent = 0, dragging = false, dragCardW = 0;
-    track.addEventListener('mousedown', function(e){
-      dragging = true; startX = e.clientX; startCurrent = current;
-      dragCardW = cards[0].offsetWidth + 24;
-      track.classList.add('is-dragging');
-    });
-    window.addEventListener('mousemove', function(e){
-      if(!dragging) return;
-      var diff = e.clientX - startX;
-      if(Math.abs(diff) > dragCardW * 0.3){
-        goTo(startCurrent - Math.sign(diff));
-        dragging = false;
-        track.classList.remove('is-dragging');
-      }
-    });
-    window.addEventListener('mouseup', function(){ dragging = false; track.classList.remove('is-dragging'); });
-    track.addEventListener('touchstart', function(e){
-      startX = e.touches[0].clientX; startCurrent = current;
-      dragCardW = cards[0].offsetWidth + 24;
-    }, {passive:true});
-    track.addEventListener('touchend', function(e){
-      var diff = e.changedTouches[0].clientX - startX;
-      if(Math.abs(diff) > dragCardW * 0.25) goTo(startCurrent - Math.sign(diff));
-    }, {passive:true});
-    requestAnimationFrame(render);
-    window.addEventListener('resize', function(){ requestAnimationFrame(render); });
-  })();
-  </script>
 
   <section class="ns-scope ns-section ns-testimonials ns-section-teal" aria-labelledby="ns-testim-title">
     <div class="ns-container">

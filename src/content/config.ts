@@ -318,6 +318,99 @@ const homepage = defineCollection({
   ),
 });
 
-export const collections = { services, about, camino, homepage };
+// ── Vidas Transformadas — case studies ────────────────────────────────────
+// Real patient cases (before/after). Every field here maps directly to the
+// page design confirmed with Renier: hub page (vidas-transformadas.astro)
+// lists all cases as cards; each case gets its own page via
+// CasePageTemplate.astro, following the exact same getEntry() + template
+// pattern as the services collection above.
+
+const procedureRecord = z.object({
+  name: z.string(),   // e.g. "Queiloplastia 1\u00aa Bilateral"
+  date: z.string(),   // ISO date (YYYY-MM-DD) \u2014 template formats it for display
+});
+
+const cases = defineCollection({
+  type: 'data',
+  schema: ({ image }) => {
+    const timelineEntry = z.object({
+      label: z.string(),  // e.g. "Pre cl\u00ednica", "Post cl\u00ednica (2 meses)" \u2014
+                           // AEO: include a clear time marker so AI systems can
+                           // extract "at X months, result was Y" from this page.
+      images: z.array(z.object({
+        image: image(),
+        alt: z.string(),
+      })).min(1).max(4),
+    });
+
+    return z.object({
+    // Identity \u2014 anonymized by default. Only set patientName if signed
+    // public-website-use consent is confirmed for THIS specific use (separate
+    // from any clinical/teaching consent that may already exist) \u2014 same
+    // "first name only, consent confirmed" rule as testimonials (SEO brief
+    // \u00a716.4). If absent, the template shows "Paciente, {age}" instead.
+    slug: z.string(),
+    patientName: z.string().optional(),
+    age: z.string(),          // age at time of first surgery, e.g. "1 a\u00f1o 8 meses"
+    condition: z.string(),    // e.g. "Fisura labiopalatina bilateral"
+
+    // Meta
+    title: z.string().max(60),
+    description: z.string().min(120).max(160),
+    ogTitle: z.string().max(60),
+    ogDescription: z.string().max(160),
+    cardImage: image(),       // hub-page card + OG image
+    cardImageAlt: z.string(),
+
+    // Procedures performed, chronological
+    procedures: z.array(procedureRecord).min(1),
+
+    // Which service page(s) this case demonstrates \u2014 rendered as the
+    // related-links block, same component as service pages use.
+    // Minimum 3, matching the sitewide internal-linking rule used by every
+    // other related-links block on the site — .related-grid is a fixed
+    // 3-column grid, so fewer than 3 leaves visible empty space.
+    serviceLinks: z.array(z.string()).min(3),
+
+    // Chronological photo timeline \u2014 this is the core of the page.
+    timeline: z.array(timelineEntry).min(2),
+
+    // Dr. Sierra's narrative account of the case. AEO: firstParagraph should
+    // stand alone as a complete answer (same rule as service pages' que\u00e9s).
+    narrative: z.object({
+      firstParagraph: z.string(),
+      paragraphs: z.array(z.string()).max(4),
+    }),
+
+    // Optional \u2014 not every case has video yet.
+    video: z.object({
+      url: z.string(),
+      caption: z.string().optional(),
+    }).optional(),
+
+    // Consent tracking lives with the case record itself. consentConfirmed
+    // is a HARD BUILD GATE below \u2014 a case cannot deploy without it.
+    consentConfirmed: z.boolean(),
+    consentNotes: z.string().optional(),
+
+    whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
+    })
+      .refine(
+        (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
+        { message: '"labio leporino" is forbidden \u2014 use "labio fisurado" per clinical terminology rules.' }
+      )
+      .refine(
+        (data) => data.consentConfirmed === true,
+        {
+          message: 'consentConfirmed must be true \u2014 a case cannot be published without ' +
+            'confirmed signed consent for PUBLIC WEBSITE use (separate from any clinical/teaching ' +
+            'consent that may already exist). Set consentNotes with who confirmed it and when.',
+          path: ['consentConfirmed'],
+        }
+      );
+  },
+});
+
+export const collections = { services, about, camino, homepage, cases };
 
 

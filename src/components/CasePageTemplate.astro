@@ -1,0 +1,284 @@
+---
+import { getImage, Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import CaseCarousel from './CaseCarousel.astro';
+import { getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'cases'>;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+
+// OG meta tags need a plain URL string, which is the one legitimate reason
+// to still call getImage() directly here — <Image /> renders markup, not a
+// URL, so it can't fill this specific need. Every ON-PAGE image below uses
+// the <Image /> component instead, per project rule (always use Astro's
+// Image component, not a manually-built <img> tag).
+const ogImageOptimized = await getImage({ src: d.cardImage, width: 1200, height: 630, format: 'webp' });
+const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
+
+// Large opening before/after comparison — derived from the first and last
+// timeline entries, not a separate schema field (single source of truth).
+const firstEntry = d.timeline[0];
+const lastEntry = d.timeline[d.timeline.length - 1];
+
+// Lightbox needs a plain URL string for a data-attribute (same legitimate
+// exception as the OG image above — getImage() for a URL, <Image/> for
+// everything actually rendered on the page). One larger variant per
+// timeline image, reused for the ba-hero pair too since those are the
+// same underlying photos.
+const timelineWithLightbox = await Promise.all(
+  d.timeline.map(async (entryItem) => ({
+    label: entryItem.label,
+    images: await Promise.all(
+      entryItem.images.map(async (img) => ({
+        ...img,
+        lightboxSrc: (await getImage({ src: img.image, width: 1400, format: 'webp' })).src,
+      }))
+    ),
+  }))
+);
+const firstLightbox = timelineWithLightbox[0];
+const lastLightbox = timelineWithLightbox[timelineWithLightbox.length - 1];
+
+// One carousel card per timeline step — its images become that card's
+// media array (1 image = single-photo card, more = side-by-side within
+// the card, same mechanism the before/after pair already uses).
+const timelineCards = timelineWithLightbox.map((entryItem) => ({
+  media: entryItem.images.map((img) => ({ src: img.image, alt: img.alt })),
+  title: entryItem.label,
+}));
+
+const canonical = `https://www.drnicosierra.com/vidas-transformadas/${d.slug}/`;
+const fullTitle = `${d.title} — Vidas Transformadas | Dr. Nico Sierra`;
+const displayName = d.patientName ?? `Paciente, ${d.age}`;
+
+const procedureSchema = d.procedures.map((proc) => ({
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: proc.name,
+  procedureType: 'Surgical',
+  indication: { '@type': 'MedicalIndication', name: 'Fisura labiopalatina' },
+  performer: {
+    '@type': 'Physician',
+    name: 'Dr. Nico Sierra',
+    url: 'https://www.drnicosierra.com',
+    medicalSpecialty: 'Oral and Maxillofacial Surgery',
+    affiliation: {
+      '@type': 'MedicalOrganization',
+      name: 'Clinica Tresserra',
+      address: { '@type': 'PostalAddress', addressLocality: 'Barcelona', addressCountry: 'ES' },
+    },
+  },
+}));
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.drnicosierra.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Vidas Transformadas', item: 'https://www.drnicosierra.com/vidas-transformadas/' },
+    { '@type': 'ListItem', position: 3, name: d.title, item: canonical },
+  ],
+};
+
+const schemaBlocks = [...procedureSchema, breadcrumbSchema]
+  .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+  .join('\n');
+
+const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>';
+
+// Related service pages this case demonstrates — resolved to full slugs.
+// Cross-checked against real content at build time via getEntry() below,
+// same safety net used elsewhere for relatedLinks.
+const relatedServiceEntries = await Promise.all(
+  d.serviceLinks.map(async (slug) => {
+    const svc = await getEntry('services', slug);
+    if (!svc) throw new Error(`Case "${d.slug}" references unknown service slug: "${slug}"`);
+    return svc;
+  })
+);
+---
+<Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Ruta de navegación">
+      <a href="/">Inicio</a>
+      <span class="sep">›</span>
+      <a href="/vidas-transformadas/">Vidas Transformadas</a>
+      <span class="sep">›</span>
+      <span class="current">{d.title}</span>
+    </nav>
+  </div>
+
+  <!-- INTRO — no photo background here on purpose; the before/after pair
+       below is the actual visual, a decorative hero photo over medical
+       images would feel off for this content. -->
+  <section class="section" style="padding-bottom:0;" aria-labelledby="case-h1">
+    <div class="container">
+      <div class="sh">
+        <div class="eyebrow reveal">Vidas Transformadas</div>
+        <h1 id="case-h1" class="reveal rv2">{d.title}</h1>
+        <p class="lead reveal rv3">{d.narrative.firstParagraph}</p>
+      </div>
+
+      <div class="case-meta-row reveal rv3">
+        <div class="case-meta-item">
+          <span class="case-meta-label">Paciente</span>
+          <span class="case-meta-value">{displayName}</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Condición</span>
+          <span class="case-meta-value">{d.condition}</span>
+        </div>
+        {d.procedures.map((proc) => (
+          <div class="case-meta-item">
+            <span class="case-meta-label">{proc.name}</span>
+            <span class="case-meta-value">{new Date(proc.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Large before/after — first vs. last timeline entry -->
+      <div class="ba-hero reveal-scale rv3">
+        <div class="ba-hero-img">
+          <span class="ba-hero-tag">{firstEntry.label}</span>
+          <button type="button" class="lightbox-trigger" data-lightbox-src={firstLightbox.images[0].lightboxSrc} data-lightbox-alt={firstEntry.images[0].alt} aria-label="Ampliar imagen">
+            <Image src={firstEntry.images[0].image} alt={firstEntry.images[0].alt} width={800} height={1000} format="webp" />
+          </button>
+        </div>
+        <div class="ba-hero-img">
+          <span class="ba-hero-tag">{lastEntry.label}</span>
+          <button type="button" class="lightbox-trigger" data-lightbox-src={lastLightbox.images[0].lightboxSrc} data-lightbox-alt={lastEntry.images[0].alt} aria-label="Ampliar imagen">
+            <Image src={lastEntry.images[0].image} alt={lastEntry.images[0].alt} width={800} height={1000} format="webp" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL TIMELINE -->
+  <section class="section" style="padding-bottom:0;" aria-labelledby="timeline-h2">
+    <div class="container">
+      <div class="sh">
+        <div class="eyebrow reveal">El recorrido completo</div>
+        <h2 id="timeline-h2" class="reveal rv2">Evolución paso a paso</h2>
+      </div>
+    </div>
+    <CaseCarousel cards={timelineCards} id="caseTimelineCarousel" />
+  </section>
+
+  <!-- NARRATIVE -->
+  {d.narrative.paragraphs.length > 0 && (
+    <section class="section" style="background:#001e2e;padding-bottom:clamp(40px,5vw,64px);" aria-labelledby="narrative-h2">
+      <div class="container">
+        <div class="sh">
+          <div class="eyebrow reveal">En palabras del Dr. Sierra</div>
+          <h2 id="narrative-h2" class="reveal rv2">Sobre este caso</h2>
+        </div>
+        <div class="reveal rv3">
+          {d.narrative.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- VIDEO — optional, section doesn't render at all if absent -->
+  {d.video && (
+    <section class="section" aria-labelledby="video-h2">
+      <div class="container">
+        <div class="sh">
+          <div class="eyebrow reveal">Video</div>
+          <h2 id="video-h2" class="reveal rv2">El caso en video</h2>
+        </div>
+        <div class="case-video reveal-scale rv3">
+          <div class="case-video-frame">
+            <iframe src={d.video.url} title={d.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          {d.video.caption && <p class="case-video-caption">{d.video.caption}</p>}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- RELATED SERVICES — same component/markup as service pages use -->
+  <section class="section related" aria-labelledby="related-h2">
+    <div class="container">
+      <div class="sh">
+        <div class="eyebrow reveal">Tratamientos relacionados</div>
+        <h2 id="related-h2" class="reveal rv2">Tratamientos relacionados con este caso</h2>
+      </div>
+      <div class="related-grid">
+        {relatedServiceEntries.map((svc, i) => (
+          <a href={`/${svc.data.slug}/`} class={`related-card reveal rv${i + 2}`}>
+            <div class="related-card-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="related-card-name">{svc.data.procedureName}</div>
+            <div class="related-card-arrow">Ver tratamiento →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER — same component as service pages -->
+  <section class="cta-banner" aria-labelledby="cta-h2">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="sh sh--center">
+          <div class="eyebrow reveal">Cuéntanos tu historia</div>
+          <h2 id="cta-h2" class="reveal rv2">¿Tienes un caso similar?</h2>
+          <p class="reveal rv3">El Dr. Nico Sierra revisa personalmente cada caso. Escríbenos y te contestamos con honestidad.</p>
+        </div>
+        <div class="cta-actions reveal rv4">
+          <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="cta-banner" set:html={`${waIcon} Escríbir por WhatsApp`} />
+          <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Enviar mi caso →</a>
+        </div>
+        <p class="cta-sub reveal rv5">Respuesta en menos de 24 horas · Sin compromiso</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX — shared overlay for every [data-lightbox-src] trigger on
+       this page (ba-hero + timeline images). CSS lives in global.css so any
+       future page can reuse this exact pattern instead of building another. -->
+  <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script is:inline>
+  (function(){
+    var overlay = document.getElementById('lightboxOverlay');
+    var img = document.getElementById('lightboxImg');
+    var closeBtn = document.getElementById('lightboxClose');
+    if (!overlay || !img) return;
+
+    function open(src, alt){
+      img.src = src;
+      img.alt = alt || '';
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.lightbox-trigger').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        open(btn.getAttribute('data-lightbox-src'), btn.getAttribute('data-lightbox-alt'));
+      });
+    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
+    window.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  })();
+  </script>
+</Layout>
