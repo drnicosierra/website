@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CaseCarousel from '../components/CaseCarousel.astro';
 import { getImage } from 'astro:assets';
+import doctorPhotoFile from '../assets/home/doctor-photo.jpg';
 import heroPhoto from '../assets/home/hero.jpg';
 import { getEntry } from 'astro:content';
 import '../styles/home.css';
@@ -33,7 +34,7 @@ const svcImages = Object.fromEntries(
   ]))
 );
 
-const doctorPhoto = await getImage({ src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1067&q=85&fit=crop&crop=faces', width: 800, height: 1067, format: 'webp' });
+const doctorPhoto = await getImage({ src: doctorPhotoFile, width: 800, format: 'webp' });
 
 const galleryUrls = [
   'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=340&q=80&fit=crop&crop=faces',
