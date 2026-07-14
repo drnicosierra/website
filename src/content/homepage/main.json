@@ -144,22 +144,133 @@
     "eyebrow": "ABORDAJE INTEGRAL E INTERDISCIPLINAR",
     "h2": "Cada paciente y cada familia son únicos.",
     "lead": "Por eso, el abordaje de la fisura labiopalatina (FLP) es integral, personalizado y acompañado en todas las etapas del desarrollo.\n\nBajo la dirección del Dr. Nico Sierra, trabajamos de forma coordinada con especialistas de referencia, tanto en Barcelona como en el lugar de residencia del paciente, para planificar cada fase del tratamiento y alinear las decisiones quirúrgicas y no quirúrgicas con las necesidades reales de cada persona en cada momento.\n\nEl objetivo: Una vida plena sin alteraciones estéticas, funcionales o psicosociales.",
-    "columns": ["<strong>Prenatal</strong>", "<strong>0-3m</strong>", "<strong>3-6m</strong>", "<strong>6-12m</strong>", "<strong>1-2a</strong>", "<strong>2-6a</strong>", "<strong>6-10a</strong>", "<strong>Adolescente</strong>", "<strong>Adulto</strong>"],
+    "columns": [
+      "<strong>Pre Natal</strong>",
+      "<strong>0m</strong>",
+      "<strong>3m</strong>",
+      "<strong>6m</strong>",
+      "<strong>9m</strong>",
+      "<strong>12m</strong>",
+      "<strong>18m</strong>",
+      "<strong>2a</strong>",
+      "<strong>3a</strong>",
+      "<strong>4a</strong>",
+      "<strong>5a</strong>",
+      "<strong>6a</strong>",
+      "<strong>7a</strong>",
+      "<strong>8a</strong>",
+      "<strong>9a</strong>",
+      "<strong>10a</strong>",
+      "<strong>Adolescentes</strong>",
+      "<strong>+18a</strong>"
+    ],
     "legendTreatment": "Realizado por el Dr. Sierra",
     "legendCoordinated": "Coordinado con especialistas de confianza",
     "rows": [
-      { "label": "Asesoramiento y educación familiar", "type": "coordinated", "startCol": 1, "endCol": 3 },
-      { "label": "Ortopedia Pre-operatoria (NAM)", "type": "treatment", "startCol": 2, "endCol": 3, "color": "#7C3AED", "href": "/ortopedia-prequirurgica-nam/" },
-      { "label": "Cirugía de Labio Fisurado", "type": "treatment", "startCol": 3, "endCol": 4, "color": "#a01255", "href": "/cirugia-labio-fisurado/" },
-      { "label": "Cirugía de Paladar Hendido", "type": "treatment", "startCol": 4, "endCol": 6, "color": "#008362", "href": "/cirugia-paladar-hendido/" },
-      { "label": "Alimentación, nutrición y pruebas auditivas", "type": "coordinated", "startCol": 2, "endCol": 7 },
-      { "label": "Terapia del habla", "type": "coordinated", "startCol": 6, "endCol": 7 },
-      { "label": "Ortodoncia y seguimiento", "type": "coordinated", "startCol": 7, "endCol": 9 },
-      { "label": "Reconstrucción de Encía (Injerto Óseo)", "type": "treatment", "startCol": 7, "endCol": 8, "color": "#16A34A", "href": "/injerto-oseo-alveolar/" },
-      { "label": "Cirugía Ortognática", "type": "treatment", "startCol": 8, "endCol": 10, "color": "#B45309", "href": "/cirugia-ortognatica-flp/" },
-      { "label": "Rinoplastia en FLP", "type": "treatment", "startCol": 8, "endCol": 10, "color": "#0891B2", "href": "/rinoplastia-flp/" },
-      { "label": "Cirugía de Revisión", "type": "treatment", "startCol": 1, "endCol": 10, "color": "#0d74c4", "href": "/cirugia-revision-fisura/" },
-      { "label": "Salud oral y apoyo psicosocial", "type": "coordinated", "startCol": 1, "endCol": 10 }
+      {
+        "label": "Asesoramiento y educación familiar",
+        "type": "coordinated",
+        "startCol": 1,
+        "endCol": 19
+      },
+      {
+        "label": "PSIO-NAM",
+        "type": "treatment",
+        "startCol": 2,
+        "endCol": 5,
+        "color": "#7C3AED",
+        "href": "/ortopedia-prequirurgica-nam/"
+      },
+      {
+        "label": "Cirugía de Labio Fisurado",
+        "type": "treatment",
+        "startCol": 3,
+        "endCol": 5,
+        "color": "#a01255",
+        "href": "/cirugia-labio-fisurado/"
+      },
+      {
+        "label": "Cirugía de Paladar Hendido",
+        "type": "treatment",
+        "startCol": 4,
+        "endCol": 7,
+        "color": "#008362",
+        "href": "/cirugia-paladar-hendido/"
+      },
+      {
+        "label": "Alimentación y nutrición",
+        "type": "coordinated",
+        "startCol": 2,
+        "endCol": 8
+      },
+      {
+        "label": "Pruebas auditivas",
+        "type": "coordinated",
+        "startCol": 2,
+        "endCol": 8
+      },
+      {
+        "label": "Estimulación temprana - Terapia del habla y lenguaje",
+        "type": "coordinated",
+        "startCol": 2,
+        "endCol": 14
+      },
+      {
+        "label": "Seguimiento ORL (Audición, Respiración, Adenoides, Amígdalas)",
+        "type": "coordinated",
+        "startCol": 3,
+        "endCol": 17
+      },
+      {
+        "label": "Ortodoncia y seguimiento",
+        "type": "coordinated",
+        "startCol": 8,
+        "endCol": 18
+      },
+      {
+        "label": "Reconstrucción de Encía (Injerto Óseo)",
+        "type": "treatment",
+        "startCol": 12,
+        "endCol": 17,
+        "color": "#16A34A",
+        "href": "/injerto-oseo-alveolar/"
+      },
+      {
+        "label": "Cirugía Ortognática",
+        "type": "treatment",
+        "startCol": 14,
+        "endCol": 18,
+        "color": "#B45309",
+        "href": "/cirugia-ortognatica-flp/"
+      },
+      {
+        "label": "Rinoplastia en FLP",
+        "type": "treatment",
+        "startCol": 14,
+        "endCol": 18,
+        "color": "#0891B2",
+        "href": "/rinoplastia-flp/"
+      },
+      {
+        "label": "Cirugía de Revisión",
+        "type": "treatment",
+        "startCol": 8,
+        "endCol": 19,
+        "color": "#0d74c4",
+        "href": "/cirugia-revision-fisura/"
+      },
+      {
+        "label": "Salud oral",
+        "type": "coordinated",
+        "startCol": 8,
+        "endCol": 19
+      },
+      {
+        "label": "Acompañamiento psicosocial",
+        "type": "coordinated",
+        "startCol": 8,
+        "endCol": 19
+      }
     ]
   },
   "journey": {
