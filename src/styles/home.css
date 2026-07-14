@@ -413,13 +413,13 @@
     padding-top:clamp(32px,4vw,48px);
     border-top:1px solid var(--ns-line);
   }
-  .ns-about__creds--5{grid-template-columns:repeat(5,1fr)!important;}
+  .ns-about__creds--5{grid-template-columns:repeat(3,1fr)!important;}
   @media(max-width:1100px){.ns-about__creds--5{grid-template-columns:repeat(3,1fr)!important;}}
   @media(max-width:700px){.ns-about__creds--5{grid-template-columns:1fr 1fr!important;}}
   @media(max-width:560px){.ns-about__creds--5{grid-template-columns:1fr!important;}}
   .ns-about__creds{
     list-style:none;padding:0;margin:0;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
   }
   .ns-cred{
     display:flex;align-items:flex-start;gap:14px;
@@ -647,7 +647,7 @@
   .ns-services__head .ns-h2{margin-bottom:18px;}
   .ns-services__head .ns-lead{margin:0 auto;}
   .ns-services__grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
   }
   .ns-svc{
     background:var(--ns-surface-1);border:1px solid var(--ns-line);border-radius:var(--ns-radius-lg);overflow:hidden;
