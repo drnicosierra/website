@@ -17,23 +17,6 @@ const heroImage = await getImage({
   width: 1800, format: 'webp'
 });
 
-const svcImageUrls: Record<string, string> = {
-  '/ortopedia-prequirurgica-nam/': 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=800&q=80&fit=crop',
-  '/cirugia-labio-fisurado/': 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&h=800&q=80&fit=crop',
-  '/cirugia-paladar-hendido/': 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=800&q=80&fit=crop',
-  '/cirugia-revision-fisura/': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&q=80&fit=crop',
-  '/injerto-oseo-alveolar/': 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=800&q=80&fit=crop',
-  '/cirugia-ortognatica-flp/': 'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=800&q=80&fit=crop',
-  '/rinoplastia-flp/': 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1200&h=800&q=80&fit=crop',
-  '/otros-procedimientos/': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&q=80&fit=crop',
-};
-const svcImages = Object.fromEntries(
-  await Promise.all(d.servicesGrid.rows.map(async (row) => [
-    row.href,
-    (await getImage({ src: svcImageUrls[row.href], width: 1200, height: 800, format: 'webp' })).src,
-  ]))
-);
-
 const doctorPhoto = await getImage({ src: doctorPhotoFile, width: 800, format: 'webp' });
 
 const galleryUrls = [
@@ -194,56 +177,39 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
   })();
   </script>
 
-  <section class="ns-scope ns-section ns-services ns-section-mid" style="padding-bottom:0;" aria-labelledby="ns-services-title">
+  <section class="ns-scope ns-section ns-services ns-section-mid" aria-labelledby="ns-services-title">
     <div class="ns-container">
       <header class="ns-services__head ns-reveal">
-        <span class="ns-eyebrow">{d.servicesGrid.eyebrow}</span>
-        <h2 id="ns-services-title" class="ns-h2" set:html={d.servicesGrid.h2} />
+        <span class="ns-eyebrow">{d.careTimeline.eyebrow}</span>
+        <h2 id="ns-services-title" class="ns-h2" set:html={d.careTimeline.h2} />
+        {d.careTimeline.lead.split('\n\n').map((para) => (
+          <p class="ns-lead" style="margin-top:18px;">{para}</p>
+        ))}
       </header>
-    </div>
-    <div class="ns-svc-list" id="nsSvcList">
-      <div class="ns-svc-list__bg" id="nsSvcBg" aria-hidden="true">
-        <img src={svcImages[d.servicesGrid.rows[0].href]} alt="" id="nsSvcBgImg" loading="lazy">
-        <div class="ns-svc-list__bg-veil"></div>
+      <div class="ns-care-legend ns-reveal" style="justify-content:center;">
+        <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--treatment"></span>{d.careTimeline.legendTreatment}</span>
+        <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--coordinated"></span>{d.careTimeline.legendCoordinated}</span>
       </div>
-      {d.servicesGrid.rows.map((row) => (
-        <a href={row.href} class={`ns-svc-row ns-reveal ${row.href === '/otros-procedimientos/' ? 'ns-svc-row--otros' : ''}`} data-img={svcImages[row.href]} style={`--sc:${row.color}`}>
-          <span class="ns-svc-row__dot"></span>
-          <span class="ns-svc-row__num">{row.num}</span>
-          <span class="ns-svc-row__name" set:html={row.name} />
-          <span class="ns-svc-row__tag">{row.tag}</span>
-          <span class="ns-svc-row__arrow">→</span>
-        </a>
-      ))}
+    </div>
+    <div class="ns-care-scroll">
+      <div class="ns-care-grid" style={`grid-template-columns:repeat(${d.careTimeline.columns.length},minmax(112px,1fr));grid-template-rows:auto repeat(${d.careTimeline.rows.length},44px);`}>
+        {d.careTimeline.columns.map((col, i) => (
+          <div class="ns-care-col-head" style={`grid-column:${i + 1};grid-row:1;`} set:html={col} />
+        ))}
+        {d.careTimeline.rows.map((row, i) =>
+          row.type === 'treatment' ? (
+            <a href={row.href} class="ns-care-bar ns-care-bar--treatment" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};--sc:${row.color};`}>
+              {row.label}
+            </a>
+          ) : (
+            <div class="ns-care-bar ns-care-bar--coordinated" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};`}>
+              {row.label}
+            </div>
+          )
+        )}
+      </div>
     </div>
   </section>
-
-  <script is:inline>
-  (function(){
-    var list = document.getElementById('nsSvcList');
-    var bg = document.getElementById('nsSvcBg');
-    var bgImg = document.getElementById('nsSvcBgImg');
-    if(!list||!bg||!bgImg) return;
-    var rows = list.querySelectorAll('.ns-svc-row');
-    var hideTimer;
-    rows.forEach(function(row){
-      row.addEventListener('mouseenter', function(){
-        clearTimeout(hideTimer);
-        var img = row.getAttribute('data-img');
-        if(img && bgImg.src !== img){
-          bgImg.style.opacity='0';
-          setTimeout(function(){ bgImg.src = img; bgImg.style.opacity='1'; }, 150);
-        }
-        bg.classList.add('is-visible');
-        row.classList.add('is-hovered');
-      });
-      row.addEventListener('mouseleave', function(){
-        row.classList.remove('is-hovered');
-        hideTimer = setTimeout(function(){ bg.classList.remove('is-visible'); }, 300);
-      });
-    });
-  })();
-  </script>
 
   <section class="ns-scope ns-section ns-journey ns-section-green" aria-labelledby="ns-journey-title">
     <div class="ns-container ns-journey__layout">

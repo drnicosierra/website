@@ -136,8 +136,6 @@
   .ns-reveal.is-visible{opacity:1;transform:translateZ(0);}
   .ns-about__media.ns-reveal{transform:scale(0.97) translateZ(0);}
   .ns-about__media.ns-reveal.is-visible{transform:scale(1) translateZ(0);}
-  .ns-svc-row:nth-child(2){--rv:60ms}.ns-svc-row:nth-child(3){--rv:120ms}.ns-svc-row:nth-child(4){--rv:180ms}
-  .ns-svc-row:nth-child(5){--rv:240ms}.ns-svc-row:nth-child(6){--rv:300ms}.ns-svc-row:nth-child(7){--rv:360ms}.ns-svc-row:nth-child(8){--rv:420ms}
   .ns-journey__step:nth-child(2){--rv:120ms}.ns-journey__step:nth-child(3){--rv:240ms}.ns-journey__step:nth-child(4){--rv:360ms}
   .ns-testimonials__grid .ns-reveal:nth-child(2){--rv:140ms}.ns-testimonials__grid .ns-reveal:nth-child(3){--rv:280ms}
 
@@ -587,86 +585,61 @@
   .ns-services__head{max-width:700px;margin:0 0 clamp(40px,5vw,64px);text-align:left;padding:0 clamp(16px,4vw,48px);}
   .ns-services__head .ns-h2{margin-top:12px;}
 
-  /* Full-width service list */
-  .ns-svc-list{position:relative;border-top:1px solid var(--ns-line);}
+  /* Care timeline legend — the visual key distinguishing what Dr. Sierra
+     performs directly (clickable, colored) from coordinated network care
+     (muted, informational only). */
+  .ns-care-legend{
+    display:flex;gap:28px;flex-wrap:wrap;
+    margin-top:8px;padding:0 clamp(16px,4vw,48px);
+  }
+  .ns-care-legend__item{
+    display:flex;align-items:center;gap:10px;
+    font-size:.85rem;color:rgba(255,255,255,.65);
+  }
+  .ns-care-legend__swatch{width:20px;height:10px;border-radius:3px;flex-shrink:0;}
+  .ns-care-legend__swatch--treatment{background:var(--ns-teal-300);}
+  .ns-care-legend__swatch--coordinated{
+    background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.35);
+  }
 
-  /* Background image layer */
-  .ns-svc-list__bg{
-    position:absolute;inset:0;pointer-events:none;z-index:0;
-    opacity:0;transition:opacity .5s var(--ns-ease);overflow:hidden;
+  /* Horizontal-scroll wrapper — same mechanism as .ns-tl (the "Un recorrido"
+     timeline) so mobile users get a consistent, already-familiar gesture. */
+  .ns-care-scroll{
+    position:relative;overflow-x:auto;
+    margin-top:40px;padding:4px clamp(16px,4vw,48px) 32px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;
   }
-  .ns-svc-list__bg.is-visible{opacity:1;}
-  .ns-svc-list__bg img{width:100%;height:100%;object-fit:cover;object-position:center;
-    transition:opacity .4s ease;
+  .ns-care-grid{
+    display:grid;gap:2px;min-width:900px;
   }
-  .ns-svc-list__bg-veil{position:absolute;inset:0;
-    background:linear-gradient(90deg, rgba(0,18,35,0.97) 0%, rgba(0,18,35,0.82) 45%, rgba(0,18,35,0.4) 100%);
+  .ns-care-col-head{
+    display:flex;align-items:center;justify-content:center;
+    padding:0 4px 14px;
+    font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.4);text-align:center;
   }
-
-  /* Each service row */
-  .ns-svc-row{
-    display:grid;
-    grid-template-columns:6px 80px 1fr auto 48px;
-    align-items:center;gap:0 28px;
-    padding:26px clamp(16px,4vw,48px);
-    border-bottom:1px solid rgba(255,255,255,0.06);
-    color:var(--ns-ink);text-decoration:none;
-    position:relative;z-index:1;
-    transition:padding-left .35s var(--ns-ease), background .3s;
-    cursor:pointer;
+  .ns-care-bar{
+    display:flex;align-items:center;
+    padding:0 14px;border-radius:8px;
+    font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;line-height:1.2;
+    text-decoration:none;
+    white-space:normal;overflow:hidden;
   }
-  /* Left color dot — the service color identifier */
-  .ns-svc-row__dot{
-    width:6px;height:32px;border-radius:3px;
-    background:var(--sc, rgba(255,255,255,0.15));
-    opacity:0.35;
-    transition:opacity .3s, height .3s;
-    flex-shrink:0;
+  .ns-care-bar--treatment{
+    background:var(--sc);color:#fff;
+    transition:filter .2s, transform .2s;
   }
-  .ns-svc-row:hover .ns-svc-row__dot,
-  .ns-svc-row.is-hovered .ns-svc-row__dot{
-    opacity:1;height:48px;
+  .ns-care-bar--treatment:hover{filter:brightness(1.12);transform:translateY(-1px);}
+  .ns-care-bar--coordinated{
+    background:rgba(255,255,255,.05);
+    border:1px dashed rgba(255,255,255,.25);
+    color:rgba(255,255,255,.55);
   }
-  .ns-svc-row:hover{
-    padding-left:calc(clamp(16px,4vw,48px) + 12px);
-    background:rgba(255,255,255,0.02);
-  }
-  .ns-svc-row.is-hovered .ns-svc-row__num,
-  .ns-svc-row:hover .ns-svc-row__num{color:var(--sc,var(--ns-teal-300));}
-  .ns-svc-row.is-hovered .ns-svc-row__name,
-  .ns-svc-row:hover .ns-svc-row__name{color:#fff;}
-  .ns-svc-row.is-hovered .ns-svc-row__tag,
-  .ns-svc-row:hover .ns-svc-row__tag{color:var(--sc,var(--ns-teal-300));opacity:1;}
-  .ns-svc-row.is-hovered .ns-svc-row__arrow,
-  .ns-svc-row:hover .ns-svc-row__arrow{transform:translateX(6px);color:var(--sc,var(--ns-teal-300));}
-
-  .ns-svc-row__num{
-    font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;
-    letter-spacing:.15em;color:rgba(255,255,255,0.25);
-    transition:color .3s;
-  }
-  .ns-svc-row__name{
-    font-family:'DM Sans',sans-serif;
-    font-size:clamp(1.15rem,2.2vw,1.65rem);
-    font-weight:500;letter-spacing:-.02em;
-    color:rgba(255,255,255,0.72);
-    transition:color .3s;line-height:1.2;
-  }
-  .ns-svc-row__name em{font-style:normal;color:inherit;}
-  .ns-svc-row__tag{
-    font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    color:rgba(255,255,255,0.3);text-align:right;
-    transition:color .3s, opacity .3s;
-  }
-  .ns-svc-row__arrow{
-    font-size:1.2rem;color:rgba(255,255,255,0.15);
-    transition:transform .3s var(--ns-ease), color .3s;text-align:center;
-  }
-  .ns-svc-row--otros .ns-svc-row__name{color:rgba(255,255,255,.4);}
 
   @media(max-width:700px){
-    .ns-svc-row{grid-template-columns:6px 40px 1fr 32px;gap:0 12px;}
-    .ns-svc-row__tag{display:none;}
+    .ns-care-grid{min-width:760px;}
+    .ns-care-bar{font-size:.76rem;padding:0 10px;}
   }
 
   .ns-services__head{max-width:780px;margin:0 auto var(--ns-section-gap);text-align:center;}

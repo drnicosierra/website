@@ -208,12 +208,29 @@ const timelineNode = z.object({
   href: z.string().regex(/^\/[a-z-]+\/$|^\/cuentanos-tu-historia$/, 'href must be a real slug ending in / (or /cuentanos-tu-historia)'),
 });
 
-const gridRow = z.object({
-  num: z.string(),
-  name: z.string(),
-  tag: z.string(),
-  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
-  href: z.string().regex(/^\/[a-z-]+\/$|^\/cuentanos-tu-historia$/, 'href must be a real slug ending in / (or /cuentanos-tu-historia)'),
+const careRow = z.object({
+  label: z.string(),
+  type: z.enum(['treatment', 'coordinated']),
+  // 1-indexed CSS grid-column positions against careTimeline.columns.
+  // endCol is exclusive (CSS grid-column-end convention) — a bar covering
+  // only the first column is startCol:1, endCol:2.
+  startCol: z.number().int().min(1),
+  endCol: z.number().int().min(2),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/).optional(),
+  href: z.string().regex(/^\/[a-z-]+\/$/).optional(),
+}).refine(
+  (row) => row.type === 'coordinated' || (row.color && row.href),
+  { message: 'A "treatment" row must have both color and href — it renders as a clickable link to a real service page. Rows without an owned service page must be type:"coordinated" instead.' }
+);
+
+const careTimeline = z.object({
+  eyebrow: z.string(),
+  h2: z.string(),
+  lead: z.string(),
+  columns: z.array(z.string()).min(4),
+  rows: z.array(careRow).min(4),
+  legendTreatment: z.string(),
+  legendCoordinated: z.string(),
 });
 
 const homepage = defineCollection({
@@ -255,11 +272,7 @@ const homepage = defineCollection({
       nodes: z.array(timelineNode).min(6).max(9),
     }),
 
-    servicesGrid: z.object({
-      eyebrow: z.string(),
-      h2: z.string(),
-      rows: z.array(gridRow).min(6).max(9),
-    }),
+    careTimeline,
 
     journey: z.object({
       eyebrow: z.string(),
