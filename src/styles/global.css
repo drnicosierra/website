@@ -42,10 +42,6 @@
      07 Rinoplastia:      #0891B2 (cyan)
      08 Otros:            #64748B (slate)
   */
-  --sc: #008362;
-  --sc-muted: #00664c;
-  --sc-soft: rgba(0,131,98,0.12);
-  --sc-glow: rgba(0,131,98,0.2);
 }
 
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
