@@ -6,24 +6,24 @@
     "ogDescription": "Proceso de atención para pacientes con fisura labiopalatina. Consulta, valoración, cirugía y seguimiento.",
     "hero": {
         "eyebrow": "Tu camino con nosotros",
-        "h1": "De tu primera consulta a la transformación.",
-        "lead": "Cada familia que llega al Dr. Sierra recorre un camino claro, acompañado en cada paso."
+        "h1": "Una atención cercana, personalizada y coordinada",
+        "lead": "Desde el primer contacto y en cada etapa del proceso."
     },
     "steps": [
         {
             "num": "01",
-            "title": "Nos escribes",
-            "text": "Envías fotos y una descripción de tu caso. El Dr. Sierra lo revisa personalmente y te responde en menos de 24 horas."
+            "title": "Cuéntanos tu caso",
+            "text": "Envíanos un mensaje y cuéntanos tu motivo de consulta. El Dr. Nico Sierra revisará personalmente tu caso y, en un plazo aproximado de 24 horas, recibirás toda la información necesaria para preparar y agendar tu primera consulta."
         },
         {
             "num": "02",
-            "title": "Valoramos tu caso",
-            "text": "Consulta presencial o telemática. Plan quirúrgico claro, honesto y sin compromisos."
+            "title": "Consulta personalizada",
+            "text": "Tu consulta puede realizarse de forma presencial o remota. Analizaremos tu caso en detalle, resolveremos todas tus dudas y diseñaremos un plan de tratamiento claro, honesto y adaptado a tus necesidades, sin ningún compromiso."
         },
         {
             "num": "03",
-            "title": "La cirugía",
-            "text": "Intervención en Barcelona con equipo especializado. Coordinamos la logística para pacientes internacionales."
+            "title": "Tu cirugía en Barcelona: contigo antes, durante y después",
+            "text": "Te acompañaremos en cada etapa del proceso, desde la preparación de la cirugía hasta la recuperación. Antes de la intervención recibirás toda la información necesaria para afrontarla con tranquilidad y confianza. La cirugía se realiza en un centro acreditado de Barcelona. Después, te enseñaremos los cuidados necesarios y realizaremos un seguimiento cercano para que te sientas acompañado/a durante toda la recuperación. Si viajas desde otra ciudad o desde el extranjero, coordinaremos cada detalle para que tu experiencia sea sencilla, cómoda y perfectamente organizada."
         }
     ],
     "ctaLabel": "Empezar ahora →",

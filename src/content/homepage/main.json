@@ -143,7 +143,7 @@
   "careTimeline": {
     "eyebrow": "ABORDAJE INTEGRAL E INTERDISCIPLINAR",
     "h2": "Cada paciente y cada familia son únicos.",
-    "lead": "Por eso, el abordaje de la fisura labiopalatina (FLP) es integral, personalizado y acompañado en todas las etapas del desarrollo.\n\nBajo la dirección del Dr. Nico Sierra, trabajamos de forma coordinada con especialistas de referencia, tanto en Barcelona como en el lugar de residencia del paciente, para planificar cada fase del tratamiento y alinear las decisiones quirúrgicas y no quirúrgicas con las necesidades reales de cada persona en cada momento.\n\nEl objetivo: Una vida plena sin alteraciones estéticas, funcionales o psicosociales.",
+    "lead": "Por eso, el abordaje de la fisura labiopalatina es integral, personalizado y acompañado en todas las etapas del desarrollo.\n\nBajo la dirección del Dr. Nico Sierra, trabajamos de forma coordinada con especialistas de referencia, tanto en Barcelona como en el lugar de residencia del paciente, para planificar cada fase del tratamiento y alinear las decisiones quirúrgicas y no quirúrgicas con las necesidades reales de cada persona en cada momento.\n\nEl objetivo: Una vida plena sin alteraciones estéticas, funcionales o psicosociales.",
     "columns": [
       "<strong>Pre Natal</strong>",
       "<strong>0m</strong>",
@@ -275,25 +275,25 @@
   },
   "journey": {
     "eyebrow": "Tu camino con nosotros",
-    "h2": "Cuatro pasos.<br>Una sola persona<br>acompañándote.",
-    "lead": "Desde el primer mensaje hasta el último control. El Dr. Sierra está en cada momento.",
+    "h2": "Una atención cercana, personalizada y coordinada",
+    "lead": "Desde el primer contacto y en cada etapa del proceso.",
     "ctaLabel": "Ver el proceso completo →",
     "ctaHref": "/tu-camino-con-nosotros",
     "steps": [
       {
         "num": "01",
-        "title": "Nos escribes",
-        "text": "Envías fotos y una descripción de tu caso. El Dr. Sierra lo revisa personalmente y te responde en menos de 24 horas."
+        "title": "Cuéntanos tu caso",
+        "text": "Envíanos un mensaje y cuéntanos tu motivo de consulta. El Dr. Nico Sierra revisará personalmente tu caso y, en un plazo aproximado de 24 horas, recibirás toda la información necesaria para preparar y agendar tu primera consulta."
       },
       {
         "num": "02",
-        "title": "Valoramos tu caso",
-        "text": "Consulta presencial o telemática. Plan quirúrgico claro, honesto y sin compromisos."
+        "title": "Consulta personalizada",
+        "text": "Tu consulta puede realizarse de forma presencial o remota. Analizaremos tu caso en detalle, resolveremos todas tus dudas y diseñaremos un plan de tratamiento claro, honesto y adaptado a tus necesidades, sin ningún compromiso."
       },
       {
         "num": "03",
-        "title": "La cirugía",
-        "text": "Intervención en Barcelona con equipo especializado. Coordinamos logística para pacientes internacionales."
+        "title": "Tu cirugía en Barcelona: contigo antes, durante y después",
+        "text": "Te acompañaremos en cada etapa del proceso, desde la preparación de la cirugía hasta la recuperación. Antes de la intervención recibirás toda la información necesaria para afrontarla con tranquilidad y confianza. La cirugía se realiza en un centro acreditado de Barcelona. Después, te enseñaremos los cuidados necesarios y realizaremos un seguimiento cercano para que te sientas acompañado/a durante toda la recuperación. Si viajas desde otra ciudad o desde el extranjero, coordinaremos cada detalle para que tu experiencia sea sencilla, cómoda y perfectamente organizada."
       }
     ]
   },
@@ -344,7 +344,7 @@
     },
     {
       "question": "¿Por qué elegir a un cirujano dedicado exclusivamente a la fisura labiopalatina?",
-      "answer": "La fisura labiopalatina requiere un volumen alto de casos y una visión sostenida en el tiempo para obtener resultados consistentes. El Dr. Nico Sierra ha hecho de la fisura labiopalatina la única especialidad de su práctica: cada decisión técnica, cada protocolo y cada formación continua están orientados a una sola cosa. Esa dedicación es lo que permite ofrecer a las familias un nivel de atención que difícilmente se encuentra en consultas de cirugía general o maxilofacial no especializada."
+      "answer": "La fisura labiopalatina requiere un volumen alto de casos y una mirada sostenida en el tiempo para obtener resultados consistentes. El Dr. Nico Sierra ha hecho de la fisura labiopalatina la única especialidad de su práctica: cada decisión técnica, cada protocolo y cada formación continua están orientados a una sola cosa. Esa dedicación es lo que permite ofrecer a las familias un nivel de atención que difícilmente se encuentra en consultas de cirugía general."
     },
     {
       "question": "¿Vale la pena operar con un especialista privado en fisura labiopalatina?",
