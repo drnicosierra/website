@@ -826,3 +826,27 @@
     margin-top:20px;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;
     color:rgba(0,131,98,0.5);font-weight:500;
   }
+
+  .ns-care-col-head {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .ns-care-scroll {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
+
+  .ns-care-legend {
+    margin-bottom: 32px;
+  }
+
+  .ns-care-col-head {
+    font-size: 0.7rem;
+    padding: 0 2px 8px;
+  }
+
+  .ns-care-bar {
+    font-size: 0.7rem;
+    padding: 4px 2px;
+  }
