@@ -19,9 +19,11 @@ Sonnet: standalone content drafts, code snippets, one-shot reasoning
 Opus: only if Sonnet fails
 
 **Chats (model picker in the app) — the same logic scaled up:**
-TaskModelContent review vs brief, terminology checksSonnet — rule-following, doesn't need deep reasoningRoutine code edits (menu swap, JSON changes, CSS fixes)SonnetDebugging that's gone in circles, unclear build failuresOpus or higher — fresh chat, full evidence pastedArchitecture decisions, migrations, restructures (like today)Opus or higherAnything where being wrong is expensive (schema changes, sitewide find/replace)Step up a tier
-The heuristic: Sonnet is your default for everything routine. Escalate when the task requires judgment across many moving parts, or when a cheaper model has already failed once. Escalating after a failure wastes less than defaulting to the big model — except for one-time high-stakes work, where you start high.
-Note the advice doc you brought this morning had outdated names — current lineup is Haiku 4.5 / Sonnet 4.6 / Opus 4.8 / Fable 5 (top tier, what you're talking to now). Your claude-api.sh model strings may be worth a quick check next session to confirm they point at current versions.
+Chat model guide:
+- Sonnet: default for everything routine — content review, code edits, CSS fixes, JSON changes.
+- Opus or higher: debugging gone in circles, unclear build failures, architecture decisions, sitewide changes where being wrong is expensive.
+- Heuristic: escalate AFTER a cheaper model fails, not preemptively — except one-time high-stakes work, start high.
+- Current lineup (July 2026): Haiku 4.5 / Sonnet 4.6 / Opus 4.8 / Fable 5. Recheck claude-api.sh model strings against this.
 
 ## Which doc for which task
 | Task | Point Claude to |
@@ -80,3 +82,6 @@ Before pasting an error to Claude, read its last 5 lines yourself and guess the 
 Git model in one line: working tree (your edits) → staging (git add) → commit (local snapshot) → push (GitHub + Netlify deploy). `git status` tells you which layer you're in.
 
 Terminal reflexes to build: grep before assuming a file contains something · `git log --oneline -5` to see recent history · `open <path>` to jump to GUI · Ctrl+U to bail out of a pasted line.
+
+## Brief is NOT auto-loaded (since July 2026)
+Removed from project files. Every content-review chat must start by getting it in: "Fetch docs/seo-aeo-brief.md from the repo" or paste it (cat docs/seo-aeo-brief.md | pbcopy). No brief in chat = no formal review.
