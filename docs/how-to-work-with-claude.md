@@ -11,18 +11,17 @@
 **Bug:**
 > Read: CLAUDE.md + workflows/debugging.md. Problem: [what you see]. Evidence: [build output / DevTools / screenshot]
 
-Two layers — CLI models and chat models:
+**Two layers — CLI models and chat models:**
 CLI (scripts/claude-api.sh) — already in CLAUDE.md:
 
 Haiku: mechanical checks, validation, git questions, grep-style lookups
 Sonnet: standalone content drafts, code snippets, one-shot reasoning
 Opus: only if Sonnet fails
 
-Chats (model picker in the app) — the same logic scaled up:
+**Chats (model picker in the app) — the same logic scaled up:**
 TaskModelContent review vs brief, terminology checksSonnet — rule-following, doesn't need deep reasoningRoutine code edits (menu swap, JSON changes, CSS fixes)SonnetDebugging that's gone in circles, unclear build failuresOpus or higher — fresh chat, full evidence pastedArchitecture decisions, migrations, restructures (like today)Opus or higherAnything where being wrong is expensive (schema changes, sitewide find/replace)Step up a tier
 The heuristic: Sonnet is your default for everything routine. Escalate when the task requires judgment across many moving parts, or when a cheaper model has already failed once. Escalating after a failure wastes less than defaulting to the big model — except for one-time high-stakes work, where you start high.
 Note the advice doc you brought this morning had outdated names — current lineup is Haiku 4.5 / Sonnet 4.6 / Opus 4.8 / Fable 5 (top tier, what you're talking to now). Your claude-api.sh model strings may be worth a quick check next session to confirm they point at current versions.
-This table belongs in the cheat sheet too — but it's guidance for you choosing chats, not for Claude's behavior, so it fits how-to-work-with-claude.md perfectly. Want it appended in the same batch, or have you already run the append? Tell me where you are and I'll give you one clean consolidated command.
 
 ## Which doc for which task
 | Task | Point Claude to |
