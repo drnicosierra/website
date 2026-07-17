@@ -45,3 +45,26 @@
 
 ## Terminal survival kit
 Ctrl+U clear line · Ctrl+C abandon line/escape stuck heredoc · Ctrl+W delete word · Ctrl+A/E line start/end
+
+## Master chat clarified
+"Master chat" = any fresh chat inside the Claude project (has project context), NOT one eternal thread. One fresh chat per content review batch — long chats get expensive because the full history re-sends with every message. Fresh chat + brief from repo = full context, disposable.
+
+## Doc maintenance rule
+If a change invalidates something a doc says, updating the doc is part of the SAME task, same commit. Claude flags it; you run the fix. New agreements made mid-chat also get written to a doc before the task closes. Docs that rot are worse than no docs.
+
+## Claude can fetch the public repo
+In chats, Claude can read files directly from GitHub (pushed state only — local uncommitted changes are invisible). Shortest starter: "Fetch CLAUDE.md + docs/X.md from the repo. Task: ..." Saves your pasting time; token cost is the same.
+
+## Your growth edge (assessed July 2026)
+The highest-leverage skill: identifying WHERE a problem lives before opening a chat. Quick triage:
+- Looks wrong (spacing, color, alignment) → CSS → design-system.md, DevTools Elements panel
+- Wrong element/order/missing content → HTML structure → architecture.md, grep for the class/id
+- Text/wording → content JSON → content-rules.md, src/content/
+- Build fails → read the LAST error lines first; Zod field names mean content violation, not code bug
+- Works on desktop, breaks on iPhone → WebKit history → performance.md
+
+Before pasting an error to Claude, read its last 5 lines yourself and guess the category — right or wrong, the guess sharpens your prompt.
+
+Git model in one line: working tree (your edits) → staging (git add) → commit (local snapshot) → push (GitHub + Netlify deploy). `git status` tells you which layer you're in.
+
+Terminal reflexes to build: grep before assuming a file contains something · `git log --oneline -5` to see recent history · `open <path>` to jump to GUI · Ctrl+U to bail out of a pasted line.
