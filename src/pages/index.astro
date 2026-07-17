@@ -186,30 +186,63 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
           <p class="ns-lead" style="margin-top:18px;">{para}</p>
         ))}
       </header>
-      <div class="ns-care-legend ns-reveal" style="justify-content:center;">
+      <div class="ns-care-legend ns-reveal">
         <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--treatment"></span>{d.careTimeline.legendTreatment}</span>
         <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--coordinated"></span>{d.careTimeline.legendCoordinated}</span>
       </div>
     </div>
-    <div class="ns-care-scroll">
-      <div class="ns-care-grid" style={`grid-template-columns:repeat(${d.careTimeline.columns.length},minmax(var(--ns-care-col-min,54px),1fr));grid-template-rows:auto repeat(${d.careTimeline.rows.length},var(--ns-care-row-h,44px));`}>
-        {d.careTimeline.columns.map((col, i) => (
-          <div class="ns-care-col-head" style={`grid-column:${i + 1};grid-row:1;`} set:html={col} />
-        ))}
-        {d.careTimeline.rows.map((row, i) =>
-          row.type === 'treatment' ? (
-            <a href={row.href} class="ns-care-bar ns-care-bar--treatment" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};--sc:${row.color};`}>
-              {row.label}
-            </a>
-          ) : (
-            <div class="ns-care-bar ns-care-bar--coordinated" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};`}>
-              {row.label}
-            </div>
-          )
-        )}
+    <div class="ns-care-scroll-wrap">
+      <div class="ns-care-fade-left" aria-hidden="true"></div>
+      <div class="ns-care-scroll">
+        <div class="ns-care-grid" style={`grid-template-columns:repeat(${d.careTimeline.columns.length},minmax(var(--ns-care-col-min,54px),1fr));grid-template-rows:auto repeat(${d.careTimeline.rows.length},var(--ns-care-row-h,44px));`}>
+          {d.careTimeline.columns.map((col, i) => (
+            <div class="ns-care-col-head" style={`grid-column:${i + 1};grid-row:1;`} set:html={col} />
+          ))}
+          {d.careTimeline.rows.map((row, i) =>
+            row.type === 'treatment' ? (
+              <a href={row.href} class="ns-care-bar ns-care-bar--treatment" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};--sc:${row.color};`}>
+                {row.label}
+              </a>
+            ) : (
+              <div class="ns-care-bar ns-care-bar--coordinated" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};`}>
+                {row.label}
+              </div>
+            )
+          )}
+        </div>
       </div>
     </div>
   </section>
+
+  <script is:inline>
+  (function(){
+    var scroller = document.querySelector('.ns-care-scroll');
+    var wrap = document.querySelector('.ns-care-scroll-wrap');
+    if(!scroller || !wrap) return;
+    var raf = null;
+    var idleTimer = null;
+    function apply(){
+      var gap = scroller.scrollWidth - scroller.clientWidth - scroller.scrollLeft;
+      var scrollable = scroller.scrollWidth > scroller.clientWidth + 1;
+      wrap.classList.toggle('is-scrollable', scrollable);
+      wrap.classList.toggle('at-end', gap <= 4);
+      wrap.classList.toggle('at-start', scroller.scrollLeft <= 4);
+    }
+    function onScroll(){
+      wrap.classList.add('scrolling');
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(function(){
+        wrap.classList.remove('scrolling');
+        apply();
+      }, 500);
+      if (raf) return;
+      raf = requestAnimationFrame(function(){ raf = null; apply(); });
+    }
+    scroller.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', apply);
+    apply();
+  })();
+  </script>
 
   <section class="ns-scope ns-section ns-journey ns-section-green" aria-labelledby="ns-journey-title">
     <div class="ns-container ns-journey__layout">

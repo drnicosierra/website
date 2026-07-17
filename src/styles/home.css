@@ -589,7 +589,7 @@
      performs directly (clickable, colored) from coordinated network care
      (muted, informational only). */
   .ns-care-legend{
-    display:flex;gap:28px;flex-wrap:wrap;
+    display:flex;gap:28px;flex-wrap:wrap;justify-content:center;
     margin-top:8px;padding:0 clamp(16px,4vw,48px);
   }
   .ns-care-legend__item{
@@ -604,6 +604,9 @@
 
   /* Horizontal-scroll wrapper — same mechanism as .ns-tl (the "Un recorrido"
      timeline) so mobile users get a consistent, already-familiar gesture. */
+  .ns-care-scroll-wrap{
+    position:relative;
+  }
   .ns-care-scroll{
     position:relative;overflow-x:auto;
     margin-top:24px;padding:4px clamp(16px,4vw,48px) 16px;
@@ -611,6 +614,52 @@
     -webkit-overflow-scrolling:touch;
     scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;
   }
+  /* Scroll affordance — fade + chevron live on the non-scrolling wrapper
+     (not the scroll container itself) so they can't get caught inside the
+     scroller's own compositing layer on mobile WebKit/Chrome. Driven by
+     .is-scrollable/.scrolling/.at-end classes toggled in index.astro's
+     inline script. Hidden by default so nothing shows if JS fails or
+     content already fits. */
+  .ns-care-scroll-wrap::after{
+    content:'';
+    position:absolute;top:4px;right:0;bottom:16px;
+    width:clamp(28px,6vw,56px);
+    background:linear-gradient(to right,transparent,#002236);
+    opacity:0;transition:opacity .3s;
+    pointer-events:none;z-index:2;
+  }
+  .ns-care-scroll-wrap::before{
+    content:'';
+    position:absolute;top:calc(50% - 4px);right:12px;
+    width:8px;height:8px;
+    border-top:2px solid rgba(255,255,255,.55);
+    border-right:2px solid rgba(255,255,255,.55);
+    transform:rotate(45deg);
+    opacity:0;transition:opacity .3s;
+    pointer-events:none;z-index:2;
+  }
+  .ns-care-scroll-wrap.is-scrollable:not(.scrolling):not(.at-end)::after,
+  .ns-care-scroll-wrap.is-scrollable:not(.scrolling):not(.at-end)::before{opacity:1;}
+
+  /* Left-edge mirror — same fade+chevron, driven by .at-start instead of
+     .at-end. A real element (not a pseudo-element) since .ns-care-scroll-wrap
+     already uses both ::before and ::after for the right edge. */
+  .ns-care-fade-left{
+    position:absolute;top:4px;left:0;bottom:16px;
+    width:clamp(28px,6vw,56px);
+    background:linear-gradient(to left,transparent,#002236);
+    opacity:0;transition:opacity .3s;
+    pointer-events:none;z-index:2;
+  }
+  .ns-care-fade-left::before{
+    content:'';
+    position:absolute;top:calc(50% - 4px);left:12px;
+    width:8px;height:8px;
+    border-bottom:2px solid rgba(255,255,255,.55);
+    border-left:2px solid rgba(255,255,255,.55);
+    transform:rotate(45deg);
+  }
+  .ns-care-scroll-wrap.is-scrollable:not(.scrolling):not(.at-start) .ns-care-fade-left{opacity:1;}
   .ns-care-grid{
     display:grid;gap:2px;
   }
@@ -643,6 +692,7 @@
     .ns-care-scroll{--ns-care-col-min:34px;--ns-care-row-h:32px;}
     .ns-care-bar{font-size:0;padding:0 2px;}
     .ns-care-col-head{font-size:.58rem;padding:0 2px 8px;letter-spacing:.05em;}
+    .ns-care-legend{justify-content:flex-start;}
   }
 
   .ns-services__head{max-width:780px;margin:0 auto var(--ns-section-gap);text-align:center;}
