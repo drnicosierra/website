@@ -606,7 +606,8 @@
      timeline) so mobile users get a consistent, already-familiar gesture. */
   .ns-care-scroll{
     position:relative;overflow-x:auto;
-    margin-top:40px;padding:4px clamp(16px,4vw,48px) 32px;
+    margin-top:24px;padding:4px clamp(16px,4vw,48px) 16px;
+    --ns-care-row-h:32px;
     -webkit-overflow-scrolling:touch;
     scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;
   }
@@ -615,7 +616,7 @@
   }
   .ns-care-col-head{
     display:flex;align-items:center;justify-content:center;
-    padding:0 4px 14px;
+    padding:0 4px 8px;
     font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
     color:rgba(255,255,255,.4);text-align:center;
     min-width:0;overflow-wrap:anywhere;
