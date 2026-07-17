@@ -44,6 +44,29 @@ Chat model guide:
 - **Fresh chat**: any task with more than 2–3 steps. Start with a template above. One task per chat — chats are disposable now; the repo carries the knowledge.
 - **Master chat**: SEO/AEO content review ONLY (needs the brief). Nothing else needs it anymore.
 
+## Working with Claude Code (this CLI agent)
+Different from "CLI" above (`claude-api.sh` = one-shot API calls). Claude Code runs in your terminal, reads CLAUDE.md automatically, and runs commands/edits files itself.
+
+**Session starter:** same discipline as chat — name the task + point to the doc/file from the Doc Map if you know it. Without a pointer, Claude Code greps/explores the repo to find the right file, which burns tokens. Pointing is the cheap path, not optional.
+
+**No longer needed:** pasting file contents, `git status`, `npm run build` output, grep output — Claude Code runs/reads these itself and shows the result directly in the terminal.
+
+**Still needed:** DevTools output (console errors, computed styles) and screenshots for visual bugs — Claude Code has no browser open, can't see a live page.
+
+**Pasting images:** drag the image file onto the terminal window (inserts the path), or save it to a fixed spot and give Claude Code the filename — it reads images directly, no clipboard needed.
+
+**Checking results:**
+- Build/code correctness → read Claude Code's own terminal output, don't re-run it yourself.
+- Visual/UI changes → run `npm run dev` and check the browser yourself; Claude Code can't see it.
+
+**Terminal vs chat:**
+| Task | Where |
+|---|---|
+| Code, content edits, CSS, debugging | Terminal (Claude Code) |
+| SEO/AEO content review | Chat (master chat only, needs brief) |
+
+**Still applies:** one change at a time, verify before/after, ask before destructive git ops.
+
 ## What to paste Claude (in order of value)
 1. Full `npm run build` output when anything fails
 2. DevTools: Console errors, Network failures, Elements computed styles
