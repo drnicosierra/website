@@ -192,7 +192,7 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
       </div>
     </div>
     <div class="ns-care-scroll">
-      <div class="ns-care-grid" style={`grid-template-columns:repeat(${d.careTimeline.columns.length},minmax(112px,1fr));grid-template-rows:auto repeat(${d.careTimeline.rows.length},44px);`}>
+      <div class="ns-care-grid" style={`grid-template-columns:repeat(${d.careTimeline.columns.length},minmax(var(--ns-care-col-min,54px),1fr));grid-template-rows:auto repeat(${d.careTimeline.rows.length},var(--ns-care-row-h,44px));`}>
         {d.careTimeline.columns.map((col, i) => (
           <div class="ns-care-col-head" style={`grid-column:${i + 1};grid-row:1;`} set:html={col} />
         ))}
