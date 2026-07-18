@@ -13,3 +13,6 @@ node_modules/
 
 # editor/OS
 .DS_Store
+
+# claude code local permissions (per-developer, not shared)
+.claude/settings.local.json
