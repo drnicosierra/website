@@ -43,7 +43,7 @@ Renier is a product/UX person building technical capability. Apply this on every
 
 ## Hard stops (check on ALL content)
 - NEVER "labio leporino" — always "labio fisurado" / "paladar hendido" / "fisura labiopalatina"
-- NEVER Operation Smile + Smile Train on the same page
+- NEVER Operation Smile + Smile Train in the same paragraph/string field (fine elsewhere on the same page)
 - Always "Dr. Nico Sierra" (patient-facing), "Clínica Tresserra" (accent required)
 - Never "FLP" in patient-facing content
 - Zod schema in src/content/config.ts enforces these at build time — a failing build may be the guard working, not a bug.

@@ -584,6 +584,7 @@
 
   .ns-services__head{max-width:700px;margin:0 0 clamp(40px,5vw,64px);text-align:left;padding:0 clamp(16px,4vw,48px);}
   .ns-services__head .ns-h2{margin-top:12px;}
+  .ns-services__head .ns-lead + .ns-h3{margin-top:32px;}
 
   /* Care timeline legend — the visual key distinguishing what Dr. Sierra
      performs directly (clickable, colored) from coordinated network care
@@ -601,6 +602,8 @@
   .ns-care-legend__swatch--coordinated{
     background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.35);
   }
+
+  .ns-care-methodology{font-size:.8rem;color:rgba(255,255,255,.5);}
 
   /* Horizontal-scroll wrapper — same mechanism as .ns-tl (the "Un recorrido"
      timeline) so mobile users get a consistent, already-familiar gesture. */

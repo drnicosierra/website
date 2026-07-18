@@ -4,7 +4,7 @@ Distilled from docs/seo-aeo-brief.md (authoritative). For full SEO/AEO review us
 
 ## Terminology — absolute
 - NEVER "labio leporino". Use: fisura labiopalatina · labio fisurado · paladar hendido · labio y paladar hendido (LatAm)
-- NEVER Operation Smile + Smile Train on the same page (Zod hard-fails)
+- NEVER Operation Smile + Smile Train in the same paragraph/string field (Zod hard-fails; fine elsewhere on the same page)
 - "Dr. Nico Sierra" patient-facing · "Nicolás E. Sierra"/"NE Sierra" academic only · never "Perilla"
 - "Clínica Tresserra" (accent) · "Hospital Universitario Vall d'Hebron" full name on first mention
 - Never "FLP" in patient-facing content; fine in internal/technical contexts

@@ -185,6 +185,8 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
         {d.careTimeline.lead.split('\n\n').map((para) => (
           <p class="ns-lead" style="margin-top:18px;">{para}</p>
         ))}
+        <h3 class="ns-h3">{d.careTimeline.timelineTitle}</h3>
+        <p class="ns-care-methodology">{d.careTimeline.methodologyNote}</p>
       </header>
       <div class="ns-care-legend ns-reveal">
         <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--treatment"></span>{d.careTimeline.legendTreatment}</span>

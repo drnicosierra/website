@@ -1,5 +1,20 @@
 import { defineCollection, z } from 'astro:content';
 
+// Walks a parsed content object and returns true only if a single string
+// field (i.e. one paragraph/label) contains ALL of the given terms — used to
+// scope the Operation Smile / Smile Train rule to "same paragraph", not
+// "anywhere on the page" (they may legitimately appear in unrelated blocks).
+function hasTermsInSameString(data, terms) {
+  const strings = [];
+  const walk = (val) => {
+    if (typeof val === 'string') strings.push(val);
+    else if (Array.isArray(val)) val.forEach(walk);
+    else if (val && typeof val === 'object') Object.values(val).forEach(walk);
+  };
+  walk(data);
+  return strings.some((s) => terms.every((t) => s.includes(t)));
+}
+
 // ── Shared building blocks ────────────────────────────────────────────────
 
 const cta = z.object({
@@ -229,6 +244,8 @@ const careTimeline = z.object({
   lead: z.string(),
   columns: z.array(z.string()).min(4),
   rows: z.array(careRow).min(4),
+  timelineTitle: z.string(),
+  methodologyNote: z.string(),
   legendTreatment: z.string(),
   legendCoordinated: z.string(),
 });
@@ -322,8 +339,8 @@ const homepage = defineCollection({
     }),
   })
   .refine(
-    (data) => !(JSON.stringify(data).includes('Operation Smile') && JSON.stringify(data).includes('Smile Train')),
-    { message: 'Operation Smile and Smile Train must never appear together (per project rule).' }
+    (data) => !hasTermsInSameString(data, ['Operation Smile', 'Smile Train']),
+    { message: 'Operation Smile and Smile Train must never appear together in the same paragraph (per project rule).' }
   )
   .refine(
     (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
