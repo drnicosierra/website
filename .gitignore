@@ -16,3 +16,6 @@ node_modules/
 
 # claude code local permissions (per-developer, not shared)
 .claude/settings.local.json
+
+# local-only workflow notes (credential/auth setup, not for public history)
+workflows/git-ssh-setup.md
