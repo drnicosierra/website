@@ -19,6 +19,67 @@ const heroImage = await getImage({
 
 const doctorPhoto = await getImage({ src: doctorPhotoFile, width: 800, format: 'webp' });
 
+// Native HTML/CSS "care wheel" — 12 specialties around a center hub.
+// Positions computed once at build time (no runtime trig / client JS).
+// 12 distinct on-brand shades: alternating teal/blue families (Dr. Sierra's
+// two brand hues) so every segment reads differently but the ring still
+// stays inside the site's own palette instead of a generic rainbow.
+const wheelColors = [
+  'hsl(163 90% 22%)', 'hsl(205 95% 22%)',
+  'hsl(163 85% 30%)', 'hsl(205 90% 30%)',
+  'hsl(163 80% 38%)', 'hsl(205 85% 38%)',
+  'hsl(163 75% 46%)', 'hsl(205 78% 46%)',
+  'hsl(163 65% 54%)', 'hsl(205 70% 54%)',
+  'hsl(163 55% 62%)', 'hsl(205 62% 62%)',
+];
+const wheelItems = [
+  // Long labels get a manual <br/> break at a natural word group instead of
+  // relying on the browser to wrap them — auto-wrap picks break points that
+  // can run wider than a diagonal wedge allows (see width formula below).
+  { label: 'Cirugía reconstructiva facial', icon: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/>' },
+  { label: 'Anestesia pediátrica', icon: '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>' },
+  { label: 'Enfermería<br/>quirúrgica y<br/>clínica', icon: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>' },
+  { label: 'Medicina general', icon: '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>' },
+  { label: 'Estimulación<br/>temprana', icon: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>' },
+  { label: 'Pediatría', icon: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>' },
+  { label: 'Educación parental', icon: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>' },
+  { label: 'Atención psicosocial', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
+  { label: 'Odontología,<br/>ortopedia y<br/>ortodoncia', icon: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>' },
+  { label: 'Terapia del habla', icon: '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>' },
+  { label: 'Nutrición y<br/>asesoría en<br/>lactancia', icon: '<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>' },
+].map((item, i, arr) => {
+  const wedgeSize = 360 / arr.length;
+  const angleDeg = wedgeSize * i; // item's own center, also used as its position angle
+  const angleRad = (angleDeg * Math.PI / 180) - Math.PI / 2;
+  const radius = 39; // percent of wheel box — distance of each item's center from the hub
+  // A rectangular label sits inside an angular (pie-slice) wedge — the safe
+  // horizontal footprint is smallest at 45°/135°/... (diagonal) and largest
+  // at 0°/90°/... (cardinal). Narrow diagonal items, keep cardinal ones wide.
+  const distFromDiagonal = Math.abs((angleDeg % 90) - 45); // 0 = diagonal, 45 = cardinal
+  const cardinalness = distFromDiagonal / 45; // 0..1
+  const width = Math.round(112 + cardinalness * 38); // 112px..150px
+  return {
+    ...item,
+    x: (50 + radius * Math.cos(angleRad)).toFixed(2),
+    y: (50 + radius * Math.sin(angleRad)).toFixed(2),
+    color: wheelColors[i],
+    width,
+  };
+});
+// Rotate the whole gradient back by half a wedge so wedge i is centered on
+// item i (angleDeg) instead of starting there — keeps every stop at a clean
+// non-negative multiple of the wedge size (no negative first-stop edge case).
+const wheelWedgeSize = 360 / wheelItems.length;
+const wheelRingGradient = `conic-gradient(from ${-(wheelWedgeSize / 2)}deg, ${wheelItems.map((it, i) => `${it.color} ${i * wheelWedgeSize}deg ${(i + 1) * wheelWedgeSize}deg`).join(', ')})`;
+function wheelChip(item) {
+  return `<span class="ns-wheel__icon" style="--ic:${item.color}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${item.icon}</svg></span><span class="ns-wheel__label">${item.label}</span>`;
+}
+// Single source of truth for the hub content — desktop circle and mobile
+// banner both render this, so one edit here updates both places.
+function wheelHubMarkup(iconSize) {
+  return `<span class="ns-wheel-hub__icon"><svg width="${iconSize}" height="${iconSize}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><span class="ns-wheel-hub__title">Paciente y familia</span><span class="ns-wheel-hub__subtitle">en el centro del equipo</span>`;
+}
+
 const galleryUrls = [
   'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=340&q=80&fit=crop&crop=faces',
   'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&h=340&q=80&fit=crop&crop=faces',
@@ -137,6 +198,35 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
         <h2 id="ns-timeline-title" class="ns-h2" set:html={d.timeline.h2} />
         <p class="ns-lead" style="max-width:52ch;">{d.timeline.lead}</p>
       </header>
+      <figure class="ns-wheel-figure ns-reveal" aria-label="Especialidades del equipo que acompaña el tratamiento de la fisura labiopalatina">
+        <span class="ns-eyebrow">Equipo multidisciplinario</span>
+
+        {/* Desktop/tablet — true wheel, shown only once it comfortably fits (≥900px) */}
+        <div class="ns-wheel-scroll">
+          <div class="ns-wheel-frame">
+            <div class="ns-wheel" style={`--wr-bg:${wheelRingGradient}`}>
+              <div class="ns-wheel__ring" aria-hidden="true"></div>
+              <div class="ns-wheel__hub" set:html={wheelHubMarkup(32)} />
+              <ul class="ns-wheel__ring-items" role="list">
+                {wheelItems.map((item) => (
+                  <li class="ns-wheel__item" style={`left:${item.x}%;top:${item.y}%;width:${item.width}px;`} set:html={wheelChip(item)} />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile/small-tablet — a wheel can't stay readable this narrow, so
+            the same 11 specialties become a highlighted hub + card grid. */}
+        <div class="ns-wheel-mobile">
+          <div class="ns-wheel-mobile__hub" set:html={wheelHubMarkup(28)} />
+          <ul class="ns-wheel-mobile__grid" role="list">
+            {wheelItems.map((item) => (
+              <li class="ns-wheel-mobile__item" style={`--ic:${item.color};`} set:html={wheelChip(item)} />
+            ))}
+          </ul>
+        </div>
+      </figure>
       <div class="ns-tl" id="nsTl" aria-label="Recorrido del paciente FLP">
         <svg class="ns-tl__line-svg" aria-hidden="true" preserveAspectRatio="none">
           <path class="ns-tl__line-path" id="nsTlPath" d=""/>
