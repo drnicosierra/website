@@ -13,13 +13,18 @@ Weights: DM Sans 400/500/700 · Space Grotesk 400/500/600. Never add external fo
 eyebrow · em words in h1/h2 · card left borders · active nav underline · FAQ open border · related card top border · hero left accent · service CTA button · entity tags.
 NEVER as section background.
 
-## Section backgrounds (fixed alternation)
-Hero #001629 → About #001e2e → Timeline #001629 → Results #001e2e → Testimonials #001629 → Services #001e2e → FAQ #001629 → Journey #001e2e → CTA #001e2e + teal border-top → Footer #000e1a
+## Section backgrounds (flat, matches production)
+Every homepage section is transparent — `body{background:#001e2e}` shows through all of them uniformly. The CTA banner (`.ns-cta-banner`) is the one deliberate exception at `#005240` (green). Hero has its own dark image background (`.ns-hero__media`, independent of this system). The `.ns-signature` footer block also keeps its own `#00111e`, unrelated to the flat-body system.
+Do NOT reintroduce per-section background colors (teal/mid/deep/green "personalities") without deliberately deciding to — a prior version of this had unreachable color rules silently killed by a `background:transparent!important` override; both were removed together rather than re-enabled, because the flat look is the current intentional choice.
+
+## Section dividers
+`border-top:1px solid rgba(255,255,255,0.14)` between every adjacent section, including hero→first-section (`.ns-hero + .ns-scope.ns-section`) and on `.ns-cta-banner`/`.ns-signature`. This is a dedicated value — NOT `--ns-line` (that stays at its own `rgba(255,255,255,0.08)` and is only for card/quote/FAQ borders). Since backgrounds are flat, these hairlines are the only visual separation between sections — don't weaken them.
 
 ## Spacing / typography
 - .sh class rhythm: eyebrow →12px→ h2 →16px→ lead →40px→ content
 - p+p: 16px · h3+p: 8px · h4+p: 4px
-- Section padding: clamp(72px,9vw,120px) · Container: max 1200px, sides clamp(20px,4vw,48px)
+- Section padding: clamp(72px,9vw,128px) · Container: max 1200px, sides clamp(20px,4vw,48px)
+- `.ns-cta-banner` and `.ns-signature` use this same vertical rhythm (they used to drift with their own clamp values — keep them aligned)
 - NEVER inline margin-top on headings/p
 - NEVER adjacent sibling selectors across .reveal wrappers
 
@@ -32,7 +37,7 @@ Fuentes.astro — citation block, renders only when `sources` array is non-empty
 `.footer-nap` — NAP block in footer first column (address + phone). Styled in global.css. Content driven by CLINIC_ADDRESS + CLINIC_PHONE from site.ts. `tel:` href strips spaces via `.replace(/ /g, "")`.
 
 ## Known dead code
-.ns-btn-wa-hero in home.css ~328–340 — confirmed orphaned, queued for design-system unification. Don't rediscover it.
+.ns-btn-wa-hero in home.css ~307–319 — confirmed orphaned, queued for design-system unification. Don't rediscover it.
 
 ## Emails & misc
 cuentame@drnicosierra.com (patient-facing) · admin@drnicosierra.com (tools) · Local dev: http://localhost:4321/

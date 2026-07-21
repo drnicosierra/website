@@ -178,13 +178,6 @@
     background:rgba(255,255,255,0.2);
   }
 
-  /* Trust strip & results keep their own dark */
-  .ns-trust {
-    background:
-      radial-gradient(ellipse 100% 150% at 50% -20%, rgba(13,116,196,0.25) 0%, transparent 60%),
-      rgba(0,15,35,0.75) !important;
-  }
-
   /* ── SUBTLE BORDER GLOW on teal sections ─────────────────────── */
   .ns-section-teal::before {
     content:'';
@@ -244,9 +237,13 @@
   .ns-eyebrow::before { background: var(--ns-teal-300); }
   .ns-lead { color: var(--ns-ink-soft); }
 
-  /* Section dividers — subtle hairline instead of background change */
+  /* Section dividers — the only visual separation between sections now that
+     backgrounds are flat (see production). Deliberately stronger than the
+     --ns-line hairline used for card borders, so section boundaries stay
+     readable; --ns-line itself is untouched (still used by cards/quotes/etc). */
+  .ns-hero + .ns-scope.ns-section,
   .ns-scope.ns-section + .ns-scope.ns-section {
-    border-top: 1px solid var(--ns-line);
+    border-top: 1px solid rgba(255,255,255,0.14);
   }
 
   /* Breathing light orb — follows scroll via JS transform (composited, no layout cost) */
@@ -342,11 +339,6 @@
   .ns-hero__title em{font-style:italic;color:#bfe6d6;font-weight:400;}
   .ns-hero__sub{margin:26px 0 38px;font-size:1.15rem;line-height:1.6;color:rgba(255,255,255,.86);max-width:58ch;}
   .ns-hero__ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:42px;}
-  .ns-hero__trust{
-    display:flex;flex-wrap:wrap;gap:28px;list-style:none;padding:0;margin:0;
-    font-size:.88rem;color:rgba(255,255,255,.78);
-  }
-  .ns-hero__trust span{color:var(--ns-teal-600);margin-right:8px;}
   .ns-hero__scroll{
     position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
     width:24px;height:38px;border:1px solid rgba(255,255,255,.5);border-radius:14px;
@@ -360,7 +352,6 @@
 
   @media (max-width:760px){
     .ns-hero__sub{font-size:1rem;}
-    .ns-hero__trust{gap:14px;font-size:.82rem;}
   }
 
   .ns-about__grid{
@@ -952,8 +943,8 @@
 
   .ns-cta-banner{
     background: #005240;
-    border-top:1px solid var(--ns-line);
-    color:#fff;padding:clamp(72px,8vw,110px) 0;
+    border-top:1px solid rgba(255,255,255,0.14);
+    color:#fff;padding:clamp(72px,9vw,128px) 0;
   }
   .ns-cta-banner .ns-h2{color:#fff;max-width:18ch;}
   .ns-cta-banner .ns-eyebrow{color:#7fd0b3;}
@@ -971,9 +962,9 @@
 
   .ns-signature{
     background:#00111e;
-    padding:clamp(64px,10vw,120px) clamp(16px,4vw,48px);
+    padding:clamp(72px,9vw,128px) clamp(16px,4vw,48px);
     text-align:center;
-    border-top:1px solid rgba(255,255,255,0.05);
+    border-top:1px solid rgba(255,255,255,0.14);
     overflow:hidden;
   }
   .ns-signature__name{

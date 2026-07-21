@@ -346,27 +346,7 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
 
   <script is:inline>
   (function(){
-    var nav = document.getElementById('nsNav');
-    if (nav){
-      var onScroll = function(){
-        if (window.scrollY > 24) nav.classList.add('is-scrolled');
-        else nav.classList.remove('is-scrolled');
-      };
-      window.addEventListener('scroll', onScroll, { passive:true });
-      onScroll();
-    }
-    var burger = document.getElementById('nsBurger');
-    var menu = document.getElementById('nsMobileMenu');
-    if (burger && menu){
-      burger.addEventListener('click', function(){
-        var open = menu.getAttribute('data-open') === 'true';
-        menu.setAttribute('data-open', String(!open));
-        menu.hidden = open;
-        burger.setAttribute('aria-expanded', String(!open));
-      });
-    }
     var reveals = document.querySelectorAll('.ns-reveal');
-    var trustItems = document.querySelectorAll('.ns-trust__item');
     if ('IntersectionObserver' in window && reveals.length){
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(en){
@@ -374,8 +354,6 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
         });
       }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
       reveals.forEach(function(el){ io.observe(el); });
-      var tObs=new IntersectionObserver(function(ee){ee.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');tObs.unobserve(e.target);}});},{threshold:.2});
-      trustItems.forEach(function(el){tObs.observe(el);});
     } else {
       reveals.forEach(function(el){ el.classList.add('is-visible'); });
     }
