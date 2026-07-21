@@ -105,7 +105,7 @@
   /* --- Layout helpers --------------------------------------------------- */
   .ns-container{max-width:var(--ns-container);margin:0 auto;padding:0 24px;}
   .ns-section{padding:clamp(72px,9vw,128px) 0;}
-  .ns-section-dark{background:var(--ns-blue-800);color:var(--ns-white);}
+  .ns-section-dark{color:var(--ns-white);}
   .ns-section-dark .ns-h2,
   .ns-section-dark .ns-h3,
   .ns-section-dark .ns-h4{color:var(--ns-white);}
@@ -146,23 +146,15 @@
   .ns-scope ::selection{background:var(--ns-blue-500);color:#fff;}
 
 
-  /* ── SECTION COLOR PERSONALITIES ─────────────────────────────── */
+  /* Section modifier classes below only carry non-background styling now —
+     backgrounds are unified (body's flat #001e2e shows through every section,
+     matching production; only the CTA banner keeps its own green). */
   .ns-section-teal {
-    background: #002a22;
     position:relative;
   }
 
-  .ns-section-mid {
-    background: #002236;
-  }
-
-  .ns-section-deep {
-    background: #00111e;
-  }
-
-  /* Full green section — the most distinctive moment on the page */
+  /* Full section — CTA banner keeps its own green further down */
   .ns-section-green {
-    background: #006b50;
     border-top:1px solid var(--ns-line);
     border-bottom:1px solid rgba(0,0,0,0.15);
   }
@@ -232,17 +224,17 @@
     .ns-section-teal::before{animation:none;}
   }
 
-  /* Fixed gradient narrative — dark top, slightly warmer mid, deep at bottom */
+  /* Single flat background for the whole page — sections have no background
+     of their own (except the CTA banner's green), this shows through all of them. */
   body, .ns-page-bg {
     background: #001e2e;
     min-height:100vh;
   }
 
-  /* All sections transparent so gradient shows through */
+  /* iOS Safari blank-section-on-back-navigation fix — keep translateZ(0) on every section */
   .ns-scope.ns-section,
   .ns-scope.ns-section-dark,
   section.ns-scope {
-    background: transparent !important;
     transform: translateZ(0);
     will-change: transform;
   }
@@ -451,7 +443,6 @@
     .ns-about__creds{grid-template-columns:1fr;}
   }
 
-  .ns-timeline{background:#001629;}
   .ns-timeline__head{max-width:900px;margin:0 auto var(--ns-section-gap);}
   .ns-timeline__head .ns-lead{margin:0 auto;}
   .ns-timeline__head .ns-h2{margin-top:12px;}
