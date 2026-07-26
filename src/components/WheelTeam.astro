@@ -1,0 +1,40 @@
+---
+// WheelTeam.astro
+// Extracted from homepage (unused). Ready to reuse on another page.
+interface Props {
+  wheelItems?: any[];
+  wheelRingGradient?: string;
+}
+
+const { wheelItems = [], wheelRingGradient = '' } = Astro.props;
+---
+
+      <figure class="ns-wheel-figure ns-reveal" aria-label="Especialidades del equipo que acompaña el tratamiento de la fisura labiopalatina">
+        <span class="ns-eyebrow">Equipo multidisciplinario</span>
+
+        {/* Desktop/tablet — true wheel, shown only once it comfortably fits (≥900px) */}
+        <div class="ns-wheel-scroll">
+          <div class="ns-wheel-frame">
+            <div class="ns-wheel" style={`--wr-bg:${wheelRingGradient}`}>
+              <div class="ns-wheel__ring" aria-hidden="true"></div>
+              <div class="ns-wheel__hub" set:html={wheelHubMarkup(32)} />
+              <ul class="ns-wheel__ring-items" role="list">
+                {wheelItems.map((item) => (
+                  <li class="ns-wheel__item" style={`left:${item.x}%;top:${item.y}%;width:${item.width}px;`} set:html={wheelChip(item)} />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile/small-tablet — a wheel can't stay readable this narrow, so
+            the same 11 specialties become a highlighted hub + card grid. */}
+        <div class="ns-wheel-mobile">
+          <div class="ns-wheel-mobile__hub" set:html={wheelHubMarkup(28)} />
+          <ul class="ns-wheel-mobile__grid" role="list">
+            {wheelItems.map((item) => (
+              <li class="ns-wheel-mobile__item" style={`--ic:${item.color};`} set:html={wheelChip(item)} />
+            ))}
+          </ul>
+        </div>
+      </figure>

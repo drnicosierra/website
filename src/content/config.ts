@@ -244,8 +244,6 @@ const careTimeline = z.object({
   lead: z.string(),
   columns: z.array(z.string()).min(4),
   rows: z.array(careRow).min(4),
-  timelineTitle: z.string(),
-  methodologyNote: z.string(),
   legendTreatment: z.string(),
   legendCoordinated: z.string(),
 });

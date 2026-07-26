@@ -198,35 +198,6 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
         <h2 id="ns-timeline-title" class="ns-h2" set:html={d.timeline.h2} />
         <p class="ns-lead" style="max-width:52ch;">{d.timeline.lead}</p>
       </header>
-      <figure class="ns-wheel-figure ns-reveal" aria-label="Especialidades del equipo que acompaña el tratamiento de la fisura labiopalatina">
-        <span class="ns-eyebrow">Equipo multidisciplinario</span>
-
-        {/* Desktop/tablet — true wheel, shown only once it comfortably fits (≥900px) */}
-        <div class="ns-wheel-scroll">
-          <div class="ns-wheel-frame">
-            <div class="ns-wheel" style={`--wr-bg:${wheelRingGradient}`}>
-              <div class="ns-wheel__ring" aria-hidden="true"></div>
-              <div class="ns-wheel__hub" set:html={wheelHubMarkup(32)} />
-              <ul class="ns-wheel__ring-items" role="list">
-                {wheelItems.map((item) => (
-                  <li class="ns-wheel__item" style={`left:${item.x}%;top:${item.y}%;width:${item.width}px;`} set:html={wheelChip(item)} />
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile/small-tablet — a wheel can't stay readable this narrow, so
-            the same 11 specialties become a highlighted hub + card grid. */}
-        <div class="ns-wheel-mobile">
-          <div class="ns-wheel-mobile__hub" set:html={wheelHubMarkup(28)} />
-          <ul class="ns-wheel-mobile__grid" role="list">
-            {wheelItems.map((item) => (
-              <li class="ns-wheel-mobile__item" style={`--ic:${item.color};`} set:html={wheelChip(item)} />
-            ))}
-          </ul>
-        </div>
-      </figure>
       <div class="ns-tl" id="nsTl" aria-label="Recorrido del paciente FLP">
         <svg class="ns-tl__line-svg" aria-hidden="true" preserveAspectRatio="none">
           <path class="ns-tl__line-path" id="nsTlPath" d=""/>
@@ -267,98 +238,6 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
   })();
   </script>
 
-  <section class="ns-scope ns-section ns-services ns-section-mid" aria-labelledby="ns-services-title">
-    <div class="ns-container">
-      <header class="ns-services__head ns-reveal">
-        <span class="ns-eyebrow">{d.careTimeline.eyebrow}</span>
-        <h2 id="ns-services-title" class="ns-h2" set:html={d.careTimeline.h2} />
-        {d.careTimeline.lead.split('\n\n').map((para) => (
-          <p class="ns-lead" style="margin-top:18px;">{para}</p>
-        ))}
-        <h3 class="ns-h3">{d.careTimeline.timelineTitle}</h3>
-        <p class="ns-care-methodology">{d.careTimeline.methodologyNote}</p>
-      </header>
-      <div class="ns-care-legend ns-reveal">
-        <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--treatment"></span>{d.careTimeline.legendTreatment}</span>
-        <span class="ns-care-legend__item"><span class="ns-care-legend__swatch ns-care-legend__swatch--coordinated"></span>{d.careTimeline.legendCoordinated}</span>
-      </div>
-    </div>
-    <div class="ns-care-scroll-wrap">
-      <div class="ns-care-fade-left" aria-hidden="true"></div>
-      <div class="ns-care-scroll">
-        <div class="ns-care-grid" style={`grid-template-columns:repeat(${d.careTimeline.columns.length},minmax(var(--ns-care-col-min,54px),1fr));grid-template-rows:auto repeat(${d.careTimeline.rows.length},var(--ns-care-row-h,44px));`}>
-          {d.careTimeline.columns.map((col, i) => (
-            <div class="ns-care-col-head" style={`grid-column:${i + 1};grid-row:1;`} set:html={col} />
-          ))}
-          {d.careTimeline.rows.map((row, i) =>
-            row.type === 'treatment' ? (
-              <a href={row.href} class="ns-care-bar ns-care-bar--treatment" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};--sc:${row.color};`}>
-                {row.label}
-              </a>
-            ) : (
-              <div class="ns-care-bar ns-care-bar--coordinated" style={`grid-column:${row.startCol} / ${row.endCol};grid-row:${i + 2};`}>
-                {row.label}
-              </div>
-            )
-          )}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script is:inline>
-  (function(){
-    var scroller = document.querySelector('.ns-care-scroll');
-    var wrap = document.querySelector('.ns-care-scroll-wrap');
-    if(!scroller || !wrap) return;
-    var raf = null;
-    var idleTimer = null;
-    function apply(){
-      var gap = scroller.scrollWidth - scroller.clientWidth - scroller.scrollLeft;
-      var scrollable = scroller.scrollWidth > scroller.clientWidth + 1;
-      wrap.classList.toggle('is-scrollable', scrollable);
-      wrap.classList.toggle('at-end', gap <= 4);
-      wrap.classList.toggle('at-start', scroller.scrollLeft <= 4);
-    }
-    function onScroll(){
-      wrap.classList.add('scrolling');
-      if (idleTimer) clearTimeout(idleTimer);
-      idleTimer = setTimeout(function(){
-        wrap.classList.remove('scrolling');
-        apply();
-      }, 500);
-      if (raf) return;
-      raf = requestAnimationFrame(function(){ raf = null; apply(); });
-    }
-    scroller.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', apply);
-    apply();
-  })();
-  </script>
-
-  <section class="ns-scope ns-section ns-journey ns-section-green" aria-labelledby="ns-journey-title">
-    <div class="ns-container ns-journey__layout">
-      <div class="ns-journey__left ns-reveal">
-        <span class="ns-eyebrow">{d.journey.eyebrow}</span>
-        <h2 id="ns-journey-title" class="ns-h2" set:html={d.journey.h2} />
-        <p style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.75;max-width:32ch;margin-top:16px;">{d.journey.lead}</p>
-        <a href={d.journey.ctaHref} class="ns-btn ns-btn-ghost" style="display:inline-flex;margin-top:40px;border-color:rgba(255,255,255,0.35);">{d.journey.ctaLabel}</a>
-      </div>
-      <ol class="ns-journey__steps" role="list">
-        {d.journey.steps.map((step, i) => (
-          <li class="ns-journey__step ns-reveal">
-            <div class={`ns-journey__line ${i === d.journey.steps.length - 1 ? 'ns-journey__line--last' : ''}`} aria-hidden="true"></div>
-            <div class={`ns-journey__node ${i === d.journey.steps.length - 1 ? 'ns-journey__node--last' : ''}`}><span>{step.num}</span></div>
-            <div class="ns-journey__content">
-              <h3 class="ns-h4">{step.title}</h3>
-              <p>{step.text}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
   <section class="ns-scope ns-section ns-section-dark ns-results" aria-labelledby="ns-results-title">
     <div class="ns-container">
       <header class="ns-results__head ns-reveal">
@@ -391,6 +270,18 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
     </div>
   </section>
 
+  <section class="ns-scope ns-section ns-services ns-section-mid" aria-labelledby="ns-services-title">
+    <div class="ns-container">
+      <header class="ns-services__head ns-reveal">
+        <span class="ns-eyebrow">{d.careTimeline.eyebrow}</span>
+        <h2 id="ns-services-title" class="ns-h2" set:html={d.careTimeline.h2} />
+        {d.careTimeline.lead.split('\n\n').map((para) => (
+          <p class="ns-lead" style="margin-top:18px;">{para}</p>
+        ))}
+      </header>
+    </div>
+  </section>
+
   <section class="ns-scope ns-section ns-faq ns-section-deep" aria-labelledby="ns-faq-title">
     <div class="ns-container ns-faq__inner">
       <header class="ns-faq__head ns-reveal">
@@ -405,6 +296,29 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
           </details>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="ns-scope ns-section ns-journey ns-section-green" aria-labelledby="ns-journey-title">
+    <div class="ns-container ns-journey__layout">
+      <div class="ns-journey__left ns-reveal">
+        <span class="ns-eyebrow">{d.journey.eyebrow}</span>
+        <h2 id="ns-journey-title" class="ns-h2" set:html={d.journey.h2} />
+        <p style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.75;max-width:32ch;margin-top:16px;">{d.journey.lead}</p>
+        <a href={d.journey.ctaHref} class="ns-btn ns-btn-ghost" style="display:inline-flex;margin-top:40px;border-color:rgba(255,255,255,0.35);">{d.journey.ctaLabel}</a>
+      </div>
+      <ol class="ns-journey__steps" role="list">
+        {d.journey.steps.map((step, i) => (
+          <li class="ns-journey__step ns-reveal">
+            <div class={`ns-journey__line ${i === d.journey.steps.length - 1 ? 'ns-journey__line--last' : ''}`} aria-hidden="true"></div>
+            <div class={`ns-journey__node ${i === d.journey.steps.length - 1 ? 'ns-journey__node--last' : ''}`}><span>{step.num}</span></div>
+            <div class="ns-journey__content">
+              <h3 class="ns-h4">{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
