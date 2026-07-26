@@ -19,3 +19,5 @@ node_modules/
 
 # local-only workflow notes (credential/auth setup, not for public history)
 workflows/git-ssh-setup.md
+drnicosierra@1.0.0
+node
