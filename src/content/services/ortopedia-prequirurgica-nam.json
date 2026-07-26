@@ -10,18 +10,18 @@
   "heroImageQuery": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1800&h=1200&q=85&fit=crop",
   "queEsImageQuery": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=600&q=80&fit=crop",
   "hero": {
-    "h1": "Ortopedia pre-operatoria <em>NAM</em> para fisura labiopalatina",
-    "lead": "Moldeado nasoalveolar prequirúrgico para bebés con fisura labiopalatina. El NAM prepara los tejidos antes de la primera cirugía, mejorando el resultado estético y funcional final."
+    "h1": "Ortopedia prequirúrgica <em>NAM</em> para bebés con fisura labiopalatina",
+    "lead": "Ortopedia prequirúrgica NAM para bebés con fisura labiopalatina: preparando la cirugía y favoreciendo la alimentación desde los primeros días de vida."
   },
   "queEs": {
-    "firstParagraph": "La ortopedia NAM (Nasoalveolar Molding) es un tratamiento prequirúrgico que se inicia en las primeras semanas de vida del bebé con fisura labiopalatina. Mediante un dispositivo intraoral de acrílico con una extensión nasal, se moldean progresivamente los tejidos del labio, la nariz y el alvéolo antes de la primera cirugía, con el objetivo de mejorar el resultado estético y funcional final.",
+    "firstParagraph": "Como parte de una estrategia reconstructiva integral que comienza desde los primeros días de vida, la ortopedia prequirúrgica (NAM) facilita la alimentación, moldea progresivamente la anatomía y prepara al bebé y a su familia para la primera cirugía. De este modo, se crean mejores condiciones para una reconstrucción precisa y se contribuye a optimizar los resultados funcionales y estéticos a largo plazo.",
     "paragraphs": [
-      "El NAM actúa sobre la plasticidad natural de los tejidos del recién nacido, que en las primeras semanas son especialmente maleables gracias a la presencia de estrógenos maternos. Este período es la ventana óptima para iniciar el tratamiento y maximizar sus beneficios antes de la cirugía primaria de labio fisurado.",
-      "El Dr. Nico Sierra coordina el tratamiento NAM como parte del plan integral de cada bebé con fisura labiopalatina, trabajando en estrecha colaboración con la familia para garantizar el uso correcto del dispositivo y el seguimiento necesario."
+      "La ortopedia prequirúrgica (también conocida como ortopedia preoperatoria o NAM) utiliza placas intraorales personalizadas, similares a una pequeña prótesis dental, para mejorar la anatomía del labio, la nariz, las encías y el paladar desde los primeros días de vida.",
+      "Su objetivo es crear mejores condiciones para la cirugía reconstructiva, contribuyendo a optimizar los resultados funcionales y estéticos. Además, estas placas no producen dolor y pueden facilitar la alimentación y la lactancia durante los primeros meses de vida."
     ]
   },
   "cuando": {
-    "intro": "El NAM está indicado en bebés con fisura labiopalatina que van a ser intervenidos quirúrgicamente. El momento de inicio es crítico para su efectividad.",
+    "intro": "La ortopedia prequirúrgica (NAM) no es necesaria en todos los bebés nacidos con fisura labiopalatina. Su indicación se establece tras una valoración cuidadosa de la anatomía, el tipo de fisura y las necesidades específicas de cada bebé, como parte de una estrategia reconstructiva integral cuidadosamente planificada para alcanzar los mejores resultados posibles a largo plazo con el menor número de intervenciones. Está especialmente indicada en bebés con fisuras labiopalatinas amplias, alteraciones importantes de la forma de la nariz o deformidades significativas de la encía y el paladar.",
     "items": [
       {
         "title": "Fisura labiopalatina unilateral",
@@ -46,7 +46,7 @@
     ]
   },
   "proceso": {
-    "intro": "El tratamiento NAM requiere un compromiso importante por parte de la familia. A continuación se describe el proceso desde el inicio hasta la cirugía primaria.",
+    "intro": "Idealmente, el tratamiento con ortopedia prequirúrgica (NAM) debe iniciarse durante las primeras dos semanas de vida. Cuanto antes se inicia, mayor es su capacidad para moldear la anatomía y preparar al bebé para la cirugía. Mediante revisiones periódicas y pequeños ajustes, acompañamos el crecimiento y desarrollo del bebé, moldeando progresivamente el labio, la nariz, las encías y el paladar. La participación de la familia es una parte esencial del tratamiento. Con nuestro acompañamiento, la familia aprende a realizar los cuidados diarios con seguridad y confianza.",
     "steps": [
       {
         "title": "Primera visita y toma de impresión",
@@ -71,7 +71,7 @@
     ]
   },
   "resultados": {
-    "intro": "El NAM mejora significativamente las condiciones de los tejidos antes de la cirugía, permitiendo al Dr. Sierra obtener mejores resultados estéticos y funcionales en la cirugía primaria."
+    "intro": "La ortopedia prequirúrgica crea mejores condiciones anatómicas para una reconstrucción más precisa y con mejores resultados tanto estéticos como funcionales. También puede facilitar la alimentación y la lactancia durante los primeros meses de vida. Además, permite a la familia adquirir experiencia y confianza en los cuidados diarios, preparándola para afrontar la cirugía y la recuperación en las mejores condiciones posibles."
   },
   "porQue": {
     "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
