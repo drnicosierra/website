@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CaseCarousel from '../components/CaseCarousel.astro';
 import { getImage } from 'astro:assets';
-import doctorPhotoFile from '../assets/home/doctor-photo.jpg';
+import doctorPhotoFile from '../assets/home/dr-nico-sierra-cirujano-fisura-labiopalatina-barcelona.jpg';
 import heroPhoto from '../assets/home/hero.jpg';
 import { getEntry } from 'astro:content';
 import '../styles/home.css';
@@ -252,7 +252,7 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
   })();
   </script>
 
-  <section class="ns-scope ns-section ns-testimonials ns-section-teal" aria-labelledby="ns-testim-title">
+  {d.testimonials.visible && <section class="ns-scope ns-section ns-testimonials ns-section-teal" aria-labelledby="ns-testim-title">
     <div class="ns-container">
       <header class="ns-testimonials__head ns-reveal">
         <span class="ns-eyebrow">{d.testimonials.eyebrow}</span>
@@ -268,7 +268,7 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
         ))}
       </div>
     </div>
-  </section>
+  </section>}
 
   <section class="ns-scope ns-section ns-services ns-section-mid" aria-labelledby="ns-services-title">
     <div class="ns-container">

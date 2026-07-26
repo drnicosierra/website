@@ -321,11 +321,12 @@ const homepage = defineCollection({
     testimonials: z.object({
       eyebrow: z.string(),
       h2: z.string(),
+      visible: z.boolean().default(false),
       quotes: z.array(z.object({
         text: z.string(),
         name: z.string(),
         role: z.string(),
-      })).min(1).max(6),
+      })).min(0).max(6),
     }),
 
     faq: z.array(faqItem).min(5).max(8),

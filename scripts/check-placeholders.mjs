@@ -14,6 +14,7 @@ const PLACEHOLDERS = [
 const WHITELIST_PATTERNS = [
   // C12: "labio leporino" terminology page route (doesn't exist yet)
   // Add route patterns here once C12 is live
+  "src/content/config.ts",  // Zod schema defaults — never rendered
 ];
 
 function isWhitelisted(filePath) {

@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
+import drPhotoFile from '../assets/home/dr-nico-sierra-cirujano-fisura-labiopalatina-barcelona.jpg';
 
 const entry = await getEntry('about', 'main');
+const drPhoto = await getImage({ src: drPhotoFile, width: 600, format: 'webp' });
 if (!entry) throw new Error('Missing content entry: about/main');
 const d = entry.data;
 
@@ -45,7 +48,7 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
       <div class="container">
         <div class="split-2col">
           <div>
-            <div style="aspect-ratio:3/4;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.2);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;">FOTO_DR_SIERRA_PORTRAIT</div>
+            <img src={drPhoto.src} alt="Dr. Nico Sierra — Cirujano especialista en fisura labiopalatina en Barcelona" loading="lazy" style="width:100%;border-radius:22px;aspect-ratio:3/4;object-fit:cover;">
           </div>
           <div>
             <div class="sh">

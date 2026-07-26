@@ -307,23 +307,8 @@
   "testimonials": {
     "eyebrow": "Familias que han confiado",
     "h2": "Lo que nos cuentan después.",
-    "quotes": [
-      {
-        "text": "TESTIMONIO_TEXTO_1",
-        "name": "TESTIMONIO_NOMBRE_1",
-        "role": "TESTIMONIO_ROL_1"
-      },
-      {
-        "text": "TESTIMONIO_TEXTO_2",
-        "name": "TESTIMONIO_NOMBRE_2",
-        "role": "TESTIMONIO_ROL_2"
-      },
-      {
-        "text": "TESTIMONIO_TEXTO_3",
-        "name": "TESTIMONIO_NOMBRE_3",
-        "role": "TESTIMONIO_ROL_3"
-      }
-    ]
+    "quotes": [],
+    "visible": false
   },
   "faq": [
     {
