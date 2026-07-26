@@ -113,7 +113,7 @@ Homepage exception: 'Cirujano Especialista en Fisura Labiopalatina en Barcelona 
 **Homepage:** hero H1 max 70 chars, no end punctuation · sub-header max 180 chars with prenatal+revision+international signals · bullets max 4, max 8 words each, parallel structure · FAQ answers max 120 words, prose only, Q6 investment question required · contact sub-header names Dr. Sierra personally + response time + honesty signal.
 **Service pages:** sub-header max 140 chars (what + who) · Qué es first para max 80 words · Cuándo 4–6 bullets, 15–25 words each, covering age/condition/prior surgery/timing · Cómo max 200 words with ≥1 timeframe · CTA headline max 50 chars, sub-copy max 80.
 **Blog:** title not a question (questions belong in FAQ schema) · intro max 80 words, AEO-extractable · never skip heading levels · ≥1 credential mention per post · author attribution: 'Dr. Nico Sierra, Cirujano Especialista en Fisura Labiopalatina — Clínica Tresserra, Barcelona.'
-**Testimonials (when available):** must mention case type + one specific outcome + care experience · 60–120 words · Review schema (first name only) · written consent documented per patient before publishing.
+**Casos clínicos (Vidas Transformadas):** third-person clinical voice only, never "testimonios" in text or metadata. No first-person patient voice. Schema: `MedicalWebPage` + `MedicalProcedure` — NEVER `Review` or `AggregateRating`. Written web-use consent per patient, minors anonymised by default. Full policy: docs/compliance-es.md.
 
 ### 17. Pre-deploy checklist (run on every TEXTO REVISADO)
 Terminology: no labio leporino · no FLP patient-facing · Dr. Nico Sierra · Clínica Tresserra with accent · no OS+ST same page.
@@ -121,3 +121,39 @@ Keywords: primary in H1 · primary in Qué es first sentence · both condition t
 AEO: FAQ answers open with restatement · bullets complete sentences · Qué es first para self-contained · ≥2 entities in authority block · entity paragraph on homepage+About · schema matches visible text.
 Tone: opening sentences preserved · no unproven superlatives · no clinical meaning changed · conversion framed as patient benefit · 'nunca es tarde' revision-only · paragraph count not reduced.
 Structure: one H1 · H3 for FAQ questions · no nested divs H3→P · keyword-rich internal link text · ≥3 internal links · CTA at section ends.
+
+---
+
+## Strategy Profile Override — Dr. Sierra [F]
+
+Dr. Sierra is a **national/international referral specialist for a rare condition** (fisura labiopalatina, ~1 in 700 births). This overrides the local-pack formula:
+
+- **GBP = review + entity surface.** Reviews heavily weighted; chasing local-pack position for a practice whose patients fly from across Spain and Europe is not a priority. Review target: 1 per 1–2 months.
+- **AEO weighted up.** Few authoritative Spanish-language cleft resources exist. Becoming the definitive source is achievable.
+- **Keyword priority: condition-led, not city-led.** "Fisura labiopalatina cirugía España" over "cirujano Barcelona".
+
+---
+
+## Entity Consistency [F]
+
+Dr. Sierra exists online under four name forms — all legitimate. Site anchors to the brand:
+- Brand: Dr. Nico Sierra (all patient-facing)
+- Institutional: Dr. Nicolás Sierra (Vall d'Hebron press)
+- Academic: Nicolás E. Sierra / NE Sierra (PubMed, publications)
+- Full legal: Nicolas Sierra Perilla (clinicabaragaseni.com)
+
+Schema: `alternateName` for all variants, `sameAs` pointing to each external source (Vall d'Hebron, Springer, PubMed, COMB registry). "Publicaciones y reconocimientos" section on bio page links them, converting orphaned third-party authority into on-site E-E-A-T.
+
+## Colegiado [F]
+
+Nº de colegiado (COMB): **45307** — required sitewide in footer, reviewer block, Physician schema. Deontological requirement + strongest YMYL trust signal.
+
+## "Labio leporino" Policy [F]
+
+Banned as brand language. ONE exception: approved terminology page "Fisura labiopalatina o labio leporino: por qué usamos este término" captures high-volume patient query while explaining the clinical term.
+
+## Operation Smile / Smile Train Rule — Rationale [F]
+
+Both organisations are legitimate credentials; both stay on the site. They must never appear on the **same page** (contractual/institutional separation). Zod guard enforces this; it also covers `homepage/main.json` (hero ticker + care timeline).
+
+Humanitarian credential without org names: "cirugía humanitaria en 13 países · más de 500 intervenciones."
