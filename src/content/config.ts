@@ -127,6 +127,14 @@ const services = defineCollection({
     indexNum: z.string().regex(/^\d{2}$/).optional(),
     indexTeaser: z.string().max(160).optional(),
   })
+  // Guard: no review/rating markup — Google prohibits self-serving medical ratings
+  .refine(
+    (data) => {
+      const h = JSON.stringify(data).toLowerCase();
+      return !h.includes('aggregaterating') && !h.includes('ratingvalue') && !h.includes('"review"');
+    },
+    { message: 'aggregateRating / ratingValue / Review schema is forbidden on medical pages per Google guidelines.' }
+  )
   // Cross-field rule: Operation Smile and Smile Train must never appear together
   .refine(
     (data) => !(data.porQue.entities.includes('Operation Smile') && data.porQue.entities.includes('Smile Train')),
@@ -338,7 +346,7 @@ const homepage = defineCollection({
   })
   .refine(
     (data) => !hasTermsInSameString(data, ['Operation Smile', 'Smile Train']),
-    { message: 'Operation Smile and Smile Train must never appear together in the same paragraph (per project rule).' }
+    { message: 'Operation Smile and Smile Train must never appear together in the same string field (per project rule).' }
   )
   .refine(
     (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
@@ -431,6 +439,13 @@ const cases = defineCollection({
       .refine(
         (data) => !JSON.stringify(data).toLowerCase().includes('labio leporino'),
         { message: '"labio leporino" is forbidden \u2014 use "labio fisurado" per clinical terminology rules.' }
+      )
+      .refine(
+        (data) => {
+          const h = JSON.stringify(data).toLowerCase();
+          return !h.includes('testimonio');
+        },
+        { message: '"testimonio" / "testimonios" is forbidden in case studies — use "caso clinico" o "resultado" per content rules.' }
       )
       .refine(
         (data) => data.consentConfirmed === true,
