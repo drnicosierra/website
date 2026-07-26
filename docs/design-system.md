@@ -14,7 +14,7 @@ eyebrow · em words in h1/h2 · card left borders · active nav underline · FAQ
 NEVER as section background.
 
 ## Section backgrounds (fixed alternation)
-Hero #001629 → Qué es #001e2e → Cuándo #001629 → Proceso #001e2e → Resultados #001629 → Dr. Sierra #001e2e → FAQ #001629 → Related #001e2e → CTA #001e2e + teal border-top → Footer #000e1a
+Hero #001629 → About #001e2e → Timeline #001629 → Results #001e2e → Testimonials #001629 → Services #001e2e → FAQ #001629 → Journey #001e2e → CTA #001e2e + teal border-top → Footer #000e1a
 
 ## Spacing / typography
 - .sh class rhythm: eyebrow →12px→ h2 →16px→ lead →40px→ content
@@ -22,6 +22,9 @@ Hero #001629 → Qué es #001e2e → Cuándo #001629 → Proceso #001e2e → Res
 - Section padding: clamp(72px,9vw,120px) · Container: max 1200px, sides clamp(20px,4vw,48px)
 - NEVER inline margin-top on headings/p
 - NEVER adjacent sibling selectors across .reveal wrappers
+
+## Components (archived for reuse)
+WheelTeam.astro · CareTimeline.astro in src/components/ — ready to drop into another page.
 
 ## Known dead code
 .ns-btn-wa-hero in home.css ~328–340 — confirmed orphaned, queued for design-system unification. Don't rediscover it.
