@@ -219,7 +219,21 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
     </div>
   </section>
 
-  <script is:inline>
+  <section class="ns-scope ns-section ns-section-dark ns-results" aria-labelledby="ns-results-title">
+    <div class="ns-container">
+      <header class="ns-results__head ns-reveal">
+        <span class="ns-eyebrow">{d.results.eyebrow}</span>
+        <h2 id="ns-results-title" class="ns-h2">{d.results.h2}</h2>
+        <p class="ns-lead">{d.results.lead}</p>
+      </header>
+    </div>
+    <CaseCarousel cards={carouselCards} id="homeCaseCarousel" />
+    <div class="ns-container">
+      <a href={d.results.ctaHref} class="ns-btn ns-btn-ghost ns-results__cta">{d.results.ctaLabel}</a>
+    </div>
+  </section>
+
+    <script is:inline>
   (function(){
     var tl = document.getElementById('nsTl');
     if(!tl) return;
@@ -237,20 +251,6 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
     });
   })();
   </script>
-
-  <section class="ns-scope ns-section ns-section-dark ns-results" aria-labelledby="ns-results-title">
-    <div class="ns-container">
-      <header class="ns-results__head ns-reveal">
-        <span class="ns-eyebrow">{d.results.eyebrow}</span>
-        <h2 id="ns-results-title" class="ns-h2">{d.results.h2}</h2>
-        <p class="ns-lead">{d.results.lead}</p>
-      </header>
-    </div>
-    <CaseCarousel cards={carouselCards} id="homeCaseCarousel" />
-    <div class="ns-container">
-      <a href={d.results.ctaHref} class="ns-btn ns-btn-ghost ns-results__cta">{d.results.ctaLabel}</a>
-    </div>
-  </section>
 
   <section class="ns-scope ns-section ns-testimonials ns-section-teal" aria-labelledby="ns-testim-title">
     <div class="ns-container">
