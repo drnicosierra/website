@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/check-design-system.mjs",
+    "prebuild": "node scripts/check-placeholders.mjs && node scripts/check-design-system.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check:design": "node scripts/check-design-system.mjs",
