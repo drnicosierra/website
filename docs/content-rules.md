@@ -22,6 +22,8 @@ Distilled from docs/seo-aeo-brief.md (authoritative). For full SEO/AEO review us
 3. Every bullet in Cuándo/Cómo/Resultados = complete sentence (subject + verb)
 4. First paragraph of Qué es = self-contained answer, max 80 words
 5. FAQ schema text = visible text, character-for-character
+6. Never `aggregateRating` / `ratingValue` / `Review` schema on medical pages (Zod hard-fails)
+7. Never `testimonio` / `testimonios` in case studies — use `caso clínico` or `resultado` (Zod hard-fails)
 
 ## Voice (Dr. Sierra)
 - Clinical but warm. States, doesn't hedge. Claims + immediate specifics.
@@ -30,9 +32,10 @@ Distilled from docs/seo-aeo-brief.md (authoritative). For full SEO/AEO review us
 - "Nunca es tarde" = revision surgery context ONLY.
 
 ## Open flags (not yet resolved by Dr. Sierra)
-- FAQ question/answer topic matching fixed across 7 service pages — NOT yet reviewed by him. Flag in any FAQ session.
+- FAQ question/answer topic matching: NAM reviewed and approved. 7 remaining service pages NOT yet reviewed by Dr. Sierra — flag in any FAQ session.
 - Timeline clinical framing + NAM vs PSIO-NAM naming — pushed without explicit resolution.
 
 ## Pipeline
 Google Sheets (16 tabs) → export → master chat review vs brief → back to Sheets → Dr. Sierra approval → Python deploy to JSON → npm run build → commit.
 SEO/AEO review NEVER via CLI (lacks brief context).
+Baseline measurement: `pipeline/measure/ai-battery.py` (25 prompts × 3 engines × 3 runs). Results in `docs/baselines/`. Re-run after major content or schema changes.

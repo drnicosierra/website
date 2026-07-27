@@ -58,8 +58,11 @@ Renier is a product/UX person building technical capability. Apply this on every
 | Images | docs/image-pipeline.md |
 | Performance work | docs/performance.md |
 | Recurring task | workflows/<task>.md |
+| Voice/tone work | docs/voice-profile.md |
+| SEO/AEO remediation | handoff-prompt-audit-remediation.md (Renier has file) |
 
 ## Stack quick facts
 Astro 4.16 static + Netlify (hosting/forms) + GA4 `G-C6SCF6WY7Q` via GTM `GTM-MCNLW9Z4` (deferred).
 Content: src/content/*.json collections + Zod schema. Local: ~/Developer/drnicosierra-website
 Commands: `npm run build` | `npm run dev` | `npm run check:design` | `npm run check:perf`
+Baselines: `docs/baselines/` (AI citation + JSON-LD) | Battery: `pipeline/measure/ai-battery.py`
