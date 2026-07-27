@@ -1,73 +1,15 @@
----
-import Layout from "../layouts/Layout.astro";
-import { getEntry } from 'astro:content';
-import { getImage } from 'astro:assets';
-import drPhotoFile from '../assets/home/dr-nico-sierra-cirujano-fisura-labiopalatina-barcelona.jpg';
+path = '/Users/renier/Developer/drnicosierra-website/src/pages/sobre-dr-nico-sierra.astro'
 
-const entry = await getEntry('about', 'main');
-const drPhoto = await getImage({ src: drPhotoFile, width: 600, format: 'webp' });
-if (!entry) throw new Error('Missing content entry: about/main');
-const d = entry.data;
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Physician",
-  name: "Dr. Nico Sierra",
-  url: "https://www.drnicosierra.com",
-  description: "Especialista en cirugía de fisura labiopalatina. Fellowship en Cirugía Craneofacial y FLP — UFPR Brasil.",
-  medicalSpecialty: "Oral and Maxillofacial Surgery",
-  affiliation: {
-    "@type": "MedicalOrganization",
-    name: "Clinica Tresserra",
-    address: { "@type": "PostalAddress", addressLocality: "Barcelona", addressCountry: "ES" },
-  },
-  alumniOf: {
-    "@type": "EducationalOrganization",
-    name: "Universidad Federal de Paraná (UFPR)",
-    address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressCountry: "BR" },
-  },
-  memberOf: d.schemaEntities
-    .filter((e) => ['Operation Smile', 'Smile Train', 'FEBOMFS'].includes(e))
-    .map((e) => ({ "@type": "Organization", name: e })),
-})}</script>`;
----
-<Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage="/dr-nico-sierra-cirujano-fisura-labiopalatina.jpg" schemaBlocks={schemaBlocks}>
-  <main>
-    <section style="min-height:60vh;background:#001629;display:flex;align-items:flex-end;padding:120px clamp(20px,4vw,48px) 80px;position:relative;overflow:hidden;">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,24,41,0.95) 0%,rgba(0,40,60,0.7) 100%);"></div>
-      <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
-        <div class="sh">
-          <div class="eyebrow" style="color:#4db896;">{d.hero.eyebrow}</div>
-          <h1 style="max-width:18ch;">{d.hero.h1}</h1>
-          <p class="lead">{d.hero.lead}</p>
-        </div>
-      </div>
-    </section>
+old = """    </section>
 
-    <section class="section" style="background:#001e2e;">
-      <div class="container">
-        <div class="split-2col">
-          <div>
-            <img src={drPhoto.src} alt="Dr. Nico Sierra — Cirujano especialista en fisura labiopalatina en Barcelona" loading="lazy" style="width:100%;border-radius:22px;aspect-ratio:3/4;object-fit:cover;">
-          </div>
-          <div>
-            <div class="sh">
-              <div class="eyebrow">Sobre el Dr. Nico Sierra</div>
-              <h2>Una carrera dedicada en exclusiva a la fisura labiopalatina.</h2>
-            </div>
-            {d.bio.paragraphs.map((p) => <p>{p}</p>)}
-            <div style="margin-top:32px;display:flex;flex-direction:column;gap:14px;">
-              {d.bio.credentials.map((c) => (
-                <div style={`padding:18px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid ${c.accentColor};border-radius:12px;`}>
-                  <strong>{c.title}</strong>
-                  <p style="margin-top:4px;font-size:.9rem;">{c.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section style="background:#001e2e;padding:clamp(56px,7vw,88px) 0;border-top:1px solid rgba(0,131,98,0.2);text-align:center;">"""
+
+assert old in content, 'ABORT: anchor text not found — check file structure'
+
+new = """    </section>
 
     <section class="section" style="background:#00111c;border-top:1px solid rgba(0,131,98,0.15);">
       <div class="container" style="max-width:860px;">
@@ -112,18 +54,14 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
       </div>
     </section>
 
-    <section style="background:#001e2e;padding:clamp(56px,7vw,88px) 0;border-top:1px solid rgba(0,131,98,0.2);text-align:center;">
-      <div class="container">
-        <div class="sh sh--center">
-          <div class="eyebrow" style="justify-content:center;">{d.cta.eyebrow}</div>
-          <h2>{d.cta.h2}</h2>
-          <p>{d.cta.text}</p>
-        </div>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="cta-banner"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>WhatsApp</a>
-          <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Enviar mi caso →</a>
-        </div>
-      </div>
-    </section>
-  </main>
-</Layout>
+    <section style="background:#001e2e;padding:clamp(56px,7vw,88px) 0;border-top:1px solid rgba(0,131,98,0.2);text-align:center;">"""
+
+content = content.replace(old, new)
+
+assert 'Publicaciones y reconocimientos' in content, 'ABORT: section not found after replace'
+assert 'springer.com/chapter' in content, 'ABORT: Springer links not found after replace'
+
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print('E2 patch applied successfully')
