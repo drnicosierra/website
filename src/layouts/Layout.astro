@@ -170,8 +170,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="/logo_white_transparent.webp" alt="Dr. Nico Sierra" class="footer-logo" width="78" height="48" style="height:48px;width:auto;filter:brightness(0) invert(1);opacity:.8;">
         <p class="footer-desc">Especialista en fisura labiopalatina en España. Cirugía de labio fisurado, paladar hendido y cirugía de revisión en Barcelona.</p>
         <a href="mailto:cuentame@drnicosierra.com" style="font-size:.88rem;color:rgba(255,255,255,.5)">cuentame@drnicosierra.com</a>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.5);margin-top:8px;line-height:1.4">{CLINIC_ADDRESS}</p>
-        <a href={`tel:${CLINIC_PHONE.replace(/ /g, '')}`} style="font-size:.88rem;color:rgba(255,255,255,.5);display:inline-block;margin-top:4px">{CLINIC_PHONE}</a>
+        <div class="footer-nap">
+          <p>{CLINIC_ADDRESS}</p>
+          <a href={`tel:${CLINIC_PHONE.replace(/ /g, '')}`}>{CLINIC_PHONE}</a>
+        </div>
       </div>
       <div class="footer-col">
         <h3>Tratamientos</h3>
