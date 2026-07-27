@@ -1,0 +1,68 @@
+---
+interface Props {
+  sources?: Array<{ label: string; url: string }>;
+}
+
+const { sources = [] } = Astro.props;
+---
+
+{sources && sources.length > 0 && (
+  <section class="section fuentes" aria-labelledby="fuentes-h3">
+    <div class="container">
+      <div style="max-width:720px">
+        <div class="sh">
+          <h3 id="fuentes-h3" class="reveal rv2">Fuentes y referencias</h3>
+        </div>
+        <ul class="fuentes-list reveal rv3">
+          {sources.map((source) => (
+            <li>
+              <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+.fuentes {
+  --sc: #64748b;
+}
+
+.fuentes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fuentes-list li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fuentes-list a {
+  color: var(--sc);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sc);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.fuentes-list a:hover {
+  color: var(--sc-glow);
+  border-bottom-color: var(--sc-glow);
+}
+
+@media (max-width: 768px) {
+  .fuentes-list {
+    gap: 10px;
+  }
+
+  .fuentes-list a {
+    font-size: 0.92rem;
+  }
+}
+</style>

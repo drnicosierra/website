@@ -118,6 +118,16 @@ const services = defineCollection({
     // Block 9 — Internal links (min 3 per brief)
     relatedLinks: z.array(relatedLink).min(3),
 
+    // E-E-A-T — dates (S3)
+    publishDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    lastReviewed: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+
+    // E-E-A-T — citations (S2); optional now, flip to min(1) once content pipeline delivers
+    sources: z.array(z.object({
+      label: z.string(),
+      url: z.string().url(),
+    })).optional(),
+
     // Global placeholders not yet resolved
     whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
 
@@ -180,6 +190,10 @@ const about = defineCollection({
       text: z.string(),
     }),
     whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
+
+    // E-E-A-T — dates (S3)
+    publishDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    lastReviewed: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   })
   .refine(
     (data) => !(data.schemaEntities.includes('Operation Smile') && data.schemaEntities.includes('Smile Train')),

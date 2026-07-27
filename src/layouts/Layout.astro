@@ -17,6 +17,8 @@ export interface Props {
   keywords?: string;
   schemaBlocks?: string; // raw <script type="application/ld+json">...</script> markup, one or more, concatenated
   noindex?: boolean; // true for test/placeholder/thank-you pages that shouldn't appear in search results
+  clinical?: boolean; // true for clinical pages (service, about, cases) — triggers reviewer block
+  lastReviewed?: string; // ISO date string (YYYY-MM-DD) for reviewer block
 }
 
 const {
@@ -29,6 +31,8 @@ const {
   keywords,
   schemaBlocks = "",
   noindex = false,
+  clinical = false,
+  lastReviewed,
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -150,6 +154,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </nav>
+
+{clinical && lastReviewed && (
+  <div class="clinical-reviewer">
+    <p>Revisado por Dr. Nico Sierra · Nº col. {COLEGIADO} · Revisado: {new Date(lastReviewed).toLocaleDateString('es-ES', {year: 'numeric', month: 'long', day: 'numeric'})}</p>
+  </div>
+)}
 
 <slot />
 

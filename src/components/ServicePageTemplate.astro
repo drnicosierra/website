@@ -1,6 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import Fuentes from './Fuentes.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -61,7 +62,32 @@ const breadcrumbSchema = {
   ],
 };
 
-const schemaBlocks = [procedureSchema, faqSchema, breadcrumbSchema]
+const physicianSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  name: 'Dr. Nico Sierra',
+  alternateName: 'Nicolás E. Sierra',
+  url: 'https://www.drnicosierra.com',
+  medicalSpecialty: 'Oral and Maxillofacial Surgery',
+  affiliation: [
+    { '@type': 'MedicalOrganization', name: 'Clínica Tresserra', addressLocality: 'Barcelona', addressCountry: 'ES' },
+    { '@type': 'MedicalOrganization', name: 'Hospital Universitario Vall d\'Hebron', addressLocality: 'Barcelona', addressCountry: 'ES' }
+  ]
+};
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  url: canonical,
+  headline: d.title,
+  description: d.description,
+  author: { '@type': 'Physician', name: 'Dr. Nico Sierra' },
+  reviewedBy: { '@type': 'Physician', name: 'Dr. Nico Sierra' },
+  datePublished: d.publishDate,
+  dateModified: d.lastReviewed
+};
+
+const schemaBlocks = [procedureSchema, faqSchema, breadcrumbSchema, physicianSchema, medicalWebPageSchema]
   .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
   .join('\n');
 
@@ -74,7 +100,7 @@ const ICONS: Record<string, string> = {
 
 const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>';
 ---
-<Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks}>
+<Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks} clinical={true} lastReviewed={d.lastReviewed}>
   <Fragment slot="head">
     <style set:html={`:root { --sc:${d.accentColor}; --sc-soft:${d.accentColor}1f; --sc-glow:${d.accentColor}33; }`} />
   </Fragment>
@@ -215,6 +241,9 @@ const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCol
       </div>
     </div>
   </section>
+
+  <!-- BLOCK 6.5 — FUENTES -->
+  <Fuentes sources={d.sources} />
 
   <!-- BLOCK 7 — FAQ -->
   <section class="section faq" aria-labelledby="faq-h2">
