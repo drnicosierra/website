@@ -347,5 +347,24 @@
   "signature": {
     "name": "Dr. Nico Sierra",
     "line": "Especialista en fisura labiopalatina · Barcelona, España"
+  },
+  "localBusinessSchema": {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dr. Nico Sierra · Clínica Tresserra",
+    "url": "https://www.drnicosierra.com",
+    "telephone": "+34 623 78 74 75",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer del Lluçanès 6, Planta Baixa",
+      "addressLocality": "Barcelona",
+      "postalCode": "08022",
+      "addressCountry": "ES"
+    },
+    "areaServed": [
+      "Spain",
+      "International"
+    ],
+    "medicalSpecialty": "Oral and Maxillofacial Surgery"
   }
 }
