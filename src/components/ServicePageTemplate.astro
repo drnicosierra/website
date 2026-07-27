@@ -66,13 +66,29 @@ const physicianSchema = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
   name: 'Dr. Nico Sierra',
-  alternateName: 'Nicolás E. Sierra',
+  alternateName: [
+    'Nicolás E. Sierra',
+    'Nicolas E. Sierra',
+    'Dr. Nicolás Sierra',
+    'Nicolas Sierra Perilla',
+  ],
   url: 'https://www.drnicosierra.com',
   medicalSpecialty: 'Oral and Maxillofacial Surgery',
   affiliation: [
     { '@type': 'MedicalOrganization', name: 'Clínica Tresserra', addressLocality: 'Barcelona', addressCountry: 'ES' },
     { '@type': 'MedicalOrganization', name: 'Hospital Universitario Vall d\'Hebron', addressLocality: 'Barcelona', addressCountry: 'ES' }
-  ]
+  ],
+  sameAs: [
+    'https://www.comb.cat/es/serveis/registre-metges/45307',
+    'https://link.springer.com/chapter/10.1007/978-3-030-59105-2_7',
+    'https://link.springer.com/chapter/10.1007/978-3-030-59105-2_23',
+    'https://pubmed.ncbi.nlm.nih.gov/?term=sierra+ne%5Bauthor%5D',
+    'https://www.quironsalud.com/es/cuadro-medico/nicolas-enrique-sierra-perilla',
+    'https://clinicabaragaseni.com/equipo/',
+    'https://www.linkedin.com/in/nicolas-e-sierra-perilla-b6441a158/',
+    'https://www.msi-global.com.mx/nosotros',
+    'https://www.hscor.com/es/cuadro-medico/cirujano-maxilofacial',
+  ],
 };
 
 const medicalWebPageSchema = {
