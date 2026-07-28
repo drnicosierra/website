@@ -72,18 +72,22 @@ Baselines: `docs/baselines/` (AI citation + JSON-LD) | Battery: `pipeline/measur
 **Phase 1 — Guards** ✅ COMPLETE
 - BR1–BR5: schema guards, placeholder linter, GitHub Actions, pre-commit hook, secrets hygiene
 
-**Phase 2 — Content & copy** IN PROGRESS
-- C1 ✅ Colegiado COMB 45307 — config-driven via src/config/site.ts, renders in footer sitewide
-- C2 ✅ Medical disclaimer — config-driven, renders in footer sitewide
-- C3 ✅ Dynamic copyright year — already in place
-- C4 ✅ Typo fix — Escríbir → Escribir in CasePageTemplate and ServicePageTemplate
-- C5 ✅ Testimonio block hidden
-- C6 ✅ FOTO_ replaced with real dr photo, image renamed for SEO
-- C7 ✅ Duplicate title on about page fixed
-- C8 ✅ og:image on bio page self-hosted
-- C9 ✅ Exclusivity and volume claims removed sitewide — credential-led copy
-- C10 — Homepage FAQ rewrite — NEXT
-- C11 ✅ NAM page — full Dr. Sierra reviewed content deployed
-- T4 ✅ WhatsApp replaced sitewide (pulled from Phase 5)
+**Phase 2 — Content & copy** ✅ COMPLETE
+- C1–C11 ✅ All landed
+- T4 ✅ WhatsApp sitewide
 
-Build passing. Follow handoff-prompt-audit-remediation.md for task order.
+**Phase 3 — E-E-A-T + schema** ✅ COMPLETE
+- S1–S6 ✅ Reviewer block, Fuentes, freshness, JSON-LD Physician/MedicalWebPage/FAQPage, NAP in footer
+
+**Phase 4 — Entity consolidation** ✅ COMPLETE
+- E1 ✅ Physician schema: alternateName (4 forms) + sameAs (9 URLs)
+- E2 ✅ Publicaciones y reconocimientos section on bio page
+
+**Phase 5 — Technical** IN PROGRESS
+- T2 ✅ robots.txt + sitemap.xml validated, submitted to GSC (2026-07-28)
+- T3 ⏳ IndexNow — deferred. Content finalization in progress.
+- T4 ✅ WhatsApp sitewide
+- T5 ✅ AI citation battery baseline (2026-07-26): 6.7% mention rate
+- T6 ⏳ Casos clínicos pipeline — pending design finalization
+
+Phases 1–4 shipped. Phase 5 T2/T4/T5 done.
