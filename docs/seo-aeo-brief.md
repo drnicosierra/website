@@ -84,7 +84,7 @@ Site primary keyword: **cirujano especialista en fisura labiopalatina en Barcelo
 **Preservation rules:**
 - T1 Keep his verbs (acompañar, restaurar, devolver) — never swap for keyword-denser generics.
 - T2 Expand, don't replace — add supporting sentences; never rewrite his openings.
-- T3 Credentials stay factual — '1.000 cirugías' never becomes '1.000+ altamente especializadas'.
+- T3 Credentials stay factual — volume figures require explicit scoping (private practice vs. humanitarian missions) before use. Unscoped totals are not permitted regardless of accuracy.
 - T4 Conversion argument stays indirect — patient-benefit evidence, never naming the public system negatively.
 - T5 Medical accuracy gate — if SEO changes clinical meaning, don't apply, FLAG. Overrides every SEO rule.
 - T6 'Nunca es tarde' — revision surgery narrative ONLY.
@@ -107,7 +107,7 @@ Site primary keyword: **cirujano especialista en fisura labiopalatina en Barcelo
 50–60 chars max · keyword in first 50 · │ pipe separator (never em dash in title) · truncate brand suffix, never the keyword · unique across all pages.
 Homepage exception: 'Cirujano Especialista en Fisura Labiopalatina en Barcelona │ Dr. Nico Sierra'
 
-**Description:** [Keyword] + [specific differentiator] + [CTA phrase]. 150–160 chars (under 150 = missed opportunity, over 160 = truncated). Keyword in first 20 words. Differentiator = verifiable ('Más de 1.000 cirugías' / 'único fellowship en España'). CTA endings: 'Cuéntanos tu caso.' / 'Consulta en Barcelona o por telemedicina.' / 'Primera valoración personalizada.' Warm-clinical tone, never exclamation marks.
+**Description:** [Keyword] + [specific differentiator] + [CTA phrase]. 150–160 chars (under 150 = missed opportunity, over 160 = truncated). Keyword in first 20 words. Differentiator = verifiable ('Fellowship UFPR Brasil' / 'Clínica Tresserra y Vall d'Hebron' / 'Misiones con Operation Smile en cuatro continentes'). Volume figures require explicit scoping before use — see T3. CTA endings: 'Cuéntanos tu caso.' / 'Consulta en Barcelona o por telemedicina.' / 'Primera valoración personalizada.' Warm-clinical tone, never exclamation marks.
 
 ### 16. Content-type specifics
 **Homepage:** hero H1 max 70 chars, no end punctuation · sub-header max 180 chars with prenatal+revision+international signals · bullets max 4, max 8 words each, parallel structure · FAQ answers max 120 words, prose only, Q6 investment question required · contact sub-header names Dr. Sierra personally + response time + honesty signal.

@@ -32,7 +32,9 @@ Distilled from docs/seo-aeo-brief.md (authoritative). For full SEO/AEO review us
 - "Nunca es tarde" = revision surgery context ONLY.
 
 ## Open flags (not yet resolved by Dr. Sierra)
-- FAQ question/answer topic matching: NAM reviewed and approved. 7 remaining service pages NOT yet reviewed by Dr. Sierra — flag in any FAQ session.
+- FAQ question/answer topic matching: NAM reviewed and approved ✅. 7 remaining service pages NOT yet reviewed by Dr. Sierra — flag in any FAQ session.
+- Volume claims (1.000 cirugías, +1.000): removed sitewide. Do not reintroduce without explicit scoping from Dr. Sierra (private practice only, from surgical log).
+- Exclusivity claims (único cirujano en España): removed sitewide. Do not reintroduce.
 - Timeline clinical framing + NAM vs PSIO-NAM naming — pushed without explicit resolution.
 
 ## Pipeline

@@ -73,9 +73,17 @@ Baselines: `docs/baselines/` (AI citation + JSON-LD) | Battery: `pipeline/measur
 - BR1–BR5: schema guards, placeholder linter, GitHub Actions, pre-commit hook, secrets hygiene
 
 **Phase 2 — Content & copy** IN PROGRESS
-- C5 ✅ testimonio block hidden (visible: false)
+- C1 ✅ Colegiado COMB 45307 — config-driven via src/config/site.ts, renders in footer sitewide
+- C2 ✅ Medical disclaimer — config-driven, renders in footer sitewide
+- C3 ✅ Dynamic copyright year — already in place
+- C4 ✅ Typo fix — Escríbir → Escribir in CasePageTemplate and ServicePageTemplate
+- C5 ✅ Testimonio block hidden
 - C6 ✅ FOTO_ replaced with real dr photo, image renamed for SEO
-- T4 ✅ WhatsApp number replaced sitewide (pulled from Phase 5 to unblock build)
-- **C1 is next** — colegiado COMB 45307 config-driven
+- C7 ✅ Duplicate title on about page fixed
+- C8 ✅ og:image on bio page self-hosted
+- C9 ✅ Exclusivity and volume claims removed sitewide — credential-led copy
+- C10 — Homepage FAQ rewrite — NEXT
+- C11 ✅ NAM page — full Dr. Sierra reviewed content deployed
+- T4 ✅ WhatsApp replaced sitewide (pulled from Phase 5)
 
 Build passing. Follow handoff-prompt-audit-remediation.md for task order.
