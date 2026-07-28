@@ -43,3 +43,7 @@
 ---
 
 **Last updated:** 2026-07-28 · Renier + Claude
+
+### T6 — Updated status (2026-07-28)
+Script `scripts/censor-caso-images.py` written + committed. `originals/` gitignored.
+**Blocked on:** opencv-python install — Catalina 10.15 builds from source (too slow). Install on new laptop with `pip3 install opencv-python-headless --user`, then test with a sample caso image before first content ship.
