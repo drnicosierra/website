@@ -66,3 +66,16 @@ Astro 4.16 static + Netlify (hosting/forms) + GA4 `G-C6SCF6WY7Q` via GTM `GTM-MC
 Content: src/content/*.json collections + Zod schema. Local: ~/Developer/drnicosierra-website
 Commands: `npm run build` | `npm run dev` | `npm run check:design` | `npm run check:perf`
 Baselines: `docs/baselines/` (AI citation + JSON-LD) | Battery: `pipeline/measure/ai-battery.py`
+
+## Current progress
+
+**Phase 1 — Guards** ✅ COMPLETE
+- BR1–BR5: schema guards, placeholder linter, GitHub Actions, pre-commit hook, secrets hygiene
+
+**Phase 2 — Content & copy** IN PROGRESS
+- C5 ✅ testimonio block hidden (visible: false)
+- C6 ✅ FOTO_ replaced with real dr photo, image renamed for SEO
+- T4 ✅ WhatsApp number replaced sitewide (pulled from Phase 5 to unblock build)
+- **C1 is next** — colegiado COMB 45307 config-driven
+
+Build passing. Follow handoff-prompt-audit-remediation.md for task order.
