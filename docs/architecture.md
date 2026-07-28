@@ -6,6 +6,9 @@
 - Cómo Te Ayudamos: generated from the services collection directly
 - Vidas Transformadas + Blog: NOT migrated — design placeholders, do not touch until design final
 - Zod schema (src/content/config.ts) hard-fails builds on forbidden terms, meta lengths, OS+ST co-occurrence, FAQ minimums
+- `src/config/site.ts` — single source of truth for COLEGIADO, WHATSAPP, WHATSAPP_URL, MEDICAL_DISCLAIMER, CLINIC_NAME, CLINIC_ADDRESS, CLINIC_PHONE, CLINIC_CITY, CLINIC_COUNTRY. Import from here; never hardcode in components.
+- ServicePageTemplate generates 5 schema blocks: MedicalProcedure · FAQPage · BreadcrumbList · Physician (alternateName + dual affiliation: Clínica Tresserra + Vall d'Hebron) · MedicalWebPage (author / reviewedBy / datePublished / dateModified). Pass additional blocks via `schemaBlocks` prop on Layout.
+- All service pages + about JSON have `publishDate` (2026-07-09) and `lastReviewed` (2026-07-27) fields. Services also have `sources` array (optional, empty until content pipeline delivers citations).
 
 ## Gotcha 1 — every inline <script> needs is:inline
 Astro hoists any <script> without src= into a bundled render-blocking file.

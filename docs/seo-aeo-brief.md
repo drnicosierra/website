@@ -13,8 +13,8 @@ Converted from DrSierra_SEO_AEO_Complete_Brief.docx (June 2026). Structural sect
 ### Headings
 Exactly ONE H1 per page (hero). H2 = major sections. H3 = FAQ questions. P = body. H1 min 28px mobile.
 
-### Schema (3 types per service page, in <head>)
-MedicalProcedure · FAQPage (text = visible text exactly) · BreadcrumbList
+### Schema (5 types per service page, in <head>)
+MedicalProcedure · FAQPage (text = visible text exactly) · BreadcrumbList · Physician (alternateName: "Nicolás E. Sierra", dual affiliation: Clínica Tresserra + Vall d'Hebron) · MedicalWebPage (author / reviewedBy / datePublished / dateModified)
 Breadcrumbs also visible on page: Inicio > Cómo te ayudamos > [Service]
 
 ### Internal linking map

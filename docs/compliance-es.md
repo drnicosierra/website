@@ -15,7 +15,7 @@ Legal stack: Ley 34/1988 (general advertising) · RD 1907/1996 (health advertisi
 8. Before/after imagery in promotional framing. Informational framing requires "los resultados pueden variar".
 
 ## REQUIRE
-9. Nº de colegiado COMB: 45307 — on clinical pages, footer, Physician schema.
+9. Nº de colegiado COMB: 45307 — on clinical pages, footer, Physician schema. ✅ Implemented (Phase 3): footer sitewide via Layout.astro (.footer-nap + footer-base), reviewer block on all clinical pages (.clinical-reviewer), Physician schema in ServicePageTemplate.
 10. Disclaimer: "Este contenido es informativo y no sustituye una consulta médica."
 11. Cited source for any efficacy, safety, or outcome claim.
 12. Risk mention alongside any elective procedure description.

@@ -25,6 +25,11 @@ Hero #001629 → About #001e2e → Timeline #001629 → Results #001e2e → Test
 
 ## Components (archived for reuse)
 WheelTeam.astro · CareTimeline.astro in src/components/ — ready to drop into another page.
+Fuentes.astro — citation block, renders only when `sources` array is non-empty. Placed between dr-section and FAQ in ServicePageTemplate. Flip Zod `sources` from optional() to min(1) once content pipeline delivers citations.
+
+## E-E-A-T UI classes
+`.clinical-reviewer` — layout-driven reviewer strip in Layout.astro. Renders when `clinical={true}` + `lastReviewed` props passed. Pulls COLEGIADO from site.ts. Apply by passing `clinical={true}` on any clinical page Layout call.
+`.footer-nap` — NAP block in footer first column (address + phone). Styled in global.css. Content driven by CLINIC_ADDRESS + CLINIC_PHONE from site.ts. `tel:` href strips spaces via `.replace(/ /g, "")`.
 
 ## Known dead code
 .ns-btn-wa-hero in home.css ~328–340 — confirmed orphaned, queued for design-system unification. Don't rediscover it.
