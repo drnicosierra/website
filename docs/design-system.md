@@ -36,3 +36,34 @@ Fuentes.astro — citation block, renders only when `sources` array is non-empty
 
 ## Emails & misc
 cuentame@drnicosierra.com (patient-facing) · admin@drnicosierra.com (tools) · Local dev: http://localhost:4321/
+
+## Hero Sections
+
+Two standardized classes replace all inline hero styles:
+
+**.hero-section** — flex hero with background image support
+```css
+.hero-section { padding:120px 0 80px; min-height:60vh; display:flex; align-items:flex-end; }
+.hero-section[data-height="50vh"] { min-height:50vh; }
+.hero-section[data-height="40vh"] { min-height:40vh; }
+.hero-section > div { max-width:var(--ns-container); margin:0 auto; padding:0 clamp(20px,4vw,48px); }
+```
+⚠️ Padding lives on the **inner div**, not the section. Never add horizontal padding to the section itself.
+
+**.hero-simple** — non-flex, for text-only pages (Política de Privacidad)
+```css
+.hero-simple { background:#001629; padding:120px clamp(20px,4vw,48px) 60px; position:relative; }
+```
+
+## Breadcrumb
+
+`src/components/Breadcrumb.astro` — place **inside** the inner div, as first child before `.sh`:
+```astro
+<section class="hero-section">
+  <div>
+    <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Page Name' }]} />
+    <div class="sh">...</div>
+  </div>
+</section>
+```
+Renders semantic `<nav>` + inline JSON-LD BreadcrumbList. Last crumb has no `href`. Home page and 404/gracias get no breadcrumb.
