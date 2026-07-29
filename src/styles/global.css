@@ -188,12 +188,12 @@ p + p { margin-top:16px; }
 .nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   height:80px; display:flex; align-items:center;
-  background:rgba(0,22,38,0.3); backdrop-filter:blur(8px);
+  background:#001629;
   border-bottom:1px solid rgba(0,131,98,0.2);
   transition:background .35s var(--ns-ease), border-color .35s;
 }
 .nav.scrolled {
-  background:rgba(0,18,36,0.92);
+  background:#001629;
   border-bottom-color:rgba(0,131,98,0.25);
   box-shadow:0 1px 0 rgba(255,255,255,0.04);
 }
@@ -362,7 +362,7 @@ p + p { margin-top:16px; }
 .hero-content {
   position:relative; z-index:2;
   width:100%; max-width:var(--ns-container); margin:0 auto;
-  padding:0 clamp(20px,4vw,48px);
+  padding:100px clamp(20px,4vw,48px) 0;
 }
 .hero h1 { max-width:760px; margin-bottom:20px; }
 .hero h1 em { font-style:normal; color:var(--sc); }
