@@ -1,0 +1,36 @@
+---
+export interface Crumb {
+  label: string;
+  href?: string;
+}
+interface Props {
+  crumbs: Crumb[];
+  canonical?: string;
+}
+const { crumbs, canonical } = Astro.props;
+const schemaItems = crumbs.map((c, i) => ({
+  '@type': 'ListItem',
+  position: i + 1,
+  name: c.label,
+  ...(c.href
+    ? { item: 'https://www.drnicosierra.com' + c.href }
+    : canonical ? { item: canonical } : {}),
+}));
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: schemaItems,
+};
+---
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  {crumbs.map((c, i) => (
+    <>
+      {i > 0 && <span class="breadcrumb__sep" aria-hidden="true">›</span>}
+      {c.href
+        ? <a href={c.href}>{c.label}</a>
+        : <span class="breadcrumb__current">{c.label}</span>
+      }
+    </>
+  ))}
+</nav>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 const title = 'Cuéntanos tu Caso | Dr. Nico Sierra — Fisura Labiopalatina Barcelona';
 const description = 'Cuéntanos tu caso de fisura labiopalatina. El Dr. Nico Sierra revisa personalmente cada consulta y responde en menos de 24 horas. Sin compromiso.';
@@ -14,6 +15,7 @@ const ogDescription = 'Consulta de fisura labiopalatina con el Dr. Nico Sierra. 
 <main>
 <section class="hero-section" data-height="50vh">
   <div>
+    <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Cuéntanos tu historia' }]} />
     <div class="sh">
       <div class="eyebrow">Contacto</div>
       <h1>Cuéntanos tu historia</h1>

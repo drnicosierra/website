@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { getEntry } from 'astro:content';
 import { getImage } from 'astro:assets';
 import drPhotoFile from '../assets/home/dr-nico-sierra-cirujano-fisura-labiopalatina-barcelona.jpg';
@@ -35,6 +36,7 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
   <main>
     <section class="hero-section">
       <div>
+        <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Dr. Nico Sierra' }]} />
         <div class="sh">
           <div class="eyebrow">{d.hero.eyebrow}</div>
           <h1 style="max-width:18ch;">{d.hero.h1}</h1>

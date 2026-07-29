@@ -115,18 +115,15 @@ const relatedServiceEntries = await Promise.all(
     </nav>
   </div>
 
-  <!-- INTRO — no photo background here on purpose; the before/after pair
-       below is the actual visual, a decorative hero photo over medical
-       images would feel off for this content. -->
-  <section class="section" style="padding-bottom:0;" aria-labelledby="case-h1">
-    <div class="container">
+  <section class="hero-section" data-height="50vh" aria-labelledby="case-h1">
+    <div>
       <div class="sh">
-        <div class="eyebrow reveal">Vidas Transformadas</div>
-        <h1 id="case-h1" class="reveal rv2">{d.title}</h1>
-        <p class="lead reveal rv3">{d.narrative.firstParagraph}</p>
+        <div class="eyebrow">Vidas Transformadas</div>
+        <h1 id="case-h1">{d.title}</h1>
+        <p class="lead">{d.narrative.firstParagraph}</p>
       </div>
 
-      <div class="case-meta-row reveal rv3">
+      <div class="case-meta-row">
         <div class="case-meta-item">
           <span class="case-meta-label">Paciente</span>
           <span class="case-meta-value">{displayName}</span>
@@ -142,9 +139,12 @@ const relatedServiceEntries = await Promise.all(
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Large before/after — first vs. last timeline entry -->
-      <div class="ba-hero reveal-scale rv3">
+  <section class="section" style="padding-top:0;background:#001629;" aria-label="Antes y después">
+    <div class="container">
+      <div class="ba-hero">
         <div class="ba-hero-img">
           <span class="ba-hero-tag">{firstEntry.label}</span>
           <button type="button" class="lightbox-trigger" data-lightbox-src={firstLightbox.images[0].lightboxSrc} data-lightbox-alt={firstEntry.images[0].alt} aria-label="Ampliar imagen">

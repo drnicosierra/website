@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 const title = 'Blog y Artículos sobre Fisura Labiopalatina | Dr. Nico Sierra';
 const description = 'Artículos y recursos sobre fisura labiopalatina escritos por el Dr. Nico Sierra. Información para familias, pacientes y profesionales.';
@@ -10,27 +11,26 @@ const ogDescription = 'Artículos sobre fisura labiopalatina por el Dr. Nico Sie
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription}>
   <Fragment slot="head" set:html={`
 `} />
-  <Fragment set:html={`
-<main>
-<section class="hero-section" data-height="40vh">
-  <div>
-    <div class="sh">
-      <div class="eyebrow">Recursos</div>
-      <h1>Blog y Artículos</h1>
-      <p class="lead">Información clínica y educativa sobre fisura labiopalatina. Escrita por el Dr. Nico Sierra para familias, pacientes y profesionales.</p>
+  <main>
+  <section class="hero-section" data-height="40vh">
+    <div>
+      <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Blog y Artículos' }]} />
+      <div class="sh">
+        <div class="eyebrow">Recursos</div>
+        <h1>Blog y Artículos</h1>
+        <p class="lead">Información clínica y educativa sobre fisura labiopalatina. Escrita por el Dr. Nico Sierra para familias, pacientes y profesionales.</p>
+      </div>
     </div>
-  </div>
-</section>
-<section class="section" style="background:#001e2e;text-align:center;">
-  <div class="container" style="max-width:640px;">
-    <div style="padding:80px 40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:22px;">
-      <div class="eyebrow" style="color:#4db896;justify-content:center;margin-bottom:20px;">Próximamente</div>
-      <h2 style="margin-bottom:20px;">Contenido en preparación.</h2>
-      <p>El Dr. Sierra está preparando artículos educativos sobre fisura labiopalatina, técnicas quirúrgicas, cuidados postoperatorios y respuestas a las preguntas más frecuentes. Vuelve pronto.</p>
-      <a href="/cuentanos-tu-historia/" class="btn btn-ghost" style="margin-top:36px;display:inline-flex;">¿Tienes una pregunta? Escríbenos →</a>
+  </section>
+  <section class="section" style="background:#001e2e;text-align:center;">
+    <div class="container" style="max-width:640px;">
+      <div style="padding:80px 40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:22px;">
+        <div class="eyebrow" style="color:#4db896;justify-content:center;margin-bottom:20px;">Próximamente</div>
+        <h2 style="margin-bottom:20px;">Contenido en preparación.</h2>
+        <p>El Dr. Sierra está preparando artículos educativos sobre fisura labiopalatina, técnicas quirúrgicas, cuidados postoperatorios y respuestas a las preguntas más frecuentes. Vuelve pronto.</p>
+        <a href="/cuentanos-tu-historia/" class="btn btn-ghost" style="margin-top:36px;display:inline-flex;">¿Tienes una pregunta? Escríbenos →</a>
+      </div>
     </div>
-  </div>
-</section>
-</main>
-`} />
+  </section>
+  </main>
 </Layout>

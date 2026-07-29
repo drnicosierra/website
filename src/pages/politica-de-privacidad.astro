@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 const title = 'Política de Privacidad | Dr. Nico Sierra — Fisura Labiopalatina';
 const description = 'Política de privacidad de drnicosierra.com. Información sobre el tratamiento de datos personales conforme al RGPD.';
@@ -13,6 +14,8 @@ const ogDescription = 'Política de privacidad del sitio web del Dr. Nico Sierra
   <Fragment set:html={`
 <main>
 <section class="hero-simple">
+  <div>
+    <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Política de Privacidad' }]} />
   <div>
     <div class="sh">
       <div class="eyebrow">Legal</div>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 
 const title = 'Cómo te Ayudamos — Tratamientos Fisura Labiopalatina | Dr. Nico Sierra';
@@ -16,6 +17,7 @@ const services = (await getCollection('services'))
   <main>
     <section class="hero-section" data-height="50vh">
       <div>
+        <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Cómo te ayudamos' }]} />
         <div class="sh">
           <div class="eyebrow">Tratamientos</div>
           <h1>Cómo podemos ayudarte</h1>

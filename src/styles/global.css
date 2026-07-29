@@ -82,7 +82,7 @@ h4 { font-size:1rem; font-weight:600; }
 /* Hero section (About, static pages) — standardized structure with eyebrow + H1 + lead */
 .hero-section {
   background:#001629; display:flex; align-items:flex-end;
-  padding-top:120px; padding-bottom:80px; position:relative; overflow:hidden;
+  padding:120px 0 80px; position:relative; overflow:hidden;
   min-height:var(--hero-min-h, 60vh);
 }
 .hero-section[data-height="50vh"] { min-height:50vh; }
@@ -107,20 +107,6 @@ h4 { font-size:1rem; font-weight:600; }
 }
 .hero-simple .eyebrow { --sc:#4db896; }
 
-/* Hero section (About, static pages) — standardized structure with eyebrow + H1 + lead */
-.hero-section {
-  min-height:60vh; background:#001629; display:flex; align-items:flex-end;
-  padding:120px clamp(20px,4vw,48px) 80px; position:relative; overflow:hidden;
-}
-.hero-section::before {
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(135deg,rgba(0,24,41,0.95) 0%,rgba(0,40,60,0.7) 100%);
-  pointer-events:none;
-}
-.hero-section > div {
-  max-width:1200px; margin:0 auto; width:100%; position:relative; z-index:1;
-}
-.hero-section .eyebrow { --sc:#4db896; }
 p { color:var(--ns-ink-soft); line-height:1.8; margin:0; }
 p + p { margin-top:16px; }
 strong { color:var(--ns-white); font-weight:600; }
@@ -331,21 +317,17 @@ p + p { margin-top:16px; }
 }
 
 /* ════════════════════════════════════
-   BREADCRUMB (above hero, per brief)
+   BREADCRUMB — absolute overlay inside hero
    ════════════════════════════════════ */
 .breadcrumb {
-  position:relative; z-index:10;
-  padding:88px clamp(20px,4vw,48px) 0;
-  max-width:var(--ns-container); margin:0 auto;
-}
-.breadcrumb nav {
   display:flex; align-items:center; gap:8px;
-  font-size:.78rem; color:rgba(255,255,255,0.4); letter-spacing:.02em;
+  font-size:.75rem; color:rgba(255,255,255,0.35); letter-spacing:.02em;
+  margin-bottom:16px;
 }
-.breadcrumb a { color:rgba(255,255,255,0.4); transition:color .2s; }
-.breadcrumb a:hover { color:rgba(255,255,255,0.75); }
-.breadcrumb .sep { opacity:.3; }
-.breadcrumb .current { color:var(--sc); }
+.breadcrumb a { color:rgba(255,255,255,0.35); transition:color .2s; pointer-events:all; }
+.breadcrumb a:hover { color:rgba(255,255,255,0.7); }
+.breadcrumb__sep { opacity:.25; }
+.breadcrumb__current { color:rgba(255,255,255,0.55); }
 
 /* ════════════════════════════════════
    HERO — Block 1
