@@ -14,11 +14,10 @@ const services = (await getCollection('services'))
 ---
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription}>
   <main>
-    <section style="min-height:50vh;background:#001629;display:flex;align-items:flex-end;padding:120px clamp(20px,4vw,48px) 80px;position:relative;">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,18,41,0.9) 0%,rgba(0,18,41,0.7) 100%);"></div>
-      <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
+    <section class="hero-section" data-height="50vh">
+      <div>
         <div class="sh">
-          <div class="eyebrow" style="color:#4db896;">Tratamientos</div>
+          <div class="eyebrow">Tratamientos</div>
           <h1>Cómo podemos ayudarte</h1>
           <p class="lead">El Dr. Sierra trata todas las etapas de la fisura labiopalatina — desde el moldeado prequirúrgico hasta la cirugía de revisión en adultos.</p>
         </div>

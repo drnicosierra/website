@@ -71,12 +71,56 @@ h3 { font-size:clamp(1.2rem,1.6vw,1.5rem); letter-spacing:-.015em; font-weight:5
 h4 { font-size:1rem; font-weight:600; }
 /* ── TYPOGRAPHY ── */
 .eyebrow {
+  --sc:#4db896;
   font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
   color:var(--sc); display:inline-flex; align-items:center; gap:.6rem;
   margin-bottom:0;        /* never set margin on eyebrow itself — .sh controls gaps */
 }
-.eyebrow::before { content:""; width:28px; height:2px; background:var(--sc); border-radius:2px; }
+.eyebrow::before { content:""; width:28px; height:2px; background:var(--sc, #4db896); border-radius:2px; }
 .lead { font-size:1.05rem; color:var(--ns-ink-soft); line-height:1.8; max-width:58ch; }
+
+/* Hero section (About, static pages) — standardized structure with eyebrow + H1 + lead */
+.hero-section {
+  background:#001629; display:flex; align-items:flex-end;
+  padding-top:120px; padding-bottom:80px; position:relative; overflow:hidden;
+  min-height:var(--hero-min-h, 60vh);
+}
+.hero-section[data-height="50vh"] { min-height:50vh; }
+.hero-section[data-height="40vh"] { min-height:40vh; }
+.hero-section::before {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(0,24,41,0.95) 0%,rgba(0,40,60,0.7) 100%);
+  pointer-events:none;
+}
+.hero-section > div {
+  max-width:var(--ns-container); margin:0 auto; width:100%;
+  padding:0 clamp(20px,4vw,48px); position:relative; z-index:1;
+}
+.hero-section .eyebrow { --sc:#4db896; }
+
+/* Hero section — simplified (no flex, for static text pages) */
+.hero-simple {
+  background:#001629; padding:120px clamp(20px,4vw,48px) 60px;
+}
+.hero-simple > div {
+  max-width:800px; margin:0 auto;
+}
+.hero-simple .eyebrow { --sc:#4db896; }
+
+/* Hero section (About, static pages) — standardized structure with eyebrow + H1 + lead */
+.hero-section {
+  min-height:60vh; background:#001629; display:flex; align-items:flex-end;
+  padding:120px clamp(20px,4vw,48px) 80px; position:relative; overflow:hidden;
+}
+.hero-section::before {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(0,24,41,0.95) 0%,rgba(0,40,60,0.7) 100%);
+  pointer-events:none;
+}
+.hero-section > div {
+  max-width:1200px; margin:0 auto; width:100%; position:relative; z-index:1;
+}
+.hero-section .eyebrow { --sc:#4db896; }
 p { color:var(--ns-ink-soft); line-height:1.8; margin:0; }
 p + p { margin-top:16px; }
 strong { color:var(--ns-white); font-weight:600; }

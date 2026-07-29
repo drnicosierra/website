@@ -33,11 +33,10 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
 ---
 <Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage="/dr-nico-sierra-cirujano-fisura-labiopalatina.jpg" schemaBlocks={schemaBlocks}>
   <main>
-    <section style="min-height:60vh;background:#001629;display:flex;align-items:flex-end;padding:120px clamp(20px,4vw,48px) 80px;position:relative;overflow:hidden;">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,24,41,0.95) 0%,rgba(0,40,60,0.7) 100%);"></div>
-      <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;">
+    <section class="hero-section">
+      <div>
         <div class="sh">
-          <div class="eyebrow" style="color:#4db896;">{d.hero.eyebrow}</div>
+          <div class="eyebrow">{d.hero.eyebrow}</div>
           <h1 style="max-width:18ch;">{d.hero.h1}</h1>
           <p class="lead">{d.hero.lead}</p>
         </div>
