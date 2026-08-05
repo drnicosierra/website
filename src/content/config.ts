@@ -29,6 +29,7 @@ const credentialEntity = z.enum([
   'Smile Train',
   'FEBOMFS',
   'Springer',
+  'Mobile Surgery International',
 ]);
 
 const faqItem = z.object({
@@ -197,8 +198,27 @@ const about = defineCollection({
       credentials: z.array(z.object({
         title: z.string(),
         text: z.string(),
+        iconSvg: z.string(),
         accentColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
       })).min(3).max(6),
+    }),
+    trayectoria: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      items: z.array(z.object({
+        title: z.string(),
+        text: z.string(),
+      })).min(1).max(8),
+    }),
+    facility: z.object({
+      eyebrow: z.string(),
+      h2: z.string(),
+      locations: z.array(z.object({
+        name: z.string(),
+        heroImageQuery: z.string().url(),
+        intro: z.string(),
+        bullets: z.array(z.string()).min(2).max(5),
+      })).min(1).max(3),
     }),
     cta: z.object({
       eyebrow: z.string(),

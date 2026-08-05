@@ -3,12 +3,39 @@ import Layout from "../layouts/Layout.astro";
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { getEntry } from 'astro:content';
 import { getImage } from 'astro:assets';
-import drPhotoFile from '../assets/home/dr-nico-sierra-cirujano-fisura-labiopalatina-barcelona.jpg';
+import drPhotoFile from '../assets/about/dr-nico-sierra-quirofano-smile-train.jpg';
+import heroBannerFile from '../assets/about/quirofano-cirugia-fisura-labiopalatina-dr-nico-sierra.jpg';
+import logoTresserra from '../assets/about/logos/logo-clinica-tresserra.png';
+import logoVallDhebron from '../assets/about/logos/logo-vall-dhebron.png';
+import logoMsi from '../assets/about/logos/logo-msi.png';
+import logoTransformingCleft from '../assets/about/logos/logo-transforming-cleft.png';
+import logoCircleCleft from '../assets/about/logos/logo-circle-of-cleft-professionals.png';
+import logoOperationSmile from '../assets/about/logos/logo-operation-smile.png';
 
 const entry = await getEntry('about', 'main');
 const drPhoto = await getImage({ src: drPhotoFile, width: 600, format: 'webp' });
 if (!entry) throw new Error('Missing content entry: about/main');
 const d = entry.data;
+
+const heroBanner = await getImage({ src: heroBannerFile, width: 1800, height: 900, format: 'webp' });
+
+// Placeholders — swap src: for local imports of the real clinic/hospital photos when they land.
+const facilityImages = await Promise.all(
+  d.facility.locations.map((loc) => getImage({ src: loc.heroImageQuery, width: 900, height: 700, format: 'webp' }))
+);
+
+// Institutional/organization logos — held to entities already named in bio/Trayectoria text.
+// Mútua de Terrassa and Smile Train logos were supplied too but are NOT wired in here — see flags in chat.
+const orgLogos = await Promise.all(
+  [
+    { name: 'Clínica Tresserra', file: logoTresserra },
+    { name: "Hospital Universitario Vall d'Hebron", file: logoVallDhebron },
+    { name: 'Mobile Surgery International (MSI)', file: logoMsi },
+    { name: 'Transforming Cleft', file: logoTransformingCleft },
+    { name: 'Circle of Cleft Professionals', file: logoCircleCleft },
+    { name: 'Operation Smile', file: logoOperationSmile },
+  ].map(async (o) => ({ name: o.name, img: await getImage({ src: o.file, height: 60, format: 'png' }) }))
+);
 
 const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
   "@context": "https://schema.org",
@@ -28,13 +55,13 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
     address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressCountry: "BR" },
   },
   memberOf: d.schemaEntities
-    .filter((e) => ['Operation Smile', 'Smile Train', 'FEBOMFS'].includes(e))
+    .filter((e) => ['Operation Smile', 'Smile Train', 'FEBOMFS', 'Mobile Surgery International'].includes(e))
     .map((e) => ({ "@type": "Organization", name: e })),
 })}</script>`;
 ---
-<Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage="/dr-nico-sierra-cirujano-fisura-labiopalatina.jpg" schemaBlocks={schemaBlocks}>
+<Layout title={d.title} description={d.description} canonical={d.canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage="/dr-nico-sierra-cirujano-fisura-labiopalatina.jpg" schemaBlocks={schemaBlocks} clinical={true} lastReviewed={d.lastReviewed}>
   <main>
-    <section class="hero-section">
+    <section class="hero-section" style={`background-image:url(${heroBanner.src});background-size:cover;background-position:center;`}>
       <div>
         <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Dr. Nico Sierra' }]} />
         <div class="sh">
@@ -45,7 +72,7 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
       </div>
     </section>
 
-    <section class="section" style="background:#001e2e;">
+    <section class="section" style="border-top:1px solid rgba(255,255,255,0.14);">
       <div class="container">
         <div class="split-2col">
           <div>
@@ -57,20 +84,54 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
               <h2>Una carrera dedicada en exclusiva a la fisura labiopalatina.</h2>
             </div>
             {d.bio.paragraphs.map((p) => <p>{p}</p>)}
-            <div style="margin-top:32px;display:flex;flex-direction:column;gap:14px;">
-              {d.bio.credentials.map((c) => (
-                <div style={`padding:18px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid ${c.accentColor};border-radius:12px;`}>
-                  <strong>{c.title}</strong>
-                  <p style="margin-top:4px;font-size:.9rem;">{c.text}</p>
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
+        <div class="ns-about__bottom">
+          <ul class="ns-about__creds ns-about__creds--5" role="list">
+            {d.bio.credentials.map((c) => (
+              <li class="ns-cred" style={`--ci:${c.accentColor}`}>
+                <div class="ns-cred__icon" set:html={`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c.iconSvg}</svg>`} />
+                <div><strong>{c.title}</strong><span>{c.text}</span></div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background:#00111c;border-top:1px solid rgba(0,131,98,0.15);">
+    <section class="section" style="border-top:1px solid rgba(255,255,255,0.14);">
+      <div class="container" style="max-width:860px;">
+        <div class="sh">
+          <div class="eyebrow">{d.trayectoria.eyebrow}</div>
+          <h2>{d.trayectoria.h2}</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:32px;">
+          {d.trayectoria.items.map((item) => (
+            <details style="padding:20px 22px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;">
+              <summary style="cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;">{item.title}</summary>
+              <p style="margin-top:14px;opacity:.85;">{item.text}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="border-top:1px solid rgba(255,255,255,0.14);">
+      <div class="container">
+        <div class="sh sh--center">
+          <div class="eyebrow" style="justify-content:center;">Instituciones y colaboraciones</div>
+        </div>
+        <ul class="logo-strip" role="list">
+          {orgLogos.map((o) => (
+            <li class="logo-chip">
+              <img src={o.img.src} alt={o.name} loading="lazy">
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" style="border-top:1px solid rgba(255,255,255,0.14);">
       <div class="container" style="max-width:860px;">
         <div class="sh">
           <div class="eyebrow">Publicaciones y reconocimientos</div>
@@ -113,16 +174,45 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
       </div>
     </section>
 
-    <section style="background:#001e2e;padding:clamp(56px,7vw,88px) 0;border-top:1px solid rgba(0,131,98,0.2);text-align:center;">
-      <div class="container">
-        <div class="sh sh--center">
-          <div class="eyebrow" style="justify-content:center;">{d.cta.eyebrow}</div>
-          <h2>{d.cta.h2}</h2>
-          <p>{d.cta.text}</p>
+    <section class="section" style="border-top:1px solid rgba(255,255,255,0.14);">
+      <div class="container" style="max-width:1000px;">
+        <div class="sh">
+          <div class="eyebrow">{d.facility.eyebrow}</div>
+          <h2>{d.facility.h2}</h2>
         </div>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="cta-banner"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>WhatsApp</a>
-          <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Enviar mi caso →</a>
+        <div style="display:flex;flex-direction:column;gap:32px;margin-top:32px;">
+          {d.facility.locations.map((loc, i) => (
+            <div class="split-media-text">
+              <img src={facilityImages[i].src} alt={`${loc.name} — placeholder, foto real pendiente`} loading="lazy" style="width:100%;border-radius:16px;aspect-ratio:4/3;object-fit:cover;">
+              <div>
+                <h3 style="margin-bottom:8px;">{loc.name}</h3>
+                <p style="opacity:.85;">{loc.intro}</p>
+                <ul style="margin-top:12px;display:flex;flex-direction:column;gap:8px;padding-left:0;list-style:none;">
+                  {loc.bullets.map((b) => (
+                    <li style="padding-left:18px;position:relative;font-size:.92rem;opacity:.85;">
+                      <span style="position:absolute;left:0;">–</span>{b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner" aria-labelledby="cta-h2">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="sh sh--center">
+            <div class="eyebrow">{d.cta.eyebrow}</div>
+            <h2 id="cta-h2">{d.cta.h2}</h2>
+            <p>{d.cta.text}</p>
+          </div>
+          <div class="cta-actions">
+            <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="cta-banner"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>WhatsApp</a>
+            <a href="/cuentanos-tu-historia/" class="btn btn-ghost">Enviar mi caso →</a>
+          </div>
         </div>
       </div>
     </section>

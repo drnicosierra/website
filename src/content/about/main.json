@@ -7,7 +7,8 @@
   "schemaEntities": [
     "UFPR",
     "Operation Smile",
-    "Springer"
+    "Springer",
+    "Mobile Surgery International"
   ],
   "hero": {
     "eyebrow": "Cirujano especialista en fisura labiopalatina",
@@ -22,24 +23,100 @@
     ],
     "credentials": [
       {
-        "title": "Fellowship en Cirugía Craneofacial y Fisura Labiopalatina",
-        "text": "Universidad Federal de Paraná (UFPR), Brasil — uno de los centros de referencia mundial para esta especialidad.",
-        "accentColor": "#7C3AED"
-      },
-      {
-        "title": "Cirujano de referencia en fisura labiopalatina",
-        "text": "Más de 100 intervenciones al año. Casos primarios, revisiones complejas y familias internacionales.",
+        "title": "La experiencia marca la diferencia.",
+        "text": "Más de 100 cirugías realizadas cada año.",
+        "iconSvg": "<path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/>",
         "accentColor": "#008362"
       },
       {
-        "title": "Operation Smile",
-        "text": "Misiones quirúrgicas en más de cuatro continentes. Publicación en Springer sobre cirugía de fisura labiopalatina en recursos limitados.",
+        "title": "Formación de Élite.",
+        "text": "Fellowship en Cirugía Craneofacial y Fisura Labiopalatina.",
+        "iconSvg": "<path d=\"M22 10v6M2 10l10-5 10 5-10 5z\"/><path d=\"M6 12v5c3 3 9 3 12 0v-5\"/>",
+        "accentColor": "#7C3AED"
+      },
+      {
+        "title": "Técnicas avanzadas y mínimamente invasivas",
+        "text": "Excelencia quirúrgica con el máximo confort.",
+        "iconSvg": "<polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/>",
+        "accentColor": "#0891B2"
+      },
+      {
+        "title": "Experto en Cirugía de Revisión",
+        "text": "Nunca es tarde para verse y sentirse mejor.",
+        "iconSvg": "<path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/>",
+        "accentColor": "#C9186A"
+      },
+      {
+        "title": "Atención sin fronteras",
+        "text": "Cirugía de referencia internacional en Barcelona.",
+        "iconSvg": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z\"/>",
         "accentColor": "#0d74c4"
       },
       {
-        "title": "Pacientes de toda España y Europa",
-        "text": "Valoración por telemedicina. Logística coordinada para familias internacionales.",
-        "accentColor": "#a01255"
+        "title": "Educador, Conferencista y Coautor",
+        "text": "Compartiendo conocimiento para mejorar la atención de pacientes en todo el mundo.",
+        "iconSvg": "<path d=\"M4 19.5A2.5 2.5 0 0 1 6.5 17H20\"/><path d=\"M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z\"/>",
+        "accentColor": "#B45309"
+      }
+    ]
+  },
+  "trayectoria": {
+    "eyebrow": "Trayectoria",
+    "h2": "Formación, experiencia y compromiso internacional.",
+    "items": [
+      {
+        "title": "Experiencia",
+        "text": "La cirugía de la fisura labiopalatina y las malformaciones craneofaciales es una disciplina altamente especializada en la que la experiencia del cirujano influye directamente en los resultados. En la mayoría de los casos, una persona nacida con una fisura labiopalatina necesitará un número limitado de intervenciones para alcanzar apariencia facial armónica y con plenas funciones. Cada cirugía representa una oportunidad única para conseguir el mejor resultado posible. La precisión y la calidad quirúrgica determinan la función, el crecimiento y la apariencia facial durante toda la vida. Diversos estudios han demostrado que los pacientes tratados por cirujanos con una dedicación específica y un elevado volumen de casos obtienen mejores resultados funcionales y estéticos y, con frecuencia, requieren menos cirugías de revisión a lo largo de su vida. Con una práctica dedicada específicamente a la cirugía de la fisura labiopalatina y otras malformaciones craneofaciales, el Dr. Nico Sierra acompaña cada año a pacientes de todas las edades, desde recién nacidos hasta adultos, en todas las etapas del proceso reconstructivo, desde la cirugía primaria hasta las reconstrucciones secundarias más complejas. Esta experiencia permite planificar cada intervención con una visión a largo plazo para preservar el crecimiento, optimizar la función y alcanzar resultados naturales y duraderos. El objetivo no es obtener el mejor resultado posible con el menor número de intervenciones. Lograrlo requiere experiencia, una planificación cuidadosa y una técnica precisa."
+      },
+      {
+        "title": "Formación de élite",
+        "text": "La cirugía de la fisura labiopalatina y las malformaciones craneofaciales requiere una formación altamente especializada que va mucho más allá de la especialidad médica. Los programas de Fellowship representan el máximo nivel de formación clínica y quirúrgica, proporcionando una preparación intensiva en cirugía reconstructiva, atención interdisciplinar y manejo integral del paciente, desde el nacimiento hasta la edad adulta. El Dr. Nico Sierra completó un Fellowship en Cirugía Craneofacial y Fisura Labiopalatina en el Departamento de Cirugía Plástica de la Universidad Federal de Paraná (UFPR, Brasil), uno de los centros acreditados por la Associação Brasileira de Cirurgia Crânio-Maxilo-Facial y reconocido internacionalmente por su excelencia en esta disciplina. Este programa combina una intensa actividad quirúrgica con la formación dentro de un equipo multidisciplinar altamente especializado, participando en cientos de procedimientos reconstructivos complejos y en la planificación integral del tratamiento de pacientes con fisura labiopalatina y otras malformaciones craneofaciales. Además, durante casi una década el Dr. Sierra acompañó al Dr. Lluís Tresserra Llauradó, considerado el referente histórico de la cirugía de la fisura labiopalatina en España. Como discípulo y colaborador cercano, el Dr. Sierra adquirió de primera mano la filosofía reconstructiva, la técnica quirúrgica y el compromiso con la excelencia que caracterizaron toda la trayectoria del Dr. Tresserra. Hoy continúa ese legado como Director Médico de Clínica Tresserra, ofreciendo continuidad asistencial a sus pacientes y manteniendo vivos los principios que definieron una escuela de referencia en nuestro país."
+      },
+      {
+        "title": "Mobile Surgery International (MSI)",
+        "text": "Entre 2019 y 2024, el Dr. Nico Sierra fue Cirujano Jefe Consultor y Director Médico del Centro de Atención Integral de Fisura Labiopalatina de Mobile Surgery International (MSI) en Oaxaca, México, una organización sin ánimo de lucro dedicada a ampliar el acceso a la cirugía de fisura labiopalatina en zonas de recursos limitados. Durante ese periodo, el centro atendió a más de 700 pacientes y realizó más de 550 cirugías reconstructivas dirigidas a tratar y prevenir discapacidades asociadas a la fisura labiopalatina. El Dr. Sierra lideró el equipo interdisciplinar, coordinó los programas clínicos y quirúrgicos, y participó en la formación de profesionales locales y regionales."
+      },
+      {
+        "title": "Técnicas avanzadas y mínimamente invasivas",
+        "text": "Las técnicas avanzadas y mínimamente invasivas empleadas en la cirugía reconstructiva moderna permiten restaurar la función y la armonía facial respetando al máximo los tejidos, favoreciendo una recuperación más rápida y un adecuado crecimiento facial. Además, el equipo del Dr. Nico Sierra incorpora protocolos de cuidado perioperatorio basados en la evidencia científica para minimizar el impacto de la cirugía, reducir el dolor, la inflamación y el tiempo de recuperación, y ofrecer la máxima seguridad y confort en cada procedimiento. Cada tratamiento se planifica de forma individualizada, seleccionando la técnica más adecuada según la edad, la anatomía y las necesidades específicas de cada paciente. El objetivo es lograr resultados naturales y duraderos mediante una cirugía lo más precisa y delicada posible, preservando el crecimiento, optimizando la función y mejorando la experiencia del paciente y su familia."
+      },
+      {
+        "title": "Nunca es tarde para verse y sentirse mejor",
+        "text": "Las secuelas estéticas y funcionales asociadas a tratamientos previos subóptimos o incompletos, o a la propia complejidad de la fisura labiopalatina, pueden tener un impacto importante en la calidad de vida. Cicatrices visibles, asimetrías del labio o la nariz, alteraciones del habla, dificultades respiratorias o para la alimentación pueden persistir o hacerse más evidentes con el crecimiento, afectando la función, la apariencia facial, la autoestima y la integración social. La cirugía de revisión tiene como objetivo corregir estas secuelas y recuperar la función y la armonía facial. Se trata de procedimientos reconstructivos de alta complejidad que requieren una valoración individualizada, una planificación meticulosa y una amplia experiencia en cirugía de secuelas asociadas a fisura labiopalatina. El Dr. Nico Sierra está especializado en el tratamiento de pacientes que desean mejorar el resultado de cirugías previas, en pacientes de todas las edades. Cada caso se estudia de forma personalizada para identificar las opciones terapéuticas más adecuadas y diseñar un plan de tratamiento adaptado a las necesidades, expectativas y al momento vital de cada paciente. La cirugía de revisión no persigue únicamente mejorar la apariencia facial. Su objetivo es reducir la discapacidad asociada a las secuelas de la fisura labiopalatina, restaurar la función y ayudar a cada paciente a desarrollar su máximo potencial funcional, social y emocional. Nunca es tarde para mejorar. Incluso pequeños cambios pueden traducirse en una mejor función, una mayor armonía facial y un impacto significativo en la confianza, la calidad de vida y el bienestar."
+      },
+      {
+        "title": "Atención sin fronteras",
+        "text": "El Dr. Nico Sierra atiende a pacientes de Barcelona, del resto de España y de cualquier parte del mundo que buscan una atención altamente especializada en cirugía de la fisura labiopalatina y las malformaciones craneofaciales. Para facilitar el acceso a familias y pacientes que residen fuera de Barcelona, el equipo ofrece un modelo asistencial adaptado que combina valoraciones iniciales mediante telemedicina, revisión remota de estudios e imágenes, planificación personalizada del tratamiento, coordinación del viaje y de la cirugía en un centro acreditado, así como un seguimiento postoperatorio presencial o a distancia cuando está indicado. Este modelo permite reducir desplazamientos innecesarios, optimizar los tiempos de tratamiento y garantizar la continuidad asistencial antes, durante y después de la cirugía, independientemente del lugar de residencia del paciente. La distancia no debe ser un obstáculo para acceder a una atención especializada de referencia internacional."
+      },
+      {
+        "title": "Educador, conferencista y coautor",
+        "text": "El Dr. Sierra participa activamente en distintos proyectos con el objetivo de avanzar, enseñar y compartir el conocimiento para que más pacientes puedan beneficiarse de la mejor calidad en la atención. Como miembro de la Unidad de Cirugía Maxilofacial Pediátrica del Hospital Universitario Vall d'Hebron, uno de los centros de referencia en Europa, el Dr. Nico Sierra participa en la formación de médicos residentes y especialistas en cirugía de la fisura labiopalatina y las malformaciones craneofaciales, contribuyendo al desarrollo de la próxima generación de cirujanos. Su compromiso con la educación trasciende el ámbito hospitalario. Como voluntario internacional de Operation Smile, colabora en la formación de cirujanos y equipos multidisciplinares de diferentes países, contribuyendo a mejorar la calidad de la cirugía reconstructiva en regiones con recursos limitados. El Dr. Sierra participa regularmente como conferencista en congresos nacionales e internacionales, es asesor de organizaciones dedicadas al desarrollo global de la atención de la fisura labiopalatina, como Transforming Cleft y Circle of Cleft Professionals, y forma parte del Comité Organizador del Congreso Europeo de Fisura Labiopalatina y Craneofacial (ECPCA Barcelona 2027). Su actividad académica incluye además la publicación de artículos científicos, la coautoría y edición de libros especializados, y la colaboración en proyectos internacionales de investigación e innovación orientados a mejorar la atención de pacientes nacidos con fisura labiopalatina."
+      }
+    ]
+  },
+  "facility": {
+    "eyebrow": "Dónde te trato",
+    "h2": "Dos centros de referencia, un mismo equipo.",
+    "locations": [
+      {
+        "name": "Clínica Tresserra, Barcelona",
+        "heroImageQuery": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=900&h=700&q=80&fit=crop",
+        "intro": "Consulta, valoración y seguimiento personalizado en un entorno privado en el centro de Barcelona.",
+        "bullets": [
+          "El Dr. Sierra atiende consulta y valoración personalizada en Clínica Tresserra.",
+          "El equipo coordina la logística de viaje para pacientes y familias que llegan desde otras ciudades o países.",
+          "Ofrece valoración por telemedicina para quienes no pueden desplazarse en la primera consulta."
+        ]
+      },
+      {
+        "name": "Hospital Universitario Vall d'Hebron, Barcelona",
+        "heroImageQuery": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&h=700&q=80&fit=crop",
+        "intro": "Las intervenciones quirúrgicas se realizan en el Hospital Universitario Vall d'Hebron, entorno hospitalario universitario de referencia en Barcelona.",
+        "bullets": [
+          "El Dr. Sierra es cirujano de referencia en fisura labiopalatina en el Hospital Universitario Vall d'Hebron.",
+          "Cada intervención se coordina con equipos interdisciplinares del hospital, con el rigor que cada caso exige.",
+          "Las familias reciben acompañamiento durante todo el proceso quirúrgico."
+        ]
       }
     ]
   },
