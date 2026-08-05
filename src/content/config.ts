@@ -39,7 +39,7 @@ const faqItem = z.object({
 const cuandoItem = z.object({
   title: z.string(),
   text: z.string(), // AEO: must be a complete sentence, not a fragment
-  icon: z.enum(['pulse', 'clock', 'family', 'ribbon']), // maps to a fixed SVG set in the template
+  icon: z.enum(['pulse', 'clock', 'family', 'ribbon']), // not currently rendered — kept for possible future reuse
 });
 
 const procesoStep = z.object({
@@ -86,15 +86,19 @@ const services = defineCollection({
     }),
 
     // Block 3 — Cuándo (AEO: each item.text must be a complete sentence)
+    // items not currently rendered on the page (structure-unify pass, 2026-08-05)
+    // — kept optional in case a future design brings them back.
     cuando: z.object({
       intro: z.string(),
-      items: z.array(cuandoItem).min(3).max(5),
+      items: z.array(cuandoItem).min(3).max(5).optional(),
     }),
 
     // Block 4 — Cómo es el procedimiento
+    // steps not currently rendered on the page (structure-unify pass, 2026-08-05)
+    // — kept optional in case a future design brings them back.
     proceso: z.object({
       intro: z.string(),
-      steps: z.array(procesoStep).min(3).max(5),
+      steps: z.array(procesoStep).min(3).max(5).optional(),
     }),
 
     // Block 5 — Resultados
@@ -104,11 +108,14 @@ const services = defineCollection({
     }),
 
     // Block 6 — Por qué Dr. Nico Sierra (AEO critical: >=2 named entities)
+    // quote not currently rendered on the page (structure-unify pass, 2026-08-05,
+    // dropped with the dr-right highlight box) — kept optional in case a future
+    // design brings it back.
     porQue: z.object({
       lead: z.string(),
       body: z.string(),
       entities: z.array(credentialEntity).min(2),
-      quote: z.string(),
+      quote: z.string().optional(),
     }),
 
     // Block 7 — FAQ (min 5, max 8 per brief; schema text must match visible text exactly —
