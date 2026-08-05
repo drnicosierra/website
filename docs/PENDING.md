@@ -20,6 +20,13 @@
 **Ship after:** Vidas Transformadas page design finalized + Dr. Sierra + COMB deontological advisory (free, 30 min for colegiados).  
 **Owner:** Claude (script) + Renier (workflow definition)
 
+### T7 — Service page "Ver todos →" should deep-link per procedure
+**Status:** Deferred — placeholder link  
+**Why:** Merged Resultados/Por qué section (2026-08-05, all 8 service pages) has a "Ver todos →" link that should go to a results view filtered to that specific procedure (e.g. the NAM service page → NAM cases only), not the flat hub. Per-procedure filtering on Vidas Transformadas doesn't exist yet — only one example case template lives at `/vidas-transformadas/caso-ejemplo-plantilla/`.  
+**Current interim:** All 8 links point to `/vidas-transformadas/` (hub).  
+**Ship after:** T6 above (Vidas Transformadas page design + pipeline finalized with per-procedure filtering).  
+**Owner:** Renier + Claude
+
 ---
 
 ## Content flagged for Dr. Sierra batch review

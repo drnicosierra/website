@@ -403,69 +403,11 @@ p + p { margin-top:16px; }
    CUÁNDO SE INDICA — Block 3
    ════════════════════════════════════ */
 .cuando { background:#001629; }
-.cuando-list {
-  display:flex; flex-direction:column; gap:16px; margin-top:48px;
-}
-.cuando-item {
-  display:flex; align-items:flex-start; gap:20px;
-  padding:22px 24px;
-  background:var(--ns-surface-1); border:1px solid var(--ns-line);
-  border-left:3px solid var(--sc);
-  border-radius:var(--ns-radius);
-  transition:background .25s, border-color .25s;
-}
-.cuando-item:hover { background:var(--ns-surface-2); }
-.cuando-icon {
-  width:40px; height:40px; flex-shrink:0;
-  border-radius:10px; background:var(--sc-soft);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--sc);
-}
-.cuando-icon svg { width:20px; height:20px; }
-.cuando-text h4 { color:var(--ns-white); margin-bottom:4px; font-size:.95rem; }
-.cuando-text p { font-size:.9rem; margin:0; }
-
-/* AEO: each bullet = complete sentence (per brief) */
-.cuando-item p { /* already complete sentences in content */ }
 
 /* ════════════════════════════════════
    EL PROCESO — Block 4
    ════════════════════════════════════ */
 .proceso { background:#001e2e; }
-.proceso-steps {
-  display:grid; grid-template-columns:1fr;
-  gap:0; margin-top:56px;
-  border:1px solid var(--ns-line);
-  border-radius:var(--ns-radius-lg); overflow:hidden;
-}
-.proceso-step {
-  display:grid; grid-template-columns:64px 1fr;
-  gap:0; border-bottom:1px solid var(--ns-line);
-  transition:background .25s;
-}
-.proceso-step:last-child { border-bottom:none; }
-.proceso-step:hover { background:rgba(255,255,255,0.02); }
-.proceso-num {
-  display:flex; align-items:center; justify-content:center;
-  background:var(--sc-soft);
-  border-right:1px solid var(--ns-line);
-  font-family:'DM Sans',sans-serif; font-size:.75rem;
-  font-weight:700; letter-spacing:.15em;
-  color:var(--sc); padding:24px 0;
-}
-.proceso-content { padding:24px 28px; }
-.proceso-content h3 {
-  font-size:1.05rem; margin-bottom:8px; color:var(--ns-white);
-}
-.proceso-content p { font-size:.92rem; margin:0; }
-/* AEO: include specific timeframes per brief */
-.proceso-content .timeframe {
-  display:inline-block; font-size:.75rem; font-weight:600;
-  letter-spacing:.1em; text-transform:uppercase;
-  color:var(--sc); margin-top:8px;
-  padding:3px 10px; border-radius:100px;
-  background:var(--sc-soft);
-}
 
 /* ════════════════════════════════════
    RESULTADOS — Block 5
@@ -679,17 +621,10 @@ a.ccase:hover .ccase__link { color:#fff; }
 }
 
 /* ════════════════════════════════════
-   DR. SIERRA EN ESTA INTERVENCIÓN — Block 6 (AEO entity signal)
+   dr-stat/dr-stat-num/dr-stat-label/dr-stats: orphaned, no template
+   references them (pre-dates the Resultados/Por qué merge — not touched here).
+   entity-tag is live — used in the merged Resultados section (Block 5).
    ════════════════════════════════════ */
-.dr-section {
-  background:#001e2e;
-  border-top:1px solid var(--ns-line);
-  border-bottom:1px solid var(--ns-line);
-}
-.dr-inner {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:clamp(48px,6vw,96px); align-items:center;
-}
 .dr-stat {
   display:flex; flex-direction:column; gap:4px;
 }
@@ -702,15 +637,6 @@ a.ccase:hover .ccase__link { color:#fff; }
   letter-spacing:.1em; text-transform:uppercase;
 }
 .dr-stats { display:flex; gap:40px; margin-top:28px; flex-wrap:wrap; padding-top:24px; border-top:1px solid var(--ns-line); }
-.dr-quote {
-  padding:24px 28px;
-  border-radius:var(--ns-radius-lg);
-  background:var(--ns-surface-1);
-  border:1px solid var(--ns-line);
-  border-left:3px solid var(--sc);
-  font-size:1.05rem; color:rgba(200,218,235,0.9);
-  line-height:1.8; font-style:italic;
-}
 /* AEO: named entities in this section per brief */
 .entity-tag {
   display:inline-flex; align-items:center; gap:6px;
@@ -898,12 +824,10 @@ a.ccase:hover .ccase__link { color:#fff; }
   opacity:0; pointer-events:none; transition:opacity .2s, transform .2s;
 }
 .wa-float:hover .wa-tip { opacity:1; transform:translateY(-50%) translateX(0); }
-.dr-right { display:flex; flex-direction:column; }
 
 /* ════════════ RESPONSIVE ════════════ */
 @media (max-width:1024px) {
   .que-es-grid { grid-template-columns:1fr; }
-  .dr-inner { grid-template-columns:1fr; }
   .ba-grid { grid-template-columns:1fr 1fr; }
   .faq-layout { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr 1fr; }
@@ -918,10 +842,8 @@ a.ccase:hover .ccase__link { color:#fff; }
   .section { padding:clamp(56px,7vw,80px) 0; }
   .que-es-grid { gap:32px; }
   .que-es-img { aspect-ratio:3/2; }
-  .cuando-item { padding:16px; gap:14px; }
   .ba-grid { grid-template-columns:1fr; }
   .ba-images { height:180px; }
-  .dr-inner { gap:32px; }
   .dr-stats { gap:24px; }
   .faq-layout { gap:32px; }
   .related-grid { grid-template-columns:1fr; }
@@ -932,13 +854,11 @@ a.ccase:hover .ccase__link { color:#fff; }
   .sh { margin-bottom:28px; }
   .hero h1 { font-size:clamp(2rem,8vw,3rem); }
   .cta-actions { flex-direction:column; align-items:center; }
-  .proceso-step { grid-template-columns:48px 1fr; }
   .ba-hero { grid-template-columns:1fr; }
 }
 @media (max-width:480px) {
   .hero-ctas { flex-direction:column; }
   .hero-ctas .btn { width:100%; justify-content:center; }
-  .cuando-list { gap:12px; }
   .dr-stats { flex-direction:column; gap:16px; }
   .entity-tag { font-size:.65rem; }
   .footer-grid { gap:32px; }

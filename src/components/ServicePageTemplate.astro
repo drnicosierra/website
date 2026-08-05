@@ -107,13 +107,6 @@ const schemaBlocks = [procedureSchema, faqSchema, breadcrumbSchema, physicianSch
   .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
   .join('\n');
 
-const ICONS: Record<string, string> = {
-  pulse: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
-  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>',
-  family: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
-  ribbon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-};
-
 const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>';
 ---
 <Layout title={fullTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle} ogDescription={d.ogDescription} ogImage={ogImage} schemaBlocks={schemaBlocks} clinical={true} lastReviewed={d.lastReviewed}>
@@ -179,17 +172,6 @@ const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCol
         <h2 id="cuando-h2" class="reveal rv2">¿Cuándo se recomienda {d.procedureName.toLowerCase()}?</h2>
         <p class="lead reveal rv3">{d.cuando.intro}</p>
       </div>
-      <div class="cuando-list">
-        {d.cuando.items.map((item, i) => (
-          <div class={`cuando-item reveal rv${i + 2}`}>
-            <div class="cuando-icon" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">${ICONS[item.icon]}</svg>`} />
-            <div class="cuando-text">
-              <h4>{item.title}</h4>
-              <p>{item.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -203,22 +185,10 @@ const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCol
           <p class="lead reveal rv3">{d.proceso.intro}</p>
         </div>
       </div>
-      <div class="proceso-steps reveal rv2">
-        {d.proceso.steps.map((step, i) => (
-          <div class="proceso-step">
-            <div class="proceso-num">{String(i + 1).padStart(2, '0')}</div>
-            <div class="proceso-content">
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-              <span class="timeframe">{step.timeframe}</span>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
-  <!-- BLOCK 5 — RESULTADOS -->
+  <!-- BLOCK 5 — RESULTADOS (merged with Por qué Dr. Sierra) -->
   <section class="section resultados" aria-labelledby="resultados-h2">
     <div class="container">
       <div class="sh" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px">
@@ -227,31 +197,18 @@ const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCol
           <h2 id="resultados-h2" class="reveal rv2">¿Qué resultados se pueden esperar?</h2>
           <p class="lead reveal rv2">{d.resultados.intro}</p>
         </div>
-        <a href="/vidas-transformadas" class="reveal" style="font-size:.82rem;color:rgba(255,255,255,.3);flex-shrink:0;padding-top:4px">Ver todos →</a>
+        <!-- Points to the hub for now; should deep-link to this service's
+             filtered results (e.g. /vidas-transformadas/nam/) once per-procedure
+             filtering ships — see docs/PENDING.md T7. -->
+        <a href="/vidas-transformadas/" class="reveal" style="font-size:.82rem;color:rgba(255,255,255,.3);flex-shrink:0;padding-top:4px">Ver todos →</a>
       </div>
-      <!-- Before/after gallery: populated per-case, not per-schema. See Block 5 gallery data source. -->
-    </div>
-  </section>
-
-  <!-- BLOCK 6 — POR QUÉ DR. SIERRA -->
-  <section class="section dr-section" aria-labelledby="dr-h2">
-    <div class="container">
-      <div class="dr-inner">
-        <div class="dr-left">
-          <div class="sh">
-            <div class="eyebrow reveal">¿Por qué el Dr. Nico Sierra?</div>
-            <h2 id="dr-h2" class="reveal rv2">¿Por qué elegir al Dr. Nico Sierra para {d.procedureName.toLowerCase()}?</h2>
-            <p class="lead reveal rv3">{d.porQue.lead}</p>
-          </div>
-          <p class="reveal rv3">{d.porQue.body}</p>
-          <div class="reveal rv4" style="margin-top:20px">
-            {d.porQue.entities.map((e) => <span class="entity-tag">{e}</span>)}
-          </div>
+      <div style="max-width:720px">
+        <p class="reveal rv3">{d.porQue.lead}</p>
+        <p class="reveal rv3">{d.porQue.body}</p>
+        <div class="reveal rv4" style="margin-top:20px">
+          {d.porQue.entities.map((e) => <span class="entity-tag">{e}</span>)}
         </div>
-        <div class="dr-right reveal-scale rv3">
-          <blockquote class="dr-quote">"{d.porQue.quote}"</blockquote>
-          <a href="/sobre-dr-nico-sierra" class="btn btn-ghost" style="margin-top:28px;display:inline-flex;">Conoce al Dr. Nico Sierra →</a>
-        </div>
+        <a href="/sobre-dr-nico-sierra/" class="btn btn-ghost reveal rv4" style="margin-top:28px;display:inline-flex;">Conoce al Dr. Nico Sierra →</a>
       </div>
     </div>
   </section>
