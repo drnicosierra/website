@@ -11,17 +11,17 @@
   "queEsImageQuery": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=600&q=80&fit=crop",
   "hero": {
     "h1": "Cirugía de <em>paladar hendido</em> en España",
-    "lead": "Cierre primario y de revisión del paladar hendido. El Dr. Nico Sierra realiza más de 100 intervenciones anuales, desde bebés hasta adultos con secuelas no tratadas."
+    "lead": "Más de 100 intervenciones anuales en práctica privada, en pacientes con fisura labiopalatina: palatoplastia primaria en bebés y cirugía de revisión en niños, adolescentes y adultos."
   },
   "queEs": {
-    "firstParagraph": "La cirugía de paladar hendido es el procedimiento mediante el cual se cierra la hendidura congénita del paladar en personas nacidas con fisura labiopalatina. El objetivo es restaurar la integridad del paladar blando y duro para permitir una alimentación correcta, un desarrollo normal del habla y prevenir complicaciones auditivas.",
+    "firstParagraph": "La cirugía de paladar hendido —reconstrucción anatómica y funcional del paladar, o palatoplastia— se realiza habitualmente en torno a los 12 meses de vida, como parte de una estrategia reconstructiva integral planificada desde el nacimiento. Su objetivo no es únicamente cerrar la fisura y restaurar la separación entre la nariz y la boca, sino reconstruir con precisión el paladar blando y su musculatura, mejorando la alimentación y favoreciendo un adecuado desarrollo del habla y la audición.",
     "paragraphs": [
-      "El paladar hendido puede presentarse de forma aislada o asociado al labio fisurado. La extensión de la hendidura y la anatomía de cada caso determinan la técnica quirúrgica más adecuada. El Dr. Nico Sierra evalúa cada paciente individualmente y diseña un plan adaptado a su situación.",
-      "La cirugía primaria de paladar hendido se realiza entre los 9 y los 12 meses. El Dr. Sierra también trata adolescentes y adultos con fístulas palatinas, insuficiencia velofaríngea o resultados previos insatisfactorios."
+      "Cada fisura palatina es diferente. La extensión y severidad de la hendidura, junto con las características propias de cada bebé, determinan una estrategia quirúrgica individualizada. El Dr. Nico Sierra cuenta con amplia experiencia en cirugía de fisura labiopalatina y adapta distintas técnicas reconstructivas según la anatomía y las necesidades de cada paciente, buscando restaurar la función del paladar y favorecer el desarrollo natural del habla.",
+      "La cirugía se planifica con una visión a largo plazo, minimizando el riesgo de alteraciones del habla, la alimentación y la audición, y favoreciendo un adecuado crecimiento facial, como parte de un tratamiento integral coordinado con fonoaudiología, otorrinolaringología y odontología. En niños, adolescentes y adultos previamente operados, el Dr. Nico Sierra también realiza cirugía de revisión del paladar para tratar fístulas, disfunción velofaríngea y otras secuelas, restaurando la anatomía y mejorando la función."
     ]
   },
   "cuando": {
-    "intro": "La cirugía de paladar hendido está indicada en distintos momentos del desarrollo. El Dr. Sierra evalúa cada caso para determinar el momento y la técnica óptimos.",
+    "intro": "La reconstrucción primaria del paladar fisurado o hendido (palatoplastia) se realiza habitualmente en torno a los 12 meses de vida, con el objetivo de favorecer un adecuado desarrollo del habla. En niños, adolescentes y adultos previamente operados, puede estar indicada una cirugía de revisión cuando persisten alteraciones del habla, la alimentación o la respiración —insuficiencia velofaríngea, fístulas oronasales—, planificadas de forma individualizada para restaurar la función del paladar y favorecer un habla más clara y natural. El Dr. Nico Sierra realiza palatoplastia primaria y cirugía de revisión en Barcelona, adaptando el momento y las técnicas a las necesidades de cada paciente, con una visión integral orientada a favorecer el habla, la alimentación, la audición y un adecuado crecimiento facial.",
     "items": [
       {
         "title": "Cierre primario en bebés",
@@ -46,7 +46,7 @@
     ]
   },
   "proceso": {
-    "intro": "La cirugía de paladar hendido se realiza bajo anestesia general. A continuación se describe el proceso habitual desde la valoración preoperatoria hasta el seguimiento a largo plazo.",
+    "intro": "La cirugía reconstructiva del paladar fisurado o hendido (palatoplastia) se realiza bajo anestesia general y dura habitualmente entre una y dos horas. El Dr. Nico Sierra adapta y combina técnicas reconstructivas avanzadas y mínimamente invasivas según la anatomía de cada paciente, restaurando la separación entre la boca y la nariz y reconstruyendo con precisión la musculatura del paladar blando. Cada decisión se toma también pensando en el crecimiento: la reconstrucción busca preservar los tejidos y minimizar las cicatrices que puedan interferir con el desarrollo del maxilar superior, con protocolos avanzados de anestesia pediátrica y recuperación optimizada (ERAS) que minimizan el dolor y favorecen una alimentación precoz. Tras la cirugía, el bebé permanece habitualmente ingresado entre 24 y 48 horas; después del alta, la familia recibe un plan de cuidados y el seguimiento continúa con pautas de estimulación y, cuando está indicado, terapia del habla especializada.",
     "steps": [
       {
         "title": "Evaluación preoperatoria",
@@ -71,10 +71,10 @@
     ]
   },
   "resultados": {
-    "intro": "Un cierre correcto del paladar en el momento adecuado tiene un impacto directo en el habla, la audición y la calidad de vida del paciente a largo plazo."
+    "intro": "El objetivo de la palatoplastia primaria es conseguir un paladar anatómica y funcionalmente reconstruido, con una separación estable entre la boca y la nariz y una musculatura capaz de funcionar adecuadamente durante el habla y la alimentación, minimizando el riesgo de complicaciones —fístulas o disfunción velofaríngea— y contribuyendo a una adecuada función del oído medio. La experiencia del Dr. Nico Sierra permite adaptar y combinar distintas técnicas reconstructivas según la anatomía de cada paciente, con una visión a largo plazo que preserva los tejidos, minimiza el impacto sobre el crecimiento del maxilar superior y reduce, siempre que sea posible, la necesidad de futuras intervenciones."
   },
   "porQue": {
-    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
+    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y Fisura Labiopalatina en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
     "entities": [
       "UFPR",
@@ -85,24 +85,24 @@
   },
   "faq": [
     {
-      "question": "¿A qué edad se opera el labio fisurado?",
-      "answer": "La cirugía de paladar hendido se realiza habitualmente entre los 9 y los 12 meses de vida. Este momento es clave porque permite cerrar el paladar antes de que se establezcan patrones del habla alterados, maximizando el desarrollo lingüístico. El Dr. Nico Sierra valora cada caso individualmente para determinar el momento óptimo de intervención."
+      "question": "¿A qué edad se opera el paladar hendido?",
+      "answer": "La reconstrucción del paladar (palatoplastia primaria) se realiza en torno a los 12 meses de vida, para favorecer un adecuado desarrollo del habla. Sin embargo, el momento óptimo no depende únicamente de la edad, sino también del tipo y extensión de la fisura, la anatomía y el desarrollo general del bebé. El Dr. Nico Sierra valora cada caso de forma individualizada y planifica el momento de la intervención dentro de una estrategia reconstructiva integral, buscando equilibrar el desarrollo del habla con la preservación de los tejidos y el crecimiento del maxilar superior."
     },
     {
-      "question": "¿Qué técnica utiliza el Dr. Nico Sierra para la reconstrucción de labio fisurado?",
-      "answer": "El paladar hendido no tratado produce una voz nasal característica, dificultad para pronunciar consonantes de presión y problemas de comunicación. Un cierre correcto y en el momento adecuado, combinado con logopedia, permite a la mayoría de los pacientes desarrollar un habla completamente normal."
+      "question": "¿Qué técnica utiliza el Dr. Nico Sierra para reconstruir el paladar?",
+      "answer": "No existe una única técnica adecuada para todas las fisuras palatinas. El Dr. Nico Sierra adapta y combina diferentes técnicas reconstructivas avanzadas y mínimamente invasivas según la anatomía y las características específicas de cada paciente. El objetivo no es únicamente cerrar la fisura, sino reconstruir de forma precisa el paladar y, especialmente, reposicionar la musculatura del paladar blando para favorecer una adecuada función velofaríngea durante el habla y la alimentación. Cuando está indicado, pueden incorporarse técnicas de alargamiento del paladar. Cada intervención se planifica también pensando en el crecimiento, buscando preservar los tejidos y minimizar su impacto sobre el desarrollo del maxilar superior."
     },
     {
-      "question": "¿Se puede operar el labio fisurado en adultos?",
-      "answer": "Sí. El Dr. Nico Sierra realiza cirugías de paladar hendido en adultos, ya sea para cerrar fístulas persistentes, corregir insuficiencia velofaríngea o tratar condiciones no operadas en la infancia. No existe límite de edad para mejorar la función y la calidad de vida."
+      "question": "¿Mi bebé podrá hablar con normalidad después de la cirugía de paladar?",
+      "answer": "Uno de los principales objetivos de la palatoplastia primaria es crear las condiciones anatómicas y funcionales necesarias para favorecer un desarrollo natural del habla. Una reconstrucción precisa de la musculatura del paladar blando permite mejorar su movilidad y función durante el habla, reduciendo el riesgo de alteraciones propias de la disfunción velofaríngea, como la hipernasalidad y las articulaciones compensatorias. Sin embargo, el desarrollo del habla depende de múltiples factores y continúa durante los años posteriores a la cirugía, por lo que el seguimiento especializado, la estimulación temprana y la terapia del habla forman parte esencial del tratamiento integral."
     },
     {
-      "question": "¿Cuánto tiempo dura la recuperación tras la cirugía de labio fisurado?",
-      "answer": "Una fístula palatina es una apertura residual en el paladar que persiste tras la cirugía de cierre. Puede causar problemas con la alimentación, el habla y la higiene oral. El Dr. Sierra es especialista en el cierre quirúrgico de fístulas palatinas, incluyendo casos complejos previamente operados."
+      "question": "¿Cómo es la recuperación después de una palatoplastia?",
+      "answer": "La recuperación tras la cirugía de paladar hendido suele ser rápida y bien tolerada. El enfoque del Dr. Nico Sierra combina técnicas mínimamente invasivas con protocolos avanzados de anestesia pediátrica y recuperación optimizada (ERAS) para minimizar el dolor y las molestias postoperatorias, favorecer una alimentación precoz y facilitar una recuperación confortable para el paciente y su familia. Habitualmente, el bebé permanece ingresado entre 24 y 48 horas, periodo durante el cual controlamos la recuperación, el dolor y la alimentación, y acompañamos a la familia en los cuidados necesarios antes de volver a casa. Después del alta, la familia recibe un plan de alimentación y cuidados orientado a proteger la reconstrucción, y el seguimiento a largo plazo permite determinar la necesidad de terapia del habla."
     },
     {
-      "question": "¿La cirugía de labio fisurado afecta a la nariz?",
-      "answer": "Tras la cirugía de paladar hendido el ingreso es de 24 a 48 horas. Se mantiene dieta blanda durante 2-3 semanas. La cicatrización completa lleva varios meses, durante los cuales el Dr. Sierra realiza controles periódicos y coordina el seguimiento logopédico y auditivo."
+      "question": "¿Qué ocurre si después de la primera cirugía persisten dificultades para hablar o para comer?",
+      "answer": "Si después de una cirugía previa persisten alteraciones del habla o la alimentación, una evaluación especializada permite identificar la causa y determinar si una cirugía de revisión puede mejorar la función del paladar. Problemas como las fístulas palatinas o la disfunción velofaríngea pueden tratarse mediante técnicas reconstructivas específicas, adaptadas a la anatomía y las necesidades de cada paciente. El Dr. Nico Sierra realiza una valoración individualizada para determinar qué aspectos pueden corregirse mediante cirugía y cuáles requieren el acompañamiento de otras especialidades, como terapia del habla, prostodoncia u otorrinolaringología. Cuando está indicada una nueva intervención, el objetivo es restaurar la anatomía y mejorar la función del paladar para favorecer un habla más clara y natural, una alimentación adecuada y una mejor calidad de vida."
     }
   ],
   "relatedLinks": [
@@ -114,7 +114,7 @@
     {
       "slug": "ortopedia-prequirurgica-nam",
       "num": "01",
-      "name": "Ortopedia Pre-operatoria NAM"
+      "name": "Ortopedia Prequirúrgica (NAM)"
     },
     {
       "slug": "injerto-oseo-alveolar",
@@ -126,6 +126,6 @@
   "indexNum": "03",
   "indexTeaser": "Cierre del paladar hendido para el habla, la alimentación y la audición.",
   "publishDate": "2026-07-09",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-05",
   "sources": []
 }

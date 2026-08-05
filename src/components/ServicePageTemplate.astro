@@ -208,6 +208,12 @@ const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentCol
         <div class="reveal rv4" style="margin-top:20px">
           {d.porQue.entities.map((e) => <span class="entity-tag">{e}</span>)}
         </div>
+        {d.porQue.collaborator && (
+          <div class="reveal rv4" style="margin-top:24px;padding-top:24px;border-top:1px solid var(--ns-line)">
+            <p style="font-weight:600;margin-bottom:4px">{d.porQue.collaborator.name} — {d.porQue.collaborator.role}</p>
+            <p>{d.porQue.collaborator.body}</p>
+          </div>
+        )}
         <a href="/sobre-dr-nico-sierra/" class="btn btn-ghost reveal rv4" style="margin-top:28px;display:inline-flex;">Conoce al Dr. Nico Sierra →</a>
       </div>
     </div>

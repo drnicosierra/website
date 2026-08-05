@@ -11,17 +11,17 @@
   "queEsImageQuery": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&h=600&q=80&fit=crop",
   "hero": {
     "h1": "Cirugía de <em>labio fisurado</em> en España",
-    "lead": "Reconstrucción primaria y de revisión del labio fisurado. El Dr. Nico Sierra realiza más de 100 intervenciones al año, desde bebés de pocos meses hasta adultos con secuelas de cirugías previas."
+    "lead": "Especialista en reconstrucción de labio fisurado en Barcelona. Cirugía primaria en bebés y cirugía de revisión en niños, adolescentes y adultos."
   },
   "queEs": {
-    "firstParagraph": "La cirugía de reconstrucción de labio fisurado es el procedimiento mediante el cual se corrige la hendidura congénita del labio superior en personas nacidas con fisura labiopalatina. El objetivo es restaurar la continuidad del labio, reconstruir el músculo orbicular y lograr un resultado estético y funcional que permita al paciente alimentarse, hablar y desarrollarse con normalidad.",
+    "firstParagraph": "La cirugía de labio fisurado —reconstrucción primaria del labio y la nariz, o queilorrinoplastia— se realiza habitualmente en torno a los 6 meses de vida, como parte de una estrategia reconstructiva integral planificada desde el nacimiento. Su objetivo no es únicamente cerrar la fisura, sino reconstruir con precisión la anatomía del labio, la musculatura y la nariz, restaurando la armonía facial, mejorando la función nasal y creando las mejores condiciones para el desarrollo del bebé.",
     "paragraphs": [
-      "El labio fisurado puede presentarse de forma unilateral (un solo lado) o bilateral (ambos lados), y con distintos grados de afectación. En algunos casos afecta únicamente al labio; en otros, se extiende hacia la nariz y el paladar. Cada caso es diferente, y el plan quirúrgico del Dr. Nico Sierra se adapta a las características específicas de cada paciente.",
-      "La cirugía primaria de labio fisurado se realiza habitualmente en los primeros meses de vida, cuando el bebé ha alcanzado el peso y la estabilidad necesarios. Sin embargo, el Dr. Sierra también trata adolescentes y adultos que buscan mejorar el resultado de una intervención previa a través de la cirugía de revisión."
+      "Cada fisura es diferente. La anatomía, el grado de afectación del labio y la nariz, y las características propias de cada bebé hacen necesaria una planificación quirúrgica individualizada. El Dr. Nico Sierra cuenta con amplia experiencia en cirugía de fisura labiopalatina y adapta distintas técnicas reconstructivas a las necesidades de cada paciente, buscando un resultado natural, funcional y estable a largo plazo.",
+      "La primera cirugía se planifica con una visión que va más allá del resultado inmediato: preservar el crecimiento facial, minimizar secuelas y reducir, siempre que sea posible, la necesidad de futuras intervenciones. En niños, adolescentes y adultos previamente operados, el Dr. Nico Sierra también realiza cirugía de revisión para tratar alteraciones residuales del labio y la nariz, corrigiendo secuelas de intervenciones anteriores y mejorando la forma, la simetría y la función."
     ]
   },
   "cuando": {
-    "intro": "La reconstrucción de labio fisurado está indicada en distintos momentos del desarrollo. El Dr. Nico Sierra evalúa cada caso individualmente para determinar el momento óptimo de intervención.",
+    "intro": "La cirugía reconstructiva de labio fisurado (queilorrinoplastia) puede estar indicada en distintos momentos de la vida. En bebés, la reconstrucción primaria del labio y la nariz se realiza habitualmente en torno a los seis meses, cuando las condiciones generales y el desarrollo del bebé permiten operar con seguridad; el momento exacto se establece de forma individualizada según la anatomía, el tipo de fisura y las necesidades de cada bebé, dentro de una estrategia reconstructiva planificada desde el nacimiento. En fisuras amplias o con alteraciones importantes de la nariz, la encía o el paladar, puede recomendarse antes ortopedia prequirúrgica (NAM), que moldea progresivamente la anatomía y crea mejores condiciones para una reconstrucción más precisa. La cirugía de revisión, por su parte, puede estar indicada en niños, adolescentes y adultos previamente operados cuando persisten cicatrices visibles, asimetrías o deformidades nasales residuales que afectan a la forma, la simetría o la función; cada caso se valora de forma individualizada para determinar qué puede mejorarse y cuándo. El Dr. Nico Sierra realiza tanto reconstrucción primaria como cirugía de revisión de labio fisurado en Barcelona, adaptando la planificación y la técnica a la anatomía, la edad y las necesidades de cada paciente.",
     "items": [
       {
         "title": "Cirugía primaria en bebés",
@@ -46,7 +46,7 @@
     ]
   },
   "proceso": {
-    "intro": "La cirugía de labio fisurado se realiza bajo anestesia general pediátrica. A continuación se describe el proceso habitual, desde la preparación hasta el alta y el seguimiento.",
+    "intro": "La reconstrucción del labio y la nariz (queilorrinoplastia primaria) comienza mucho antes de entrar en quirófano: cada bebé presenta una anatomía única, por lo que la cirugía se planifica de forma individualizada, teniendo en cuenta su crecimiento y las siguientes etapas del tratamiento; cuando está indicada, esta preparación puede incluir ortopedia prequirúrgica (NAM). La intervención se realiza bajo anestesia general y dura aproximadamente dos horas: el Dr. Nico Sierra adapta y combina técnicas reconstructivas avanzadas y mínimamente invasivas según la anatomía de cada bebé, reconstruyendo con precisión el labio y la nariz. En las fisuras completas, la reconstrucción nasal adquiere especial importancia — mediante técnicas avanzadas de rinoplastia primaria se reposicionan las estructuras nasales y se reconstruye el suelo de la nariz, mejorando la simetría y la función respiratoria. El enfoque combina cirugía mínimamente invasiva y protocolos avanzados de anestesia pediátrica y recuperación optimizada (ERAS), minimizando el dolor y las molestias postoperatorias y favoreciendo una alimentación precoz. Tras la cirugía, el bebé permanece habitualmente ingresado entre 24 y 48 horas, periodo durante el cual se controla la recuperación, el dolor y la alimentación, y se acompaña a la familia en los primeros cuidados; el seguimiento continúa después del alta para lograr la mejor cicatrización posible.",
     "steps": [
       {
         "title": "Evaluación y planificación preoperatoria",
@@ -71,10 +71,10 @@
     ]
   },
   "resultados": {
-    "intro": "Los resultados de la cirugía de labio fisurado dependen directamente de la experiencia del cirujano y de la técnica empleada. El Dr. Sierra busca en cada caso el equilibrio entre función, estética y mínimo impacto sobre el tejido."
+    "intro": "El objetivo de la queilorrinoplastia primaria es conseguir que el labio y la nariz tengan una apariencia natural y equilibrada, integrándose armónicamente con el rostro del bebé, restaurando la anatomía y la función respiratoria y logrando una cicatriz lo más discreta posible, respetando las estructuras en crecimiento. La experiencia del Dr. Nico Sierra permite adaptar y combinar distintas técnicas reconstructivas según la anatomía de cada bebé, buscando en cada caso una reconstrucción planificada con visión a largo plazo, que minimice secuelas y reduzca, siempre que sea posible, la necesidad de futuras cirugías de revisión."
   },
   "porQue": {
-    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
+    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y Fisura Labiopalatina en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
     "entities": [
       "UFPR",
@@ -86,23 +86,23 @@
   "faq": [
     {
       "question": "¿A qué edad se opera el labio fisurado?",
-      "answer": "La cirugía de labio fisurado se realiza habitualmente entre los 3 y los 6 meses de vida, cuando el bebé ha alcanzado un peso mínimo de 5 kg y las condiciones de salud necesarias para la anestesia general pediátrica. En pacientes que han seguido ortopedia NAM previa, el momento puede ajustarse en función de la evolución del tratamiento. El Dr. Nico Sierra valora cada caso individualmente para determinar el momento óptimo de intervención."
+      "answer": "La reconstrucción del labio y la nariz se realiza habitualmente en torno a los seis meses de vida. Sin embargo, el momento óptimo no depende únicamente de la edad, sino también del crecimiento, la anatomía y el estado general del bebé. El Dr. Nico Sierra valora cada caso de forma individualizada y planifica el momento de la intervención dentro de una estrategia reconstructiva integral, buscando las mejores condiciones para la cirugía y los mejores resultados a largo plazo."
     },
     {
-      "question": "¿Qué técnica utiliza el Dr. Nico Sierra para la reconstrucción de labio fisurado?",
-      "answer": "El Dr. Nico Sierra utiliza técnicas de rotación y avance adaptadas a las características anatómicas de cada paciente. El objetivo es reconstruir el músculo orbicular del labio en toda su longitud, restaurar la columela nasal cuando está afectada, y lograr una cicatriz lo más discreta posible. La elección de la técnica exacta depende de si el labio fisurado es unilateral o bilateral y del grado de afectación."
+      "question": "¿Qué técnica utiliza el Dr. Nico Sierra para la reconstrucción del labio fisurado?",
+      "answer": "El Dr. Nico Sierra adapta y combina diferentes técnicas reconstructivas según la anatomía y las características específicas de cada paciente. Su enfoque integra técnicas avanzadas y mínimamente invasivas, combinando estética, función y crecimiento para reconstruir con precisión el labio y la nariz. El objetivo es conseguir una apariencia natural y equilibrada, una adecuada función respiratoria y una cicatriz lo más discreta posible, respetando al mismo tiempo las estructuras en crecimiento y favoreciendo una evolución armónica del rostro a largo plazo."
     },
     {
-      "question": "¿Se puede operar el labio fisurado en adultos?",
-      "answer": "Sí. La cirugía de revisión de labio fisurado en adultos es una parte importante de la práctica del Dr. Nico Sierra. Muchos pacientes adultos buscan mejorar el resultado de una intervención previa: asimetrías del labio, cicatrices visibles, deformidad nasal residual o problemas funcionales. No existe límite de edad para mejorar el resultado de una cirugía de labio fisurado, y el Dr. Sierra ofrece valoraciones honestas sobre qué es posible mejorar en cada caso."
+      "question": "¿Se puede reoperar el labio o la nariz si el resultado no es satisfactorio?",
+      "answer": "Sí: el Dr. Nico Sierra es especialista en cirugía de revisión de labio y nariz en pacientes con fisura labiopalatina, y niños, adolescentes y adultos pueden beneficiarse de una nueva intervención cuando persisten alteraciones estéticas o funcionales después de cirugías anteriores. Tras una valoración individualizada, el Dr. Nico Sierra diseña un plan de tratamiento interdisciplinar y una estrategia de cirugía de revisión adaptada a las necesidades de cada paciente, buscando recuperar una apariencia facial natural y equilibrada, mejorar la función y conseguir cicatrices lo más discretas posible. Aunque las cirugías de revisión suelen presentar mayor complejidad, una planificación especializada y una técnica reconstructiva precisa pueden lograr mejoras significativas, tanto estéticas como funcionales, con un impacto positivo en la autoestima y la calidad de vida."
     },
     {
-      "question": "¿Cuánto tiempo dura la recuperación tras la cirugía de labio fisurado?",
-      "answer": "La recuperación tras la cirugía de labio fisurado requiere un ingreso de 24 a 48 horas. En los primeros 7-10 días se realiza la cura de la herida y se retiran los puntos. La inflamación disminuye progresivamente durante las primeras semanas. La cicatriz evoluciona y madura durante los primeros 12 a 18 meses, período en el que el Dr. Sierra realiza controles periódicos para valorar el resultado y aplicar tratamientos cicatriciales si es necesario."
+      "question": "¿Cómo es la recuperación tras la cirugía de labio fisurado?",
+      "answer": "La recuperación tras la cirugía de labio fisurado suele ser rápida y bien tolerada. Gracias a técnicas mínimamente invasivas y a protocolos avanzados de anestesia pediátrica y recuperación optimizada (ERAS), se minimizan el dolor y las molestias postoperatorias, favoreciendo una alimentación precoz. Habitualmente, el bebé permanece ingresado durante las primeras 24 horas, periodo en el que se controla el dolor, se adapta la alimentación y se acompaña a la familia en los cuidados de la herida. La inflamación disminuye progresivamente en los días y semanas siguientes, y la cicatriz continúa evolucionando y madurando durante los meses posteriores, por lo que el seguimiento es importante para lograr una cicatrización óptima."
     },
     {
-      "question": "¿La cirugía de labio fisurado afecta a la nariz?",
-      "answer": "En muchos casos de labio fisurado, la nariz también presenta una deformidad asociada: la aleta nasal del lado afectado puede estar desplazada o aplanada. El Dr. Nico Sierra valora en cada caso si es necesario incluir una corrección nasal simultánea durante la cirugía primaria de labio fisurado. En pacientes que ya han sido operados, la rinoplastia específica para fisura labiopalatina puede planificarse más adelante como un procedimiento independiente."
+      "question": "¿La cirugía del labio incluye también la reconstrucción de la nariz?",
+      "answer": "Sí. En muchos pacientes, la cirugía primaria incluye también la reconstrucción de la nariz (queilorrinoplastia primaria). Además de mejorar su forma externa, la rinoplastia primaria permite reposicionar cuidadosamente las estructuras internas de la nariz, buscando una estética natural y equilibrada y una adecuada función respiratoria desde las primeras etapas del tratamiento. En fisuras completas, el Dr. Nico Sierra incorpora técnicas reconstructivas contemporáneas que permiten abordar también el suelo nasal y la región anterior de la fisura; en casos seleccionados, técnicas como el colgajo de vómer (vomer flap) reconstruyen esta separación entre la cavidad oral y nasal, preparando mejores condiciones para la posterior cirugía del paladar."
     }
   ],
   "relatedLinks": [
@@ -113,7 +113,7 @@
     },
     {
       "slug": "ortopedia-prequirurgica-nam",
-      "name": "Ortopedia Pre-operatoria NAM",
+      "name": "Ortopedia Prequirúrgica (NAM)",
       "num": "01"
     },
     {
@@ -126,6 +126,6 @@
   "indexNum": "02",
   "indexTeaser": "Cirugía primaria y de revisión del labio fisurado en todas las edades.",
   "publishDate": "2026-07-09",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-05",
   "sources": []
 }

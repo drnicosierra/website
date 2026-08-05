@@ -1,6 +1,6 @@
 {
   "slug": "ortopedia-prequirurgica-nam",
-  "procedureName": "Ortopedia Pre-operatoria NAM",
+  "procedureName": "Ortopedia Prequirúrgica (NAM)",
   "bodyLocation": "Labio, Nariz, Alvéolo",
   "accentColor": "#7C3AED",
   "title": "Ortopedia Prequirúrgica NAM | Dr. Nico Sierra",
@@ -74,14 +74,19 @@
     "intro": "La ortopedia prequirúrgica crea mejores condiciones anatómicas para una reconstrucción más precisa y con mejores resultados tanto estéticos como funcionales. También puede facilitar la alimentación y la lactancia durante los primeros meses de vida. Además, permite a la familia adquirir experiencia y confianza en los cuidados diarios, preparándola para afrontar la cirugía y la recuperación en las mejores condiciones posibles."
   },
   "porQue": {
-    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
+    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y Fisura Labiopalatina en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
     "entities": [
       "UFPR",
       "Operation Smile",
       "Springer"
     ],
-    "quote": "El NAM no es solo una técnica — es una inversión en el resultado final de la cirugía. Los tejidos bien preparados permiten una reconstrucción más precisa y un resultado más natural."
+    "quote": "El NAM no es solo una técnica — es una inversión en el resultado final de la cirugía. Los tejidos bien preparados permiten una reconstrucción más precisa y un resultado más natural.",
+    "collaborator": {
+      "name": "Dra. Adriana Agell",
+      "role": "Especialista en Ortodoncia y Ortopedia Dentofacial",
+      "body": "La Dra. Adriana Agell dirige el tratamiento de ortopedia prequirúrgica dentro del equipo. Desde 2015, junto al Dr. Sierra, ha sido pionera en España en la incorporación sistemática del NAM en los protocolos de atención integral de la fisura labiopalatina. Con más de una década de experiencia específica y un doctorado en Cirugía y Ciencias Morfológicas cum laude, combina la atención clínica con la docencia y la investigación en ortopedia prequirúrgica y crecimiento maxilar."
+    }
   },
   "faq": [
     {
@@ -126,6 +131,19 @@
   "indexNum": "01",
   "indexTeaser": "Moldeado nasoalveolar prequirúrgico para bebés con fisura labiopalatina.",
   "publishDate": "2026-07-09",
-  "lastReviewed": "2026-07-27",
-  "sources": []
+  "lastReviewed": "2026-08-05",
+  "sources": [
+    {
+      "label": "Agell Sogbe A, Aseka Garcia MM, Souza Lima Wan-Dall BL, Sierra NE, da Silva Freitas R. Comparative Study of Maxillary Growth in Patients With Unilateral Cleft Treated With and Without Pre-Surgical Orthopedics. Cleft Palate Craniofac J. 2024;61(6):957–964.",
+      "url": "https://journals.sagepub.com/doi/10.1177/10556656221149784"
+    },
+    {
+      "label": "Pannaci Padrón T, et al. Functional Presurgical Infant Orthopedics in Unilateral Cleft Lip and Palate: Parallel Palatal Cleft Reduction. J Craniofac Surg. 2026.",
+      "url": "https://journals.lww.com/jcraniofacialsurgery/abstract/10.1097/scs.0000000000013030~functional-presurgical-infant-orthopedics-in-unilateral"
+    },
+    {
+      "label": "Pannaci T, Arteaga VL, Agell-Sogbe A, Kassam SN, Scott M. Cleft Dental Treatment and Naso-Alveolar Molding. En: Global Cleft Care in Low-Resource Settings. Springer, Cham, 2021.",
+      "url": "https://link.springer.com/book/10.1007/978-3-030-59105-2"
+    }
+  ]
 }

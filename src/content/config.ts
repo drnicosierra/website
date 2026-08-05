@@ -116,6 +116,15 @@ const services = defineCollection({
       body: z.string(),
       entities: z.array(credentialEntity).min(2),
       quote: z.string().optional(),
+      // Named collaborator (e.g. a co-treating specialist) — optional, only
+      // used where the treatment involves a named team member beyond Dr.
+      // Sierra himself (e.g. NAM's orthodontist). Every claim here follows
+      // the same T5 accuracy gate as porQue.body: verify before publishing.
+      collaborator: z.object({
+        name: z.string(),
+        role: z.string(),
+        body: z.string(),
+      }).optional(),
     }),
 
     // Block 7 — FAQ (min 5, max 8 per brief; schema text must match visible text exactly —
