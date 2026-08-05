@@ -2,11 +2,11 @@
 
 ## Phase 5 — Technical (in progress)
 
-### T3 — IndexNow (deliberately deferred)
-**Status:** Blocked  
-**Why:** IndexNow forces an immediate re-crawl. Firing it while content is still settling (Phases 2–3 finalization, AI model propagation) wastes the single ping and risks indexing half-finished pages.  
-**Ship after:** Full content lockdown + 4–6 weeks AI model ingestion. Approx. September 2026.  
-**Owner:** Renier + Dr. Sierra (content final sign-off)
+### T3 — IndexNow
+**Status:** Infra shipped (2026-08-05) — key file `public/<key>.txt` + `npm run indexnow` (submits every URL in `public/sitemap.xml` to `api.indexnow.org`).  
+**Note:** IndexNow is consumed by Bing/Yandex/Seznam/Naver only — **Google does not use this protocol.** It does not affect Google indexing speed or favicon refresh; relevant here mainly for Bing's index and AI engines that lean on it (Copilot, parts of Perplexity) per the T5 AI-citation goal.  
+**First real ping:** Run `npm run indexnow` only after the key file is deployed (i.e. after a push) — search engines fetch `keyLocation` to verify before accepting the submission.  
+**Owner:** Renier
 
 ### T6 — Casos clínicos image pipeline + anonymisation guard
 **Status:** Blocked  
