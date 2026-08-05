@@ -8,8 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check:design": "node scripts/check-design-system.mjs",
-    "postbuild": "node scripts/check-performance-regressions.mjs",
+    "postbuild": "node scripts/check-performance-regressions.mjs && node scripts/generate-sitemap.mjs",
     "check:perf": "node scripts/check-performance-regressions.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "indexnow": "node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
