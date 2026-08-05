@@ -215,7 +215,6 @@ const about = defineCollection({
       h2: z.string(),
       locations: z.array(z.object({
         name: z.string(),
-        heroImageQuery: z.string().url(),
         intro: z.string(),
         bullets: z.array(z.string()).min(2).max(5),
       })).min(1).max(3),

@@ -11,6 +11,8 @@ import logoMsi from '../assets/about/logos/logo-msi.png';
 import logoTransformingCleft from '../assets/about/logos/logo-transforming-cleft.png';
 import logoCircleCleft from '../assets/about/logos/logo-circle-of-cleft-professionals.png';
 import logoOperationSmile from '../assets/about/logos/logo-operation-smile.png';
+import facilityTresserraFile from '../assets/about/clinica-tresserra-entrada.webp';
+import facilityVallHebronFile from '../assets/about/hospital-vall-dhebron.webp';
 
 const entry = await getEntry('about', 'main');
 const drPhoto = await getImage({ src: drPhotoFile, width: 600, format: 'webp' });
@@ -19,9 +21,10 @@ const d = entry.data;
 
 const heroBanner = await getImage({ src: heroBannerFile, width: 1800, height: 900, format: 'webp' });
 
-// Placeholders — swap src: for local imports of the real clinic/hospital photos when they land.
 const facilityImages = await Promise.all(
-  d.facility.locations.map((loc) => getImage({ src: loc.heroImageQuery, width: 900, height: 700, format: 'webp' }))
+  [facilityTresserraFile, facilityVallHebronFile].map((file) =>
+    getImage({ src: file, width: 900, height: 700, format: 'webp' })
+  )
 );
 
 // Institutional/organization logos — held to entities already named in bio/Trayectoria text.
@@ -183,7 +186,7 @@ const schemaBlocks = `<script type="application/ld+json">${JSON.stringify({
         <div style="display:flex;flex-direction:column;gap:32px;margin-top:32px;">
           {d.facility.locations.map((loc, i) => (
             <div class="split-media-text">
-              <img src={facilityImages[i].src} alt={`${loc.name} — placeholder, foto real pendiente`} loading="lazy" style="width:100%;border-radius:16px;aspect-ratio:4/3;object-fit:cover;">
+              <img src={facilityImages[i].src} alt={loc.name} loading="lazy" style="width:100%;border-radius:16px;aspect-ratio:4/3;object-fit:cover;">
               <div>
                 <h3 style="margin-bottom:8px;">{loc.name}</h3>
                 <p style="opacity:.85;">{loc.intro}</p>

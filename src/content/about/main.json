@@ -100,7 +100,6 @@
     "locations": [
       {
         "name": "Clínica Tresserra, Barcelona",
-        "heroImageQuery": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=900&h=700&q=80&fit=crop",
         "intro": "Consulta, valoración y seguimiento personalizado en un entorno privado en el centro de Barcelona.",
         "bullets": [
           "El Dr. Sierra atiende consulta y valoración personalizada en Clínica Tresserra.",
@@ -110,7 +109,6 @@
       },
       {
         "name": "Hospital Universitario Vall d'Hebron, Barcelona",
-        "heroImageQuery": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&h=700&q=80&fit=crop",
         "intro": "Las intervenciones quirúrgicas se realizan en el Hospital Universitario Vall d'Hebron, entorno hospitalario universitario de referencia en Barcelona.",
         "bullets": [
           "El Dr. Sierra es cirujano de referencia en fisura labiopalatina en el Hospital Universitario Vall d'Hebron.",
