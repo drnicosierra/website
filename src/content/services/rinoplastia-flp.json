@@ -1,31 +1,31 @@
 {
   "slug": "rinoplastia-flp",
-  "procedureName": "Rinoplastia en FLP",
+  "procedureName": "Rinoplastia en Fisura Labiopalatina",
   "bodyLocation": "Nariz",
   "accentColor": "#0891B2",
   "title": "Rinoplastia en Fisura Labiopalatina | Dr. Nico Sierra España",
   "description": "El Dr. Nico Sierra es especialista en rinoplastia para fisura labiopalatina en España. Reconstrucción nasal funcional y estética. Barcelona.",
-  "ogTitle": "Rinoplastia en FLP | Dr. Nico Sierra Barcelona",
-  "ogDescription": "Especialista en rinoplastia funcional y estética para fisura labiopalatina en Barcelona. Reconstrucción nasal específica para pacientes con FLP.",
+  "ogTitle": "Rinoplastia Fisura Labiopalatina | Dr. Sierra",
+  "ogDescription": "Especialista en rinoplastia funcional y estética para fisura labiopalatina en Barcelona. Reconstrucción nasal específica para fisura labiopalatina.",
   "heroImageQuery": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=1800&h=1200&q=85&fit=crop",
   "queEsImageQuery": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&h=600&q=80&fit=crop",
   "hero": {
     "h1": "Rinoplastia en <em>fisura labiopalatina</em>",
-    "lead": "Reconstrucción nasal funcional y estética específicamente diseñada para las particularidades de la fisura labiopalatina. El Dr. Sierra es especialista en rinoplastia FLP."
+    "lead": "Reconstrucción nasal funcional y estética específicamente diseñada para las particularidades de la fisura labiopalatina. El Dr. Sierra es especialista en rinoplastia para fisura labiopalatina."
   },
   "queEs": {
-    "firstParagraph": "La rinoplastia en fisura labiopalatina es la cirugía que corrige la deformidad nasal asociada a la fisura. La nariz de los pacientes con FLP presenta una anatomía específica con asimetría de los cartílagos alares, desviación del septo y aplastamiento de la aleta nasal en el lado afectado. La corrección requiere técnicas específicas diferentes a la rinoplastia convencional.",
+    "firstParagraph": "La rinoplastia en fisura labiopalatina es la cirugía que corrige la deformidad nasal asociada a la fisura. La nariz de estos pacientes presenta una anatomía específica con asimetría de los cartílagos alares, desviación del septo y aplastamiento de la aleta nasal en el lado afectado. La corrección requiere técnicas específicas diferentes a la rinoplastia convencional.",
     "paragraphs": [
-      "La deformidad nasal en FLP puede ser congénita o puede haberse agravado tras la cirugía primaria de labio fisurado. El Dr. Nico Sierra evalúa en cada caso la anatomía específica de la nariz y diseña un plan quirúrgico personalizado que aborda tanto la función respiratoria como el resultado estético.",
-      "La rinoplastia en FLP puede realizarse como procedimiento aislado o combinado con la cirugía de revisión del labio fisurado. El Dr. Sierra determina el momento óptimo y el abordaje más adecuado para cada paciente, teniendo en cuenta su edad, el grado de deformidad y sus objetivos."
+      "La deformidad nasal en fisura labiopalatina puede ser congénita o puede haberse agravado tras la cirugía primaria de labio fisurado. El Dr. Nico Sierra evalúa en cada caso la anatomía específica de la nariz y diseña un plan quirúrgico personalizado que aborda tanto la función respiratoria como el resultado estético.",
+      "La rinoplastia puede realizarse como procedimiento aislado o combinado con la cirugía de revisión del labio fisurado. El Dr. Sierra determina el momento óptimo y el abordaje más adecuado para cada paciente, teniendo en cuenta su edad, el grado de deformidad y sus objetivos."
     ]
   },
   "cuando": {
-    "intro": "La rinoplastia en FLP se planifica cuando el crecimiento nasal está suficientemente completado. El momento varía según la edad y las necesidades del paciente.",
+    "intro": "La rinoplastia en fisura labiopalatina se planifica cuando el crecimiento nasal está suficientemente completado. El momento varía según la edad y las necesidades del paciente.",
     "items": [
       {
         "title": "Rinoplastia definitiva en adultos",
-        "text": "La rinoplastia definitiva en FLP se realiza habitualmente cuando el crecimiento nasal está completo, a partir de los 16-17 años, para garantizar la estabilidad del resultado a largo plazo.",
+        "text": "La rinoplastia definitiva se realiza habitualmente cuando el crecimiento nasal está completo, a partir de los 16-17 años, para garantizar la estabilidad del resultado a largo plazo.",
         "icon": "pulse"
       },
       {
@@ -46,7 +46,7 @@
     ]
   },
   "proceso": {
-    "intro": "La rinoplastia en FLP requiere una planificación específica que tenga en cuenta las particularidades anatómicas de cada paciente.",
+    "intro": "La rinoplastia en fisura labiopalatina requiere una planificación específica que tenga en cuenta las particularidades anatómicas de cada paciente.",
     "steps": [
       {
         "title": "Evaluación y planificación",
@@ -55,7 +55,7 @@
       },
       {
         "title": "La intervención",
-        "text": "Rinoplastia abierta o cerrada según el caso, bajo anestesia general. Duración aproximada de 1,5 a 2,5 horas. Corrección del septo, cartílagos alares y punta nasal con técnicas específicas para FLP.",
+        "text": "Rinoplastia abierta o cerrada según el caso, bajo anestesia general. Duración aproximada de 1,5 a 2,5 horas. Corrección del septo, cartílagos alares y punta nasal con técnicas específicas para fisura labiopalatina.",
         "timeframe": "1,5 – 2,5 horas en quirófano"
       },
       {
@@ -71,38 +71,38 @@
     ]
   },
   "resultados": {
-    "intro": "La rinoplastia en FLP puede mejorar significativamente tanto la función respiratoria como el aspecto estético de la nariz, con un impacto positivo en la autoestima y la calidad de vida."
+    "intro": "La rinoplastia en fisura labiopalatina puede mejorar significativamente tanto la función respiratoria como el aspecto estético de la nariz, con un impacto positivo en la autoestima y la calidad de vida."
   },
   "porQue": {
-    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
+    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y Fisura Labiopalatina en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
     "entities": [
       "UFPR",
       "Operation Smile",
       "Springer"
     ],
-    "quote": "La nariz en FLP no es como la nariz en cualquier otra rinoplastia. La anatomía alterada, las cicatrices previas y los objetivos funcionales requieren una experiencia específica que no se adquiere en la rinoplastia convencional."
+    "quote": "La nariz en fisura labiopalatina no es como la nariz en cualquier otra rinoplastia. La anatomía alterada, las cicatrices previas y los objetivos funcionales requieren una experiencia específica que no se adquiere en la rinoplastia convencional."
   },
   "faq": [
     {
       "question": "¿Qué caracteriza a la nariz en pacientes con fisura labiopalatina?",
-      "answer": "La nariz de los pacientes con FLP presenta una anatomía específica con asimetría de los cartílagos alares, desviación del septo y aplastamiento de la aleta nasal. Las técnicas de rinoplastia convencional no están diseñadas para esta anatomía. El Dr. Nico Sierra utiliza técnicas específicas para la rinoplastia en FLP que abordan estas particularidades y consiguen resultados naturales."
+      "answer": "La nariz de los pacientes con fisura labiopalatina presenta una anatomía específica con asimetría de los cartílagos alares, desviación del septo y aplastamiento de la aleta nasal. Las técnicas de rinoplastia convencional no están diseñadas para esta anatomía. El Dr. Nico Sierra utiliza técnicas específicas que abordan estas particularidades y consiguen resultados naturales."
     },
     {
-      "question": "¿A qué edad se realiza la rinoplastia definitiva en FLP?",
-      "answer": "La rinoplastia definitiva en FLP se realiza habitualmente cuando el crecimiento nasal está completo, a partir de los 16-17 años. En adolescentes con obstrucción nasal significativa, puede estar indicada una corrección funcional del septo antes. El Dr. Sierra evalúa cada caso para determinar el momento óptimo."
+      "question": "¿A qué edad se realiza la rinoplastia definitiva en fisura labiopalatina?",
+      "answer": "La rinoplastia definitiva se realiza habitualmente cuando el crecimiento nasal está completo, a partir de los 16-17 años. En adolescentes con obstrucción nasal significativa, puede estar indicada una corrección funcional del septo antes. El Dr. Sierra evalúa cada caso para determinar el momento óptimo."
     },
     {
-      "question": "¿La rinoplastia en FLP mejora también la respiración?",
-      "answer": "Sí. La rinoplastia en FLP aborda tanto la estética como la función respiratoria. La corrección del septo desviado y la mejora de la permeabilidad nasal son objetivos prioritarios en muchos casos. El Dr. Sierra evalúa la función respiratoria en todos los pacientes antes de planificar la intervención."
+      "question": "¿La rinoplastia en fisura labiopalatina mejora también la respiración?",
+      "answer": "Sí. La rinoplastia en fisura labiopalatina aborda tanto la estética como la función respiratoria. La corrección del septo desviado y la mejora de la permeabilidad nasal son objetivos prioritarios en muchos casos. El Dr. Sierra evalúa la función respiratoria en todos los pacientes antes de planificar la intervención."
     },
     {
       "question": "¿Se puede combinar la rinoplastia con la revisión del labio?",
       "answer": "Sí. En muchos pacientes, la rinoplastia puede realizarse en el mismo acto quirúrgico que la revisión del labio fisurado, cuando ambas correcciones están indicadas simultáneamente. El Dr. Sierra planifica la estrategia más adecuada para cada caso, considerando las ventajas de realizarlas juntas o en tiempos separados."
     },
     {
-      "question": "¿Cuánto dura la recuperación tras la rinoplastia en FLP?",
-      "answer": "Tras la rinoplastia en FLP el paciente lleva férula nasal durante 7-10 días. La inflamación y los hematomas se resuelven en 2-3 semanas. Se mantiene reposo relativo durante 2-3 semanas. El resultado nasal evoluciona durante los primeros 12-18 meses hasta su forma definitiva."
+      "question": "¿Cuánto dura la recuperación tras la rinoplastia en fisura labiopalatina?",
+      "answer": "Tras la rinoplastia el paciente lleva férula nasal durante 7-10 días. La inflamación y los hematomas se resuelven en 2-3 semanas. Se mantiene reposo relativo durante 2-3 semanas. El resultado nasal evoluciona durante los primeros 12-18 meses hasta su forma definitiva."
     }
   ],
   "relatedLinks": [
@@ -114,7 +114,7 @@
     {
       "slug": "cirugia-ortognatica-flp",
       "num": "06",
-      "name": "Cirugía Ortognática en FLP"
+      "name": "Cirugía Ortognática en Fisura Labiopalatina"
     },
     {
       "slug": "cirugia-revision-fisura",
@@ -126,6 +126,6 @@
   "indexNum": "07",
   "indexTeaser": "Reconstrucción nasal funcional y estética para fisura labiopalatina.",
   "publishDate": "2026-07-09",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-05",
   "sources": []
 }

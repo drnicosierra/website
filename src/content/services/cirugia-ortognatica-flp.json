@@ -1,22 +1,22 @@
 {
   "slug": "cirugia-ortognatica-flp",
-  "procedureName": "Cirugía Ortognática en FLP",
+  "procedureName": "Cirugía Ortognática en Fisura Labiopalatina",
   "bodyLocation": "Maxilar, Mandíbula",
   "accentColor": "#B45309",
-  "title": "Cirugía Ortognática en FLP | Dr. Nico Sierra",
+  "title": "Cirugía Ortognática Fisura Labiopalatina | Dr. Sierra",
   "description": "El Dr. Nico Sierra es especialista en cirugía ortognática para pacientes con fisura labiopalatina en España. Corrección maxilomandibular. Barcelona.",
-  "ogTitle": "Cirugía Ortognática en FLP | Dr. Nico Sierra Barcelona",
+  "ogTitle": "Cirugía Ortognática Fisura Labiopalatina | Dr. Sierra",
   "ogDescription": "Especialista en cirugía ortognática para fisura labiopalatina en Barcelona. Corrección de la posición de los maxilares y armonía facial.",
   "heroImageQuery": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1800&h=1200&q=85&fit=crop",
   "queEsImageQuery": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&q=80&fit=crop",
   "hero": {
     "h1": "Cirugía <em>ortognática</em> en fisura labiopalatina",
-    "lead": "Corrección de la posición de los maxilares en pacientes con secuelas de fisura labiopalatina. El Dr. Nico Sierra es especialista en cirugía ortognática específica para FLP."
+    "lead": "Corrección de la posición de los maxilares en pacientes con secuelas de fisura labiopalatina. El Dr. Nico Sierra es especialista en cirugía ortognática específica para fisura labiopalatina."
   },
   "queEs": {
-    "firstParagraph": "La cirugía ortognática en fisura labiopalatina es el procedimiento que corrige la posición de los maxilares cuando la fisura ha producido alteraciones en el crecimiento facial. En pacientes con FLP, el maxilar superior suele presentar un déficit de crecimiento hacia adelante y hacia abajo, causando una maloclusión y una alteración de la armonía facial.",
+    "firstParagraph": "La cirugía ortognática en fisura labiopalatina es el procedimiento que corrige la posición de los maxilares cuando la fisura ha producido alteraciones en el crecimiento facial. En estos pacientes, el maxilar superior suele presentar un déficit de crecimiento hacia adelante y hacia abajo, causando una maloclusión y una alteración de la armonía facial.",
     "paragraphs": [
-      "La cirugía ortognática específica para FLP presenta particularidades técnicas importantes respecto a la cirugía ortognática convencional, relacionadas con las cicatrices del paladar, la vascularización y la anatomía alterada. El Dr. Sierra adapta la técnica a cada paciente teniendo en cuenta estas particularidades.",
+      "La cirugía ortognática específica para fisura labiopalatina presenta particularidades técnicas importantes respecto a la cirugía ortognática convencional, relacionadas con las cicatrices del paladar, la vascularización y la anatomía alterada. El Dr. Sierra adapta la técnica a cada paciente teniendo en cuenta estas particularidades.",
       "El Dr. Nico Sierra es especialista en cirugía ortognática para pacientes con fisura labiopalatina, coordinando el tratamiento con el ortodontista del paciente para conseguir la mejor función masticatoria, la oclusión correcta y la armonía facial deseada."
     ]
   },
@@ -46,7 +46,7 @@
     ]
   },
   "proceso": {
-    "intro": "La cirugía ortognática en FLP requiere una planificación cuidadosa y un trabajo en equipo entre el Dr. Sierra y el ortodontista del paciente.",
+    "intro": "La cirugía ortognática en fisura labiopalatina requiere una planificación cuidadosa y un trabajo en equipo entre el Dr. Sierra y el ortodontista del paciente.",
     "steps": [
       {
         "title": "Planificación y simulación",
@@ -71,38 +71,38 @@
     ]
   },
   "resultados": {
-    "intro": "La cirugía ortognática en FLP mejora la función masticatoria, la oclusión y la armonía facial, con un impacto positivo en la calidad de vida y la autoestima del paciente."
+    "intro": "La cirugía ortognática en fisura labiopalatina mejora la función masticatoria, la oclusión y la armonía facial, con un impacto positivo en la calidad de vida y la autoestima del paciente."
   },
   "porQue": {
-    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
+    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y Fisura Labiopalatina en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
     "entities": [
       "UFPR",
       "Operation Smile",
       "Springer"
     ],
-    "quote": "La cirugía ortognática en FLP no es igual que en un paciente sin fisura. Las cicatrices del paladar, la vascularización y la anatomía alterada requieren una experiencia específica que marca la diferencia."
+    "quote": "La cirugía ortognática en pacientes con fisura labiopalatina no es igual que en un paciente sin fisura. Las cicatrices del paladar, la vascularización y la anatomía alterada requieren una experiencia específica que marca la diferencia."
   },
   "faq": [
     {
       "question": "¿Qué corrige la cirugía ortognática en fisura labiopalatina?",
-      "answer": "La cirugía ortognática en fisura labiopalatina corrige la posición de los maxilares cuando la fisura ha alterado el crecimiento facial. En estos pacientes, el maxilar superior suele presentar un déficit de proyección, causando maloclusión clase III y alteración de la armonía facial. El Dr. Nico Sierra adapta la técnica a las particularidades anatómicas de cada paciente con FLP."
+      "answer": "La cirugía ortognática en fisura labiopalatina corrige la posición de los maxilares cuando la fisura ha alterado el crecimiento facial. En estos pacientes, el maxilar superior suele presentar un déficit de proyección, causando maloclusión clase III y alteración de la armonía facial. El Dr. Nico Sierra adapta la técnica a las particularidades anatómicas de cada paciente con fisura labiopalatina."
     },
     {
-      "question": "¿A qué edad se realiza la cirugía ortognática en FLP?",
+      "question": "¿A qué edad se realiza la cirugía ortognática en fisura labiopalatina?",
       "answer": "La cirugía ortognática se realiza cuando el crecimiento facial está completo, habitualmente a partir de los 16-17 años en mujeres y los 18-19 años en hombres. Antes de esa edad, el crecimiento residual puede comprometer el resultado a largo plazo. El Dr. Sierra evalúa cada caso individualmente para determinar el momento óptimo."
     },
     {
-      "question": "¿Cuánto dura el tratamiento completo de cirugía ortognática en FLP?",
+      "question": "¿Cuánto dura el tratamiento completo de cirugía ortognática en fisura labiopalatina?",
       "answer": "El tratamiento completo incluye 12-18 meses de ortodoncia prequirúrgica, la cirugía propiamente dicha y 6-12 meses de ortodoncia postquirúrgica para finalizar la oclusión. El proceso total dura habitualmente entre 2 y 3 años, con la cirugía en la mitad del recorrido."
     },
     {
-      "question": "¿Es más compleja la cirugía ortognática en pacientes con FLP?",
-      "answer": "Sí. La presencia de cicatrices del paladar, la vascularización alterada y la anatomía específica de los pacientes con FLP presentan desafíos técnicos que no existen en la cirugía ortognática convencional. El Dr. Sierra está especializado en estas particularidades y adapta la técnica para minimizar los riesgos y maximizar el resultado."
+      "question": "¿Es más compleja la cirugía ortognática en pacientes con fisura labiopalatina?",
+      "answer": "Sí. La presencia de cicatrices del paladar, la vascularización alterada y la anatomía específica de los pacientes con fisura labiopalatina presentan desafíos técnicos que no existen en la cirugía ortognática convencional. El Dr. Sierra está especializado en estas particularidades y adapta la técnica para minimizar los riesgos y maximizar el resultado."
     },
     {
-      "question": "¿La cirugía ortognática puede mejorar el habla en pacientes con FLP?",
-      "answer": "En algunos pacientes con FLP, la corrección de la posición del maxilar puede mejorar aspectos del habla relacionados con la oclusión. Sin embargo, los problemas del habla de origen velofaríngeo no se corrigen con ortognática — requieren una evaluación logopédica independiente. El Dr. Sierra coordina la valoración del habla con los especialistas correspondientes."
+      "question": "¿La cirugía ortognática puede mejorar el habla en pacientes con fisura labiopalatina?",
+      "answer": "En algunos pacientes con fisura labiopalatina, la corrección de la posición del maxilar puede mejorar aspectos del habla relacionados con la oclusión. Sin embargo, los problemas del habla de origen velofaríngeo no se corrigen con ortognática — requieren una evaluación logopédica independiente. El Dr. Sierra coordina la valoración del habla con los especialistas correspondientes."
     }
   ],
   "relatedLinks": [
@@ -114,7 +114,7 @@
     {
       "slug": "rinoplastia-flp",
       "num": "07",
-      "name": "Rinoplastia en FLP"
+      "name": "Rinoplastia en Fisura Labiopalatina"
     },
     {
       "slug": "cirugia-revision-fisura",
@@ -124,8 +124,8 @@
   ],
   "whatsappNumber": "34623787475",
   "indexNum": "06",
-  "indexTeaser": "Corrección de la posición de los maxilares en pacientes con FLP.",
+  "indexTeaser": "Corrección de la posición de los maxilares en pacientes con fisura labiopalatina.",
   "publishDate": "2026-07-09",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-05",
   "sources": []
 }

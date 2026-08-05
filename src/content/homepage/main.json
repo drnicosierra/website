@@ -4,7 +4,7 @@
   "canonical": "https://www.drnicosierra.com/",
   "ogTitle": "Dr. Nico Sierra — Especialista en Fisura Labiopalatina",
   "ogDescription": "Atención quirúrgica integral para fisura labiopalatina. Una práctica dedicada, en Barcelona, para familias de toda España y el extranjero.",
-  "keywords": "fisura labiopalatina, labio fisurado, paladar hendido, FLP, cirugía de revisión, Dr. Nico Sierra, cirujano Barcelona, NAM, ortognática FLP, rinoplastia FLP",
+  "keywords": "fisura labiopalatina, labio fisurado, paladar hendido, cirugía de revisión, Dr. Nico Sierra, cirujano Barcelona, NAM, cirugía ortognática, rinoplastia fisura labiopalatina",
   "whatsappNumber": "34623787475",
   "hero": {
     "eyebrow": "Especialista en fisura labiopalatina (labio y paladar hendido). Barcelona",
@@ -244,7 +244,7 @@
         "href": "/cirugia-ortognatica-flp/"
       },
       {
-        "label": "Rinoplastia en FLP",
+        "label": "Rinoplastia",
         "type": "treatment",
         "startCol": 14,
         "endCol": 18,

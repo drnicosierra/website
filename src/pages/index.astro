@@ -106,8 +106,8 @@ const caseCardMeta = [
   { tag: 'Labio fisurado', title: 'Reconstrucción primaria de labio', text: 'Caso pediátrico — técnica funcional con preservación muscular.' },
   { tag: 'Revisión', title: 'Cirugía de revisión en adulto', text: 'Paciente internacional — corrección de secuelas tras intervención previa.' },
   { tag: 'Paladar hendido', title: 'Cierre de paladar completo', text: 'Paciente pediátrico — cierre del paladar blando y duro en una intervención.' },
-  { tag: 'Rinoplastia FLP', title: 'Rinoplastia funcional en FLP', text: 'Adolescente — reconstrucción nasal funcional y estética específica para FLP.' },
-  { tag: 'Ortognática', title: 'Cirugía ortognática en FLP', text: 'Adulto joven — corrección de la posición maxilar tras secuelas de fisura.' },
+  { tag: 'Rinoplastia', title: 'Rinoplastia funcional en fisura labiopalatina', text: 'Adolescente — reconstrucción nasal funcional y estética específica para fisura labiopalatina.' },
+  { tag: 'Ortognática', title: 'Cirugía ortognática en fisura labiopalatina', text: 'Adulto joven — corrección de la posición maxilar tras secuelas de fisura.' },
   { tag: 'Encía', title: 'Reconstrucción de encía', text: 'Paciente pediátrico — injerto óseo alveolar previo a erupción del canino definitivo.' },
   { tag: 'Labio fisurado', title: 'Revisión de labio en adulto', text: 'Paciente adulta — corrección de cicatriz y asimetría tras cirugía primaria previa.' },
   { tag: 'NAM', title: 'Ortopedia prequirúrgica NAM', text: 'Recién nacido — moldeado nasoalveolar previo a la cirugía primaria de labio.' },
@@ -198,7 +198,7 @@ const carouselCards = caseCardMeta.map((meta, i) => ({
         <h2 id="ns-timeline-title" class="ns-h2" set:html={d.timeline.h2} />
         <p class="ns-lead" style="max-width:52ch;">{d.timeline.lead}</p>
       </header>
-      <div class="ns-tl" id="nsTl" aria-label="Recorrido del paciente FLP">
+      <div class="ns-tl" id="nsTl" aria-label="Recorrido del paciente con fisura labiopalatina">
         <svg class="ns-tl__line-svg" aria-hidden="true" preserveAspectRatio="none">
           <path class="ns-tl__line-path" id="nsTlPath" d=""/>
         </svg>

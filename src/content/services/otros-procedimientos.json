@@ -3,9 +3,9 @@
   "procedureName": "Otros Procedimientos",
   "bodyLocation": "Variable según procedimiento",
   "accentColor": "#64748B",
-  "title": "Otros Procedimientos FLP | Dr. Nico Sierra",
+  "title": "Otros Procedimientos Fisura Labiopalatina | Dr. Sierra",
   "description": "El Dr. Nico Sierra trata todos los procedimientos relacionados con la fisura labiopalatina. ¿No encuentras lo que buscas? Cuéntanos tu caso en Barcelona.",
-  "ogTitle": "Otros Procedimientos FLP | Dr. Nico Sierra Barcelona",
+  "ogTitle": "Otros Procedimientos Fisura Labiopalatina | Dr. Sierra",
   "ogDescription": "Procedimientos complementarios para fisura labiopalatina en Barcelona. Cuéntanos tu caso y el Dr. Sierra te orientará.",
   "heroImageQuery": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1800&h=1200&q=85&fit=crop",
   "queEsImageQuery": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&h=600&q=80&fit=crop",
@@ -74,7 +74,7 @@
     "intro": "Los procedimientos complementarios completan el tratamiento integral de la fisura labiopalatina, abordando los aspectos que las intervenciones principales no han resuelto completamente."
   },
   "porQue": {
-    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y FLP en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
+    "lead": "El Dr. Nico Sierra completó su fellowship en Cirugía Craneofacial y Fisura Labiopalatina en la Universidad Federal de Paraná (UFPR, Brasil). Cirujano de referencia en Clínica Tresserra y Hospital Universitario Vall d'Hebron, con misiones quirúrgicas en cuatro continentes junto a Operation Smile.",
     "body": "Su experiencia incluye colaboración con Operation Smile en más de cuatro continentes, así como la publicación de un capítulo en Springer sobre cirugía de fisura labiopalatina en contextos de baja dotación de recursos.",
     "entities": [
       "UFPR",
@@ -126,6 +126,6 @@
   "indexNum": "08",
   "indexTeaser": "Procedimientos complementarios. ¿No encuentras lo que buscas?",
   "publishDate": "2026-07-09",
-  "lastReviewed": "2026-07-27",
+  "lastReviewed": "2026-08-05",
   "sources": []
 }
