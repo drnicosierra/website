@@ -21,7 +21,7 @@
     ]
   },
   "cuando": {
-    "intro": "La ortopedia prequirúrgica (NAM) no es necesaria en todos los bebés nacidos con fisura labiopalatina. Su indicación se establece tras una valoración cuidadosa de la anatomía, el tipo de fisura y las necesidades específicas de cada bebé, como parte de una estrategia reconstructiva integral cuidadosamente planificada para alcanzar los mejores resultados posibles a largo plazo con el menor número de intervenciones. Está especialmente indicada en bebés con fisuras labiopalatinas amplias, alteraciones importantes de la forma de la nariz o deformidades significativas de la encía y el paladar.",
+    "intro": "La ortopedia prequirúrgica (NAM) no es necesaria en todos los bebés nacidos con fisura labiopalatina. Su indicación se establece tras una valoración cuidadosa de la anatomía, el tipo de fisura y las necesidades específicas de cada bebé, como parte de una estrategia reconstructiva integral cuidadosamente planificada para alcanzar los mejores resultados posibles a largo plazo con el menor número de intervenciones. Está especialmente indicada en bebés con fisuras labiopalatinas amplias, alteraciones importantes de la forma de la nariz o deformidades significativas de la encía y el paladar. En estos casos, las placas moldean progresivamente la encía y el paladar, mientras que los moldeadores nasales (stents nasales) remodelan la forma de la nariz antes de la cirugía.",
     "items": [
       {
         "title": "Fisura labiopalatina unilateral",
@@ -46,7 +46,7 @@
     ]
   },
   "proceso": {
-    "intro": "Idealmente, el tratamiento con ortopedia prequirúrgica (NAM) debe iniciarse durante las primeras dos semanas de vida. Cuanto antes se inicia, mayor es su capacidad para moldear la anatomía y preparar al bebé para la cirugía. Mediante revisiones periódicas y pequeños ajustes, acompañamos el crecimiento y desarrollo del bebé, moldeando progresivamente el labio, la nariz, las encías y el paladar. La participación de la familia es una parte esencial del tratamiento. Con nuestro acompañamiento, la familia aprende a realizar los cuidados diarios con seguridad y confianza.",
+    "intro": "Idealmente, el tratamiento con ortopedia prequirúrgica (NAM) debe iniciarse durante las primeras dos semanas de vida. Cuanto antes se inicia, mayor es su capacidad para moldear la anatomía y preparar al bebé para la cirugía. Mediante revisiones periódicas y pequeños ajustes, acompañamos el crecimiento y desarrollo del bebé, moldeando progresivamente el labio, la nariz, las encías y el paladar. La participación de la familia es una parte esencial del tratamiento. Con nuestro acompañamiento, la familia aprende a realizar los cuidados diarios con seguridad y confianza. Cada revisión representa un pequeño avance hacia una cirugía más precisa y los mejores resultados posibles a largo plazo.",
     "steps": [
       {
         "title": "Primera visita y toma de impresión",
@@ -85,7 +85,7 @@
     "collaborator": {
       "name": "Dra. Adriana Agell",
       "role": "Especialista en Ortodoncia y Ortopedia Dentofacial",
-      "body": "La Dra. Adriana Agell dirige el tratamiento de ortopedia prequirúrgica dentro del equipo. Desde 2015, junto al Dr. Sierra, ha sido pionera en España en la incorporación sistemática del NAM en los protocolos de atención integral de la fisura labiopalatina. Con más de una década de experiencia específica y un doctorado en Cirugía y Ciencias Morfológicas cum laude, combina la atención clínica con la docencia y la investigación en ortopedia prequirúrgica y crecimiento maxilar."
+      "body": "La Dra. Adriana Agell es responsable del tratamiento de ortopedia prequirúrgica dentro del equipo. Desde 2015, junto al Dr. Sierra, ha sido pionera en España en la incorporación sistemática de la ortopedia prequirúrgica y el NAM dentro de los protocolos de atención integral de la fisura labiopalatina. Con más de una década de experiencia específica y un doctorado en Cirugía y Ciencias Morfológicas cum laude, combina la atención clínica con la docencia y la investigación científica en ortopedia prequirúrgica, crecimiento maxilar y tratamiento integral de la fisura labiopalatina. Esta experiencia conjunta ha permitido contribuir a la formación de profesionales mediante cursos nacionales e internacionales y participar como coautores en publicaciones científicas sobre ortopedia prequirúrgica y fisura labiopalatina, favoreciendo el desarrollo y la difusión de estas técnicas."
     }
   },
   "faq": [
