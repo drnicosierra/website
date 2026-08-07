@@ -60,12 +60,13 @@ Renier is a product/UX person building technical capability. Apply this on every
 | Recurring task | workflows/<task>.md |
 | Voice/tone work | docs/voice-profile.md |
 | SEO/AEO remediation | handoff-prompt-audit-remediation.md (Renier has file) |
+| Full-tool build (research/strategy/generation pipeline, measurement, video/social derivation) | Lives in a separate repo now: `github.com/renierbueno/bipdoc` (`docs/architecture.md` there is the target spec — not current state, cross-check against its README). This repo no longer contains `pipeline/` — see Stack quick facts below. |
 
 ## Stack quick facts
 Astro 4.16 static + Netlify (hosting/forms) + GA4 `G-C6SCF6WY7Q` via GTM `GTM-MCNLW9Z4` (deferred).
 Content: src/content/*.json collections + Zod schema. Local: ~/Developer/drnicosierra-website
 Commands: `npm run build` | `npm run dev` | `npm run check:design` | `npm run check:perf`
-Baselines: `docs/baselines/` (AI citation + JSON-LD) | Battery: `pipeline/measure/ai-battery.py`
+Baselines: `docs/baselines/` (JSON-LD only now — AI citation baselines moved, see below) | AI battery + research pipeline: moved to `~/Developer/bipdoc` (`renierbueno/bipdoc` on GitHub, 2026-08-07) — this repo no longer has a `pipeline/` dir. Dr. Sierra's data lives at `bipdoc/clients/drsierra/data/`.
 
 ## Current progress
 
@@ -87,7 +88,8 @@ Baselines: `docs/baselines/` (AI citation + JSON-LD) | Battery: `pipeline/measur
 - T2 ✅ robots.txt + sitemap.xml validated, submitted to GSC (2026-07-28)
 - T3 ⏳ IndexNow — deferred. Content finalization in progress.
 - T4 ✅ WhatsApp sitewide
-- T5 ✅ AI citation battery baseline (2026-07-26): 6.7% mention rate
+- T5 ✅ AI citation battery — 4 engines (OpenAI/Gemini/Perplexity/Claude) as of 2026-08-06. Latest full baseline (2026-08-07): 27/300 (9.0%) mentioned. Perplexity 28.0%, OpenAI 8.0%, Claude 0.0% (first reading), Gemini 0.0% (not real signal — see PENDING.md, key needs billing linked). **2026-08-07: script + all data migrated to `bipdoc/pipeline/measure/ai-battery.py`** — now config-driven (`bipdoc/clients/drsierra/config.yaml`), resume-safe, 60s per-call timeout. Run with `python3 pipeline/measure/ai-battery.py --client drsierra` from the bipdoc repo. Baseline: `bipdoc/clients/drsierra/data/baselines/ai-baseline-2026-08.md`.
+- T5b ✅ Google AI Overview spot-check (2026-08-07, manual, same 25 prompts): 3/25 (12.0%) trigger an AI Overview, but 3/3 (100%) of those cite Dr. Sierra — much stronger per-appearance signal than the chat-engine battery. See `bipdoc/clients/drsierra/data/baselines/ai-overviews-baseline-2026-08.md`. Gap: both English "international patient" queries have zero Sierra presence, AI or organic.
 - T6 ⏳ Casos clínicos pipeline — pending design finalization
 
 Phases 1–4 shipped. Phase 5 T2/T4/T5 done.

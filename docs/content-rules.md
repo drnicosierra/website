@@ -40,4 +40,4 @@ Distilled from docs/seo-aeo-brief.md (authoritative). For full SEO/AEO review us
 ## Pipeline
 Google Sheets (16 tabs) → export → master chat review vs brief → back to Sheets → Dr. Sierra approval → Python deploy to JSON → npm run build → commit.
 SEO/AEO review NEVER via CLI (lacks brief context).
-Baseline measurement: `pipeline/measure/ai-battery.py` (25 prompts × 3 engines × 3 runs). Results in `docs/baselines/`. Re-run after major content or schema changes.
+Baseline measurement: `bipdoc/pipeline/measure/ai-battery.py --client drsierra` (separate repo, 25 prompts × 4 engines × 3 runs). Results in `bipdoc/clients/drsierra/data/baselines/`. Re-run after major content or schema changes.
