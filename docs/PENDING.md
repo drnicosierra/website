@@ -41,6 +41,13 @@
 **Fix:** DataForSEO SERP API (already the planned Layer 1/6 tool per `bipdoc/docs/architecture.md`) detects AI Overview presence as one of its SERP features on a normal rank-check pull — same account/integration that would also cover weekly position tracking. No separate tool needed, just build the DataForSEO integration whenever that's picked up — in the bipdoc repo, not here.  
 **Owner:** Renier
 
+### T8 — Blog content collection doesn't exist yet — blocks publishing pipeline-generated content
+**Status:** Blocked — confirmed, not just assumed.  
+**Why:** `bipdoc` (the multi-client tool) now has a working generate → review → publish pipeline, and 5 draft pieces for this client have been through Checkpoint #2 already (sitting in Drive, `bipdoc/clients/drsierra/data/generated/`). But `src/content/config.ts` here only defines `services, about, camino, homepage, cases` — no blog/article collection. `docs/architecture.md`'s own note ("Vidas Transformadas + Blog: NOT migrated — design placeholders, do not touch until design final") is the reason, confirmed still true 2026-08-07/08.  
+**What this means concretely:** `bipdoc/pipeline/publish/publish.py` can commit an approved piece to a PR-ready branch, but only into a neutral staging path (`content-pending/blog/`) outside `src/content/` — it deliberately does *not* try to invent a schema and slot content into a real collection, since that's this repo's design decision, not the pipeline's to make.  
+**Unblocks when:** blog page design is finalized (same trigger as T6/Vidas Transformadas). At that point, building the actual Astro-schema adapter in `bipdoc/pipeline/publish/` is a small, focused follow-up — the git mechanism already works.  
+**Owner:** Renier (design) + Claude (adapter, once unblocked)
+
 ### T7 — Service page "Ver todos →" should deep-link per procedure
 **Status:** Deferred — placeholder link  
 **Why:** Merged Resultados/Por qué section (2026-08-05, all 8 service pages) has a "Ver todos →" link that should go to a results view filtered to that specific procedure (e.g. the NAM service page → NAM cases only), not the flat hub. Per-procedure filtering on Vidas Transformadas doesn't exist yet — only one example case template lives at `/vidas-transformadas/caso-ejemplo-plantilla/`.  
@@ -70,7 +77,7 @@
 
 ---
 
-**Last updated:** 2026-07-28 · Renier + Claude
+**Last updated:** 2026-08-08 · Renier + Claude
 
 ### T6 — Updated status (2026-07-28)
 Script `scripts/censor-caso-images.py` written + committed. `originals/` gitignored.
