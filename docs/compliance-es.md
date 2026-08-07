@@ -11,14 +11,14 @@ Legal stack: Ley 34/1988 (general advertising) · RD 1907/1996 (health advertisi
 6. `Review`, `AggregateRating`, or `ratingValue` schema — anywhere on the site.
 
 ## WARN
-7. Pricing or promotional offers (Catalonia-sensitive).
+7. Pricing or promotional offers (Catalonia-sensitive). **Not the same as BLOCK — informational framing is permitted.** Precedent set 2026-08-07 (bipdoc strategy layer, `content-plan-2026-08.md` piece 5, pricing/Seguridad Social page): explain how the system works (public vs. private process, what influences cost) without ever publishing a specific price, fee, or "oferta", and without claiming a guaranteed insurance/coverage outcome — always route the actual cost question to a personalized consultation, never a number. Pricing/coverage is worth tackling deliberately rather than avoiding — it's consistently the most recurring patient question across research (present in 8 of 10 mined topics as of 2026-08), so silently ducking it is a real content gap, not a safe default.
 8. Before/after imagery in promotional framing. Informational framing requires "los resultados pueden variar".
 
 ## REQUIRE
 9. Nº de colegiado COMB: 45307 — on clinical pages, footer, Physician schema. ✅ Implemented (Phase 3): footer sitewide via Layout.astro (.footer-nap + footer-base), reviewer block on all clinical pages (.clinical-reviewer), Physician schema in ServicePageTemplate.
-10. Disclaimer: "Este contenido es informativo y no sustituye una consulta médica."
+10. Disclaimer: "Este contenido es informativo y no sustituye una consulta médica." ✅ Implemented: `MEDICAL_DISCLAIMER` in `src/config/site.ts`, rendered sitewide via `Layout.astro`'s footer (`.footer-disclaimer`). Verified 2026-08-07.
 11. Cited source for any efficacy, safety, or outcome claim.
-12. Risk mention alongside any elective procedure description.
+12. Risk mention alongside any elective procedure description. **⚠️ NOT structurally automated** — unlike #9/#10, there's no fixed "Riesgos" block in the site's 9-block service-page structure (`seo-aeo-brief.md` Part A), so this has to be actively planned per piece, not assumed. Found missing in a real draft 2026-08-07 (bipdoc content plan piece 3, a multi-procedure timeline page) — caught in manual review, not by any guard. Check for this explicitly on any new content describing a procedure.
 
 ## Casos clínicos (Vidas Transformadas) — resolved July 2026
 
