@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { BLOG_CATEGORY_SLUGS } from '../lib/blog-categories';
 
 // Walks a parsed content object and returns true only if a single string
 // field (i.e. one paragraph/label) contains ALL of the given terms — used to
@@ -509,6 +510,81 @@ const cases = defineCollection({
   },
 });
 
-export const collections = { services, about, camino, homepage, cases };
+// ── Blog / Artículos ───────────────────────────────────────────────────────
+// type:'content' (markdown), not 'data' (JSON) like the collections above —
+// deliberate choice, see drnicosierra-website conversation 2026-08-08: the
+// bipdoc pipeline's generate/draft.py already writes flowing prose with H2/H3
+// sections, not discrete named blocks, so markdown + frontmatter is a near-
+// zero-transform fit. Hero image + reviewer block follow the same design
+// decided then: flat .hero-section (not the full-bleed .hero service pages
+// use — that treatment stays reserved for the 8 procedure pages) + a
+// dedicated image block right below, matching the pattern CasePageTemplate
+// already established for Vidas Transformadas.
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    // On-page H1. Per brief §16: not a question (questions belong in FAQ schema).
+    title: z.string().max(70),
+    // SEO <title> tag. Optional override — defaults to `${title} │ Dr. Nico Sierra`
+    // (§15 formula) in the template if omitted.
+    metaTitle: z.string().max(60).optional(),
+    description: z.string().min(150).max(160),
+    ogTitle: z.string().max(60).optional(),
+    ogDescription: z.string().max(160).optional(),
+    keyword: z.string(),
+
+    // Option C taxonomy (decided 2026-08-08): category = primary crawlable
+    // grouping, one static archive page per category with ≥1 article — see
+    // src/lib/blog-categories.ts and src/pages/blog-y-articulos/categoria/.
+    // tags = lightweight, non-clickable badges for now (cross-cutting/journey-
+    // stage labels) — real tag-filter pages would be too thin to justify
+    // their own URLs at current content volume (5 pieces).
+    category: z.enum(BLOG_CATEGORY_SLUGS as [string, ...string[]]),
+    tags: z.array(z.string()).optional(),
+
+    heroImage: z.string().url(),
+    heroImageAlt: z.string(),      // format: "[Topic] fisura labiopalatina — Dr. Nico Sierra Barcelona"
+    heroImageCaption: z.string().optional(),
+
+    faq: z.array(faqItem).optional(),   // FAQPage schema only emitted if non-empty — see ArticlePageTemplate
+    sources: z.array(z.object({
+      label: z.string(),
+      url: z.string().url(),
+    })).optional(),
+
+    // §16: "≥2 internal links (≥1 to service page)" — lighter requirement
+    // than service pages' ≥3. Reuses the same relatedLink shape.
+    relatedLinks: z.array(relatedLink).min(2).optional(),
+
+    // E-E-A-T — dates (S3) + reviewer block (clinical prop on Layout)
+    publishDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    lastReviewed: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+
+    whatsappNumber: z.string().default('WHATSAPP_NUMBER'),
+
+    // Set true ONLY for test/placeholder fixtures (same convention as the
+    // cases collection's noindex field) — never for real published pieces.
+    noindex: z.boolean().optional(),
+
+    // Set true ONLY on the one approved terminology page (C12,
+    // "Fisura labiopalatina o labio leporino: por qué usamos este término" —
+    // seo-aeo-brief.md § "Labio leporino" Policy [F]). That page's entire
+    // purpose is explaining why the term is avoided elsewhere, which requires
+    // using it. Every other blog entry must leave this unset/false — the
+    // refine below only skips the check for this one flagged entry.
+    allowLegacyTerminology: z.boolean().optional().default(false),
+  })
+    .refine(
+      (data) => data.allowLegacyTerminology || !JSON.stringify(data).toLowerCase().includes('labio leporino'),
+      { message: '"labio leporino" is forbidden — use "labio fisurado" per clinical terminology rules. (Only the approved terminology page may set allowLegacyTerminology: true.)' }
+    )
+    .refine(
+      (data) => !hasTermsInSameString(data, ['Operation Smile', 'Smile Train']),
+      { message: 'Operation Smile and Smile Train must never appear together in the same string field (per project rule).' }
+    ),
+});
+
+export const collections = { services, about, camino, homepage, cases, blog };
 
 

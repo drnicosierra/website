@@ -91,5 +91,6 @@ Baselines: `docs/baselines/` (JSON-LD only now — AI citation baselines moved, 
 - T5 ✅ AI citation battery — 4 engines (OpenAI/Gemini/Perplexity/Claude) as of 2026-08-06. Latest full baseline (2026-08-07): 27/300 (9.0%) mentioned. Perplexity 28.0%, OpenAI 8.0%, Claude 0.0% (first reading), Gemini 0.0% (not real signal — see PENDING.md, key needs billing linked). **2026-08-07: script + all data migrated to `bipdoc/pipeline/measure/ai-battery.py`** — now config-driven (`bipdoc/clients/drsierra/config.yaml`), resume-safe, 60s per-call timeout. Run with `python3 pipeline/measure/ai-battery.py --client drsierra` from the bipdoc repo. Baseline: `bipdoc/clients/drsierra/data/baselines/ai-baseline-2026-08.md`.
 - T5b ✅ Google AI Overview spot-check (2026-08-07, manual, same 25 prompts): 3/25 (12.0%) trigger an AI Overview, but 3/3 (100%) of those cite Dr. Sierra — much stronger per-appearance signal than the chat-engine battery. See `bipdoc/clients/drsierra/data/baselines/ai-overviews-baseline-2026-08.md`. Gap: both English "international patient" queries have zero Sierra presence, AI or organic.
 - T6 ⏳ Casos clínicos pipeline — pending design finalization
+- T8 ✅ Blog content collection — built 2026-08-08 (schema, template, category taxonomy/gallery, reviewer block wired). `bipdoc/pipeline/publish/publish.py` writes real frontmatter directly into `src/content/blog/` now. See PENDING.md T8 for full detail + one known structural gap (cross-piece link slug mismatch).
 
-Phases 1–4 shipped. Phase 5 T2/T4/T5 done.
+Phases 1–4 shipped. Phase 5 T2/T4/T5/T8 done.

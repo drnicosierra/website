@@ -79,6 +79,22 @@ h4 { font-size:1rem; font-weight:600; }
 .eyebrow::before { content:""; width:28px; height:2px; background:var(--sc, #4db896); border-radius:2px; }
 .lead { font-size:1.05rem; color:var(--ns-ink-soft); line-height:1.8; max-width:58ch; }
 
+/* Clinical reviewer bar (Layout.astro, clinical+lastReviewed pages) — sits
+   right after the fixed .nav in markup order. .nav is position:fixed (80px
+   tall), so without this margin the bar renders at top:0 and is entirely
+   hidden underneath it. Found 2026-08-08 auditing the new blog template —
+   pre-existing on every clinical page, not new. */
+.clinical-reviewer {
+  margin-top:80px;
+  background:var(--ns-surface-1);
+  border-bottom:1px solid var(--ns-line);
+}
+.clinical-reviewer p {
+  padding:10px 0;
+  font-size:.82rem;
+  color:var(--ns-ink-soft);
+}
+
 /* Hero section (About, static pages) — standardized structure with eyebrow + H1 + lead */
 .hero-section {
   background:#001629; display:flex; align-items:flex-end;

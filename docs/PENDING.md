@@ -41,12 +41,13 @@
 **Fix:** DataForSEO SERP API (already the planned Layer 1/6 tool per `bipdoc/docs/architecture.md`) detects AI Overview presence as one of its SERP features on a normal rank-check pull — same account/integration that would also cover weekly position tracking. No separate tool needed, just build the DataForSEO integration whenever that's picked up — in the bipdoc repo, not here.  
 **Owner:** Renier
 
-### T8 — Blog content collection doesn't exist yet — blocks publishing pipeline-generated content
-**Status:** Blocked — confirmed, not just assumed.  
-**Why:** `bipdoc` (the multi-client tool) now has a working generate → review → publish pipeline, and 5 draft pieces for this client have been through Checkpoint #2 already (sitting in Drive, `bipdoc/clients/drsierra/data/generated/`). But `src/content/config.ts` here only defines `services, about, camino, homepage, cases` — no blog/article collection. `docs/architecture.md`'s own note ("Vidas Transformadas + Blog: NOT migrated — design placeholders, do not touch until design final") is the reason, confirmed still true 2026-08-07/08.  
-**What this means concretely:** `bipdoc/pipeline/publish/publish.py` can commit an approved piece to a PR-ready branch, but only into a neutral staging path (`content-pending/blog/`) outside `src/content/` — it deliberately does *not* try to invent a schema and slot content into a real collection, since that's this repo's design decision, not the pipeline's to make.  
-**Unblocks when:** blog page design is finalized (same trigger as T6/Vidas Transformadas). At that point, building the actual Astro-schema adapter in `bipdoc/pipeline/publish/` is a small, focused follow-up — the git mechanism already works.  
-**Owner:** Renier (design) + Claude (adapter, once unblocked)
+### T8 — Blog content collection — DONE (2026-08-08)
+**Status:** Built, tested, wired end-to-end. No longer blocking.  
+**What shipped:** `blog` content collection (`type:'content'`, markdown) in `src/content/config.ts` — flat hero-section + hero-image figure + FAQ + Fuentes + related-links pattern, `ArticlePageTemplate.astro`, category taxonomy (`src/lib/blog-categories.ts`, 8 procedure categories + `recursos-generales` catch-all) with a gallery hub (`blog-y-articulos.astro`, grouped by category) and one crawlable archive page per category with ≥1 article (`blog-y-articulos/categoria/[category].astro`). `BlogPosting` + `MedicalWebPage` + `FAQPage` schema, reviewer block wired (`clinical` prop), breadcrumbs include category level.  
+**Also fixed along the way:** the doctor-reviewer/colegiado block (`.clinical-reviewer`) was invisible sitewide on every clinical page — hidden behind the fixed nav, pre-existing bug, not introduced by this work. Fixed in `global.css`.  
+**`bipdoc/pipeline/publish/publish.py` updated to match** (`pipeline/lib/blog_transform.py`, new) — writes real frontmatter straight to `src/content/blog/`, fixes internal links to real site paths, resolves category, validates description/title length against this schema's actual bounds rather than staging raw files. See `bipdoc/README.md`'s Publishing layer section for the full detail (link-fixing, category resolution, hallucination catches).  
+**One structural gap found, not yet resolved:** cross-piece internal links (e.g. piece 4 → piece 1) resolve against the *auto-slugified plan title* of the target piece, not whatever `--slug` it's actually published with — if a piece needs a `--slug` override (several do; `slugify()` mangles accented/long titles), any piece linking to it will silently point at the wrong URL unless slugs are decided consistently before publishing. Needs a manual link-check pass at actual publish time, or a real fix in `blog_transform.py`.  
+**Owner:** Renier (content review) + Claude (pipeline)
 
 ### T7 — Service page "Ver todos →" should deep-link per procedure
 **Status:** Deferred — placeholder link  

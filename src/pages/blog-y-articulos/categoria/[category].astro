@@ -1,0 +1,72 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import { BLOG_CATEGORIES } from '../../../lib/blog-categories';
+
+// One real, crawlable page per category that actually has published articles
+// — never generate an empty/thin archive page (bad for SEO, and category
+// pages with 0 items would just be dead ends for both users and crawlers).
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.noindex);
+  const categoriesWithPosts = new Set(posts.map((p) => p.data.category));
+  return [...categoriesWithPosts].map((category) => ({
+    params: { category },
+    props: {
+      posts: posts
+        .filter((p) => p.data.category === category)
+        .sort((a, b) => b.data.publishDate.localeCompare(a.data.publishDate)),
+    },
+  }));
+}
+
+const { category } = Astro.params;
+const { posts } = Astro.props;
+const categoryInfo = BLOG_CATEGORIES[category as keyof typeof BLOG_CATEGORIES];
+
+const canonical = `https://www.drnicosierra.com/blog-y-articulos/categoria/${category}/`;
+const title = `Artículos sobre ${categoryInfo.name} | Dr. Nico Sierra`;
+const description = `Artículos y recursos sobre ${categoryInfo.name.toLowerCase()} escritos por el Dr. Nico Sierra. Información clínica y educativa para familias y pacientes.`;
+
+const collectionPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  url: canonical,
+  name: title,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://www.drnicosierra.com/blog-y-articulos/${post.slug}/`,
+      name: post.data.title,
+    })),
+  },
+};
+const schemaBlocks = `<script type="application/ld+json">${JSON.stringify(collectionPageSchema)}</script>`;
+---
+<Layout title={title} description={description} canonical={canonical} schemaBlocks={schemaBlocks}>
+  <main>
+  <section class="hero-section" data-height="40vh">
+    <div>
+      <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Blog y Artículos', href: '/blog-y-articulos/' }, { label: categoryInfo.name }]} canonical={canonical} />
+      <div class="sh">
+        <div class="eyebrow">Blog y Artículos</div>
+        <h1>Artículos sobre {categoryInfo.name}</h1>
+        <p class="lead">Información clínica y educativa sobre {categoryInfo.name.toLowerCase()}, escrita por el Dr. Nico Sierra.</p>
+      </div>
+      {categoryInfo.href && (
+        <a href={categoryInfo.href} class="btn btn-ghost" style="margin-top:24px;display:inline-flex;">Ver tratamiento: {categoryInfo.name} →</a>
+      )}
+    </div>
+  </section>
+  <section class="section" style="background:#001e2e;">
+    <div class="container">
+      <div class="grid-services">
+        {posts.map((post) => <BlogCard post={post} />)}
+      </div>
+    </div>
+  </section>
+  </main>
+</Layout>

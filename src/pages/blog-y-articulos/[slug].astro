@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import ArticlePageTemplate from '../../components/ArticlePageTemplate.astro';
+
+// Every other collection on this site (services, cases) is small/fixed-count
+// and gets one hand-written static .astro file per entry doing getEntry() —
+// see src/pages/cirugia-labio-fisurado.astro or
+// src/pages/vidas-transformadas/caso-ejemplo-plantilla.astro. Blog is the one
+// unbounded, growing collection, so a dynamic [slug].astro + getStaticPaths()
+// route is the deliberate exception here, not an inconsistency.
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+<ArticlePageTemplate entry={entry} />

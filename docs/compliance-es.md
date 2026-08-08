@@ -9,6 +9,19 @@ Legal stack: Ley 34/1988 (general advertising) · RD 1907/1996 (health advertisi
 4. The word "testimonios" anywhere on the Vidas Transformadas page or its metadata.
 5. First-person patient voice on any clinical-results page.
 6. `Review`, `AggregateRating`, or `ratingValue` schema — anywhere on the site.
+13. "Labio leporino" — banned everywhere in generated content, in any language, with exactly ONE
+    exception: a piece whose entire stated purpose is explaining the term itself (title/target
+    keyword literally about "labio leporino" — the one approved terminology page,
+    `fisura-labiopalatina-labio-leporino`, see `seo-aeo-brief.md` § "Labio leporino" Policy [F]).
+    Everywhere else, use fisura labiopalatina / labio fisurado / paladar hendido. This is a
+    client-specific rule (not from the universal Spain-wide ruleset — it's a terminology/dignity
+    choice, not a legal requirement) — it's numbered 13 here because it has no counterpart in
+    `pipeline/lib/compliance_rules.py`'s universal list, unlike rules 1-12 above. **Added
+    2026-08-08 after this exact gap let a real piece through**: piece 1 (diagnóstico prenatal)
+    used the term in a bare, uncontrolled mention and the automated compliance verdict was PASS
+    with no findings — because this rule didn't exist yet anywhere in the ruleset the pass checks
+    against. Caught instead by the website's own build-time Zod guard, days later, by accident of
+    a different verification step. Don't rely on that again.
 
 ## WARN
 7. Pricing or promotional offers (Catalonia-sensitive). **Not the same as BLOCK — informational framing is permitted.** Precedent set 2026-08-07 (bipdoc strategy layer, `content-plan-2026-08.md` piece 5, pricing/Seguridad Social page): explain how the system works (public vs. private process, what influences cost) without ever publishing a specific price, fee, or "oferta", and without claiming a guaranteed insurance/coverage outcome — always route the actual cost question to a personalized consultation, never a number. Pricing/coverage is worth tackling deliberately rather than avoiding — it's consistently the most recurring patient question across research (present in 8 of 10 mined topics as of 2026-08), so silently ducking it is a real content gap, not a safe default.

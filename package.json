@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/check-placeholders.mjs && node scripts/check-design-system.mjs",
+    "prebuild": "node scripts/check-placeholders.mjs && node scripts/check-design-system.mjs && node scripts/check-blog-terms.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check:design": "node scripts/check-design-system.mjs",
+    "check:blog-terms": "node scripts/check-blog-terms.mjs",
     "postbuild": "node scripts/check-performance-regressions.mjs && node scripts/generate-sitemap.mjs",
     "check:perf": "node scripts/check-performance-regressions.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",

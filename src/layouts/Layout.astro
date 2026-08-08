@@ -158,7 +158,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {clinical && lastReviewed && (
   <div class="clinical-reviewer">
-    <p>Revisado por Dr. Nico Sierra · Nº col. {COLEGIADO} · Revisado: {new Date(lastReviewed).toLocaleDateString('es-ES', {year: 'numeric', month: 'long', day: 'numeric'})}</p>
+    <div class="container">
+      <p>Revisado por Dr. Nico Sierra · Nº col. {COLEGIADO} · Revisado: {new Date(lastReviewed).toLocaleDateString('es-ES', {year: 'numeric', month: 'long', day: 'numeric'})}</p>
+    </div>
   </div>
 )}
 

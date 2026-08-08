@@ -1,0 +1,233 @@
+---
+import { getImage } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from './Breadcrumb.astro';
+import Fuentes from './Fuentes.astro';
+import { BLOG_CATEGORIES } from '../lib/blog-categories';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await entry.render();
+const categoryInfo = BLOG_CATEGORIES[d.category];
+const categoryHref = `/blog-y-articulos/categoria/${d.category}/`;
+
+const heroImage = await getImage({ src: d.heroImage, width: 1600, height: 900, format: 'webp' });
+const ogImageOptimized = await getImage({ src: d.heroImage, width: 1200, height: 630, format: 'jpg' });
+const ogImage = new URL(ogImageOptimized.src, Astro.site).href;
+const heroImageAbs = new URL(heroImage.src, Astro.site).href;
+
+const canonical = `https://www.drnicosierra.com/blog-y-articulos/${entry.slug}/`;
+const metaTitle = d.metaTitle ?? `${d.title} │ Dr. Nico Sierra`;
+
+// Author/reviewer entity — lighter form than ServicePageTemplate's full
+// Physician block (alternateName/sameAs is a service-page-specific
+// requirement per brief §"Schema (5 types per service page)"), but same
+// author/reviewedBy shape as its MedicalWebPage block, so the E-E-A-T
+// signal is consistent sitewide.
+const physician = {
+  '@type': 'Physician',
+  name: 'Dr. Nico Sierra',
+  url: 'https://www.drnicosierra.com',
+  medicalSpecialty: 'Oral and Maxillofacial Surgery',
+  affiliation: {
+    '@type': 'MedicalOrganization',
+    name: 'Clínica Tresserra',
+    address: { '@type': 'PostalAddress', addressLocality: 'Barcelona', addressCountry: 'ES' },
+  },
+};
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: d.title,
+  description: d.description,
+  image: { '@type': 'ImageObject', url: heroImageAbs, width: 1600, height: 900 },
+  articleSection: categoryInfo.name,
+  keywords: [d.keyword, ...(d.tags ?? [])].join(', '),
+  datePublished: d.publishDate,
+  dateModified: d.lastReviewed,
+  author: physician,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  url: canonical,
+  headline: d.title,
+  description: d.description,
+  author: physician,
+  reviewedBy: { '@type': 'Physician', name: 'Dr. Nico Sierra' },
+  datePublished: d.publishDate,
+  dateModified: d.lastReviewed,
+};
+
+// Schema/visible-text parity (§13.5) — built from the exact same array
+// rendered below, and only emitted at all if there's an FAQ to match.
+const faqSchema = d.faq && d.faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: d.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+} : null;
+
+const schemaBlocks = [blogPostingSchema, medicalWebPageSchema, faqSchema]
+  .filter(Boolean)
+  .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+  .join('\n');
+
+const waIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.4 17l-1.4 5.1 5.2-1.4a11 11 0 0 0 13.3-17.2zM12 20.5a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 8.5z"/></svg>';
+---
+<Layout title={metaTitle} description={d.description} canonical={canonical} ogTitle={d.ogTitle ?? d.title} ogDescription={d.ogDescription ?? d.description} ogImage={ogImage} schemaBlocks={schemaBlocks} clinical={true} lastReviewed={d.lastReviewed} noindex={d.noindex}>
+  <main>
+  <!-- Flat hero-section, same pattern as every content/hub page (hub, About,
+       case pages) — the full-bleed .hero treatment stays reserved for the
+       8 core procedure pages, see conversation 2026-08-08. -->
+  <section class="hero-section" data-height="40vh" aria-labelledby="article-h1">
+    <div>
+      <Breadcrumb crumbs={[{ label: 'Inicio', href: '/' }, { label: 'Blog y Artículos', href: '/blog-y-articulos/' }, { label: categoryInfo.name, href: categoryHref }, { label: d.title }]} canonical={canonical} />
+      <div class="sh">
+        <a href={categoryHref} class="eyebrow">{categoryInfo.name}</a>
+        <h1 id="article-h1">{d.title}</h1>
+      </div>
+      {d.tags && d.tags.length > 0 && (
+        <div class="article-tags">
+          {d.tags.map((tag) => <span class="entity-tag">{tag}</span>)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Dedicated image block directly below the hero, matching the pattern
+       CasePageTemplate already established (ba-hero section right after its
+       own flat hero-section) rather than a new, third visual pattern. This
+       is also what feeds the BlogPosting `image` field above — a real
+       schema.org field this site didn't emit anywhere before. -->
+  <section class="section article-hero-figure-section" aria-hidden="false">
+    <div class="container">
+      <figure class="article-hero-figure">
+        <img src={heroImage.src} alt={d.heroImageAlt} width="1600" height="900" fetchpriority="high">
+        {d.heroImageCaption && <figcaption>{d.heroImageCaption}</figcaption>}
+      </figure>
+    </div>
+  </section>
+
+  <section class="section article-body-section" aria-label="Artículo">
+    <div class="container">
+      <div class="article-body">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <Fuentes sources={d.sources} />
+
+  {d.faq && d.faq.length > 0 && (
+    <section class="section faq" aria-labelledby="faq-h2">
+      <div class="container">
+        <div class="sh">
+          <div class="eyebrow reveal">Preguntas frecuentes</div>
+          <h2 id="faq-h2" class="reveal rv2">Preguntas frecuentes sobre {d.keyword}</h2>
+        </div>
+        <div class="faq-list" style="max-width:840px">
+          {d.faq.map((item, i) => (
+            <details class={`faq-item reveal ${i > 0 ? `rv${Math.min(i + 1, 5)}` : ''}`}>
+              <summary>
+                <h3>{item.question}</h3>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer"><p>{item.answer}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {d.relatedLinks && d.relatedLinks.length > 0 && (
+    <section class="section related" aria-labelledby="related-h2">
+      <div class="container">
+        <div class="sh">
+          <div class="eyebrow reveal">Tratamientos relacionados</div>
+          <h2 id="related-h2" class="reveal rv2">Tratamientos relacionados</h2>
+        </div>
+        <div class="related-grid">
+          {d.relatedLinks.map((link, i) => (
+            <a href={`/${link.slug}/`} class={`related-card reveal rv${Math.min(i + 2, 5)}`}>
+              <div class="related-card-num">{link.num}</div>
+              <div class="related-card-name">{link.name}</div>
+              <div class="related-card-arrow">Ver tratamiento →</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="cta-banner" aria-labelledby="article-cta-h2">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="sh sh--center">
+          <div class="eyebrow reveal">Cuéntanos tu historia</div>
+          <h2 id="article-cta-h2" class="reveal rv2">¿Tienes dudas sobre tu caso?</h2>
+          <p class="reveal rv3">El Dr. Nico Sierra revisa personalmente cada caso. Escríbenos y te contestamos con honestidad.</p>
+        </div>
+        <div class="cta-actions reveal rv4">
+          <a href={`https://wa.me/${d.whatsappNumber}`} class="btn btn-wa" data-wa-loc="article-cta" set:html={`${waIcon} Escribir por WhatsApp`} />
+          <a href="/cuentanos-tu-historia" class="btn btn-ghost">Enviar mi caso →</a>
+        </div>
+        <p class="cta-sub reveal rv5">Respuesta en menos de 24 horas · Sin compromiso</p>
+      </div>
+    </div>
+  </section>
+  </main>
+</Layout>
+
+<style>
+.article-tags { margin-top:20px; }
+.article-tags .entity-tag { margin-top:0; }
+
+.article-hero-figure-section { padding-top:0; background:#001629; }
+.article-hero-figure {
+  border-radius:var(--ns-radius-lg); overflow:hidden;
+  border:1px solid var(--ns-line); background:var(--ns-surface-1);
+  max-width:720px;
+}
+.article-hero-figure img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
+.article-hero-figure figcaption {
+  padding:12px 20px; font-size:.82rem; color:rgba(255,255,255,.45);
+  border-top:1px solid var(--ns-line);
+}
+
+.article-body-section { background:#001e2e; }
+.article-body { max-width:720px; }
+.article-body :global(h2) { font-size:clamp(1.5rem,2.4vw,2rem); margin-top:48px; margin-bottom:16px; }
+.article-body :global(h2:first-child) { margin-top:0; }
+.article-body :global(h3) { font-size:clamp(1.1rem,1.5vw,1.3rem); margin-top:32px; margin-bottom:8px; }
+.article-body :global(p) { font-size:1.02rem; }
+.article-body :global(ul), .article-body :global(ol) {
+  color:var(--ns-ink-soft); line-height:1.8; margin:16px 0 16px 1.3em;
+}
+.article-body :global(li + li) { margin-top:8px; }
+.article-body :global(a) {
+  color:var(--ns-teal-300); text-decoration:none;
+  border-bottom:1px solid var(--ns-teal-300); transition:opacity .2s;
+}
+.article-body :global(a:hover) { opacity:.8; }
+.article-body :global(blockquote) {
+  border-left:2px solid var(--ns-teal-300); padding-left:20px;
+  margin:24px 0; color:var(--ns-ink); font-style:italic;
+}
+
+@media (max-width:768px) {
+  .article-hero-figure img { aspect-ratio:4/3; }
+}
+</style>

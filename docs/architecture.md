@@ -4,7 +4,8 @@
 - 8 service pages: src/content/services/*.json + ServicePageTemplate.astro (8-line wrappers)
 - Homepage, About, Tu Camino: JSON in src/content/, rendered via templates
 - Cómo Te Ayudamos: generated from the services collection directly
-- Vidas Transformadas + Blog: NOT migrated — design placeholders, do not touch until design final
+- Vidas Transformadas: NOT migrated — design placeholder, do not touch until design final (T6, PENDING.md)
+- Blog: migrated 2026-08-08 — `blog` content collection (type:'content', markdown) + `ArticlePageTemplate.astro` + category taxonomy/gallery. See PENDING.md T8 for full detail.
 - Zod schema (src/content/config.ts) hard-fails builds on forbidden terms, meta lengths, OS+ST co-occurrence, FAQ minimums
 - `src/config/site.ts` — single source of truth for COLEGIADO, WHATSAPP, WHATSAPP_URL, MEDICAL_DISCLAIMER, CLINIC_NAME, CLINIC_ADDRESS, CLINIC_PHONE, CLINIC_CITY, CLINIC_COUNTRY. Import from here; never hardcode in components.
 - ServicePageTemplate generates 5 schema blocks: MedicalProcedure · FAQPage · BreadcrumbList · Physician (alternateName + dual affiliation: Clínica Tresserra + Vall d'Hebron) · MedicalWebPage (author / reviewedBy / datePublished / dateModified). Pass additional blocks via `schemaBlocks` prop on Layout.

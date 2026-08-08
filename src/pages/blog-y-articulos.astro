@@ -1,16 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumb from '../components/Breadcrumb.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import { BLOG_CATEGORY_SLUGS, BLOG_CATEGORIES } from '../lib/blog-categories';
 
 const title = 'Blog y Artículos sobre Fisura Labiopalatina | Dr. Nico Sierra';
 const description = 'Artículos y recursos sobre fisura labiopalatina escritos por el Dr. Nico Sierra. Información para familias, pacientes y profesionales.';
 const canonical = 'https://www.drnicosierra.com/blog-y-articulos/';
 const ogTitle = 'Blog y Artículos | Dr. Nico Sierra';
 const ogDescription = 'Artículos sobre fisura labiopalatina por el Dr. Nico Sierra. Recursos para familias y pacientes.';
+
+const posts = (await getCollection('blog', ({ data }) => !data.noindex))
+  .sort((a, b) => b.data.publishDate.localeCompare(a.data.publishDate));
+
+// Grouped in the same fixed order as the taxonomy itself (procedure order,
+// matching the nav dropdown), not by post count or recency — keeps the page
+// stable/predictable as content is added rather than reshuffling on every
+// publish. Up to 3 cards shown per category here; the category's own archive
+// page (linked via "Ver todos") is the real, fully crawlable listing.
+const MAX_PER_CATEGORY = 3;
+const groups = BLOG_CATEGORY_SLUGS
+  .map((slug) => ({
+    slug,
+    info: BLOG_CATEGORIES[slug],
+    posts: posts.filter((p) => p.data.category === slug),
+  }))
+  .filter((g) => g.posts.length > 0);
 ---
 <Layout title={title} description={description} canonical={canonical} ogTitle={ogTitle} ogDescription={ogDescription}>
-  <Fragment slot="head" set:html={`
-`} />
   <main>
   <section class="hero-section" data-height="40vh">
     <div>
@@ -22,15 +40,36 @@ const ogDescription = 'Artículos sobre fisura labiopalatina por el Dr. Nico Sie
       </div>
     </div>
   </section>
-  <section class="section" style="background:#001e2e;text-align:center;">
-    <div class="container" style="max-width:640px;">
-      <div style="padding:80px 40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:22px;">
-        <div class="eyebrow" style="color:#4db896;justify-content:center;margin-bottom:20px;">Próximamente</div>
-        <h2 style="margin-bottom:20px;">Contenido en preparación.</h2>
-        <p>El Dr. Sierra está preparando artículos educativos sobre fisura labiopalatina, técnicas quirúrgicas, cuidados postoperatorios y respuestas a las preguntas más frecuentes. Vuelve pronto.</p>
-        <a href="/cuentanos-tu-historia/" class="btn btn-ghost" style="margin-top:36px;display:inline-flex;">¿Tienes una pregunta? Escríbenos →</a>
+  {groups.length > 0 ? (
+    groups.map((group, i) => (
+      <section class="section" style={`background:${i % 2 === 0 ? '#001e2e' : '#001629'};`} aria-labelledby={`cat-${group.slug}-h2`}>
+        <div class="container">
+          <div class="sh" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+            <div>
+              <div class="eyebrow reveal">{group.info.name}</div>
+              <h2 id={`cat-${group.slug}-h2`} class="reveal rv2">{group.info.name}</h2>
+            </div>
+            {group.posts.length > MAX_PER_CATEGORY && (
+              <a href={`/blog-y-articulos/categoria/${group.slug}/`} class="reveal" style="font-size:.82rem;color:rgba(255,255,255,.5);flex-shrink:0;padding-bottom:4px">Ver todos →</a>
+            )}
+          </div>
+          <div class="grid-services">
+            {group.posts.slice(0, MAX_PER_CATEGORY).map((post) => <BlogCard post={post} />)}
+          </div>
+        </div>
+      </section>
+    ))
+  ) : (
+    <section class="section" style="background:#001e2e;text-align:center;">
+      <div class="container" style="max-width:640px;">
+        <div style="padding:80px 40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:22px;">
+          <div class="eyebrow" style="color:#4db896;justify-content:center;margin-bottom:20px;">Próximamente</div>
+          <h2 style="margin-bottom:20px;">Contenido en preparación.</h2>
+          <p>El Dr. Sierra está preparando artículos educativos sobre fisura labiopalatina, técnicas quirúrgicas, cuidados postoperatorios y respuestas a las preguntas más frecuentes. Vuelve pronto.</p>
+          <a href="/cuentanos-tu-historia/" class="btn btn-ghost" style="margin-top:36px;display:inline-flex;">¿Tienes una pregunta? Escríbenos →</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
   </main>
 </Layout>

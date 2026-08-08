@@ -36,7 +36,7 @@ Before/after: "Antes y después cirugía [procedure] fisura labiopalatina — Dr
 > PRIME DIRECTIVE: Preserve Dr. Sierra's voice, tone, and clinical intent at all times. This rulebook optimizes his ideas — it does not replace them. If a rule conflicts with his meaning, flag for review rather than forcing compliance.
 
 ### 11. Terminology — absolute, no exceptions
-- NEVER 'labio leporino' anywhere, any context, any language. EXCEPTION: the approved terminology page /fisura-labiopalatina-labio-leporino/ only — where it explains the clinical term.
+- NEVER 'labio leporino' anywhere, any context, any language. EXCEPTION: the approved terminology page /blog-y-articulos/fisura-labiopalatina-labio-leporino/ only — where it explains the clinical term. (URL corrected 2026-08-08 — lives in the blog collection, not root-level, so it reuses the dynamic route with no duplicate-URL/href-override complexity.)
 - ALWAYS: fisura labiopalatina · labio fisurado · paladar hendido · labio y paladar hendido (LatAm recognition)
 - Operation Smile and Smile Train NEVER in the same paragraph or string field (fine elsewhere on the same page). If both in same paragraph: remove one, FLAG for Dr. Sierra to confirm which.
 - Never 'FLP' in patient-facing content (homepage, service pages, FAQs). OK in academic/professional contexts.
